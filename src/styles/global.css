@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@theme {
+  /* Aurora Brand Colors */
+  --color-navy: #1E3A5F;
+  --color-navy-light: #2A4F7F;
+  --color-navy-dark: #152B47;
+  --color-orange: #FF6B35;
+  --color-orange-light: #FF8A5C;
+  --color-teal: #2EC4B6;
+  --color-teal-light: #4DD9CC;
+  --color-offwhite: #FAFAF8;
+  --color-warm-gray: #F0EFEB;
+
+  /* Phase Colors */
+  --color-phase-discover: #2EC4B6;
+  --color-phase-define: #3B82F6;
+  --color-phase-design: #8B5CF6;
+  --color-phase-refine: #F59E0B;
+  --color-phase-deliver: #10B981;
+  --color-phase-gate: #EF4444;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-offwhite);
+  color: var(--color-navy-dark);
+  line-height: 1.7;
+}
+
+/* Prose styles for markdown content */
+.prose h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-navy);
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  line-height: 1.2;
+}
+
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-navy);
+  margin-bottom: 0.75rem;
+  margin-top: 1.75rem;
+  line-height: 1.3;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-navy-light);
+  margin-bottom: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.prose p {
+  margin-bottom: 1rem;
+}
+
+.prose ul, .prose ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-bottom: 0.25rem;
+}
+
+.prose strong {
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--color-teal);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: #555;
+  font-style: italic;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.prose th {
+  background-color: var(--color-navy);
+  color: white;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.prose td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #E5E5E3;
+}
+
+.prose tr:nth-child(even) {
+  background-color: var(--color-warm-gray);
+}
+
+.prose img {
+  max-width: 100%;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+}
+
+.prose a {
+  color: var(--color-teal);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose a:hover {
+  color: var(--color-orange);
+}

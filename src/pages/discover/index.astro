@@ -1,0 +1,63 @@
+---
+import PhaseLayout from '../../layouts/PhaseLayout.astro';
+
+const evidence = [
+  {
+    title: 'Trendanalyse',
+    description: 'IBSOTEEP/DESTEP, Porter\'s 5 Forces, trendpiramide en Gate 0 selectie van kritische trends.',
+    href: '/discover/trends/',
+    icon: '📊',
+  },
+  {
+    title: 'Scenariobouwing',
+    description: '2x2 scenariomatrix, toekomstschets als Aurora NIET innoveert, urgentie en early warning signals.',
+    href: '/discover/scenario/',
+    icon: '🔮',
+  },
+  {
+    title: 'Immersive Research',
+    description: 'Onderzoeksplan, 1,5+ uur veldonderzoek, foto\'s en notities, dreams & gripes.',
+    href: '/discover/empathise/',
+    icon: '🔍',
+  },
+  {
+    title: 'Challenges',
+    description: 'Compilatie dreams/gripes vertaald naar HZWK-vragen, minimaal 5 innovatie-challenges.',
+    href: '/discover/challenges/',
+    icon: '💡',
+  },
+];
+---
+
+<PhaseLayout
+  title="Discover"
+  phase="discover"
+  phaseNumber="Fase 1"
+  description="In de Discover-fase verkennen we de omgeving van Aurora. We analyseren trends, bouwen scenario's, duiken in de wereld van gebruikers en formuleren innovatie-challenges."
+  evidence={evidence}
+>
+  <h2>Wat hebben we gedaan?</h2>
+  <p>
+    De Discover-fase draait om het begrijpen van de wereld om Aurora heen. We zijn begonnen met een
+    brede verkenning van trends via de IBSOTEEP-analyse en Porter's 5 Forces. Vervolgens hebben we
+    scenario's gebouwd om mogelijke toekomsten te schetsen.
+  </p>
+  <p>
+    Via immersive research zijn we de wereld van de gebruiker ingedoken: wat zijn hun dromen en
+    frustraties als het gaat om schrijven en tekenen? Deze inzichten hebben we vertaald naar
+    concrete innovatie-challenges met de HZWK-methode.
+  </p>
+
+  <h2>Belangrijkste inzichten</h2>
+  <ul>
+    <li><em>Vul hier de belangrijkste inzichten in na afronding van de fase</em></li>
+    <li><em>Wat heeft jullie het meest verrast?</em></li>
+    <li><em>Welke aannames zijn bevestigd of ontkracht?</em></li>
+  </ul>
+
+  <h2>Reflectie</h2>
+  <p>
+    <em>Reflecteer hier op het proces: Wat ging goed? Wat zou je anders doen?
+    Hoe heeft deze fase bijgedragen aan jullie begrip van het innovatievraagstuk?</em>
+  </p>
+</PhaseLayout>

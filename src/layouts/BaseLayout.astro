@@ -1,0 +1,41 @@
+---
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Portfolio Innovatiemanagement - Aurora Writing Instruments Group' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <title>{title} | Aurora Portfolio</title>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Navigation />
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="bg-navy text-white/70 py-8 mt-16">
+      <div class="max-w-6xl mx-auto px-6 text-center text-sm">
+        <p class="mb-2">
+          <span class="text-white font-semibold">Aurora Writing Instruments Group</span> &mdash; Beyond Paper
+        </p>
+        <p>Portfolio Innovatiemanagement (EDIM.21) &bull; Technische Bedrijfskunde &bull; 2024-2025 S1</p>
+      </div>
+    </footer>
+  </body>
+</html>

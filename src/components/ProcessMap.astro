@@ -1,0 +1,55 @@
+---
+const phases = [
+  { name: 'Discover', href: '/discover/', color: 'bg-phase-discover', textColor: 'text-phase-discover', label: 'BK 1-2', description: 'Trends, scenario, empathise, challenges' },
+  { name: 'Gate 1', href: '#', color: 'bg-phase-gate', textColor: 'text-phase-gate', label: '', description: 'Go/No-Go', isGate: true },
+  { name: 'Define', href: '/define/', color: 'bg-phase-define', textColor: 'text-phase-define', label: 'BK 3', description: 'Probleem definiëren' },
+  { name: 'Design', href: '/design/', color: 'bg-phase-design', textColor: 'text-phase-design', label: 'BK 4', description: 'Ideate & selectie' },
+  { name: 'Gate 2', href: '#', color: 'bg-phase-gate', textColor: 'text-phase-gate', label: '', description: 'Go/No-Go', isGate: true },
+  { name: 'Refine', href: '/refine/', color: 'bg-phase-refine', textColor: 'text-phase-refine', label: 'BK 5-6', description: 'Prototype & test' },
+  { name: 'Gate 3', href: '#', color: 'bg-phase-gate', textColor: 'text-phase-gate', label: '', description: 'Go/No-Go', isGate: true },
+  { name: 'Deliver', href: '/deliver/', color: 'bg-phase-deliver', textColor: 'text-phase-deliver', label: 'BK 7-9', description: 'Proof of Value' },
+];
+---
+
+<div class="w-full overflow-x-auto pb-4">
+  <div class="flex items-center justify-center gap-2 min-w-[700px] px-4">
+    {phases.map((phase, i) => (
+      <>
+        {phase.isGate ? (
+          <!-- Gate diamond -->
+          <div class="flex flex-col items-center">
+            <div class={`w-10 h-10 ${phase.color} rotate-45 rounded-sm flex items-center justify-center`}>
+              <span class="text-white text-xs font-bold -rotate-45">G</span>
+            </div>
+            <span class="text-xs text-navy/50 mt-2 font-medium">{phase.name}</span>
+          </div>
+        ) : (
+          <!-- Phase card -->
+          <a
+            href={phase.href}
+            class="group flex flex-col items-center"
+          >
+            <div class={`w-28 h-20 bg-white border-2 border-transparent rounded-xl shadow-md flex flex-col items-center justify-center transition-all duration-200 group-hover:shadow-lg group-hover:border-current ${phase.textColor} group-hover:-translate-y-1`}>
+              <div class={`w-3 h-3 rounded-full ${phase.color} mb-1.5`} />
+              <span class="text-navy font-semibold text-sm">{phase.name}</span>
+            </div>
+            <span class="text-xs text-navy/50 mt-2">{phase.label}</span>
+            <span class="text-xs text-navy/40 max-w-[112px] text-center leading-tight">{phase.description}</span>
+          </a>
+        )}
+
+        {/* Arrow between items */}
+        {i < phases.length - 1 && !phase.isGate && !phases[i + 1]?.isGate && (
+          <svg class="w-6 h-6 text-navy/20 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        )}
+        {i < phases.length - 1 && (phase.isGate || phases[i + 1]?.isGate) && (
+          <svg class="w-4 h-4 text-navy/20 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14" />
+          </svg>
+        )}
+      </>
+    ))}
+  </div>
+</div>

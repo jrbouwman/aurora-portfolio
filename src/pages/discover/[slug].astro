@@ -1,0 +1,54 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('discover');
+  return entries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={entry.data.title}>
+  <!-- Breadcrumb + Header -->
+  <section class="bg-phase-discover/10 border-b-4 border-phase-discover">
+    <div class="max-w-4xl mx-auto px-6 py-8">
+      <nav class="text-sm mb-4">
+        <a href="/" class="text-navy/50 hover:text-navy">Home</a>
+        <span class="text-navy/30 mx-2">/</span>
+        <a href="/discover/" class="text-navy/50 hover:text-navy">Discover</a>
+        <span class="text-navy/30 mx-2">/</span>
+        <span class="text-phase-discover font-medium">{entry.data.title}</span>
+      </nav>
+      <div class="flex items-center gap-3">
+        <span class="text-3xl">{entry.data.icon}</span>
+        <div>
+          <h1 class="text-3xl font-bold text-navy">{entry.data.title}</h1>
+          <p class="text-navy/60 mt-1">{entry.data.description}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <article class="max-w-4xl mx-auto px-6 py-12">
+    <div class="prose max-w-none">
+      <Content />
+    </div>
+
+    <!-- Back link -->
+    <div class="mt-12 pt-8 border-t border-gray-200">
+      <a href="/discover/" class="inline-flex items-center text-phase-discover hover:text-teal font-medium">
+        <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7" />
+        </svg>
+        Terug naar Discover overzicht
+      </a>
+    </div>
+  </article>
+</BaseLayout>

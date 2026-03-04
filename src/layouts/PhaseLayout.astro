@@ -1,0 +1,90 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import EvidenceCard from '../components/EvidenceCard.astro';
+
+interface Props {
+  title: string;
+  phase: 'discover' | 'define' | 'design' | 'refine' | 'deliver';
+  description: string;
+  phaseNumber: string;
+  evidence?: Array<{
+    title: string;
+    description: string;
+    href: string;
+    icon: string;
+  }>;
+}
+
+const { title, phase, description, phaseNumber, evidence = [] } = Astro.props;
+
+const phaseColors: Record<string, { bg: string; border: string; text: string; badge: string }> = {
+  discover: { bg: 'bg-phase-discover/10', border: 'border-phase-discover', text: 'text-phase-discover', badge: 'bg-phase-discover' },
+  define: { bg: 'bg-phase-define/10', border: 'border-phase-define', text: 'text-phase-define', badge: 'bg-phase-define' },
+  design: { bg: 'bg-phase-design/10', border: 'border-phase-design', text: 'text-phase-design', badge: 'bg-phase-design' },
+  refine: { bg: 'bg-phase-refine/10', border: 'border-phase-refine', text: 'text-phase-refine', badge: 'bg-phase-refine' },
+  deliver: { bg: 'bg-phase-deliver/10', border: 'border-phase-deliver', text: 'text-phase-deliver', badge: 'bg-phase-deliver' },
+};
+
+const colors = phaseColors[phase];
+
+const diamondLabels: Record<string, { left: string; right: string }> = {
+  discover: { left: 'Divergeren', right: 'Convergeren' },
+  define: { left: 'Analyseren', right: 'Formuleren' },
+  design: { left: 'Ideaten', right: 'Selecteren' },
+  refine: { left: 'Prototypen', right: 'Testen' },
+  deliver: { left: 'Uitwerken', right: 'Presenteren' },
+};
+
+const diamond = diamondLabels[phase];
+---
+
+<BaseLayout title={title}>
+  <!-- Phase Hero -->
+  <section class={`${colors.bg} border-b-4 ${colors.border}`}>
+    <div class="max-w-6xl mx-auto px-6 py-12">
+      <div class="flex items-center gap-4 mb-4">
+        <span class={`${colors.badge} text-white text-sm font-bold px-3 py-1 rounded-full`}>
+          {phaseNumber}
+        </span>
+        <h1 class="text-4xl font-bold text-navy">{title}</h1>
+      </div>
+      <p class="text-lg text-navy-light max-w-3xl">{description}</p>
+
+      <!-- Diamond Visual -->
+      <div class="mt-8 flex items-center justify-center gap-2 text-sm">
+        <span class="text-navy/60 font-medium">{diamond.left}</span>
+        <svg class="w-24 h-12" viewBox="0 0 96 48">
+          <path d="M0,24 L24,4 L48,24 L24,44 Z" fill="none" stroke="currentColor" stroke-width="1.5" class={colors.text} opacity="0.4" />
+          <path d="M48,24 L72,4 L96,24 L72,44 Z" fill="none" stroke="currentColor" stroke-width="1.5" class={colors.text} opacity="0.4" />
+        </svg>
+        <span class="text-navy/60 font-medium">{diamond.right}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <!-- Phase narrative -->
+    <div class="prose max-w-none mb-12">
+      <slot />
+    </div>
+
+    <!-- Evidence Cards -->
+    {evidence.length > 0 && (
+      <section>
+        <h2 class="text-2xl font-bold text-navy mb-6">Bewijsstukken</h2>
+        <div class="grid gap-6 md:grid-cols-2">
+          {evidence.map((item) => (
+            <EvidenceCard
+              title={item.title}
+              description={item.description}
+              href={item.href}
+              phase={phase}
+              icon={item.icon}
+            />
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</BaseLayout>

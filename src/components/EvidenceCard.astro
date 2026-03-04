@@ -1,0 +1,37 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  phase: string;
+  icon?: string;
+}
+
+const { title, description, href, phase, icon = '📄' } = Astro.props;
+
+const phaseColors: Record<string, { border: string; hover: string }> = {
+  discover: { border: 'border-l-phase-discover', hover: 'hover:border-phase-discover/30' },
+  define: { border: 'border-l-phase-define', hover: 'hover:border-phase-define/30' },
+  design: { border: 'border-l-phase-design', hover: 'hover:border-phase-design/30' },
+  refine: { border: 'border-l-phase-refine', hover: 'hover:border-phase-refine/30' },
+  deliver: { border: 'border-l-phase-deliver', hover: 'hover:border-phase-deliver/30' },
+};
+
+const colors = phaseColors[phase] || phaseColors.discover;
+---
+
+<a
+  href={href}
+  class={`block bg-white rounded-lg border border-gray-100 border-l-4 ${colors.border} p-5 hover:shadow-md transition-all duration-200 group ${colors.hover}`}
+>
+  <div class="flex items-start gap-4">
+    <span class="text-2xl flex-shrink-0 mt-0.5">{icon}</span>
+    <div class="flex-1 min-w-0">
+      <h3 class="font-semibold text-navy group-hover:text-navy-light transition-colors">{title}</h3>
+      <p class="text-sm text-navy/55 mt-1 leading-relaxed">{description}</p>
+    </div>
+    <svg class="w-5 h-5 text-navy/25 group-hover:text-navy/50 flex-shrink-0 mt-1 group-hover:translate-x-0.5 transition-all" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M9 18l6-6-6-6" />
+    </svg>
+  </div>
+</a>

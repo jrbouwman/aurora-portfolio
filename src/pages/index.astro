@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProcessMap from '../components/ProcessMap.astro';
+import PhaseCard from '../components/PhaseCard.astro';
+
+const phases = [
+  {
+    title: 'Discover',
+    description: 'De omgeving verkennen: trendanalyse, scenariobouwing, immersive research en het formuleren van innovatie-challenges.',
+    href: '/discover/',
+    phase: 'discover',
+    label: 'Fase 1 — BK 1-2',
+    evidenceCount: 4,
+  },
+  {
+    title: 'Define',
+    description: 'Het kernprobleem scherp definiëren en de innovatierichting bepalen.',
+    href: '/define/',
+    phase: 'define',
+    label: 'Fase 2 — BK 3',
+    evidenceCount: 0,
+  },
+  {
+    title: 'Design',
+    description: 'Ideeën genereren, selecteren en de twee meest kansrijke denkrichtingen uitwerken.',
+    href: '/design/',
+    phase: 'design',
+    label: 'Fase 3 — BK 4',
+    evidenceCount: 0,
+  },
+  {
+    title: 'Refine',
+    description: 'Prototypen bouwen, testen met gebruikers en itereren op basis van feedback.',
+    href: '/refine/',
+    phase: 'refine',
+    label: 'Fase 4 — BK 5-6',
+    evidenceCount: 0,
+  },
+  {
+    title: 'Deliver',
+    description: 'Het uiteindelijke Proof of Value presenteren en het innovatieadvies formuleren.',
+    href: '/deliver/',
+    phase: 'deliver',
+    label: 'Fase 5 — BK 7-9',
+    evidenceCount: 0,
+  },
+];
+---
+
+<BaseLayout title="Home">
+  <!-- Hero -->
+  <section class="bg-navy text-white">
+    <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+      <div class="max-w-3xl">
+        <p class="text-teal font-semibold mb-3 tracking-wide uppercase text-sm">Innovatiemanagement EDIM.21</p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          Beyond Paper
+        </h1>
+        <p class="text-xl text-white/80 leading-relaxed mb-4">
+          Hoe kan <strong class="text-white">Aurora Writing Instruments Group</strong> relevant blijven in een wereld waarin schrijven en tekenen steeds digitaler worden?
+        </p>
+        <p class="text-white/60">
+          Dit portfolio documenteert ons innovatieproces van ontdekking tot Proof of Value,
+          volgens het Design Thinking Stage/Gate model.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Map -->
+  <section class="bg-warm-gray py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-center text-lg font-semibold text-navy/60 mb-8 uppercase tracking-wide">Ons Innovatieproces</h2>
+      <ProcessMap />
+    </div>
+  </section>
+
+  <!-- Phase Cards -->
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-2xl font-bold text-navy mb-8">Fasen</h2>
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {phases.map((phase) => (
+        <PhaseCard {...phase} />
+      ))}
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="bg-warm-gray">
+    <div class="max-w-6xl mx-auto px-6 py-16">
+      <div class="max-w-2xl">
+        <h2 class="text-2xl font-bold text-navy mb-4">Over dit portfolio</h2>
+        <p class="text-navy/70 leading-relaxed mb-4">
+          Dit is het innovatieportfolio voor het minorvak Innovatiemanagement (EDIM.21)
+          van de opleiding Technische Bedrijfskunde, 3e jaar. Het portfolio is opgebouwd
+          als een reisverslag door het innovatieproces.
+        </p>
+        <p class="text-navy/70 leading-relaxed">
+          <strong class="text-navy">De casus:</strong> Aurora Writing Instruments Group is een fictieve
+          maar realistische Nederlandse producent van potloden, pennen en tekenmaterialen met 125+ jaar
+          historie. De kernvraag: welke rol kan Aurora spelen in een wereld waarin schrijven en tekenen
+          steeds digitaler worden?
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
