@@ -5,9 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://your-username.github.io',
-  // Uncomment and set if deploying to a subpath (e.g., /aurora-portfolio):
-  // base: '/aurora-portfolio',
+  site: 'https://jrbouwman.github.io',
+  base: '/aurora-portfolio',
   vite: {
     plugins: [tailwindcss()]
   }
