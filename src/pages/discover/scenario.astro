@@ -1,0 +1,314 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../utils/base';
+
+const scenarios = [
+  {
+    id: 'a',
+    name: 'Analoge Renaissance',
+    quadrant: 'top-left',
+    xLabel: 'Digitaal langzaam',
+    yLabel: 'Actief beleid',
+    color: 'bg-phase-refine',
+    textColor: 'text-phase-refine',
+    borderColor: 'border-phase-refine/30',
+    description: 'Overheden reguleren actief: handschrift verplicht, strenge duurzaamheidseisen. Maar digitalisering vertraagt. Aurora\'s kernmarkt stabiel, weinig innovatiedruk.',
+    implication: 'Veilig op korte termijn, maar risico op zelfgenoegzaamheid als concurrenten wél innoveren.',
+    icon: '&#127793;',
+  },
+  {
+    id: 'b',
+    name: 'Gouden Kruispunt',
+    quadrant: 'top-right',
+    xLabel: 'Digitaal snel',
+    yLabel: 'Actief beleid',
+    color: 'bg-phase-deliver',
+    textColor: 'text-phase-deliver',
+    borderColor: 'border-phase-deliver/30',
+    description: 'Digitalisering versnelt, maar overheden sturen bij: handschrift in curricula, subsidies voor fysieke leermiddelen, strenge duurzaamheidseisen. Hybride producten bloeien.',
+    implication: 'Grootste kans voor Aurora: combineer erfgoed met innovatie en profiteer van regelgeving.',
+    icon: '&#11088;',
+  },
+  {
+    id: 'c',
+    name: 'Stille Status Quo',
+    quadrant: 'bottom-left',
+    xLabel: 'Digitaal langzaam',
+    yLabel: 'Laissez-faire',
+    color: 'bg-phase-define',
+    textColor: 'text-phase-define',
+    borderColor: 'border-phase-define/30',
+    description: 'Geen actief overheidsbeleid, maar digitalisering vordert ook langzaam. Langzame krimp, geen urgentie, geen glamour. De "boiled frog".',
+    implication: 'Meest verraderlijke scenario: het lijkt veilig, maar is het niet.',
+    icon: '&#128012;',
+  },
+  {
+    id: 'd',
+    name: 'Digitale Dominantie',
+    quadrant: 'bottom-right',
+    xLabel: 'Digitaal snel',
+    yLabel: 'Laissez-faire',
+    color: 'bg-phase-discover',
+    textColor: 'text-phase-discover',
+    borderColor: 'border-phase-discover/30',
+    description: 'Volledige digitale adoptie zonder overheidsinterventie. Onderwijs volledig digitaal, AI genereert kunst. Handschrift wordt curiositeit.',
+    implication: 'Existentiële crisis: overleving alleen door radicale transformatie.',
+    icon: '&#9889;',
+  },
+];
+
+const earlyWarnings = [
+  {
+    signal: 'Meer dan 3 EU-landen herintroduceren handschrijfonderwijs',
+    meaning: 'Overheden kiezen bewust voor analoge vaardigheden. De markt voor schoolmaterialen stabiliseert of groeit. Zweden investeert al circa $45 miljoen per jaar hierin.',
+    source: { text: 'VOA News (2023)', url: 'https://learningenglish.voanews.com/a/sweden-brings-books-handwriting-back-to-school/7277000.html' },
+    icon: '&#127979;',
+    borderColor: 'border-phase-refine/30',
+  },
+  {
+    signal: 'Apple of Samsung lanceert een "creatieve studio" stylus-ecosysteem',
+    meaning: 'Big Tech definieert de schrijfervaring opnieuw. Apple verkoopt al circa 25 miljoen Pencils per jaar. Analoog schrijven verliest relevantie bij jongeren.',
+    source: { text: 'Verified Market Research (2024)', url: 'https://www.verifiedmarketresearch.com/product/stylus-pen-market/' },
+    icon: '&#128241;',
+    borderColor: 'border-phase-discover/30',
+  },
+  {
+    signal: 'Premium schrijfwaren groeien meer dan 5% per jaar',
+    meaning: 'Consumenten zijn bereid meer te betalen voor kwaliteit en beleving. Het luxe segment is nu circa $5 miljard en groeit met 4,6% per jaar.',
+    source: { text: 'GlobeNewsWire (2026)', url: 'https://www.globenewswire.com/news-release/2026/01/23/3224629/0/en/Luxury-Writing-Instruments-and-Stationery-Market-Analysis-Report-2026' },
+    icon: '&#128142;',
+    borderColor: 'border-phase-deliver/30',
+  },
+  {
+    signal: 'Aurora verliest een groot contract in de onderwijssector',
+    meaning: 'Het onderwijskanaal verschuift versneld naar digitaal. 66% van EU-leerlingen schrijft al primair digitaal. De kernmarkt krimpt sneller dan verwacht.',
+    source: { text: 'Aurora casusmateriaal EDIM.21', url: '' },
+    icon: '&#9888;',
+    borderColor: 'border-phase-discover/30',
+  },
+  {
+    signal: 'EU-breed handschriftbeleid in schoolcurricula',
+    meaning: 'Structurele vraag naar fysieke schrijfmaterialen in het onderwijs. De OESO pleit voor "doelgericht gebruik" van digitale tools.',
+    source: { text: 'OESO/OECD (2023)', url: 'https://www.oecd.org/content/dam/oecd/en/publications/reports/2023/12/oecd-digital-education-outlook-2023_c827b81a/c74f03de-en.pdf' },
+    icon: '&#127466;&#127482;',
+    borderColor: 'border-phase-refine/30',
+  },
+  {
+    signal: 'Generatieve AI vervangt meer dan 30% van illustratiewerk',
+    meaning: 'De creatieve markt kantelt richting digitaal. 26% van illustratoren zegt al opdrachten te verliezen aan AI. Tekenmaterialen verliezen professioneel gebruik.',
+    source: { text: 'Brookings Institution (2024), Is generative AI a job killer?', url: 'https://www.brookings.edu/articles/is-generative-ai-a-job-killer-evidence-from-the-freelance-market/' },
+    icon: '&#129302;',
+    borderColor: 'border-phase-design/30',
+  },
+];
+---
+
+<BaseLayout title="Scenariobouwing — Discover">
+  <!-- Hero -->
+  <section class="bg-dark text-white overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-80 h-80 bg-phase-discover/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-20 left-10 w-64 h-64 bg-phase-design/10 rounded-full blur-3xl"></div>
+
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24 relative z-10">
+      <nav class="reveal text-sm mb-6 flex items-center gap-2">
+        <a href={url('/')} class="text-white/40 hover:text-white/60 transition-colors">Home</a>
+        <span class="text-white/20">/</span>
+        <a href={url('/discover/')} class="text-white/40 hover:text-white/60 transition-colors">Discover</a>
+        <span class="text-white/20">/</span>
+        <span class="text-phase-discover font-medium">Scenariobouwing</span>
+      </nav>
+      <h1 class="reveal reveal-delay-1 font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold leading-[0.95] mb-4">
+        Scenario<span class="gradient-text">bouwing</span>
+      </h1>
+      <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
+        Vier mogelijke toekomsten voor Aurora in 2030. Welke wordt werkelijkheid?
+      </p>
+      <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-discover mt-8"></div>
+    </div>
+  </section>
+
+  <!-- Assen uitleg -->
+  <section class="bg-cream py-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-8 text-center">De twee onzekerheden</h2>
+      <div class="reveal reveal-delay-1 grid md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl p-6 border border-dark/5 shadow-sm">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-phase-define rounded-xl flex items-center justify-center text-white font-bold">X</div>
+            <h3 class="font-[family-name:var(--font-display)] font-bold text-dark">Tempo digitale adoptie</h3>
+          </div>
+          <p class="text-dark/60 text-sm leading-relaxed mb-3">
+            Gaat de digitalisering van schrijven door in hetzelfde tempo, of ontstaat er een structurele kentering?
+          </p>
+          <div class="flex items-center gap-3 text-xs">
+            <span class="bg-phase-define/10 text-phase-define font-bold px-3 py-1 rounded-full">Langzaam</span>
+            <div class="flex-1 h-0.5 bg-dark/10 rounded"></div>
+            <span class="bg-phase-define/10 text-phase-define font-bold px-3 py-1 rounded-full">Snel</span>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-dark/5 shadow-sm">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="w-10 h-10 bg-phase-design rounded-xl flex items-center justify-center text-white font-bold">Y</div>
+            <h3 class="font-[family-name:var(--font-display)] font-bold text-dark">Overheidsregulering</h3>
+          </div>
+          <p class="text-dark/60 text-sm leading-relaxed mb-3">
+            Hoe actief sturen overheden via onderwijsbeleid, duurzaamheidseisen en subsidies voor fysieke leermiddelen?
+          </p>
+          <div class="flex items-center gap-3 text-xs">
+            <span class="bg-phase-design/10 text-phase-design font-bold px-3 py-1 rounded-full">Laissez-faire</span>
+            <div class="flex-1 h-0.5 bg-dark/10 rounded"></div>
+            <span class="bg-phase-design/10 text-phase-design font-bold px-3 py-1 rounded-full">Actief beleid</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2x2 Matrix -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-10 text-center">2x2 Scenariomatrix</h2>
+
+      <div class="reveal reveal-delay-1">
+        <!-- X-axis label -->
+        <div class="hidden md:flex justify-between items-center mb-2 px-2">
+          <span class="text-xs font-bold text-phase-define/50">Digitaal langzaam</span>
+          <span class="text-sm font-bold text-dark/30">Tempo digitale adoptie &rarr;</span>
+          <span class="text-xs font-bold text-phase-define/50">Digitaal snel</span>
+        </div>
+
+        <div class="flex gap-4">
+          <!-- Y-axis label -->
+          <div class="hidden md:flex flex-col justify-between items-center py-4 w-8 flex-shrink-0">
+            <span class="text-xs font-bold text-phase-design/50 -rotate-90 whitespace-nowrap origin-center translate-y-4">Actief beleid</span>
+            <span class="text-xs font-bold text-dark/30 -rotate-90 whitespace-nowrap">Regulering</span>
+            <span class="text-xs font-bold text-phase-design/50 -rotate-90 whitespace-nowrap origin-center -translate-y-4">Laissez-faire</span>
+          </div>
+
+          <!-- Grid -->
+          <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4">
+          {scenarios.map((s) => (
+            <div class={`${s.color}/10 border-2 ${s.borderColor} rounded-2xl p-6 hover:scale-[1.02] transition-transform cursor-default`}>
+              <div class="flex items-center gap-3 mb-3">
+                <span class="text-2xl" set:html={s.icon}></span>
+                <div>
+                  <span class={`text-xs font-bold ${s.textColor} uppercase tracking-wider`}>Scenario {s.id.toUpperCase()}</span>
+                  <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-xl">{s.name}</h3>
+                </div>
+              </div>
+              <div class="flex gap-2 mb-3">
+                <span class="text-[10px] font-bold bg-dark/5 text-dark/40 px-2 py-0.5 rounded-full">{s.xLabel}</span>
+                <span class="text-[10px] font-bold bg-dark/5 text-dark/40 px-2 py-0.5 rounded-full">{s.yLabel}</span>
+              </div>
+              <p class="text-dark/60 text-sm leading-relaxed mb-3">{s.description}</p>
+              <p class={`text-sm font-medium ${s.textColor}`}>{s.implication}</p>
+            </div>
+          ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Brief uit 2030 -->
+  <section class="bg-cream py-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Brief uit 2030</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Wat als Aurora NIET innoveert?</p>
+
+      <div class="reveal reveal-delay-2 relative bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-dark/5 overflow-hidden">
+        <!-- Paper texture feel -->
+        <div class="absolute top-0 right-0 w-32 h-32 bg-dark/[0.02] rounded-bl-full"></div>
+
+        <div class="relative" style="font-family: 'Georgia', serif;">
+          <p class="text-dark/40 text-sm mb-4 italic">Amsterdam, januari 2030</p>
+
+          <p class="text-dark/70 leading-relaxed mb-4">
+            Beste lezer,
+          </p>
+          <p class="text-dark/70 leading-relaxed mb-4">
+            Het is vijf jaar geleden dat we voor het laatst over innovatie spraken. Toen voelde de toekomst nog ver weg. Nu is ze hier.
+          </p>
+          <p class="text-dark/70 leading-relaxed mb-4">
+            Aurora's <strong class="text-dark">onderwijssegment</strong> is gekrompen van 24% naar minder dan 15% van de omzet. De laatste grote schoolleverancier heeft ons contract niet verlengd. Ze werken nu met een digitale partner.
+          </p>
+          <p class="text-dark/70 leading-relaxed mb-4">
+            Het <strong class="text-dark">kantoor</strong> als afzetmarkt bestaat nauwelijks meer. Remote werkers bestellen geen pennen. De creatieve doelgroep, onze snelst groeiende markt, kiest steeds vaker voor <strong class="text-dark">Faber-Castell</strong>, die drie jaar geleden een succesvolle hybride lijn lanceerde. Of voor <strong class="text-dark">Crayola</strong>, die met hun app-verbonden kleurmaterialen een nieuw marktsegment creëerde.
+          </p>
+          <p class="text-dark/70 leading-relaxed mb-4">
+            Ons personeelsbestand is vergrijsd. Jong talent kiest voor bedrijven die innoveren, niet voor "dat potlodenbedrijf van vroeger." Ons merk, ooit synoniem met kwaliteit, roept nu vooral <strong class="text-dark">nostalgie</strong> op.
+          </p>
+          <p class="text-dark/70 leading-relaxed mb-4">
+            Vorige week heeft het bestuur een strategisch adviesbureau ingehuurd. Hun conclusie: Aurora is een <strong class="text-dark">overnamekandidaat voor &euro;0,30 op de euro</strong>.
+          </p>
+          <p class="text-dark/70 leading-relaxed mb-6">
+            Het moment om te innoveren was vijf jaar geleden. Dat moment is nu voorbij.
+          </p>
+          <p class="text-dark/50 italic text-sm">— Een fictieve maar realistische toekomstschets</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Urgentie -->
+  <section class="bg-dark text-white py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold mb-3 text-center">Waarom NU?</h2>
+      <p class="reveal reveal-delay-1 text-white/50 text-center mb-10">Vijf redenen waarom Aurora niet kan wachten</p>
+
+      <div class="reveal reveal-delay-2 grid md:grid-cols-5 gap-3">
+        {[
+          { num: '1', text: 'Markt krimpt structureel: 20% verlies in 10 jaar' },
+          { num: '2', text: 'Onderwijs kantelt: 66% schrijft primair digitaal' },
+          { num: '3', text: 'Concurrenten bewegen: wie eerst claimt, wint' },
+          { num: '4', text: 'AI verandert creatie: in maanden, niet jaren' },
+          { num: '5', text: 'Merk heeft nog waarde, over 5 jaar misschien niet' },
+        ].map((item) => (
+          <div class="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
+            <span class="font-[family-name:var(--font-display)] text-3xl font-bold text-phase-discover/50">{item.num}</span>
+            <p class="text-white/60 text-xs mt-2 leading-relaxed">{item.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Early Warning Signals -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Early Warning Signals</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Op welke signalen moet Aurora letten om te bepalen welke toekomst werkelijkheid wordt?</p>
+
+      <div class="reveal reveal-delay-2 grid md:grid-cols-2 gap-4">
+        {earlyWarnings.map((ew) => (
+          <div class={`bg-white rounded-2xl p-5 border-2 ${ew.borderColor} shadow-sm hover:scale-[1.02] transition-transform`}>
+            <div class="flex items-start gap-3 mb-3">
+              <span class="text-2xl flex-shrink-0" set:html={ew.icon}></span>
+              <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm leading-snug">{ew.signal}</h3>
+            </div>
+            <p class="text-dark/60 text-sm leading-relaxed mb-2">{ew.meaning}</p>
+            {ew.source.url ? (
+              <a href={ew.source.url} target="_blank" class="text-dark/30 hover:text-dark/50 text-xs underline">{ew.source.text}</a>
+            ) : (
+              <span class="text-dark/30 text-xs">{ew.source.text}</span>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="bg-dark text-white py-16">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href={url('/discover/trends/')} class="reveal inline-flex items-center gap-2 text-white/50 hover:text-white font-bold transition-colors">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        Trendanalyse
+      </a>
+      <a href={url('/discover/empathise/')} class="reveal reveal-delay-1 inline-flex items-center gap-2 bg-phase-discover text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform">
+        Immersive Research
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

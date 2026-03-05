@@ -59,6 +59,27 @@ docs/
     rubric.md                         # Rubric met criteria per niveau (onvoldoende t/m uitmuntend)
 ```
 
+## Werkwijze
+
+### Mappenstructuur uitbreidingen
+- `docs/onderzoek/` — Werkdocumenten en uitwerkingen per opdracht (bespreek eerst in groep, daarna naar website)
+- `src/utils/base.ts` — Helper functie `url()` voor correcte base path in alle links
+
+### Aanpassingen website (maart 2025)
+- Nieuw design: donker thema, felle fase-kleuren, Space Grotesk font, scroll-animaties
+- Geinspireerd op stockdutchdesign.com — reis/storytelling door het project
+- Alle interne links gebruiken `url()` helper uit `src/utils/base.ts` voor correcte base path
+
+### Opdracht 1a Discover - Status
+- Werkdocumenten in `docs/onderzoek/` — alle met bronverwijzingen (genummerd, met URLs)
+- Trendanalyse (IBSOTEEP + Porter + piramide): v2 met 19+ bronnen
+- Scenariomatrix: concept met 4 scenario's + 3 alternatieve opties voor as 2
+- Aanleiding (geschiedenis schrijfwaren + tijdlijn): v2 met drivers per mijlpaal en 16 bronnen
+- Bronnenlijst: `docs/onderzoek/bronnen.md` — 26 bronnen
+- Extra theorie gekozen: Christensen's Disruptive Innovation (1997)
+- Klasdiscussie genoteerd: duurzaamheid, goedkope arbeid lage-lonenlanden, ethische productie
+- As 2 scenario: nog te kiezen door groep (3 alternatieven voorgesteld)
+
 ## Rol van Claude
 
 Claude helpt als **studieassistent en sparringpartner** bij het uitwerken van dit innovatieproject:
@@ -74,6 +95,8 @@ Claude helpt als **studieassistent en sparringpartner** bij het uitwerken van di
 - Het betreft een **simulatie** - geen echt product nodig, wel een overtuigende Proof of Value
 - Focus op het perspectief van een **manager van innovaties**, niet puur technisch
 - Portfolio = reisverslag met structuurdocument (max 4 pag) + bewijsstukken
+- **ELKE bron moet een klikbare hyperlink zijn** naar de originele bron (geen platte tekst)
+- **Zo veel mogelijk illustraties en afbeeldingen** gebruiken — SVG-illustraties waar mogelijk, foto's als illustratie niet voldoet
 
 ## Kernliteratuur & referenties
 

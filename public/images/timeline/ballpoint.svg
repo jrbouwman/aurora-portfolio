@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="24" fill="#3D2B1F" opacity="0.15"/>
+  <!-- Ballpoint pen mechanism (cross-section) -->
+  <g transform="rotate(-15, 100, 100)">
+    <!-- Outer tube -->
+    <rect x="85" y="30" width="16" height="120" rx="8" fill="#C0C0C0"/>
+    <rect x="87" y="30" width="12" height="120" rx="6" fill="#D8D8D8"/>
+    <!-- Ink cartridge visible -->
+    <rect x="90" y="45" width="6" height="70" rx="2" fill="#2244AA" opacity="0.6"/>
+    <!-- Tip -->
+    <polygon points="87,150 99,150 93,165" fill="#888"/>
+    <!-- Ball -->
+    <circle cx="93" cy="163" r="3" fill="#666"/>
+    <circle cx="92" cy="162" r="1" fill="#999" opacity="0.5"/>
+    <!-- Click button -->
+    <rect x="88" y="25" width="10" height="10" rx="5" fill="#AAA"/>
+  </g>
+  <!-- Blueprint-style annotation -->
+  <line x1="130" y1="80" x2="160" y2="80" stroke="#666" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <text x="162" y="83" font-size="8" fill="#666" font-family="sans-serif">ink</text>
+  <line x1="115" y1="145" x2="155" y2="135" stroke="#666" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <text x="157" y="138" font-size="8" fill="#666" font-family="sans-serif">ball</text>
+  <!-- Ink line drawn -->
+  <path d="M30,170 Q50,160 70,170 Q90,175 100,165" stroke="#2244AA" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/>
+</svg>

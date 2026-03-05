@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Timeline from '../components/Timeline.astro';
+import ParadoxBlock from '../components/ParadoxBlock.astro';
+import { url } from '../utils/base';
+
+const timelineItems = [
+  { year: '~3200 v.Chr.', title: 'Rietpen & stylus', driver: 'Noodzaak: administratie en handel vereisen vastlegging. Sumeriërs schrijven in klei, Egyptenaren op papyrus.', era: 'ancient' as const, image: '/images/timeline/reed-pen.svg' },
+  { year: '~600 v.Chr.', title: 'Ganzenveer', driver: 'Beschikbaarheid: overal vogelveren, flexibeler dan riet. 1300 jaar het dominante schrijfinstrument in Europa.', era: 'ancient' as const, image: '/images/timeline/quill-pen.svg' },
+  { year: '1564', title: 'Ontdekking grafiet', driver: 'Toeval: herders ontdekken een grafietader in Borrowdale, Engeland. Blijkt uitstekend te markeren.', era: 'material' as const, image: '/images/timeline/graphite.svg' },
+  { year: '1795', title: 'Conté-procédé', driver: 'Schaarste: Engelse grafiet niet meer beschikbaar door oorlog. Nicolas-Jacques Conté vindt een alternatief: grafiet + klei + bakken.', era: 'material' as const, image: '/images/timeline/conte-pencil.svg' },
+  { year: '1884', title: 'Vulpen (Waterman)', driver: 'Mobiliteit: schrijven zonder inkpot dankzij een draagbaar inktreservoir. Lewis Waterman patenteert een betrouwbaar capillair-vulsysteem.', era: 'material' as const, image: '/images/timeline/fountain-pen.svg' },
+  { year: '1938', title: 'Balpen (Bíró)', driver: 'Gemak: geen geknoei meer met inkt. László Bíró patenteert een pen met sneldrogende inkt en draaiend kogeltje.', era: 'mass' as const, image: '/images/timeline/ballpoint.svg' },
+  { year: '1950', title: 'BIC Cristal', driver: 'Democratisering: prijs daalt van $12,50 naar minder dan $0,10 per pen. Meer dan 100 miljard stuks verkocht.', era: 'mass' as const, image: '/images/timeline/bic-cristal.svg' },
+  { year: '1962', title: 'Viltstift (Pentel)', driver: 'Expressie: nieuwe mogelijkheden voor tekenen, kleuren en markeren. De eerste commerciële viltstift.', era: 'mass' as const, image: '/images/timeline/felt-tip.svg' },
+  { year: '2007', title: 'iPhone', driver: 'Intuïtiviteit: vingerbesturing vervangt pen-invoer. Steve Jobs: "If you see a stylus, they blew it."', era: 'digital' as const, image: '/images/timeline/iphone.svg' },
+  { year: '2015', title: 'Apple Pencil', driver: 'Heruitvinding: digitale pen wordt weer relevant dankzij drukgevoeligheid en lage latency. Circa 25 miljoen eenheden per jaar.', era: 'digital' as const, image: '/images/timeline/apple-pencil.svg' },
+  { year: '2020s', title: 'Smart pens & AI', driver: 'Hybridisering: de grens tussen analoog en digitaal vervaagt. Moleskine Smart Writing, reMarkable, generatieve AI.', era: 'hybrid' as const, image: '/images/timeline/smart-pen.svg' },
+];
+
+const eraLabels = [
+  { name: 'Materiaalinnovatie', color: 'bg-amber-600', period: '3200 v.Chr. – 1900' },
+  { name: 'Massaproductie', color: 'bg-phase-refine', period: '1900 – 1980' },
+  { name: 'Digitale revolutie', color: 'bg-phase-define', period: '1980 – 2020' },
+  { name: 'Hybride tijdperk', color: 'bg-phase-design', period: '2020 – nu' },
+];
+---
+
+<BaseLayout title="Aanleiding">
+  <!-- Hero -->
+  <section class="bg-dark text-white overflow-hidden relative">
+    <div class="absolute top-20 right-20 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 left-10 w-64 h-64 bg-phase-design/10 rounded-full blur-3xl"></div>
+
+    <div class="max-w-4xl mx-auto px-6 py-20 md:py-28 relative z-10">
+      <div class="reveal">
+        <a href={url('/')} class="text-white/40 hover:text-white/60 text-sm transition-colors">&larr; Terug naar home</a>
+      </div>
+      <h1 class="reveal reveal-delay-1 font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold leading-[0.95] mt-6 mb-6">
+        5000 jaar<br /><span class="gradient-text">schrijven</span>
+      </h1>
+      <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-2xl leading-relaxed">
+        Van kleitabletten tot tablets. Elke grote verschuiving in schrijftechnologie heeft maatschappijen veranderd. Dit is het verhaal van hoe we hier gekomen zijn.
+      </p>
+    </div>
+  </section>
+
+  <!-- Context: waarom dit portfolio -->
+  <section class="bg-cream py-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="reveal bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-dark/5">
+        <span class="text-phase-discover font-bold text-sm tracking-widest uppercase">Over dit portfolio</span>
+        <h2 class="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold text-dark mt-2 mb-4">Waarom zijn we hier?</h2>
+        <p class="text-dark/60 leading-relaxed mb-3">
+          Dit portfolio is gemaakt voor het minorvak <strong class="text-dark">Innovatiemanagement (EDIM.21)</strong> van de opleiding
+          Technische Bedrijfskunde, 3e jaar. Het documenteert onze reis door een innovatieproces volgens het
+          Design Thinking Stage/Gate model.
+        </p>
+        <p class="text-dark/60 leading-relaxed">
+          De casus: <strong class="text-dark">Aurora Writing Instruments Group</strong>, een fictieve maar realistische
+          Nederlandse producent van potloden, pennen en tekenmaterialen met meer dan 125 jaar geschiedenis.
+        </p>
+        <div class="mt-6 p-4 bg-phase-discover/5 rounded-xl border border-phase-discover/20">
+          <p class="text-dark/70 italic font-medium">
+            "Welke rol kan een producent van schrijfinstrumenten spelen in een wereld waarin schrijven en tekenen fundamenteel veranderen?"
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Era legend -->
+  <section class="bg-warm-gray py-10">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">De tijdlijn</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-8">Elke grote verschuiving volgde hetzelfde patroon: nieuwe technologie, gevestigde spelers reageren te laat, de markt verandert.</p>
+
+      <!-- Era labels -->
+      <div class="reveal reveal-delay-2 flex flex-wrap justify-center gap-4 mb-10">
+        {eraLabels.map((era) => (
+          <div class="flex items-center gap-2">
+            <div class={`w-3 h-3 rounded-full ${era.color}`}></div>
+            <span class="text-sm text-dark/60"><strong class="text-dark/80">{era.name}</strong> ({era.period})</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="bg-warm-gray pb-20">
+    <div class="max-w-3xl mx-auto px-6">
+      <Timeline items={timelineItems} />
+    </div>
+  </section>
+
+  <!-- The Paradox -->
+  <section class="bg-cream py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">De paradox</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10 max-w-2xl mx-auto">
+        Schrijven op papier wordt steeds zeldzamer, maar tegelijk steeds waardevoller. Hoe kan dat?
+      </p>
+
+      <ParadoxBlock />
+    </div>
+  </section>
+
+  <!-- The question -->
+  <section class="bg-dark text-white py-20">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="reveal">
+        <p class="text-white/40 font-medium mb-4 tracking-widest uppercase text-sm">De kernvraag</p>
+        <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-6xl font-bold leading-[0.95] mb-6">
+          Wat betekent<br /><span class="gradient-text">schrijven</span> in 2030?
+        </h2>
+        <p class="text-white/50 text-lg max-w-xl mx-auto mb-10">
+          Om die vraag te beantwoorden, beginnen we met de eerste fase van ons innovatieproces.
+        </p>
+        <a
+          href={url('/discover/')}
+          class="inline-flex items-center gap-2 bg-phase-discover text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform"
+        >
+          Start Discover
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

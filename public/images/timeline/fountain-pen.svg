@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="24" fill="#3D2B1F" opacity="0.15"/>
+  <!-- Fountain pen -->
+  <g transform="rotate(-30, 100, 100)">
+    <!-- Cap -->
+    <rect x="40" y="35" width="20" height="50" rx="10" fill="#1A1A3A"/>
+    <rect x="43" y="35" width="14" height="50" rx="7" fill="#2A2A5A"/>
+    <rect x="40" y="80" width="20" height="4" rx="1" fill="#C4A035"/>
+    <!-- Body -->
+    <rect x="42" y="84" width="16" height="60" rx="3" fill="#1A1A3A"/>
+    <rect x="44" y="84" width="12" height="60" rx="2" fill="#2A2A5A"/>
+    <!-- Grip section -->
+    <rect x="44" y="144" width="12" height="15" rx="2" fill="#333"/>
+    <line x1="44" y1="148" x2="56" y2="148" stroke="#444" stroke-width="0.5"/>
+    <line x1="44" y1="151" x2="56" y2="151" stroke="#444" stroke-width="0.5"/>
+    <line x1="44" y1="154" x2="56" y2="154" stroke="#444" stroke-width="0.5"/>
+    <!-- Nib -->
+    <polygon points="46,159 54,159 50,180" fill="#C4A035"/>
+    <line x1="50" y1="159" x2="50" y2="178" stroke="#A08020" stroke-width="0.8"/>
+    <!-- Ink flow -->
+    <circle cx="50" cy="182" r="2" fill="#1A1A5A" opacity="0.6"/>
+  </g>
+  <!-- Written text lines -->
+  <g opacity="0.3">
+    <path d="M110,130 Q120,125 135,132 Q145,127 155,133" stroke="#1A1A5A" stroke-width="1.5" fill="none"/>
+    <path d="M110,142 Q125,137 140,143 Q150,138 160,144" stroke="#1A1A5A" stroke-width="1.5" fill="none"/>
+    <path d="M110,154 Q120,149 130,155" stroke="#1A1A5A" stroke-width="1.5" fill="none"/>
+  </g>
+  <!-- Gold clip detail -->
+  <rect x="57" y="40" width="3" height="35" rx="1" fill="#C4A035" opacity="0.6" transform="rotate(-30, 100, 100)"/>
+</svg>

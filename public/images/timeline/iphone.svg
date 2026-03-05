@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="24" fill="#3D2B1F" opacity="0.15"/>
+  <!-- iPhone -->
+  <g transform="translate(55, 20)">
+    <rect x="10" y="10" width="70" height="140" rx="12" fill="#1A1A2E"/>
+    <rect x="13" y="18" width="64" height="115" rx="4" fill="#2A2A4E"/>
+    <!-- Screen content (touch gesture) -->
+    <rect x="13" y="18" width="64" height="115" rx="4" fill="#111128"/>
+    <!-- App icons -->
+    <rect x="20" y="30" width="12" height="12" rx="3" fill="#FF2D5C" opacity="0.7"/>
+    <rect x="38" y="30" width="12" height="12" rx="3" fill="#2D7AFF" opacity="0.7"/>
+    <rect x="56" y="30" width="12" height="12" rx="3" fill="#2DCC5B" opacity="0.7"/>
+    <rect x="20" y="50" width="12" height="12" rx="3" fill="#FF8A2D" opacity="0.7"/>
+    <rect x="38" y="50" width="12" height="12" rx="3" fill="#8B2DFF" opacity="0.7"/>
+    <rect x="56" y="50" width="12" height="12" rx="3" fill="#FFD700" opacity="0.7"/>
+    <!-- Touch gesture -->
+    <circle cx="45" cy="95" r="15" fill="#FFF" opacity="0.1"/>
+    <circle cx="45" cy="95" r="8" fill="#FFF" opacity="0.15"/>
+    <circle cx="45" cy="95" r="3" fill="#FFF" opacity="0.3"/>
+    <!-- Home button -->
+    <circle cx="45" cy="143" r="7" stroke="#444" stroke-width="1" fill="none"/>
+  </g>
+  <!-- Finger touch -->
+  <ellipse cx="110" cy="105" rx="12" ry="16" fill="#E8C8A0" opacity="0.3" transform="rotate(-15, 110, 105)"/>
+  <!-- "No stylus" hint -->
+  <g transform="translate(135, 145)" opacity="0.4">
+    <line x1="0" y1="0" x2="30" y2="30" stroke="#FF2D5C" stroke-width="2"/>
+    <line x1="5" y1="30" x2="25" y2="0" stroke="#666" stroke-width="1.5"/>
+    <circle cx="15" cy="15" r="14" stroke="#FF2D5C" stroke-width="1.5" fill="none"/>
+  </g>
+</svg>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="24" fill="#3D2B1F" opacity="0.15"/>
+  <!-- Kiln/oven -->
+  <rect x="20" y="100" width="70" height="60" rx="6" fill="#8B4513" opacity="0.6"/>
+  <rect x="25" y="105" width="60" height="35" rx="3" fill="#1A0A00"/>
+  <!-- Fire glow -->
+  <ellipse cx="55" cy="125" rx="20" ry="12" fill="#FF6B2D" opacity="0.4"/>
+  <ellipse cx="55" cy="122" rx="12" ry="8" fill="#FFAA2D" opacity="0.5"/>
+  <ellipse cx="55" cy="120" rx="6" ry="5" fill="#FFD42D" opacity="0.6"/>
+  <!-- Pencil -->
+  <g transform="rotate(-20, 140, 100)">
+    <rect x="115" y="40" width="14" height="110" rx="1" fill="#D4A637"/>
+    <rect x="117" y="40" width="10" height="110" fill="#C49527"/>
+    <polygon points="115,150 129,150 122,170" fill="#F5E6C8"/>
+    <polygon points="119,155 125,155 122,170" fill="#4A4A4A"/>
+    <rect x="115" y="40" width="14" height="8" rx="1" fill="#B8860B" opacity="0.5"/>
+  </g>
+  <!-- Graphite + clay mixture -->
+  <circle cx="155" cy="155" r="12" fill="#666" opacity="0.4"/>
+  <circle cx="155" cy="155" r="8" fill="#888" opacity="0.3"/>
+  <!-- French flag hint -->
+  <rect x="30" y="165" width="8" height="12" fill="#0055A4" opacity="0.4"/>
+  <rect x="38" y="165" width="8" height="12" fill="#FFF" opacity="0.4"/>
+  <rect x="46" y="165" width="8" height="12" fill="#EF4135" opacity="0.4"/>
+</svg>

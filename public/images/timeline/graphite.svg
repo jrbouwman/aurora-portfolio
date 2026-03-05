@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="24" fill="#3D2B1F" opacity="0.15"/>
+  <!-- Rocky landscape -->
+  <path d="M0,170 Q30,140 60,160 Q90,130 120,150 Q150,120 180,145 L200,140 L200,200 L0,200Z" fill="#6B5E50" opacity="0.3"/>
+  <!-- Graphite chunk -->
+  <g transform="translate(50, 60)">
+    <polygon points="20,0 80,5 90,40 85,80 50,90 10,70 0,30" fill="#4A4A4A"/>
+    <polygon points="20,0 80,5 75,30 15,25" fill="#666" opacity="0.6"/>
+    <polygon points="80,5 90,40 75,30" fill="#555" opacity="0.5"/>
+    <polygon points="10,70 50,90 45,65 5,50" fill="#3A3A3A" opacity="0.7"/>
+    <!-- Metallic sheen -->
+    <polygon points="30,15 60,18 55,35 25,30" fill="#888" opacity="0.3"/>
+    <polygon points="40,40 70,35 65,55 35,55" fill="#777" opacity="0.2"/>
+  </g>
+  <!-- Graphite marks/smudges -->
+  <path d="M130,120 Q140,115 155,125 Q165,118 170,130" stroke="#4A4A4A" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.5"/>
+  <path d="M135,135 Q150,128 160,140" stroke="#4A4A4A" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.3"/>
+  <!-- Sheep (herder discovery reference) -->
+  <ellipse cx="160" cy="80" rx="15" ry="10" fill="#F0EBE0"/>
+  <circle cx="148" cy="75" r="6" fill="#F0EBE0"/>
+  <circle cx="146" cy="74" r="1.5" fill="#333"/>
+  <rect x="153" y="88" width="3" height="10" rx="1" fill="#333"/>
+  <rect x="163" y="88" width="3" height="10" rx="1" fill="#333"/>
+</svg>

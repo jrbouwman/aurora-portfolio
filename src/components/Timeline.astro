@@ -1,0 +1,67 @@
+---
+import { url } from '../utils/base';
+
+interface TimelineItem {
+  year: string;
+  title: string;
+  driver: string;
+  era: 'ancient' | 'material' | 'mass' | 'digital' | 'hybrid';
+  image?: string;
+}
+
+interface Props {
+  items: TimelineItem[];
+}
+
+const { items } = Astro.props;
+
+const eraColors: Record<string, { bg: string; border: string; dot: string; text: string }> = {
+  ancient: { bg: 'bg-amber-900/20', border: 'border-amber-700', dot: 'bg-amber-600', text: 'text-amber-600' },
+  material: { bg: 'bg-orange-900/20', border: 'border-orange-600', dot: 'bg-orange-500', text: 'text-orange-500' },
+  mass: { bg: 'bg-phase-refine/10', border: 'border-phase-refine', dot: 'bg-phase-refine', text: 'text-phase-refine' },
+  digital: { bg: 'bg-phase-define/10', border: 'border-phase-define', dot: 'bg-phase-define', text: 'text-phase-define' },
+  hybrid: { bg: 'bg-phase-design/10', border: 'border-phase-design', dot: 'bg-phase-design', text: 'text-phase-design' },
+};
+---
+
+<div class="relative">
+  <!-- Vertical line -->
+  <div class="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-amber-600 via-phase-refine via-phase-define to-phase-design"></div>
+
+  <div class="space-y-6">
+    {items.map((item, i) => {
+      const colors = eraColors[item.era];
+      return (
+        <div class={`reveal reveal-delay-${(i % 4) + 1} relative flex gap-5 md:gap-8 items-start pl-2`}>
+          <!-- Dot on line -->
+          <div class={`relative z-10 flex-shrink-0 w-8 md:w-10 h-8 md:h-10 rounded-full ${colors.dot} flex items-center justify-center shadow-lg`}>
+            <div class="w-3 h-3 rounded-full bg-white/40"></div>
+          </div>
+
+          <!-- Content card -->
+          <div class={`flex-1 ${colors.bg} border ${colors.border}/30 rounded-2xl p-4 md:p-5 hover:scale-[1.01] transition-transform`}>
+            <div class="flex flex-col md:flex-row gap-4">
+              {item.image && (
+                <div class="flex-shrink-0">
+                  <img
+                    src={url(item.image)}
+                    alt={item.title}
+                    class="w-24 h-24 md:w-28 md:h-28 rounded-xl object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <div class="flex-1">
+                <div class="flex flex-wrap items-baseline gap-2 mb-1">
+                  <span class={`font-[family-name:var(--font-display)] font-bold text-lg ${colors.text}`}>{item.year}</span>
+                  <span class="font-[family-name:var(--font-display)] font-bold text-dark text-lg">{item.title}</span>
+                </div>
+                <p class="text-dark/50 text-sm leading-relaxed">{item.driver}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>

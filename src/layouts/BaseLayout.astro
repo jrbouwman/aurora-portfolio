@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Navigation from '../components/Navigation.astro';
+import { url } from '../utils/base';
 
 interface Props {
   title: string;
@@ -16,10 +17,10 @@ const { title, description = 'Portfolio Innovatiemanagement - Aurora Writing Ins
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <title>{title} | Aurora Portfolio</title>
   </head>
   <body class="min-h-screen flex flex-col">
@@ -29,13 +30,51 @@ const { title, description = 'Portfolio Innovatiemanagement - Aurora Writing Ins
       <slot />
     </main>
 
-    <footer class="bg-navy text-white/70 py-8 mt-16">
+    <footer class="bg-dark text-white/60 py-10 mt-0">
       <div class="max-w-6xl mx-auto px-6 text-center text-sm">
-        <p class="mb-2">
-          <span class="text-white font-semibold">Aurora Writing Instruments Group</span> &mdash; Beyond Paper
-        </p>
-        <p>Portfolio Innovatiemanagement (EDIM.21) &bull; Technische Bedrijfskunde &bull; 2024-2025 S1</p>
+        <div class="flex items-center justify-center gap-3 mb-3">
+          <svg viewBox="0 0 32 32" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="aurora-footer" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#2D7AFF"/>
+                <stop offset="50%" stop-color="#8B2DFF"/>
+                <stop offset="100%" stop-color="#FF2D78"/>
+              </linearGradient>
+            </defs>
+            <rect width="32" height="32" rx="7" fill="#1A1A2E"/>
+            <g transform="translate(16,16) rotate(-20) translate(-16,-16)">
+              <rect x="13" y="4" width="6" height="16" rx="2" fill="url(#aurora-footer)"/>
+              <path d="M13,20 L16,28 L19,20 Z" fill="url(#aurora-footer)"/>
+              <rect x="19.5" y="5" width="1.5" height="9" rx="0.75" fill="white" opacity="0.35"/>
+              <circle cx="16" cy="27" r="1" fill="white" opacity="0.7"/>
+            </g>
+          </svg>
+          <div>
+            <span class="text-white font-bold font-[family-name:var(--font-display)] text-lg">Aurora</span>
+            <span class="text-phase-discover ml-1">Beyond Paper</span>
+          </div>
+        </div>
+        <p class="mb-1">Portfolio Innovatiemanagement (EDIM.21) &bull; Technische Bedrijfskunde &bull; Hogeschool Windesheim, Zwolle</p>
+        <p class="text-white/40">Anke Maassen van den Brink &bull; Lianne van Oss &bull; Jr Bouwman</p>
       </div>
     </footer>
+
+    <!-- Scroll reveal script -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+      );
+
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el) => {
+        observer.observe(el);
+      });
+    </script>
   </body>
 </html>

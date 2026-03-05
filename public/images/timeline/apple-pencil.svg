@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="24" fill="#3D2B1F" opacity="0.15"/>
+  <!-- iPad -->
+  <g transform="translate(25, 25)">
+    <rect x="5" y="5" width="110" height="150" rx="10" fill="#333"/>
+    <rect x="10" y="10" width="100" height="140" rx="6" fill="#1A1A2E"/>
+    <!-- Screen with drawing -->
+    <rect x="12" y="12" width="96" height="136" rx="4" fill="#111128"/>
+    <!-- Digital art on screen -->
+    <path d="M30,80 Q50,40 70,70 Q90,100 80,120 Q60,140 40,110 Z" fill="#8B2DFF" opacity="0.3"/>
+    <path d="M40,70 Q55,50 65,65 Q75,80 70,100 Q55,115 45,95 Z" fill="#2D7AFF" opacity="0.3"/>
+    <path d="M50,75 Q58,60 63,72 Q68,85 62,95 Q55,100 50,90 Z" fill="#FF2D5C" opacity="0.3"/>
+    <!-- Brush strokes -->
+    <path d="M25,50 Q45,35 65,55" stroke="#2DCC5B" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M30,130 Q50,120 80,130" stroke="#FF8A2D" stroke-width="1.5" fill="none" opacity="0.4"/>
+  </g>
+  <!-- Apple Pencil -->
+  <g transform="rotate(-25, 155, 100)">
+    <rect x="148" y="30" width="10" height="130" rx="5" fill="#F0F0F0"/>
+    <rect x="149" y="30" width="8" height="130" rx="4" fill="#FAFAFA"/>
+    <!-- Flat edge -->
+    <rect x="148" y="30" width="10" height="130" rx="5" fill="#E8E8E8" opacity="0.5"/>
+    <!-- Tip -->
+    <polygon points="150,160 156,160 153,172" fill="#DDD"/>
+    <circle cx="153" cy="171" r="1.5" fill="#CCC"/>
+    <!-- Top -->
+    <rect x="149" y="28" width="8" height="5" rx="2" fill="#DDD"/>
+  </g>
+  <!-- Pressure sensitivity waves -->
+  <g opacity="0.2">
+    <path d="M160,50 Q165,45 170,50" stroke="#2D7AFF" stroke-width="1" fill="none"/>
+    <path d="M158,55 Q165,48 172,55" stroke="#2D7AFF" stroke-width="1" fill="none"/>
+    <path d="M156,60 Q165,51 174,60" stroke="#2D7AFF" stroke-width="1" fill="none"/>
+  </g>
+</svg>

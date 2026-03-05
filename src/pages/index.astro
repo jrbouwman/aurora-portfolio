@@ -1,47 +1,71 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProcessMap from '../components/ProcessMap.astro';
-import PhaseCard from '../components/PhaseCard.astro';
+import { url } from '../utils/base';
 
 const phases = [
   {
     title: 'Discover',
-    description: 'De omgeving verkennen: trendanalyse, scenariobouwing, immersive research en het formuleren van innovatie-challenges.',
-    href: '/discover/',
+    subtitle: 'De wereld verkennen',
+    description: 'Trendanalyse, scenariobouwing, immersive research en het formuleren van innovatie-challenges.',
+    href: url('/discover/'),
     phase: 'discover',
-    label: 'Fase 1 — BK 1-2',
+    label: 'Fase 1',
+    bgColor: 'bg-phase-discover',
+    textColor: 'text-phase-discover',
+    color: 'from-phase-discover to-phase-discover/70',
+    number: '01',
     evidenceCount: 4,
   },
   {
     title: 'Define',
-    description: 'Het kernprobleem scherp definiëren en de innovatierichting bepalen.',
-    href: '/define/',
+    subtitle: 'Het probleem scherp stellen',
+    description: 'Het kernprobleem definiëren en de innovatierichting bepalen.',
+    href: url('/define/'),
     phase: 'define',
-    label: 'Fase 2 — BK 3',
+    label: 'Fase 2',
+    bgColor: 'bg-phase-define',
+    textColor: 'text-phase-define',
+    color: 'from-phase-define to-phase-define/70',
+    number: '02',
     evidenceCount: 0,
   },
   {
     title: 'Design',
+    subtitle: 'Ideeën laten stromen',
     description: 'Ideeën genereren, selecteren en de twee meest kansrijke denkrichtingen uitwerken.',
-    href: '/design/',
+    href: url('/design/'),
     phase: 'design',
-    label: 'Fase 3 — BK 4',
+    label: 'Fase 3',
+    bgColor: 'bg-phase-design',
+    textColor: 'text-phase-design',
+    color: 'from-phase-design to-phase-design/70',
+    number: '03',
     evidenceCount: 0,
   },
   {
     title: 'Refine',
+    subtitle: 'Bouwen, testen, herhalen',
     description: 'Prototypen bouwen, testen met gebruikers en itereren op basis van feedback.',
-    href: '/refine/',
+    href: url('/refine/'),
     phase: 'refine',
-    label: 'Fase 4 — BK 5-6',
+    label: 'Fase 4',
+    bgColor: 'bg-phase-refine',
+    textColor: 'text-phase-refine',
+    color: 'from-phase-refine to-phase-refine/70',
+    number: '04',
     evidenceCount: 0,
   },
   {
     title: 'Deliver',
+    subtitle: 'Het verhaal afronden',
     description: 'Het uiteindelijke Proof of Value presenteren en het innovatieadvies formuleren.',
-    href: '/deliver/',
+    href: url('/deliver/'),
     phase: 'deliver',
-    label: 'Fase 5 — BK 7-9',
+    label: 'Fase 5',
+    bgColor: 'bg-phase-deliver',
+    textColor: 'text-phase-deliver',
+    color: 'from-phase-deliver to-phase-deliver/70',
+    number: '05',
     evidenceCount: 0,
   },
 ];
@@ -49,58 +73,128 @@ const phases = [
 
 <BaseLayout title="Home">
   <!-- Hero -->
-  <section class="bg-navy text-white">
-    <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
-      <div class="max-w-3xl">
-        <p class="text-teal font-semibold mb-3 tracking-wide uppercase text-sm">Innovatiemanagement EDIM.21</p>
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-          Beyond Paper
-        </h1>
-        <p class="text-xl text-white/80 leading-relaxed mb-4">
+  <section class="bg-dark text-white overflow-hidden relative">
+    <!-- Decorative blobs -->
+    <div class="absolute top-10 left-10 w-72 h-72 bg-phase-discover/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 right-10 w-96 h-96 bg-phase-design/15 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-phase-define/10 rounded-full blur-3xl"></div>
+
+    <div class="max-w-6xl mx-auto px-6 py-24 md:py-36 relative z-10">
+      <div class="reveal">
+        <p class="text-white/50 font-medium mb-6 tracking-widest uppercase text-sm">Innovatiemanagement EDIM.21</p>
+      </div>
+      <h1 class="font-[family-name:var(--font-display)] text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] mb-8 reveal reveal-delay-1">
+        <span class="block">Beyond</span>
+        <span class="block gradient-text">Paper</span>
+      </h1>
+      <div class="reveal reveal-delay-2 max-w-2xl">
+        <p class="text-xl md:text-2xl text-white/70 leading-relaxed">
           Hoe kan <strong class="text-white">Aurora Writing Instruments Group</strong> relevant blijven in een wereld waarin schrijven en tekenen steeds digitaler worden?
         </p>
-        <p class="text-white/60">
-          Dit portfolio documenteert ons innovatieproces van ontdekking tot Proof of Value,
-          volgens het Design Thinking Stage/Gate model.
-        </p>
+      </div>
+      <div class="reveal reveal-delay-3 mt-10">
+        <a href={url('/aanleiding/')} class="inline-flex items-center gap-2 bg-white text-dark font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform">
+          Start de reis
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 5v14M5 12l7 7 7-7" />
+          </svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Process Map -->
-  <section class="bg-warm-gray py-12">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-center text-lg font-semibold text-navy/60 mb-8 uppercase tracking-wide">Ons Innovatieproces</h2>
-      <ProcessMap />
+  <!-- Journey intro -->
+  <section id="reis" class="py-20 bg-cream">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold text-dark mb-6">
+        Onze reis door het<br />innovatieproces
+      </h2>
+      <p class="reveal reveal-delay-1 text-lg text-dark/60 max-w-2xl mx-auto">
+        Van ontdekking tot Proof of Value: volg ons pad door vijf fasen
+        van het Design Thinking Stage/Gate model.
+      </p>
+
+      <!-- Colorful dots representing phases -->
+      <div class="reveal reveal-delay-2 flex items-center justify-center gap-3 mt-10">
+        {phases.map((phase, i) => (
+          <>
+            <a href={phase.href} class={`w-5 h-5 rounded-full ${phase.bgColor} hover:scale-150 transition-transform`} title={phase.title}></a>
+            {i < phases.length - 1 && <div class="w-8 h-0.5 bg-dark/10"></div>}
+          </>
+        ))}
+      </div>
     </div>
   </section>
 
-  <!-- Phase Cards -->
-  <section class="max-w-6xl mx-auto px-6 py-16">
-    <h2 class="text-2xl font-bold text-navy mb-8">Fasen</h2>
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-      {phases.map((phase) => (
-        <PhaseCard {...phase} />
-      ))}
-    </div>
-  </section>
+  <!-- Phase Journey Sections -->
+  {phases.map((phase, i) => (
+    <section class={`py-20 ${i % 2 === 0 ? 'bg-cream' : 'bg-warm-gray'}`}>
+      <div class="max-w-6xl mx-auto px-6">
+        <div class={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12`}>
+          <!-- Phase visual -->
+          <div class="reveal-left flex-1 flex justify-center">
+            <a href={phase.href} class="group relative">
+              <div class={`w-56 h-56 md:w-72 md:h-72 rounded-3xl bg-gradient-to-br ${phase.color} flex items-center justify-center group-hover:scale-105 group-hover:rotate-2 transition-all duration-500`}>
+                <span class="font-[family-name:var(--font-display)] text-8xl md:text-9xl font-bold text-white/30">{phase.number}</span>
+              </div>
+              <!-- Floating badge -->
+              <div class={`absolute -top-3 -right-3 ${phase.bgColor} text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg`}>
+                {phase.label}
+              </div>
+              {phase.evidenceCount > 0 && (
+                <div class="absolute -bottom-3 -left-3 bg-dark text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                  {phase.evidenceCount} bewijsstukken
+                </div>
+              )}
+            </a>
+          </div>
+
+          <!-- Phase content -->
+          <div class="reveal-right flex-1">
+            <span class={`${phase.textColor} font-bold text-sm tracking-widest uppercase`}>{phase.label}</span>
+            <h3 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold text-dark mt-2 mb-2">
+              {phase.title}
+            </h3>
+            <p class={`${phase.textColor} font-semibold text-lg mb-4`}>{phase.subtitle}</p>
+            <p class="text-dark/60 text-lg leading-relaxed mb-6">{phase.description}</p>
+            <a
+              href={phase.href}
+              class={`inline-flex items-center gap-2 ${phase.bgColor} text-white font-bold px-5 py-2.5 rounded-full hover:scale-105 transition-transform`}
+            >
+              Bekijk fase
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
 
   <!-- About -->
-  <section class="bg-warm-gray">
-    <div class="max-w-6xl mx-auto px-6 py-16">
-      <div class="max-w-2xl">
-        <h2 class="text-2xl font-bold text-navy mb-4">Over dit portfolio</h2>
-        <p class="text-navy/70 leading-relaxed mb-4">
+  <section class="bg-dark text-white">
+    <div class="max-w-6xl mx-auto px-6 py-20">
+      <div class="reveal max-w-3xl mx-auto text-center">
+        <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold mb-6">Over dit portfolio</h2>
+        <p class="text-white/60 text-lg leading-relaxed mb-4">
           Dit is het innovatieportfolio voor het minorvak Innovatiemanagement (EDIM.21)
           van de opleiding Technische Bedrijfskunde, 3e jaar. Het portfolio is opgebouwd
           als een reisverslag door het innovatieproces.
         </p>
-        <p class="text-navy/70 leading-relaxed">
-          <strong class="text-navy">De casus:</strong> Aurora Writing Instruments Group is een fictieve
+        <p class="text-white/60 text-lg leading-relaxed">
+          <strong class="text-white">De casus:</strong> Aurora Writing Instruments Group is een fictieve
           maar realistische Nederlandse producent van potloden, pennen en tekenmaterialen met 125+ jaar
-          historie. De kernvraag: welke rol kan Aurora spelen in een wereld waarin schrijven en tekenen
-          steeds digitaler worden?
+          historie.
         </p>
+        <!-- Color bar -->
+        <div class="flex gap-1 mt-10 justify-center">
+          <div class="w-12 h-2 rounded-full bg-phase-discover"></div>
+          <div class="w-12 h-2 rounded-full bg-phase-define"></div>
+          <div class="w-12 h-2 rounded-full bg-phase-design"></div>
+          <div class="w-12 h-2 rounded-full bg-phase-refine"></div>
+          <div class="w-12 h-2 rounded-full bg-phase-deliver"></div>
+        </div>
       </div>
     </div>
   </section>

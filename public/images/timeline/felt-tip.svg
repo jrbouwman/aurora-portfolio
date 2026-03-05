@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="24" fill="#3D2B1F" opacity="0.15"/>
+  <!-- Colorful felt-tip pens spread out -->
+  <g transform="translate(30, 20)">
+    <!-- Red marker -->
+    <g transform="rotate(-5, 70, 80)">
+      <rect x="55" y="30" width="14" height="80" rx="7" fill="#FF2D5C"/>
+      <rect x="57" y="25" width="10" height="12" rx="5" fill="#CC1A44"/>
+      <polygon points="57,110 67,110 62,125" fill="#EEE"/>
+    </g>
+    <!-- Blue marker -->
+    <g transform="rotate(5, 90, 80)">
+      <rect x="80" y="25" width="14" height="80" rx="7" fill="#2D7AFF"/>
+      <rect x="82" y="20" width="10" height="12" rx="5" fill="#1A5ACC"/>
+      <polygon points="82,105 92,105 87,120" fill="#EEE"/>
+    </g>
+    <!-- Green marker -->
+    <g transform="rotate(15, 110, 80)">
+      <rect x="105" y="30" width="14" height="80" rx="7" fill="#2DCC5B"/>
+      <rect x="107" y="25" width="10" height="12" rx="5" fill="#1A9940"/>
+      <polygon points="107,110 117,110 112,125" fill="#EEE"/>
+    </g>
+    <!-- Purple marker -->
+    <g transform="rotate(-15, 50, 80)">
+      <rect x="30" y="35" width="14" height="80" rx="7" fill="#8B2DFF"/>
+      <rect x="32" y="30" width="10" height="12" rx="5" fill="#6B1ACC"/>
+      <polygon points="32,115 42,115 37,130" fill="#EEE"/>
+    </g>
+  </g>
+  <!-- Color swatches/marks -->
+  <circle cx="40" cy="165" r="12" fill="#FF2D5C" opacity="0.3"/>
+  <circle cx="75" cy="165" r="12" fill="#2D7AFF" opacity="0.3"/>
+  <circle cx="110" cy="165" r="12" fill="#2DCC5B" opacity="0.3"/>
+  <circle cx="145" cy="165" r="12" fill="#8B2DFF" opacity="0.3"/>
+  <circle cx="180" cy="165" r="12" fill="#FF8A2D" opacity="0.3"/>
+</svg>

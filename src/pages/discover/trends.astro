@@ -1,0 +1,670 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../utils/base';
+
+const sourceUrls: Record<string, string> = {
+  '1': 'https://www.globenewswire.com/news-release/2023/10/30/2769266/28124/en/Global-Stationery-Products-Strategic-Business-Report-2023-Growing-Trend-towards-Bullet-Journaling-and-Hand-Lettering-Supports-Sales-of-Writing-Instruments-and-Notebooks.html',
+  '2': 'https://www.pewresearch.org/internet/2024/',
+  '3': 'https://ec.europa.eu/eurostat/web/interactive-publications/digitalisation-2024',
+  '4': 'https://www.oecd.org/content/dam/oecd/en/publications/reports/2024/05/students-digital-devices-and-success_621829ff/9e4c0624-en.pdf',
+  '5': 'https://www.gminsights.com/industry-analysis/writing-instruments-market',
+  '6': 'https://learningenglish.voanews.com/a/sweden-brings-books-handwriting-back-to-school/7277000.html',
+  '6b': 'https://www.thethinkacademy.com/blog/edubriefs-sweden-education-shift-from-digital-learning-to-pen-and-paper/',
+  '7': 'https://www.marketdataforecast.com/market-reports/stationery-market',
+  '8': 'https://www.oecd.org/content/dam/oecd/en/publications/reports/2023/12/oecd-digital-education-outlook-2023_c827b81a/c74f03de-en.pdf',
+  '9': 'https://pmc.ncbi.nlm.nih.gov/articles/PMC10853352/',
+  '11': 'https://www.verifiedmarketresearch.com/product/stylus-pen-market/',
+  '12': 'https://www.grandviewresearch.com/industry-analysis/digital-pen-market',
+  '13': 'https://www.statista.com/statistics/1024042/writing-instruments-market-value-worldwide/',
+  '14': 'https://www.globenewswire.com/news-release/2026/01/23/3224629/0/en/Luxury-Writing-Instruments-and-Stationery-Market-Analysis-Report-2026',
+  '15': 'https://finance.ec.europa.eu/capital-markets-union-and-financial-markets/company-reporting-and-auditing/company-reporting/corporate-sustainability-reporting_en',
+  '16': 'https://www.faber-castell.com/corporate/sustainability',
+  '17': 'https://www.bicworld.com/en/sustainability',
+  '18': 'https://www.fairlabor.org/wp-content/uploads/2025/02/FLA_Guidance_on_Preventing_and_Addressing_Child_Labor_in_Supply_Chains.pdf',
+  '19': 'https://www.christenseninstitute.org/theory/disruptive-innovation/',
+  '20': 'https://www.marketresearchintellect.com/product/global-smart-pen-market-size-and-forecast/',
+};
+
+const ibsoteep = [
+  {
+    letter: 'I',
+    title: 'Identiteit',
+    color: 'bg-pink-500',
+    textColor: 'text-pink-500',
+    borderColor: 'border-pink-500/30',
+    bgLight: 'bg-pink-500/10',
+    items: [
+      '<a href="https://bulletjournal.com/pages/how-to-bullet-journal" target="_blank" class="underline">Bullet journaling</a> (fysieke agenda, dagboek en to-do lijst in 1): circa 92 miljoen gebruikers wereldwijd, vooral onder millennials en Gen Z <a href="' + sourceUrls['1'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[1]</a>',
+      '72% van de Amerikaanse tieners vindt dat ze te veel tijd op hun telefoon doorbrengen. Analoog schrijven past in de bredere <a href="https://en.wikipedia.org/wiki/Digital_detox" target="_blank" class="underline">digital detox</a>-beweging <a href="' + sourceUrls['2'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[2]</a>',
+      'Het thuissegment (hobby, journaling, kalligrafie) groeit met 8,5% per jaar <a href="' + sourceUrls['1'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[1]</a>',
+    ],
+  },
+  {
+    letter: 'B',
+    title: 'Bevolking',
+    color: 'bg-orange-500',
+    textColor: 'text-orange-500',
+    borderColor: 'border-orange-500/30',
+    bgLight: 'bg-orange-500/10',
+    items: [
+      'Aandeel 65-plussers in de EU stijgt van 21% (2023) naar verwacht 30% in 2050 <a href="' + sourceUrls['3'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[3]</a>',
+      'Op 96% van de scholen in <a href="https://nl.wikipedia.org/wiki/Organisatie_voor_Economische_Samenwerking_en_Ontwikkeling" target="_blank" class="underline">OESO</a>-landen (samenwerkingsverband van 38 geïndustrialiseerde landen) hebben leerlingen toegang tot digitale apparaten <a href="' + sourceUrls['4'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[4]</a>',
+      'Azië-Pacific is de snelst groeiende schrijfwarenregio, met name India en China <a href="' + sourceUrls['5'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[5]</a>',
+    ],
+  },
+  {
+    letter: 'S',
+    title: 'Sociaal-cultureel',
+    color: 'bg-rose-500',
+    textColor: 'text-rose-500',
+    borderColor: 'border-rose-500/30',
+    bgLight: 'bg-rose-500/10',
+    items: [
+      'Meerdere landen herintroduceren handschrijfonderwijs, waaronder <a href="' + sourceUrls['6'] + '" target="_blank" class="underline">Zweden</a> en Frankrijk <a href="' + sourceUrls['6'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[6]</a>',
+      '52% van ondervraagden (n=1.100) mist het gevoel van fysieke materialen (Aurora casusmateriaal EDIM.21)',
+      'De wereldwijde schrijfwarenmarkt wordt geschat op $26-28 miljard in 2025 <a href="' + sourceUrls['1'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[1]</a> <a href="' + sourceUrls['7'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[7]</a>',
+    ],
+  },
+  {
+    letter: 'O',
+    title: 'Onderwijs',
+    color: 'bg-blue-500',
+    textColor: 'text-blue-500',
+    borderColor: 'border-blue-500/30',
+    bgLight: 'bg-blue-500/10',
+    items: [
+      '66% van de EU-leerlingen schrijft primair digitaal (Aurora casusmateriaal EDIM.21)',
+      'Hersenonderzoek (<a href="https://nl.wikipedia.org/wiki/Elektro-encefalografie" target="_blank" class="underline">EEG</a>, meet elektrische hersenactiviteit via sensoren op het hoofd) toont aan dat handschrift hersengebieden activeert die bij typen niet betrokken zijn <a href="' + sourceUrls['9'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[9]</a>',
+      'De <a href="https://nl.wikipedia.org/wiki/Organisatie_voor_Economische_Samenwerking_en_Ontwikkeling" target="_blank" class="underline">OESO</a> pleit voor "doelgericht gebruik" van digitale tools in plaats van zoveel mogelijk digitaal <a href="' + sourceUrls['8'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[8]</a>',
+    ],
+  },
+  {
+    letter: 'T',
+    title: 'Technosfeer',
+    color: 'bg-phase-design',
+    textColor: 'text-phase-design',
+    borderColor: 'border-phase-design/30',
+    bgLight: 'bg-phase-design/10',
+    items: [
+      'De markt voor <a href="https://en.wikipedia.org/wiki/Stylus_(computing)" target="_blank" class="underline">styluspennen</a> (digitale pennen voor tablets) is circa $23 miljard en groeit met 4,3% per jaar <a href="' + sourceUrls['11'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[11]</a>',
+      'Apple Pencil: circa 25 miljoen eenheden per jaar, Samsung S Pen: circa 18 miljoen <a href="' + sourceUrls['11'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[11]</a>',
+      '<a href="https://en.wikipedia.org/wiki/Digital_pen" target="_blank" class="underline">Smart pens</a> (pennen die analoog schrijven en tegelijk digitaal opslaan, zoals Livescribe en reMarkable) overbruggen analoog en digitaal <a href="' + sourceUrls['12'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[12]</a>',
+    ],
+  },
+  {
+    letter: 'E',
+    title: 'Economie',
+    color: 'bg-phase-deliver',
+    textColor: 'text-phase-deliver',
+    borderColor: 'border-phase-deliver/30',
+    bgLight: 'bg-phase-deliver/10',
+    items: [
+      'De schrijfinstrumentenmarkt is $17-22 miljard wereldwijd en groeit met 4-6% per jaar <a href="' + sourceUrls['5'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[5]</a> <a href="' + sourceUrls['13'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[13]</a>',
+      'Het luxe segment is circa $5 miljard en groeit met 4,6% per jaar <a href="' + sourceUrls['14'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[14]</a>',
+      'Aurora: onderwijs daalt van 38% naar 24% van de omzet, creatief stijgt van 21% naar 31% (Aurora casusmateriaal EDIM.21)',
+    ],
+  },
+  {
+    letter: 'E',
+    title: 'Ecologie',
+    color: 'bg-emerald-600',
+    textColor: 'text-emerald-600',
+    borderColor: 'border-emerald-600/30',
+    bgLight: 'bg-emerald-600/10',
+    items: [
+      'De <a href="https://en.wikipedia.org/wiki/European_Green_Deal" target="_blank" class="underline">EU Green Deal</a> en <a href="https://en.wikipedia.org/wiki/Extended_producer_responsibility" target="_blank" class="underline">uitgebreide producentenverantwoordelijkheid</a> stellen strengere eisen aan producenten <a href="' + sourceUrls['15'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[15]</a>',
+      'Faber-Castell beheert eigen duurzame bossen (<a href="https://nl.wikipedia.org/wiki/Forest_Stewardship_Council" target="_blank" class="underline">FSC-gecertificeerd</a>) in Brazilië <a href="' + sourceUrls['16'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[16]</a>',
+      'BIC streeft naar 100% herbruikbare of recyclebare verpakkingen <a href="' + sourceUrls['17'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[17]</a>',
+    ],
+  },
+  {
+    letter: 'P',
+    title: 'Politiek',
+    color: 'bg-phase-define',
+    textColor: 'text-phase-define',
+    borderColor: 'border-phase-define/30',
+    bgLight: 'bg-phase-define/10',
+    items: [
+      'De <a href="' + sourceUrls['15'] + '" target="_blank" class="underline">Corporate Sustainability Reporting Directive</a> (Europese rapportageplicht over duurzaamheid) verplicht grote bedrijven om over hun milieu-impact te rapporteren <a href="' + sourceUrls['15'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[15]</a>',
+      'Zweden investeert circa $45 miljoen per jaar om handschrift terug te brengen in scholen <a href="' + sourceUrls['6'] + '" target="_blank" class="text-dark/40 hover:text-dark/60">[6]</a>',
+      'Merkbescherming en designrechten worden steeds belangrijker in het premiumsegment',
+    ],
+  },
+];
+
+const sources = [
+  { num: '1', text: 'GlobeNewsWire (2023), Global Stationery Products Strategic Business Report', url: sourceUrls['1'] },
+  { num: '2', text: 'Pew Research Center (2024), Teens and Social Media', url: sourceUrls['2'] },
+  { num: '3', text: 'Eurostat (2024), Ageing Europe', url: sourceUrls['3'] },
+  { num: '4', text: 'OESO/OECD (2024), PISA 2022: Students, Digital Devices and Success', url: sourceUrls['4'] },
+  { num: '5', text: 'GM Insights (2025), Writing Instruments Market 2025-2034', url: sourceUrls['5'] },
+  { num: '6', text: 'VOA News (2023), Sweden Brings Books, Handwriting Back to School', url: sourceUrls['6'] },
+  { num: '6b', text: 'Think Academy US (2024), Sweden Education Shift', url: sourceUrls['6b'] },
+  { num: '7', text: 'Market Data Forecast (2025), Stationery Market 2033', url: sourceUrls['7'] },
+  { num: '8', text: 'OESO/OECD (2023), Digital Education Outlook', url: sourceUrls['8'] },
+  { num: '9', text: 'Van der Meer & Van der Weel (2024), Frontiers in Psychology', url: sourceUrls['9'] },
+  { num: '11', text: 'Verified Market Research (2024), Stylus Pen Market', url: sourceUrls['11'] },
+  { num: '12', text: 'Grand View Research (2024), Digital Pen Market', url: sourceUrls['12'] },
+  { num: '13', text: 'Statista (2025), Writing instruments market value', url: sourceUrls['13'] },
+  { num: '14', text: 'GlobeNewsWire (2026), Luxury Writing Instruments Market', url: sourceUrls['14'] },
+  { num: '15', text: 'Europese Commissie, Corporate Sustainability Reporting Directive', url: sourceUrls['15'] },
+  { num: '16', text: 'Faber-Castell, Sustainability', url: sourceUrls['16'] },
+  { num: '17', text: 'BIC, Sustainable Development', url: sourceUrls['17'] },
+  { num: '18', text: 'Fair Labor Association (2025), Child Labor Guidance', url: sourceUrls['18'] },
+  { num: '19', text: 'Christensen, C.M. (1997), The Innovator\'s Dilemma', url: sourceUrls['19'] },
+  { num: '20', text: 'Market Research Intellect (2024), Global Smart Pen Market Size and Forecast', url: sourceUrls['20'] },
+];
+---
+
+<BaseLayout title="Trendanalyse — Discover">
+  <!-- Hero -->
+  <section class="bg-dark text-white overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-80 h-80 bg-phase-discover/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 left-10 w-64 h-64 bg-phase-design/10 rounded-full blur-3xl"></div>
+
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24 relative z-10">
+      <nav class="reveal text-sm mb-6 flex items-center gap-2">
+        <a href={url('/')} class="text-white/40 hover:text-white/60 transition-colors">Home</a>
+        <span class="text-white/20">/</span>
+        <a href={url('/discover/')} class="text-white/40 hover:text-white/60 transition-colors">Discover</a>
+        <span class="text-white/20">/</span>
+        <span class="text-phase-discover font-medium">Trendanalyse</span>
+      </nav>
+      <h1 class="reveal reveal-delay-1 font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold leading-[0.95] mb-4">
+        Trend<span class="gradient-text">analyse</span>
+      </h1>
+      <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
+        Welke krachten vormen de wereld waarin Aurora opereert? Via <a href="https://nl.wikipedia.org/wiki/STEP-analyse" target="_blank" class="underline text-white/70 hover:text-white">IBSOTEEP</a> (uitgebreide omgevingsanalyse), Porter's 5 Forces en de trendpiramide brengen we het speelveld in kaart.
+      </p>
+      <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-discover mt-8"></div>
+    </div>
+  </section>
+
+  <!-- IBSOTEEP -->
+  <section class="bg-cream py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="reveal font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold text-dark mb-4">
+          <a href="https://nl.wikipedia.org/wiki/STEP-analyse" target="_blank" class="hover:text-dark/80">IBSOTEEP</a>
+        </h2>
+        <p class="reveal reveal-delay-1 text-dark/50 max-w-2xl mx-auto">Acht invalshoeken op de buitenwereld van Aurora: Identiteit, Bevolking, Sociaal-cultureel, Onderwijs, Technosfeer, Economie, Ecologie en Politiek.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {ibsoteep.map((domain, i) => (
+          <div class={`reveal reveal-delay-${(i % 4) + 1} ${domain.bgLight} border ${domain.borderColor} rounded-2xl p-5 hover:scale-[1.02] transition-transform`}>
+            <div class="flex items-center gap-3 mb-4">
+              <div class={`w-10 h-10 ${domain.color} rounded-xl flex items-center justify-center text-white font-[family-name:var(--font-display)] font-bold text-lg`}>
+                {domain.letter}
+              </div>
+              <h3 class={`font-[family-name:var(--font-display)] font-bold text-lg ${domain.textColor}`}>{domain.title}</h3>
+            </div>
+            <ul class="space-y-2">
+              {domain.items.map((item) => (
+                <li class="text-dark/60 text-sm leading-relaxed" set:html={item} />
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Porter's 5 Forces -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="reveal font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold text-dark mb-4">
+          <a href="https://nl.wikipedia.org/wiki/Vijfkrachtenmodel_van_Porter" target="_blank" class="hover:text-dark/80">Porter's 5 Forces</a>
+        </h2>
+        <p class="reveal reveal-delay-1 text-dark/50 max-w-2xl mx-auto">Hoe sterk zijn de concurrentiekrachten in de schrijfwarenmarkt? Klik op een kaart voor meer detail.</p>
+      </div>
+
+      <!-- Plus-shaped Porter model with colored cards -->
+      <div class="reveal reveal-delay-2 max-w-3xl mx-auto relative" id="porter-container">
+        <!-- Row 1: Nieuwe toetreders (top) -->
+        <div class="flex justify-center mb-4">
+          <button class="porter-card w-full max-w-sm bg-phase-define/10 border-2 border-phase-define/30 rounded-2xl p-5 text-left hover:scale-[1.02] transition-transform cursor-pointer" data-porter="toetreders">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-phase-define rounded-xl flex items-center justify-center text-white font-bold">T</div>
+              <div>
+                <h3 class="font-[family-name:var(--font-display)] font-bold text-dark">Nieuwe toetreders</h3>
+                <span class="text-xs font-bold text-orange-600">Hoog</span>
+              </div>
+            </div>
+            <p class="text-dark/60 text-sm leading-relaxed">Tech-bedrijven als Apple en Samsung herdefiniëren de schrijfmarkt met stylus-ecosystemen.</p>
+          </button>
+        </div>
+
+        <!-- Row 2: Leveranciers - Concurrentie - Afnemers -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+          <button class="porter-card bg-phase-refine/10 border-2 border-phase-refine/30 rounded-2xl p-5 text-left hover:scale-[1.02] transition-transform cursor-pointer" data-porter="leveranciers">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-phase-refine rounded-xl flex items-center justify-center text-white font-bold">L</div>
+              <div>
+                <h3 class="font-[family-name:var(--font-display)] font-bold text-dark">Leveranciers</h3>
+                <span class="text-xs font-bold text-yellow-600">Midden</span>
+              </div>
+            </div>
+            <p class="text-dark/60 text-sm leading-relaxed">Grondstoffen breed beschikbaar, maar duurzame varianten zijn beperkter en duurder.</p>
+          </button>
+
+          <button class="porter-card bg-phase-discover/10 border-2 border-phase-discover/30 rounded-2xl p-5 text-left hover:scale-[1.02] transition-transform cursor-pointer" data-porter="concurrentie">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-phase-discover rounded-xl flex items-center justify-center text-white font-bold">C</div>
+              <div>
+                <h3 class="font-[family-name:var(--font-display)] font-bold text-dark">Concurrentie</h3>
+                <span class="text-xs font-bold text-orange-600">Hoog</span>
+              </div>
+            </div>
+            <p class="text-dark/60 text-sm leading-relaxed">Faber-Castell, Staedtler, Pilot en Chinese fabrikanten. De markt verschuift van volume naar waarde.</p>
+          </button>
+
+          <button class="porter-card bg-phase-deliver/10 border-2 border-phase-deliver/30 rounded-2xl p-5 text-left hover:scale-[1.02] transition-transform cursor-pointer" data-porter="afnemers">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-phase-deliver rounded-xl flex items-center justify-center text-white font-bold">A</div>
+              <div>
+                <h3 class="font-[family-name:var(--font-display)] font-bold text-dark">Afnemers</h3>
+                <span class="text-xs font-bold text-orange-600">Hoog</span>
+              </div>
+            </div>
+            <p class="text-dark/60 text-sm leading-relaxed">Grote retailers dicteren in commodity, maar premium en D2C groeien als tegenwicht.</p>
+          </button>
+        </div>
+
+        <!-- Row 3: Substituten (onder) -->
+        <div class="flex justify-center">
+          <button class="porter-card w-full max-w-sm bg-phase-design/10 border-2 border-phase-design/30 rounded-2xl p-5 text-left hover:scale-[1.02] transition-transform cursor-pointer" data-porter="substituten">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-10 h-10 bg-phase-design rounded-xl flex items-center justify-center text-white font-bold">S</div>
+              <div>
+                <h3 class="font-[family-name:var(--font-display)] font-bold text-dark">Substituten</h3>
+                <span class="text-xs font-bold text-red-600">Zeer hoog</span>
+              </div>
+            </div>
+            <p class="text-dark/60 text-sm leading-relaxed">Tablets, digitale pennen, notitie-apps en AI-creatietools vervangen steeds meer traditionele functies.</p>
+          </button>
+        </div>
+
+        <!-- Key insight -->
+        <div class="reveal mt-8 bg-phase-discover/5 border border-phase-discover/20 rounded-2xl p-5 text-center">
+          <p class="text-dark/70 font-medium italic">
+            "De grootste bedreiging komt niet van andere pennenmakers, maar van tech-bedrijven die schrijven helemaal opnieuw definiëren."
+          </p>
+        </div>
+      </div>
+
+      <!-- Porter overlays (hidden, shown on click) -->
+      <div id="porter-overlay-toetreders" class="porter-overlay hidden fixed inset-0 z-50 flex items-center justify-center p-6">
+        <div class="absolute inset-0 bg-dark/60 backdrop-blur-sm" data-close></div>
+        <div class="relative bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl border-2 border-phase-define/30 animate-scale-in">
+          <button class="absolute top-4 right-4 w-8 h-8 rounded-full bg-dark/5 flex items-center justify-center hover:bg-dark/10 transition-colors" data-close>
+            <svg class="w-4 h-4 text-dark/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-phase-define rounded-xl flex items-center justify-center text-white font-bold text-lg">T</div>
+            <div>
+              <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-xl">Nieuwe toetreders</h3>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-700">Dreiging: Hoog</span>
+            </div>
+          </div>
+          <p class="text-dark/70 text-sm leading-relaxed mb-3">De drempel voor basisproducten (pennen, potloden) is laag. Maar de echte dreiging komt van tech-bedrijven die de "schrijfmarkt" opnieuw definiëren.</p>
+          <p class="text-dark/70 text-sm leading-relaxed mb-3">Apple verkoopt circa 25 miljoen Apple Pencils per jaar, Samsung circa 18 miljoen S Pens <a href={sourceUrls['11']} target="_blank" class="text-phase-define underline">[11]</a>. Deze bedrijven concurreren niet op prijs, maar op ecosysteem.</p>
+          <p class="text-dark/50 text-xs italic">Bron: <a href={sourceUrls['11']} target="_blank" class="underline hover:text-dark/70">Verified Market Research (2024)</a></p>
+        </div>
+      </div>
+
+      <div id="porter-overlay-leveranciers" class="porter-overlay hidden fixed inset-0 z-50 flex items-center justify-center p-6">
+        <div class="absolute inset-0 bg-dark/60 backdrop-blur-sm" data-close></div>
+        <div class="relative bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl border-2 border-phase-refine/30 animate-scale-in">
+          <button class="absolute top-4 right-4 w-8 h-8 rounded-full bg-dark/5 flex items-center justify-center hover:bg-dark/10 transition-colors" data-close>
+            <svg class="w-4 h-4 text-dark/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-phase-refine rounded-xl flex items-center justify-center text-white font-bold text-lg">L</div>
+            <div>
+              <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-xl">Leveranciers</h3>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-700">Macht: Midden</span>
+            </div>
+          </div>
+          <p class="text-dark/70 text-sm leading-relaxed mb-3">Grondstoffen (hout, grafiet, pigment) zijn breed beschikbaar. Maar duurzame varianten zoals <a href="https://nl.wikipedia.org/wiki/Forest_Stewardship_Council" target="_blank" class="text-phase-refine underline">FSC-gecertificeerd</a> hout en gerecycled plastic zijn beperkter en duurder.</p>
+          <p class="text-dark/70 text-sm leading-relaxed mb-3">De verschuiving naar duurzame productie verhoogt de afhankelijkheid van gespecialiseerde leveranciers <a href={sourceUrls['16']} target="_blank" class="text-phase-refine underline">[16]</a>.</p>
+          <p class="text-dark/50 text-xs italic">Bron: <a href={sourceUrls['16']} target="_blank" class="underline hover:text-dark/70">Faber-Castell Sustainability Report</a></p>
+        </div>
+      </div>
+
+      <div id="porter-overlay-concurrentie" class="porter-overlay hidden fixed inset-0 z-50 flex items-center justify-center p-6">
+        <div class="absolute inset-0 bg-dark/60 backdrop-blur-sm" data-close></div>
+        <div class="relative bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl border-2 border-phase-discover/30 animate-scale-in">
+          <button class="absolute top-4 right-4 w-8 h-8 rounded-full bg-dark/5 flex items-center justify-center hover:bg-dark/10 transition-colors" data-close>
+            <svg class="w-4 h-4 text-dark/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-phase-discover rounded-xl flex items-center justify-center text-white font-bold text-lg">C</div>
+            <div>
+              <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-xl">Concurrentie</h3>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-700">Rivaliteit: Hoog</span>
+            </div>
+          </div>
+          <p class="text-dark/70 text-sm leading-relaxed mb-3">De schrijfwarenmarkt kent intense concurrentie van gevestigde spelers als Faber-Castell, Staedtler en Pilot, plus Chinese fabrikanten die op volume en prijs concurreren.</p>
+          <p class="text-dark/70 text-sm leading-relaxed mb-3">De markt verschuift van volume naar waarde: groei zit in premium, creatief en duurzaam, niet in commodity <a href={sourceUrls['5']} target="_blank" class="text-phase-discover underline">[5]</a>.</p>
+          <p class="text-dark/50 text-xs italic">Bron: <a href={sourceUrls['5']} target="_blank" class="underline hover:text-dark/70">GM Insights (2025)</a></p>
+        </div>
+      </div>
+
+      <div id="porter-overlay-afnemers" class="porter-overlay hidden fixed inset-0 z-50 flex items-center justify-center p-6">
+        <div class="absolute inset-0 bg-dark/60 backdrop-blur-sm" data-close></div>
+        <div class="relative bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl border-2 border-phase-deliver/30 animate-scale-in">
+          <button class="absolute top-4 right-4 w-8 h-8 rounded-full bg-dark/5 flex items-center justify-center hover:bg-dark/10 transition-colors" data-close>
+            <svg class="w-4 h-4 text-dark/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-phase-deliver rounded-xl flex items-center justify-center text-white font-bold text-lg">A</div>
+            <div>
+              <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-xl">Afnemers</h3>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-orange-100 text-orange-700">Macht: Hoog</span>
+            </div>
+          </div>
+          <p class="text-dark/70 text-sm leading-relaxed mb-3">In het commodity-segment (standaard pennen, potloden) dicteren grote retailers als Bruna en Hema de voorwaarden. Zij kunnen makkelijk van leverancier wisselen.</p>
+          <p class="text-dark/70 text-sm leading-relaxed mb-3">In premium en niche telt merkwaarde meer. <a href="https://en.wikipedia.org/wiki/Direct-to-consumer" target="_blank" class="text-phase-deliver underline">Direct-to-Consumer</a> (rechtstreeks verkopen via eigen webshop) groeit als tegenwicht <a href={sourceUrls['14']} target="_blank" class="text-phase-deliver underline">[14]</a>.</p>
+          <p class="text-dark/50 text-xs italic">Bron: <a href={sourceUrls['14']} target="_blank" class="underline hover:text-dark/70">GlobeNewsWire (2026), Luxury Writing Instruments Market</a></p>
+        </div>
+      </div>
+
+      <div id="porter-overlay-substituten" class="porter-overlay hidden fixed inset-0 z-50 flex items-center justify-center p-6">
+        <div class="absolute inset-0 bg-dark/60 backdrop-blur-sm" data-close></div>
+        <div class="relative bg-white rounded-3xl p-8 max-w-lg w-full shadow-2xl border-2 border-phase-design/30 animate-scale-in">
+          <button class="absolute top-4 right-4 w-8 h-8 rounded-full bg-dark/5 flex items-center justify-center hover:bg-dark/10 transition-colors" data-close>
+            <svg class="w-4 h-4 text-dark/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-phase-design rounded-xl flex items-center justify-center text-white font-bold text-lg">S</div>
+            <div>
+              <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-xl">Substituten</h3>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full bg-red-100 text-red-700">Dreiging: Zeer hoog</span>
+            </div>
+          </div>
+          <p class="text-dark/70 text-sm leading-relaxed mb-3">De grootste bedreiging. Tablets, digitale pennen, notitie-apps en AI-creatietools vervangen steeds meer traditionele functies van pen en papier.</p>
+          <p class="text-dark/70 text-sm leading-relaxed mb-3">De markt voor digitale pennen alleen al is circa $23 miljard <a href={sourceUrls['11']} target="_blank" class="text-phase-design underline">[11]</a>. Dit past precies in <a href={sourceUrls['19']} target="_blank" class="text-phase-design underline">Christensen's theorie</a> over disruptieve innovatie: aanvankelijk "mindere" digitale tools die geleidelijk de mainstream overnemen <a href={sourceUrls['19']} target="_blank" class="text-phase-design underline">[19]</a>.</p>
+          <p class="text-dark/50 text-xs italic">Bronnen: <a href={sourceUrls['11']} target="_blank" class="underline hover:text-dark/70">Verified Market Research (2024)</a>, <a href={sourceUrls['19']} target="_blank" class="underline hover:text-dark/70">Christensen Institute</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Porter overlay logic
+    document.querySelectorAll('.porter-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.getAttribute('data-porter');
+        const overlay = document.getElementById(`porter-overlay-${id}`);
+        if (overlay) {
+          overlay.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+    document.querySelectorAll('.porter-overlay').forEach(overlay => {
+      overlay.querySelectorAll('[data-close]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          overlay.classList.add('hidden');
+          document.body.style.overflow = '';
+        });
+      });
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.porter-overlay').forEach(o => o.classList.add('hidden'));
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
+
+  <!-- Trendpiramide -->
+  <section class="bg-cream py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="reveal font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold text-dark mb-4">Trendpiramide</h2>
+        <p class="reveal reveal-delay-1 text-dark/50 max-w-2xl mx-auto">Van langdurige megatrends naar snelle microtrends: drie niveaus van verandering.</p>
+      </div>
+
+      <!-- Pyramid -->
+      <div class="reveal reveal-delay-2 space-y-4">
+        <!-- Mega -->
+        <div class="relative">
+          <div class="bg-dark rounded-2xl p-6 md:p-8 text-white max-w-sm mx-auto">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-xs font-bold bg-white/20 px-2.5 py-1 rounded-full">MEGA</span>
+              <span class="text-white/40 text-xs">10+ jaar, maatschappelijk</span>
+            </div>
+            <ul class="space-y-4 text-sm">
+              <li>
+                <strong class="text-base">Digitale transformatie</strong>
+                <p class="text-white/50 text-xs mt-1">Op 96% van de <a href="https://nl.wikipedia.org/wiki/Organisatie_voor_Economische_Samenwerking_en_Ontwikkeling" target="_blank" class="underline text-white/40 hover:text-white/60">OESO</a>-scholen zijn digitale apparaten beschikbaar <a href={sourceUrls['4']} target="_blank" class="text-white/30 hover:text-white/50">[4]</a></p>
+              </li>
+              <li>
+                <strong class="text-base">Duurzaamheidstransitie</strong>
+                <p class="text-white/50 text-xs mt-1"><a href="https://en.wikipedia.org/wiki/European_Green_Deal" target="_blank" class="underline text-white/40 hover:text-white/60">EU Green Deal</a> en <a href={sourceUrls['15']} target="_blank" class="underline text-white/40 hover:text-white/60">CSRD</a> (Europese duurzaamheidsrapportageplicht) stellen strengere eisen <a href={sourceUrls['15']} target="_blank" class="text-white/30 hover:text-white/50">[15]</a></p>
+              </li>
+              <li>
+                <strong class="text-base">Welzijn en mentale gezondheid</strong>
+                <p class="text-white/50 text-xs mt-1">72% van tieners: "te veel schermtijd" <a href={sourceUrls['2']} target="_blank" class="text-white/30 hover:text-white/50">[2]</a></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Macro -->
+        <div class="relative">
+          <div class="bg-dark/80 rounded-2xl p-6 md:p-8 text-white max-w-lg mx-auto">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-xs font-bold bg-white/20 px-2.5 py-1 rounded-full">MACRO</span>
+              <span class="text-white/40 text-xs">5-10 jaar, consument/markt</span>
+            </div>
+            <ul class="space-y-4 text-sm">
+              <li>
+                <strong class="text-base">Hybridisering analoog-digitaal</strong>
+                <p class="text-white/50 text-xs mt-1"><a href="https://en.wikipedia.org/wiki/Digital_pen" target="_blank" class="underline text-white/40 hover:text-white/60">Smart pens</a> en tablets combineren beide werelden. Digitale penmarkt groeit met circa 12% per jaar <a href={sourceUrls['12']} target="_blank" class="text-white/30 hover:text-white/50">[12]</a></p>
+              </li>
+              <li>
+                <strong class="text-base">Premiumisering</strong>
+                <p class="text-white/50 text-xs mt-1">Luxe schrijfinstrumenten groeien met 4,6% per jaar <a href={sourceUrls['14']} target="_blank" class="text-white/30 hover:text-white/50">[14]</a></p>
+              </li>
+              <li>
+                <strong class="text-base">Creatieve renaissance</strong>
+                <p class="text-white/50 text-xs mt-1"><a href="https://bulletjournal.com/pages/how-to-bullet-journal" target="_blank" class="underline text-white/40 hover:text-white/60">Bullet journaling</a> (fysieke agenda, dagboek en to-do-lijst in 1) heeft circa 92 miljoen gebruikers <a href={sourceUrls['1']} target="_blank" class="text-white/30 hover:text-white/50">[1]</a></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Micro -->
+        <div class="relative">
+          <div class="bg-dark/60 rounded-2xl p-6 md:p-8 text-white max-w-2xl mx-auto">
+            <div class="flex items-center gap-2 mb-4">
+              <span class="text-xs font-bold bg-white/20 px-2.5 py-1 rounded-full">MICRO</span>
+              <span class="text-white/40 text-xs">1-3 jaar, sector</span>
+            </div>
+            <ul class="space-y-4 text-sm">
+              <li>
+                <strong class="text-base">AI in creatietools</strong>
+                <p class="text-white/50 text-xs mt-1">Generatieve AI (zoals DALL-E, Midjourney) verlaagt de drempel voor visuele creatie en verandert de rol van traditioneel tekenen</p>
+              </li>
+              <li>
+                <strong class="text-base">Herontdekking handschrift</strong>
+                <p class="text-white/50 text-xs mt-1">Zweden investeert circa $45 miljoen per jaar om handschrift terug te brengen op scholen <a href={sourceUrls['6']} target="_blank" class="text-white/30 hover:text-white/50">[6]</a></p>
+              </li>
+              <li>
+                <strong class="text-base"><a href="https://en.wikipedia.org/wiki/Direct-to-consumer" target="_blank" class="underline text-white/80 hover:text-white">Direct-to-Consumer</a> en community</strong>
+                <p class="text-white/50 text-xs mt-1">Merken bouwen directe relaties met creatieve communities via sociale media <a href={sourceUrls['14']} target="_blank" class="text-white/30 hover:text-white/50">[14]</a></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Disruptive Innovation -->
+  <section class="bg-dark text-white py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="reveal font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold mt-2 mb-4">
+          <a href={sourceUrls['19']} target="_blank" class="hover:text-white/80">Disruptive Innovation</a>
+        </h2>
+        <p class="reveal reveal-delay-1 text-white/50 max-w-xl mx-auto">
+          Clayton Christensen beschrijft in <a href={sourceUrls['19']} target="_blank" class="underline text-white/60 hover:text-white/80">The Innovator's Dilemma</a> (1997) waarom succesvolle bedrijven falen bij technologische verschuivingen.
+        </p>
+      </div>
+
+      <!-- Theory explanation -->
+      <div class="reveal reveal-delay-2 grid md:grid-cols-2 gap-6 mb-10">
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-lg mb-3">Het kernidee</h3>
+          <p class="text-white/60 text-sm leading-relaxed">
+            Gevestigde bedrijven falen niet door slecht management, maar omdat ze <strong class="text-white">te goed luisteren naar bestaande klanten</strong>.
+            Ze reageren te laat op nieuwkomers die aanvankelijk slechtere maar goedkopere producten aanbieden.
+            Deze nieuwkomers verbeteren geleidelijk tot ze de mainstream overnemen <a href={sourceUrls['19']} target="_blank" class="text-white/30 hover:text-white/50">[19]</a>.
+          </p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-2xl p-6">
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-lg mb-3">De valkuil</h3>
+          <p class="text-white/60 text-sm leading-relaxed">
+            Het argument <strong class="text-white">"onze klanten willen premium analoog"</strong> is precies wat Christensen als de valkuil beschrijft.
+            Bedrijven focussen op de wensen van hun huidige beste klanten, terwijl een nieuw segment langzaam groeit tot het de markt overneemt <a href={sourceUrls['19']} target="_blank" class="text-white/30 hover:text-white/50">[19]</a>.
+          </p>
+        </div>
+      </div>
+
+      <!-- S-Curve visual: disruption timeline -->
+      <div class="reveal bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 mb-10">
+        <h3 class="font-[family-name:var(--font-display)] font-bold text-lg mb-2 text-center">S-curve: digitale disruptie van schrijven</h3>
+        <p class="text-white/40 text-xs text-center mb-6">De verschuiving van analoog naar digitaal schrijven was al decennia geleden detecteerbaar.
+          Smart pen markt: $2,29 miljard in 2023, groeit met 13% per jaar naar $7 miljard in 2031 <a href={sourceUrls['20']} target="_blank" class="text-white/30 hover:text-white/50 underline">[20]</a></p>
+
+        <svg class="w-full" viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
+          <!-- Axes -->
+          <line x1="60" y1="20" x2="60" y2="270" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <line x1="60" y1="270" x2="580" y2="270" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <!-- Axis labels -->
+          <text x="20" y="150" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="middle" transform="rotate(-90,20,150)">Adoptie</text>
+          <text x="580" y="288" fill="rgba(255,255,255,0.3)" font-size="11" text-anchor="end">Tijd</text>
+
+          <!-- Analoog: declining S-curve (stays above x-axis) -->
+          <path d="M70,40 Q120,40 180,50 Q280,70 380,120 Q460,170 560,230" stroke="#FF2D78" stroke-width="2.5" fill="none" opacity="0.7"/>
+          <!-- Digitaal: rising S-curve (stays above x-axis) -->
+          <path d="M70,255 Q140,252 200,245 Q260,230 320,190 Q380,130 420,80 Q460,45 560,30" stroke="#2D7AFF" stroke-width="2.5" fill="none" opacity="0.7"/>
+
+          <!-- Milestone dots ON the digital curve -->
+          <circle cx="180" cy="247" r="5" fill="#2D7AFF"/>
+          <circle cx="240" cy="235" r="5" fill="#2D7AFF"/>
+          <circle cx="350" cy="160" r="5" fill="#2D7AFF"/>
+          <circle cx="430" cy="70" r="5" fill="#2D7AFF"/>
+
+          <!-- AI explosion burst -->
+          <circle cx="500" cy="38" r="8" fill="#8B2DFF"/>
+          <!-- Starburst rays -->
+          <line x1="500" y1="22" x2="500" y2="12" stroke="#8B2DFF" stroke-width="2" opacity="0.7"/>
+          <line x1="500" y1="54" x2="500" y2="64" stroke="#8B2DFF" stroke-width="2" opacity="0.7"/>
+          <line x1="484" y1="38" x2="474" y2="38" stroke="#8B2DFF" stroke-width="2" opacity="0.7"/>
+          <line x1="516" y1="38" x2="526" y2="38" stroke="#8B2DFF" stroke-width="2" opacity="0.7"/>
+          <line x1="489" y1="27" x2="482" y2="20" stroke="#8B2DFF" stroke-width="1.5" opacity="0.5"/>
+          <line x1="511" y1="27" x2="518" y2="20" stroke="#8B2DFF" stroke-width="1.5" opacity="0.5"/>
+          <line x1="489" y1="49" x2="482" y2="56" stroke="#8B2DFF" stroke-width="1.5" opacity="0.5"/>
+          <line x1="511" y1="49" x2="518" y2="56" stroke="#8B2DFF" stroke-width="1.5" opacity="0.5"/>
+          <circle cx="500" cy="38" r="16" fill="none" stroke="#8B2DFF" stroke-width="1" opacity="0.3"/>
+          <circle cx="500" cy="38" r="24" fill="none" stroke="#8B2DFF" stroke-width="0.5" opacity="0.15"/>
+
+          <!-- Labels next to dots -->
+          <rect x="110" y="255" width="80" height="18" rx="4" fill="rgba(255,255,255,0.05)"/>
+          <text x="150" y="268" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="middle">Word (1983)</text>
+
+          <rect x="185" y="218" width="85" height="18" rx="4" fill="rgba(255,255,255,0.05)"/>
+          <text x="228" y="231" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="middle">E-mail (1990s)</text>
+
+          <rect x="290" y="165" width="115" height="18" rx="4" fill="rgba(255,255,255,0.05)"/>
+          <text x="348" y="178" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="middle">Smartphones (2007)</text>
+
+          <rect x="370" y="77" width="120" height="18" rx="4" fill="rgba(255,255,255,0.05)"/>
+          <text x="430" y="90" fill="rgba(255,255,255,0.5)" font-size="10" text-anchor="middle">Tablets + stylus (2015)</text>
+
+          <!-- AI label with explosion styling -->
+          <rect x="440" y="48" width="120" height="20" rx="6" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+          <text x="500" y="62" fill="rgba(255,255,255,0.8)" font-size="10" font-weight="bold" text-anchor="middle">AI + smart pens (2023+)</text>
+
+          <!-- Legend (top-right, clear of axes) -->
+          <line x1="460" y1="25" x2="480" y2="25" stroke="#FF2D78" stroke-width="2.5"/>
+          <text x="485" y="29" fill="rgba(255,255,255,0.4)" font-size="10">Analoog</text>
+          <line x1="535" y1="25" x2="555" y2="25" stroke="#2D7AFF" stroke-width="2.5"/>
+          <text x="560" y="29" fill="rgba(255,255,255,0.4)" font-size="10">Digitaal</text>
+        </svg>
+      </div>
+
+      <!-- Application to Aurora -->
+      <div class="reveal grid md:grid-cols-3 gap-4">
+        <div class="bg-phase-discover/10 border border-phase-discover/20 rounded-2xl p-5 text-center">
+          <h4 class="font-bold text-sm mb-2">De disruptor</h4>
+          <p class="text-white/50 text-xs">Tablets en stylussen waren eerst "slechter" dan pen en papier. Nu haalt Apple Pencil professioneel niveau.</p>
+        </div>
+        <div class="bg-phase-define/10 border border-phase-define/20 rounded-2xl p-5 text-center">
+          <h4 class="font-bold text-sm mb-2">De blinde vlek</h4>
+          <p class="text-white/50 text-xs">"Onze klanten willen analoog" is logisch, maar de klanten van morgen groeien op met iPads.</p>
+        </div>
+        <div class="bg-phase-deliver/10 border border-phase-deliver/20 rounded-2xl p-5 text-center">
+          <h4 class="font-bold text-sm mb-2">De oplossing</h4>
+          <p class="text-white/50 text-xs">Christensen adviseert: richt een aparte eenheid op voor hybride innovatie, los van de kernbusiness <a href={sourceUrls['19']} target="_blank" class="text-white/30 hover:text-white/50">[19]</a>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notitie klasdiscussie -->
+  <section class="bg-warm-gray py-12">
+    <div class="max-w-3xl mx-auto px-6">
+      <div class="reveal bg-white rounded-2xl p-6 border border-dark/5 shadow-sm">
+        <div class="flex items-start gap-3">
+          <div class="w-8 h-8 bg-accent-yellow rounded-lg flex items-center justify-center flex-shrink-0 text-dark text-xs font-bold">!</div>
+          <div>
+            <h3 class="font-[family-name:var(--font-display)] font-bold text-dark mb-2">Notitie klasdiscussie</h3>
+            <p class="text-dark/60 text-sm leading-relaxed">
+              In de les hebben we gesproken over de <strong class="text-dark">maatschappelijke impact van goedkope productie</strong> in lage-lonenlanden. Grote volumes wegwerppennen worden geproduceerd in China en India, waar arbeidsomstandigheden sterk variëren.
+              Dit is een ethisch spanningsveld voor Aurora's positionering als ze zich willen onderscheiden op duurzaamheid en verantwoorde productie.
+              <a href={sourceUrls['18']} target="_blank" class="text-dark/40 hover:text-dark/60 underline">[18]</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sources -->
+  <section class="bg-cream py-12">
+    <div class="max-w-3xl mx-auto px-6">
+      <details class="reveal group">
+        <summary class="cursor-pointer font-[family-name:var(--font-display)] font-bold text-dark text-lg flex items-center gap-2">
+          <svg class="w-4 h-4 text-dark/40 group-open:rotate-90 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          Bronverwijzingen
+        </summary>
+        <div class="mt-4 space-y-1">
+          {sources.map((s) => (
+            <p class="text-xs text-dark/40">
+              <strong class="text-dark/50">[{s.num}]</strong>{' '}
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="underline hover:text-dark/60 transition-colors">{s.text}</a>
+            </p>
+          ))}
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="bg-dark text-white py-16">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <p class="reveal text-white/40 text-sm mb-4">Volgende bewijsstuk</p>
+      <a href={url('/discover/scenario/')} class="reveal reveal-delay-1 inline-flex items-center gap-2 bg-phase-discover text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform">
+        Scenariobouwing
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

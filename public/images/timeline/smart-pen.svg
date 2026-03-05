@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <rect width="200" height="200" rx="24" fill="#3D2B1F" opacity="0.15"/>
+  <!-- Hybrid concept: analog pen meets digital -->
+  <!-- Paper/notebook -->
+  <rect x="20" y="50" width="80" height="110" rx="4" fill="#FFF8F0" stroke="#DDD" stroke-width="1"/>
+  <line x1="30" y1="70" x2="90" y2="70" stroke="#E0D8C8" stroke-width="0.5"/>
+  <line x1="30" y1="82" x2="90" y2="82" stroke="#E0D8C8" stroke-width="0.5"/>
+  <line x1="30" y1="94" x2="90" y2="94" stroke="#E0D8C8" stroke-width="0.5"/>
+  <line x1="30" y1="106" x2="90" y2="106" stroke="#E0D8C8" stroke-width="0.5"/>
+  <line x1="30" y1="118" x2="90" y2="118" stroke="#E0D8C8" stroke-width="0.5"/>
+  <line x1="30" y1="130" x2="90" y2="130" stroke="#E0D8C8" stroke-width="0.5"/>
+  <line x1="30" y1="142" x2="90" y2="142" stroke="#E0D8C8" stroke-width="0.5"/>
+  <!-- Handwriting on paper -->
+  <path d="M35,68 Q45,63 55,69 Q65,64 75,70" stroke="#333" stroke-width="1" fill="none"/>
+  <path d="M35,80 Q50,75 65,81 Q80,76 85,82" stroke="#333" stroke-width="1" fill="none"/>
+  <path d="M35,92 Q42,88 50,93" stroke="#333" stroke-width="1" fill="none"/>
+  <!-- Smart pen -->
+  <g transform="rotate(-35, 110, 90)">
+    <rect x="100" y="30" width="12" height="100" rx="6" fill="#333"/>
+    <rect x="101" y="30" width="10" height="100" rx="5" fill="#444"/>
+    <!-- LED indicator -->
+    <circle cx="106" cy="42" r="2.5" fill="#2DCC5B"/>
+    <circle cx="106" cy="42" r="4" fill="#2DCC5B" opacity="0.2"/>
+    <!-- Camera lens -->
+    <circle cx="106" cy="120" r="3" fill="#222"/>
+    <circle cx="106" cy="120" r="1.5" fill="#444"/>
+    <!-- Tip -->
+    <polygon points="101,130 111,130 106,145" fill="#888"/>
+  </g>
+  <!-- Digital sync visualization -->
+  <g transform="translate(120, 50)">
+    <!-- Phone/tablet screen -->
+    <rect x="10" y="10" width="50" height="80" rx="6" fill="#1A1A2E"/>
+    <rect x="13" y="15" width="44" height="70" rx="3" fill="#111128"/>
+    <!-- Same handwriting appearing digitally -->
+    <path d="M18,30 Q28,25 38,31 Q48,26 52,32" stroke="#2D7AFF" stroke-width="1" fill="none" opacity="0.8"/>
+    <path d="M18,42 Q33,37 48,43" stroke="#2D7AFF" stroke-width="1" fill="none" opacity="0.8"/>
+    <path d="M18,54 Q25,50 32,55" stroke="#2D7AFF" stroke-width="1" fill="none" opacity="0.8"/>
+  </g>
+  <!-- Sync arrows -->
+  <g opacity="0.4">
+    <path d="M105,150 Q120,160 135,150" stroke="#8B2DFF" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+    <path d="M135,155 Q120,165 105,155" stroke="#8B2DFF" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+  </g>
+  <!-- AI sparkles -->
+  <g fill="#FFD700" opacity="0.4">
+    <polygon points="170,30 172,36 178,36 173,40 175,46 170,42 165,46 167,40 162,36 168,36"/>
+    <polygon points="155,55 156.5,59 161,59 157.5,62 159,66 155,63 151,66 152.5,62 149,59 153.5,59" transform="scale(0.7) translate(70, 25)"/>
+  </g>
+</svg>

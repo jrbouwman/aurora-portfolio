@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../utils/base';
 
 export async function getStaticPaths() {
   const entries = await getCollection('deliver');
@@ -15,35 +16,32 @@ const { Content } = await render(entry);
 ---
 
 <BaseLayout title={entry.data.title}>
-  <section class="bg-phase-deliver/10 border-b-4 border-phase-deliver">
-    <div class="max-w-4xl mx-auto px-6 py-8">
-      <nav class="text-sm mb-4">
-        <a href="/" class="text-navy/50 hover:text-navy">Home</a>
-        <span class="text-navy/30 mx-2">/</span>
-        <a href="/deliver/" class="text-navy/50 hover:text-navy">Deliver</a>
-        <span class="text-navy/30 mx-2">/</span>
+  <section class="bg-dark text-white overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-72 h-72 bg-phase-deliver/20 rounded-full blur-3xl"></div>
+    <div class="max-w-4xl mx-auto px-6 py-12 relative z-10">
+      <nav class="text-sm mb-6 flex items-center gap-2">
+        <a href={url('/')} class="text-white/40 hover:text-white/60 transition-colors">Home</a>
+        <span class="text-white/20">/</span>
+        <a href={url('/deliver/')} class="text-white/40 hover:text-white/60 transition-colors">Deliver</a>
+        <span class="text-white/20">/</span>
         <span class="text-phase-deliver font-medium">{entry.data.title}</span>
       </nav>
-      <div class="flex items-center gap-3">
-        <span class="text-3xl">{entry.data.icon}</span>
+      <div class="flex items-center gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-phase-deliver flex items-center justify-center text-2xl">{entry.data.icon}</div>
         <div>
-          <h1 class="text-3xl font-bold text-navy">{entry.data.title}</h1>
-          <p class="text-navy/60 mt-1">{entry.data.description}</p>
+          <h1 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold">{entry.data.title}</h1>
+          <p class="reveal reveal-delay-1 text-white/50 mt-1">{entry.data.description}</p>
         </div>
       </div>
     </div>
   </section>
 
   <article class="max-w-4xl mx-auto px-6 py-12">
-    <div class="prose max-w-none">
-      <Content />
-    </div>
-    <div class="mt-12 pt-8 border-t border-gray-200">
-      <a href="/deliver/" class="inline-flex items-center text-phase-deliver hover:text-navy-light font-medium">
-        <svg class="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M19 12H5M12 19l-7-7 7-7" />
-        </svg>
-        Terug naar Deliver overzicht
+    <div class="reveal prose max-w-none"><Content /></div>
+    <div class="mt-12 pt-8 border-t border-dark/10">
+      <a href={url('/deliver/')} class="inline-flex items-center gap-2 text-phase-deliver hover:gap-3 font-bold transition-all">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        Terug naar Deliver
       </a>
     </div>
   </article>

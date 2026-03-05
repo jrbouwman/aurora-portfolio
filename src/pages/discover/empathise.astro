@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../utils/base';
+---
+
+<BaseLayout title="Immersive Research — Discover">
+  <!-- Hero -->
+  <section class="bg-dark text-white overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-80 h-80 bg-phase-discover/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-10 left-20 w-64 h-64 bg-phase-refine/10 rounded-full blur-3xl"></div>
+
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24 relative z-10">
+      <nav class="reveal text-sm mb-6 flex items-center gap-2">
+        <a href={url('/')} class="text-white/40 hover:text-white/60 transition-colors">Home</a>
+        <span class="text-white/20">/</span>
+        <a href={url('/discover/')} class="text-white/40 hover:text-white/60 transition-colors">Discover</a>
+        <span class="text-white/20">/</span>
+        <span class="text-phase-discover font-medium">Immersive Research</span>
+      </nav>
+      <h1 class="reveal reveal-delay-1 font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold leading-[0.95] mb-4">
+        Immersive<br /><span class="gradient-text">Research</span>
+      </h1>
+      <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
+        De wereld van de gebruiker begrijpen door onderdompeling. Niet oplossen, maar ontdekken.
+      </p>
+      <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-discover mt-8"></div>
+    </div>
+  </section>
+
+  <!-- Onderzoeksplan -->
+  <section class="bg-cream py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-8 text-center">Onderzoeksplan</h2>
+
+      <div class="reveal reveal-delay-1 grid md:grid-cols-3 gap-4 mb-10">
+        <div class="bg-white rounded-2xl p-6 border border-dark/5 shadow-sm">
+          <div class="w-10 h-10 bg-phase-discover rounded-xl flex items-center justify-center text-white text-lg mb-3">?</div>
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark mb-2">Doel</h3>
+          <p class="text-dark/40 text-sm italic leading-relaxed">
+            Wat willen we leren over hoe mensen schrijven, tekenen en creatief bezig zijn? Welke onvervulde behoeften bestaan er?
+          </p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-dark/5 shadow-sm">
+          <div class="w-10 h-10 bg-phase-refine rounded-xl flex items-center justify-center text-white text-lg mb-3">&#9881;</div>
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark mb-2">Methode</h3>
+          <p class="text-dark/40 text-sm italic leading-relaxed">
+            Combinatie van learn from experience, observation en users. Minimaal 1,5 uur per teamlid.
+          </p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-dark/5 shadow-sm">
+          <div class="w-10 h-10 bg-phase-design rounded-xl flex items-center justify-center text-white text-lg mb-3">&#128101;</div>
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark mb-2">Doelgroep</h3>
+          <p class="text-dark/40 text-sm italic leading-relaxed">
+            Studenten, creatieven, docenten: mensen die schrijven en tekenen in hun dagelijks leven.
+          </p>
+        </div>
+      </div>
+
+      <!-- Planning table placeholder -->
+      <div class="reveal reveal-delay-2 bg-white rounded-2xl p-6 border border-dark/5 shadow-sm">
+        <h3 class="font-[family-name:var(--font-display)] font-bold text-dark mb-4">Planning</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-dark text-white">
+                <th class="px-4 py-2.5 text-left rounded-tl-lg">Wat</th>
+                <th class="px-4 py-2.5 text-left">Wanneer</th>
+                <th class="px-4 py-2.5 text-left">Wie</th>
+                <th class="px-4 py-2.5 text-left rounded-tr-lg">Duur</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b border-dark/5">
+                <td class="px-4 py-3 text-dark/40 italic">Vul in na groepsdiscussie</td>
+                <td class="px-4 py-3 text-dark/40 italic">—</td>
+                <td class="px-4 py-3 text-dark/40 italic">—</td>
+                <td class="px-4 py-3 text-dark/40 italic">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Uitvoering -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Uitvoering</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Minimaal 1,5 uur veldonderzoek per teamlid</p>
+
+      <!-- Session placeholders -->
+      <div class="reveal reveal-delay-2 space-y-4">
+        <div class="bg-white rounded-2xl p-6 border border-dark/5 shadow-sm border-l-4 border-l-phase-discover">
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark mb-1">Sessie 1</h3>
+          <p class="text-dark/40 text-sm italic">Nog in te vullen: beschrijf datum, locatie, deelnemers en wat je hebt gezien/gehoord/gevoeld.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-dark/5 shadow-sm border-l-4 border-l-phase-define">
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark mb-1">Sessie 2</h3>
+          <p class="text-dark/40 text-sm italic">Nog in te vullen</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Foto's placeholder -->
+  <section class="bg-cream py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Foto's & Notities</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Beelden uit het veldonderzoek</p>
+
+      <div class="reveal reveal-delay-2 grid grid-cols-2 md:grid-cols-3 gap-4">
+        {[1,2,3,4,5,6].map(() => (
+          <div class="aspect-square bg-dark/5 rounded-2xl flex items-center justify-center border-2 border-dashed border-dark/10">
+            <div class="text-center">
+              <svg class="w-8 h-8 text-dark/20 mx-auto mb-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                <circle cx="8.5" cy="8.5" r="1.5"/>
+                <path d="M21 15l-5-5L5 21"/>
+              </svg>
+              <span class="text-xs text-dark/20">Foto toevoegen</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Dreams & Gripes -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Dreams & Gripes</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Wat willen gebruikers? Wat frustreert ze?</p>
+
+      <div class="reveal reveal-delay-2 grid md:grid-cols-2 gap-6">
+        <!-- Dreams -->
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 bg-phase-deliver rounded-lg flex items-center justify-center text-white text-sm">&#10024;</div>
+            <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-xl">Dreams</h3>
+          </div>
+          <div class="space-y-3">
+            {[1,2,3,4,5].map((n) => (
+              <div class="bg-phase-deliver/5 border border-phase-deliver/20 rounded-xl p-4">
+                <span class="text-phase-deliver font-bold text-sm">Dream {n}</span>
+                <p class="text-dark/40 text-sm italic mt-1">Vul in na veldonderzoek</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Gripes -->
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <div class="w-8 h-8 bg-phase-discover rounded-lg flex items-center justify-center text-white text-sm">&#9889;</div>
+            <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-xl">Gripes</h3>
+          </div>
+          <div class="space-y-3">
+            {[1,2,3,4,5].map((n) => (
+              <div class="bg-phase-discover/5 border border-phase-discover/20 rounded-xl p-4">
+                <span class="text-phase-discover font-bold text-sm">Gripe {n}</span>
+                <p class="text-dark/40 text-sm italic mt-1">Vul in na veldonderzoek</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="bg-dark text-white py-16">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href={url('/discover/scenario/')} class="reveal inline-flex items-center gap-2 text-white/50 hover:text-white font-bold transition-colors">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        Scenariobouwing
+      </a>
+      <a href={url('/discover/challenges/')} class="reveal reveal-delay-1 inline-flex items-center gap-2 bg-phase-discover text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform">
+        Challenges
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
