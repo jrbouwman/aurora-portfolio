@@ -5,7 +5,7 @@ import { url } from '../../utils/base';
 
 <BaseLayout title="Challenges — Discover">
   <!-- Hero -->
-  <section class="bg-dark text-white overflow-hidden relative">
+  <section class="bg-bg-primary text-white overflow-hidden relative">
     <div class="absolute top-0 right-0 w-80 h-80 bg-phase-discover/20 rounded-full blur-3xl"></div>
     <div class="absolute bottom-20 left-10 w-64 h-64 bg-accent-yellow/10 rounded-full blur-3xl"></div>
 
@@ -30,7 +30,7 @@ import { url } from '../../utils/base';
   <!-- HZWK uitleg -->
   <section class="bg-cream py-16">
     <div class="max-w-4xl mx-auto px-6">
-      <div class="reveal bg-white rounded-3xl p-8 md:p-10 shadow-sm border border-dark/5">
+      <div class="reveal bg-bg-elevated rounded-3xl p-8 md:p-10 shadow-sm border border-white/5">
         <div class="flex items-start gap-4">
           <div class="w-12 h-12 bg-accent-yellow rounded-2xl flex items-center justify-center text-dark text-xl flex-shrink-0 font-bold">?</div>
           <div>
@@ -54,10 +54,10 @@ import { url } from '../../utils/base';
       <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Compilatie Dreams & Gripes</h2>
       <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Samenvatting van inzichten uit immersive research</p>
 
-      <div class="reveal reveal-delay-2 bg-white rounded-2xl overflow-hidden border border-dark/5 shadow-sm">
+      <div class="reveal reveal-delay-2 bg-bg-elevated rounded-2xl overflow-hidden border border-white/5 shadow-sm">
         <table class="w-full text-sm">
           <thead>
-            <tr class="bg-dark text-white">
+            <tr class="bg-bg-surface text-text-primary">
               <th class="px-4 py-3 text-left w-12">#</th>
               <th class="px-4 py-3 text-left w-20">Type</th>
               <th class="px-4 py-3 text-left">Beschrijving</th>
@@ -66,7 +66,7 @@ import { url } from '../../utils/base';
           </thead>
           <tbody>
             {[1,2,3,4,5].map((n) => (
-              <tr class={`border-b border-dark/5 ${n % 2 === 0 ? 'bg-warm-gray/50' : ''}`}>
+              <tr class={`border-b border-white/5 ${n % 2 === 0 ? 'bg-bg-secondary/50' : ''}`}>
                 <td class="px-4 py-3 text-dark/40">{n}</td>
                 <td class="px-4 py-3">
                   <span class={`text-xs font-bold px-2 py-0.5 rounded-full ${n <= 3 ? 'bg-phase-deliver/10 text-phase-deliver' : 'bg-phase-discover/10 text-phase-discover'}`}>
@@ -97,7 +97,7 @@ import { url } from '../../utils/base';
           { num: 4, color: 'border-l-phase-refine', bg: 'bg-phase-refine' },
           { num: 5, color: 'border-l-phase-deliver', bg: 'bg-phase-deliver' },
         ].map((c) => (
-          <div class={`bg-white rounded-2xl p-6 border border-dark/5 shadow-sm border-l-4 ${c.color}`}>
+          <div class={`bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm border-l-4 ${c.color}`}>
             <div class="flex items-start gap-4">
               <div class={`w-8 h-8 ${c.bg} rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0`}>
                 {c.num}
@@ -119,7 +119,7 @@ import { url } from '../../utils/base';
   </section>
 
   <!-- Top 3 selectie -->
-  <section class="bg-dark text-white py-20">
+  <section class="bg-bg-primary text-white py-20">
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold mb-3 text-center">Top 3 Challenges</h2>
       <p class="reveal reveal-delay-1 text-white/50 text-center mb-10">Na discussie en scoring geselecteerd om mee verder te gaan</p>

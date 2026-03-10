@@ -2,30 +2,30 @@
 import { url } from '../utils/base';
 
 const phases = [
-  { name: 'Discover', href: url('/discover/'), color: 'bg-phase-discover' },
-  { name: 'Define', href: url('/define/'), color: 'bg-phase-define' },
-  { name: 'Design', href: url('/design/'), color: 'bg-phase-design' },
-  { name: 'Refine', href: url('/refine/'), color: 'bg-phase-refine' },
-  { name: 'Deliver', href: url('/deliver/'), color: 'bg-phase-deliver' },
+  { name: 'Discover', href: url('/discover/'), color: '#F47264' },
+  { name: 'Define', href: url('/define/'), color: '#3B82F6' },
+  { name: 'Design', href: url('/design/'), color: '#A78BFA' },
+  { name: 'Refine', href: url('/refine/'), color: '#F59E0B' },
+  { name: 'Deliver', href: url('/deliver/'), color: '#22C55E' },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="bg-dark text-white sticky top-0 z-50">
+<nav class="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl" style="background: rgba(15, 14, 26, 0.8); box-shadow: 0 1px 0 rgba(255,255,255,0.05);">
   <div class="max-w-6xl mx-auto px-6">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
       <a href={url('/')} class="flex items-center gap-3 group">
-        <svg viewBox="0 0 32 32" class="w-9 h-9 group-hover:scale-110 transition-transform" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 32 32" class="w-9 h-9 group-hover:scale-110 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <linearGradient id="aurora-nav" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#2D7AFF"/>
-              <stop offset="50%" stop-color="#8B2DFF"/>
-              <stop offset="100%" stop-color="#FF2D78"/>
+              <stop offset="0%" stop-color="#3B82F6"/>
+              <stop offset="50%" stop-color="#8B5CF6"/>
+              <stop offset="100%" stop-color="#F47264"/>
             </linearGradient>
           </defs>
-          <rect width="32" height="32" rx="7" fill="#1A1A2E"/>
+          <rect width="32" height="32" rx="7" fill="#161427"/>
           <g transform="translate(16,16) rotate(-20) translate(-16,-16)">
             <rect x="13" y="4" width="6" height="16" rx="2" fill="url(#aurora-nav)"/>
             <path d="M13,20 L16,28 L19,20 Z" fill="url(#aurora-nav)"/>
@@ -33,7 +33,7 @@ const currentPath = Astro.url.pathname;
             <circle cx="16" cy="27" r="1" fill="white" opacity="0.7"/>
           </g>
         </svg>
-        <span class="font-[family-name:var(--font-display)] font-bold text-lg hidden sm:block">Aurora</span>
+        <span class="font-[family-name:var(--font-display)] text-text-primary text-lg hidden sm:block">Aurora</span>
       </a>
 
       <!-- Phase Tabs -->
@@ -44,13 +44,16 @@ const currentPath = Astro.url.pathname;
             <a
               href={phase.href}
               class:list={[
-                'px-3 py-2 rounded-xl text-sm font-medium transition-all duration-200',
+                'px-3 py-2 rounded-xl text-sm font-medium transition-all duration-300',
                 isActive
-                  ? 'bg-white/15 text-white'
-                  : 'text-white/50 hover:text-white hover:bg-white/10',
+                  ? 'bg-white/10 text-text-primary'
+                  : 'text-text-muted hover:text-text-primary hover:bg-white/5',
               ]}
             >
-              <span class:list={['inline-block w-2.5 h-2.5 rounded-full mr-1.5 transition-transform', phase.color, isActive && 'scale-125']} />
+              <span
+                class:list={['inline-block rounded-full mr-1.5 transition-all duration-300', isActive ? 'w-2.5 h-2.5' : 'w-2 h-2']}
+                style={`background-color: ${phase.color}; ${isActive ? `box-shadow: 0 0 8px ${phase.color}60;` : ''}`}
+              />
               <span class="hidden md:inline">{phase.name}</span>
             </a>
           );
@@ -59,3 +62,5 @@ const currentPath = Astro.url.pathname;
     </div>
   </div>
 </nav>
+<!-- Spacer for fixed nav -->
+<div class="h-16"></div>

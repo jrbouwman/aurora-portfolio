@@ -1,35 +1,79 @@
 @import "tailwindcss";
 
 @theme {
-  /* Fun & Bold Color Palette */
-  --color-dark: #1A1A2E;
-  --color-dark-light: #2D2D44;
-  --color-cream: #FFF8F0;
-  --color-warm-gray: #F5F0E8;
+  /* Dark Premium Canvas */
+  --color-bg-primary: #0F0E1A;
+  --color-bg-secondary: #161427;
+  --color-bg-elevated: #1E1B32;
+  --color-bg-surface: #252240;
 
-  /* Phase Colors - vivid & playful */
-  --color-phase-discover: #FF2D78;
-  --color-phase-define: #2D7AFF;
-  --color-phase-design: #8B2DFF;
-  --color-phase-refine: #FF8A2D;
-  --color-phase-deliver: #2DCC5B;
-  --color-phase-gate: #FFD02D;
+  /* Legacy aliases - remapped for dark theme */
+  --color-dark: #F5F0EB;
+  --color-dark-light: #9B95A8;
+  --color-cream: #0F0E1A;
+  --color-warm-gray: #161427;
 
-  /* Accent */
-  --color-accent-yellow: #FFD02D;
-  --color-accent-cyan: #2DD4BF;
+  /* Text */
+  --color-text-primary: #F5F0EB;
+  --color-text-secondary: #9B95A8;
+  --color-text-muted: #6B6580;
+
+  /* Accent Colors */
+  --color-accent-coral: #F47264;
+  --color-accent-magenta: #D946EF;
+  --color-accent-purple: #8B5CF6;
+  --color-accent-blue: #3B82F6;
+  --color-accent-amber: #F59E0B;
+  --color-accent-green: #22C55E;
+  --color-accent-lavender: #A78BFA;
+  --color-accent-salmon: #FB7185;
+
+  /* Phase Colors */
+  --color-phase-discover: #F47264;
+  --color-phase-define: #3B82F6;
+  --color-phase-design: #A78BFA;
+  --color-phase-refine: #F59E0B;
+  --color-phase-deliver: #22C55E;
+  --color-phase-gate: #F59E0B;
 
   /* Typography */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Nunito', 'Quicksand', 'Inter', system-ui, sans-serif;
+  --font-display: 'Patrick Hand', 'Caveat', cursive;
+  --font-ui: 'Nunito', sans-serif;
 }
 
 /* Base styles */
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-cream);
-  color: var(--color-dark);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
   line-height: 1.7;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+/* Noise/grain texture overlay */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Wavy underline utility */
+.wavy-underline {
+  text-decoration: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6'%3E%3Cpath d='M0 3 Q 25 0, 50 3 T 100 3' stroke='%23F47264' fill='none' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: bottom;
+  background-size: 100px 6px;
+  padding-bottom: 6px;
 }
 
 /* Scroll animation base */
@@ -75,47 +119,94 @@ body {
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
 
-/* Fun hover wobble */
-@keyframes wobble {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-2deg); }
-  75% { transform: rotate(2deg); }
-}
-
-.hover-wobble:hover {
-  animation: wobble 0.4s ease-in-out;
-}
-
-/* Modal scale-in animation */
-@keyframes scale-in {
-  from { transform: scale(0.9); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-.animate-scale-in {
-  animation: scale-in 0.2s ease-out;
-}
-
 /* Gradient text utility */
 .gradient-text {
-  background: linear-gradient(135deg, var(--color-phase-discover), var(--color-phase-design), var(--color-phase-define));
+  background: linear-gradient(135deg, var(--color-accent-coral), var(--color-accent-magenta), var(--color-accent-purple));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+/* Glow backgrounds */
+.glow-hero {
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 30%, rgba(139, 92, 246, 0.15), transparent),
+    radial-gradient(ellipse 40% 40% at 30% 70%, rgba(217, 70, 239, 0.10), transparent),
+    radial-gradient(ellipse 50% 50% at 80% 80%, rgba(244, 114, 100, 0.08), transparent);
+}
+
+/* Sketchy button hover glow */
+.btn-primary {
+  background: transparent;
+  border: 2px solid var(--color-accent-coral);
+  color: var(--color-text-primary);
+  padding: 14px 32px;
+  border-radius: 50px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-coral);
+  color: var(--color-bg-primary);
+  box-shadow: 0 0 30px rgba(244, 114, 100, 0.3);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--color-text-secondary);
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-ghost:hover {
+  border-color: var(--color-accent-purple);
+  color: var(--color-text-primary);
+}
+
+/* Card component */
+.card {
+  background: var(--color-bg-secondary);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  background: var(--color-bg-elevated);
+  border-color: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
 /* Phase section backgrounds */
-.phase-bg-discover { background: linear-gradient(135deg, #FF2D7810, #FF2D7805); }
-.phase-bg-define { background: linear-gradient(135deg, #2D7AFF10, #2D7AFF05); }
-.phase-bg-design { background: linear-gradient(135deg, #8B2DFF10, #8B2DFF05); }
-.phase-bg-refine { background: linear-gradient(135deg, #FF8A2D10, #FF8A2D05); }
-.phase-bg-deliver { background: linear-gradient(135deg, #2DCC5B10, #2DCC5B05); }
+.phase-bg-discover { background: linear-gradient(135deg, rgba(244,114,100,0.06), rgba(244,114,100,0.02)); }
+.phase-bg-define { background: linear-gradient(135deg, rgba(59,130,246,0.06), rgba(59,130,246,0.02)); }
+.phase-bg-design { background: linear-gradient(135deg, rgba(167,139,250,0.06), rgba(167,139,250,0.02)); }
+.phase-bg-refine { background: linear-gradient(135deg, rgba(245,158,11,0.06), rgba(245,158,11,0.02)); }
+.phase-bg-deliver { background: linear-gradient(135deg, rgba(34,197,94,0.06), rgba(34,197,94,0.02)); }
 
 /* Prose styles for markdown content */
 .prose h1 {
   font-family: var(--font-display);
   font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--color-dark);
+  font-weight: 400;
+  color: var(--color-text-primary);
   margin-bottom: 1rem;
   margin-top: 2rem;
   line-height: 1.1;
@@ -124,8 +215,8 @@ body {
 .prose h2 {
   font-family: var(--font-display);
   font-size: 1.75rem;
-  font-weight: 700;
-  color: var(--color-dark);
+  font-weight: 400;
+  color: var(--color-text-primary);
   margin-bottom: 0.75rem;
   margin-top: 2rem;
   line-height: 1.2;
@@ -134,19 +225,21 @@ body {
 .prose h3 {
   font-family: var(--font-display);
   font-size: 1.35rem;
-  font-weight: 600;
-  color: var(--color-dark-light);
+  font-weight: 400;
+  color: var(--color-text-secondary);
   margin-bottom: 0.5rem;
   margin-top: 1.5rem;
 }
 
 .prose p {
   margin-bottom: 1rem;
+  color: var(--color-text-secondary);
 }
 
 .prose ul, .prose ol {
   margin-bottom: 1rem;
   padding-left: 1.5rem;
+  color: var(--color-text-secondary);
 }
 
 .prose ul {
@@ -163,14 +256,14 @@ body {
 
 .prose strong {
   font-weight: 600;
-  color: var(--color-dark);
+  color: var(--color-text-primary);
 }
 
 .prose blockquote {
-  border-left: 4px solid var(--color-phase-discover);
+  border-left: 4px solid var(--color-accent-coral);
   padding-left: 1rem;
   margin: 1.5rem 0;
-  color: #555;
+  color: var(--color-text-muted);
   font-style: italic;
 }
 
@@ -183,8 +276,8 @@ body {
 }
 
 .prose th {
-  background-color: var(--color-dark);
-  color: white;
+  background-color: var(--color-bg-elevated);
+  color: var(--color-text-primary);
   padding: 0.75rem 1rem;
   text-align: left;
   font-weight: 600;
@@ -192,11 +285,12 @@ body {
 
 .prose td {
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid #E5E5E3;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  color: var(--color-text-secondary);
 }
 
 .prose tr:nth-child(even) {
-  background-color: var(--color-warm-gray);
+  background-color: var(--color-bg-secondary);
 }
 
 .prose img {
@@ -206,7 +300,7 @@ body {
 }
 
 .prose a {
-  color: var(--color-phase-define);
+  color: var(--color-accent-blue);
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
@@ -214,5 +308,14 @@ body {
 }
 
 .prose a:hover {
-  color: var(--color-phase-discover);
+  color: var(--color-accent-coral);
+}
+
+/* Label/uppercase utility */
+.label {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
 }

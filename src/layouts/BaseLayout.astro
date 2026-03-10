@@ -20,28 +20,36 @@ const { title, description = 'Portfolio Innovatiemanagement - Aurora Writing Ins
     <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Patrick+Hand&display=swap" rel="stylesheet" />
     <title>{title} | Aurora Portfolio</title>
   </head>
   <body class="min-h-screen flex flex-col">
+    <!-- SVG Filters for hand-drawn effect -->
+    <svg style="position:absolute;width:0;height:0">
+      <filter id="sketchy">
+        <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" />
+      </filter>
+    </svg>
+
     <Navigation />
 
     <main class="flex-1">
       <slot />
     </main>
 
-    <footer class="bg-dark text-white/60 py-10 mt-0">
+    <footer class="bg-bg-secondary border-t border-white/5 py-10 mt-0">
       <div class="max-w-6xl mx-auto px-6 text-center text-sm">
         <div class="flex items-center justify-center gap-3 mb-3">
           <svg viewBox="0 0 32 32" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="aurora-footer" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#2D7AFF"/>
-                <stop offset="50%" stop-color="#8B2DFF"/>
-                <stop offset="100%" stop-color="#FF2D78"/>
+                <stop offset="0%" stop-color="#3B82F6"/>
+                <stop offset="50%" stop-color="#8B5CF6"/>
+                <stop offset="100%" stop-color="#F47264"/>
               </linearGradient>
             </defs>
-            <rect width="32" height="32" rx="7" fill="#1A1A2E"/>
+            <rect width="32" height="32" rx="7" fill="#161427"/>
             <g transform="translate(16,16) rotate(-20) translate(-16,-16)">
               <rect x="13" y="4" width="6" height="16" rx="2" fill="url(#aurora-footer)"/>
               <path d="M13,20 L16,28 L19,20 Z" fill="url(#aurora-footer)"/>
@@ -50,12 +58,12 @@ const { title, description = 'Portfolio Innovatiemanagement - Aurora Writing Ins
             </g>
           </svg>
           <div>
-            <span class="text-white font-bold font-[family-name:var(--font-display)] text-lg">Aurora</span>
-            <span class="text-phase-discover ml-1">Beyond Paper</span>
+            <span class="text-text-primary font-[family-name:var(--font-display)] text-lg">Aurora</span>
+            <span class="text-accent-magenta ml-1">Beyond Paper</span>
           </div>
         </div>
-        <p class="mb-1">Portfolio Innovatiemanagement (EDIM.21) &bull; Technische Bedrijfskunde &bull; Hogeschool Windesheim, Zwolle</p>
-        <p class="text-white/40">Anke Maassen van den Brink &bull; Lianne van Oss &bull; Jr Bouwman</p>
+        <p class="text-text-muted mb-1">Portfolio Innovatiemanagement (EDIM.21) &bull; Technische Bedrijfskunde &bull; Hogeschool Windesheim, Zwolle</p>
+        <p class="text-text-muted/60">Anke Maassen van den Brink &bull; Lianne van Oss &bull; Jr Bouwman</p>
       </div>
     </footer>
 

@@ -105,7 +105,7 @@ const earlyWarnings = [
 
 <BaseLayout title="Scenariobouwing — Discover">
   <!-- Hero -->
-  <section class="bg-dark text-white overflow-hidden relative">
+  <section class="bg-bg-primary text-white overflow-hidden relative">
     <div class="absolute top-0 right-0 w-80 h-80 bg-phase-discover/20 rounded-full blur-3xl"></div>
     <div class="absolute bottom-20 left-10 w-64 h-64 bg-phase-design/10 rounded-full blur-3xl"></div>
 
@@ -132,7 +132,7 @@ const earlyWarnings = [
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-8 text-center">De twee onzekerheden</h2>
       <div class="reveal reveal-delay-1 grid md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-2xl p-6 border border-dark/5 shadow-sm">
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-10 h-10 bg-phase-define rounded-xl flex items-center justify-center text-white font-bold">X</div>
             <h3 class="font-[family-name:var(--font-display)] font-bold text-dark">Tempo digitale adoptie</h3>
@@ -146,7 +146,7 @@ const earlyWarnings = [
             <span class="bg-phase-define/10 text-phase-define font-bold px-3 py-1 rounded-full">Snel</span>
           </div>
         </div>
-        <div class="bg-white rounded-2xl p-6 border border-dark/5 shadow-sm">
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
           <div class="flex items-center gap-3 mb-3">
             <div class="w-10 h-10 bg-phase-design rounded-xl flex items-center justify-center text-white font-bold">Y</div>
             <h3 class="font-[family-name:var(--font-display)] font-bold text-dark">Overheidsregulering</h3>
@@ -216,7 +216,7 @@ const earlyWarnings = [
       <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Brief uit 2030</h2>
       <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Wat als Aurora NIET innoveert?</p>
 
-      <div class="reveal reveal-delay-2 relative bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-dark/5 overflow-hidden">
+      <div class="reveal reveal-delay-2 relative bg-bg-elevated rounded-3xl p-8 md:p-10 shadow-lg border border-white/5 overflow-hidden">
         <!-- Paper texture feel -->
         <div class="absolute top-0 right-0 w-32 h-32 bg-dark/[0.02] rounded-bl-full"></div>
 
@@ -251,7 +251,7 @@ const earlyWarnings = [
   </section>
 
   <!-- Urgentie -->
-  <section class="bg-dark text-white py-20">
+  <section class="bg-bg-primary text-white py-20">
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold mb-3 text-center">Waarom NU?</h2>
       <p class="reveal reveal-delay-1 text-white/50 text-center mb-10">Vijf redenen waarom Aurora niet kan wachten</p>
@@ -281,7 +281,7 @@ const earlyWarnings = [
 
       <div class="reveal reveal-delay-2 grid md:grid-cols-2 gap-4">
         {earlyWarnings.map((ew) => (
-          <div class={`bg-white rounded-2xl p-5 border-2 ${ew.borderColor} shadow-sm hover:scale-[1.02] transition-transform`}>
+          <div class={`bg-bg-elevated rounded-2xl p-5 border-2 ${ew.borderColor} shadow-sm hover:scale-[1.02] transition-transform`}>
             <div class="flex items-start gap-3 mb-3">
               <span class="text-2xl flex-shrink-0" set:html={ew.icon}></span>
               <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm leading-snug">{ew.signal}</h3>
@@ -299,7 +299,7 @@ const earlyWarnings = [
   </section>
 
   <!-- Navigation -->
-  <section class="bg-dark text-white py-16">
+  <section class="bg-bg-primary text-white py-16">
     <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
       <a href={url('/discover/trends/')} class="reveal inline-flex items-center gap-2 text-white/50 hover:text-white font-bold transition-colors">
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>

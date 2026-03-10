@@ -10,9 +10,7 @@ const phases = [
     href: url('/discover/'),
     phase: 'discover',
     label: 'Fase 1',
-    bgColor: 'bg-phase-discover',
-    textColor: 'text-phase-discover',
-    color: 'from-phase-discover to-phase-discover/70',
+    color: '#F47264',
     number: '01',
     evidenceCount: 4,
   },
@@ -23,9 +21,7 @@ const phases = [
     href: url('/define/'),
     phase: 'define',
     label: 'Fase 2',
-    bgColor: 'bg-phase-define',
-    textColor: 'text-phase-define',
-    color: 'from-phase-define to-phase-define/70',
+    color: '#3B82F6',
     number: '02',
     evidenceCount: 0,
   },
@@ -36,9 +32,7 @@ const phases = [
     href: url('/design/'),
     phase: 'design',
     label: 'Fase 3',
-    bgColor: 'bg-phase-design',
-    textColor: 'text-phase-design',
-    color: 'from-phase-design to-phase-design/70',
+    color: '#A78BFA',
     number: '03',
     evidenceCount: 0,
   },
@@ -49,9 +43,7 @@ const phases = [
     href: url('/refine/'),
     phase: 'refine',
     label: 'Fase 4',
-    bgColor: 'bg-phase-refine',
-    textColor: 'text-phase-refine',
-    color: 'from-phase-refine to-phase-refine/70',
+    color: '#F59E0B',
     number: '04',
     evidenceCount: 0,
   },
@@ -62,9 +54,7 @@ const phases = [
     href: url('/deliver/'),
     phase: 'deliver',
     label: 'Fase 5',
-    bgColor: 'bg-phase-deliver',
-    textColor: 'text-phase-deliver',
-    color: 'from-phase-deliver to-phase-deliver/70',
+    color: '#22C55E',
     number: '05',
     evidenceCount: 0,
   },
@@ -73,53 +63,83 @@ const phases = [
 
 <BaseLayout title="Home">
   <!-- Hero -->
-  <section class="bg-dark text-white overflow-hidden relative">
-    <!-- Decorative blobs -->
-    <div class="absolute top-10 left-10 w-72 h-72 bg-phase-discover/20 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-10 right-10 w-96 h-96 bg-phase-design/15 rounded-full blur-3xl"></div>
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-phase-define/10 rounded-full blur-3xl"></div>
+  <section class="relative min-h-screen flex items-center overflow-hidden glow-hero">
+    <!-- Decorative glow orbs -->
+    <div class="absolute top-20 right-1/4 w-96 h-96 rounded-full blur-3xl" style="background: rgba(139, 92, 246, 0.12);"></div>
+    <div class="absolute bottom-20 left-1/4 w-72 h-72 rounded-full blur-3xl" style="background: rgba(217, 70, 239, 0.08);"></div>
+    <div class="absolute top-1/3 right-10 w-64 h-64 rounded-full blur-3xl" style="background: rgba(244, 114, 100, 0.06);"></div>
 
-    <div class="max-w-6xl mx-auto px-6 py-24 md:py-36 relative z-10">
+    <div class="max-w-6xl mx-auto px-6 md:px-12 py-24 relative z-10">
       <div class="reveal">
-        <p class="text-white/50 font-medium mb-6 tracking-widest uppercase text-sm">Innovatiemanagement EDIM.21</p>
+        <p class="label text-sm mb-8">Innovatiemanagement EDIM.21</p>
       </div>
-      <h1 class="font-[family-name:var(--font-display)] text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] mb-8 reveal reveal-delay-1">
-        <span class="block">Beyond</span>
-        <span class="block gradient-text">Paper</span>
+      <!-- Handwriting animation: letter by letter -->
+      <h1 class="font-[family-name:var(--font-display)] leading-[0.95] mb-8 reveal reveal-delay-1" style="font-size: clamp(3.5rem, 8vw, 7rem);">
+        <span class="hw-word block text-text-primary" aria-label="Beyond">
+          {'Beyond'.split('').map((letter, i) => (
+            <span class="hw-letter" style={`animation-delay: ${0.5 + i * 0.12}s`}>{letter}</span>
+          ))}
+          <span class="hw-cursor" style={`animation-delay: 0.5s; animation-duration: ${0.12 * 6}s`}></span>
+        </span>
+        <span class="hw-word block text-accent-magenta" aria-label="Paper">
+          {'Paper'.split('').map((letter, i) => (
+            <span class="hw-letter" style={`animation-delay: ${1.4 + i * 0.12}s`}>{letter}</span>
+          ))}
+          <span class="hw-cursor hw-cursor-2" style={`animation-delay: 1.4s; animation-duration: ${0.12 * 5}s`}></span>
+        </span>
       </h1>
       <div class="reveal reveal-delay-2 max-w-2xl">
-        <p class="text-xl md:text-2xl text-white/70 leading-relaxed">
-          Hoe kan <strong class="text-white">Aurora Writing Instruments Group</strong> relevant blijven in een wereld waarin schrijven en tekenen steeds digitaler worden?
+        <p class="text-lg md:text-xl text-text-secondary leading-relaxed">
+          Hoe kan <strong class="text-text-primary font-normal">Aurora Writing Instruments Group</strong> relevant blijven in een wereld waarin schrijven en tekenen steeds digitaler worden?
         </p>
       </div>
-      <div class="reveal reveal-delay-3 mt-10">
-        <a href={url('/aanleiding/')} class="inline-flex items-center gap-2 bg-white text-dark font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform">
+      <div class="reveal reveal-delay-3 mt-12 flex gap-4 flex-wrap">
+        <a href={url('/aanleiding/')} class="btn-primary">
           Start de reis
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
             <path d="M12 5v14M5 12l7 7 7-7" />
           </svg>
         </a>
+        <a href="#reis" class="btn-ghost">
+          Bekijk de fasen
+        </a>
       </div>
+    </div>
+
+    <!-- Decorative wavy separator -->
+    <div class="absolute bottom-0 left-0 right-0">
+      <svg viewBox="0 0 1200 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full" style="opacity: 0.08;">
+        <path d="M0 20 Q 150 0, 300 20 T 600 20 T 900 20 T 1200 20" stroke="#F5F0EB" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      </svg>
     </div>
   </section>
 
   <!-- Journey intro -->
-  <section id="reis" class="py-20 bg-cream">
+  <section id="reis" class="py-24 md:py-32">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold text-dark mb-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-4xl md:text-5xl text-text-primary mb-6">
         Onze reis door het<br />innovatieproces
       </h2>
-      <p class="reveal reveal-delay-1 text-lg text-dark/60 max-w-2xl mx-auto">
+      <p class="reveal reveal-delay-1 text-lg text-text-secondary max-w-2xl mx-auto">
         Van ontdekking tot Proof of Value: volg ons pad door vijf fasen
         van het Design Thinking Stage/Gate model.
       </p>
 
-      <!-- Colorful dots representing phases -->
-      <div class="reveal reveal-delay-2 flex items-center justify-center gap-3 mt-10">
+      <!-- Phase dots with wavy connections -->
+      <div class="reveal reveal-delay-2 flex items-center justify-center gap-3 mt-12">
         {phases.map((phase, i) => (
           <>
-            <a href={phase.href} class={`w-5 h-5 rounded-full ${phase.bgColor} hover:scale-150 transition-transform`} title={phase.title}></a>
-            {i < phases.length - 1 && <div class="w-8 h-0.5 bg-dark/10"></div>}
+            <a
+              href={phase.href}
+              class="w-5 h-5 rounded-full hover:scale-150 transition-all duration-300"
+              style={`background-color: ${phase.color}; box-shadow: 0 0 12px ${phase.color}40;`}
+              title={phase.title}
+            ></a>
+            {i < phases.length - 1 && (
+              <svg viewBox="0 0 40 6" class="w-10 h-2" style="opacity: 0.2;">
+                <path d="M0 3 Q 10 0, 20 3 T 40 3" stroke="#F5F0EB" stroke-width="1" fill="none" stroke-linecap="round"/>
+              </svg>
+            )}
           </>
         ))}
       </div>
@@ -128,21 +148,27 @@ const phases = [
 
   <!-- Phase Journey Sections -->
   {phases.map((phase, i) => (
-    <section class={`py-20 ${i % 2 === 0 ? 'bg-cream' : 'bg-warm-gray'}`}>
+    <section class="py-20 md:py-28">
       <div class="max-w-6xl mx-auto px-6">
-        <div class={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12`}>
+        <div class={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-16`}>
           <!-- Phase visual -->
           <div class="reveal-left flex-1 flex justify-center">
             <a href={phase.href} class="group relative">
-              <div class={`w-56 h-56 md:w-72 md:h-72 rounded-3xl bg-gradient-to-br ${phase.color} flex items-center justify-center group-hover:scale-105 group-hover:rotate-2 transition-all duration-500`}>
-                <span class="font-[family-name:var(--font-display)] text-8xl md:text-9xl font-bold text-white/30">{phase.number}</span>
+              <div
+                class="w-56 h-56 md:w-72 md:h-72 rounded-3xl flex items-center justify-center group-hover:scale-105 transition-all duration-500"
+                style={`background: linear-gradient(135deg, ${phase.color}20, ${phase.color}08); border: 1px solid ${phase.color}15;`}
+              >
+                <span class="font-[family-name:var(--font-display)] text-8xl md:text-9xl" style={`color: ${phase.color}30;`}>{phase.number}</span>
               </div>
               <!-- Floating badge -->
-              <div class={`absolute -top-3 -right-3 ${phase.bgColor} text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg`}>
+              <div
+                class="absolute -top-3 -right-3 text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg"
+                style={`background-color: ${phase.color}; color: var(--color-bg-primary);`}
+              >
                 {phase.label}
               </div>
               {phase.evidenceCount > 0 && (
-                <div class="absolute -bottom-3 -left-3 bg-dark text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                <div class="absolute -bottom-3 -left-3 bg-bg-elevated text-text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg border border-white/10">
                   {phase.evidenceCount} bewijsstukken
                 </div>
               )}
@@ -151,18 +177,21 @@ const phases = [
 
           <!-- Phase content -->
           <div class="reveal-right flex-1">
-            <span class={`${phase.textColor} font-bold text-sm tracking-widest uppercase`}>{phase.label}</span>
-            <h3 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold text-dark mt-2 mb-2">
+            <span class="label text-sm" style={`color: ${phase.color};`}>{phase.label}</span>
+            <h3 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl text-text-primary mt-2 mb-2">
               {phase.title}
             </h3>
-            <p class={`${phase.textColor} font-semibold text-lg mb-4`}>{phase.subtitle}</p>
-            <p class="text-dark/60 text-lg leading-relaxed mb-6">{phase.description}</p>
+            <p class="text-lg mb-4 font-normal" style={`color: ${phase.color};`}>{phase.subtitle}</p>
+            <p class="text-text-secondary text-lg leading-relaxed mb-8">{phase.description}</p>
             <a
               href={phase.href}
-              class={`inline-flex items-center gap-2 ${phase.bgColor} text-white font-bold px-5 py-2.5 rounded-full hover:scale-105 transition-transform`}
+              class="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold transition-all duration-300 border-2 hover:shadow-lg"
+              style={`border-color: ${phase.color}; color: ${phase.color};`}
+              onmouseover={`this.style.backgroundColor='${phase.color}'; this.style.color='var(--color-bg-primary)'; this.style.boxShadow='0 0 24px ${phase.color}30';`}
+              onmouseout={`this.style.backgroundColor='transparent'; this.style.color='${phase.color}'; this.style.boxShadow='none';`}
             >
               Bekijk fase
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
@@ -173,29 +202,123 @@ const phases = [
   ))}
 
   <!-- About -->
-  <section class="bg-dark text-white">
-    <div class="max-w-6xl mx-auto px-6 py-20">
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(139, 92, 246, 0.08), transparent);"></div>
+    <div class="max-w-6xl mx-auto px-6 py-24 md:py-32 relative z-10">
       <div class="reveal max-w-3xl mx-auto text-center">
-        <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl font-bold mb-6">Over dit portfolio</h2>
-        <p class="text-white/60 text-lg leading-relaxed mb-4">
-          Dit is het innovatieportfolio voor het minorvak Innovatiemanagement (EDIM.21)
-          van de opleiding Technische Bedrijfskunde, 3e jaar. Het portfolio is opgebouwd
-          als een reisverslag door het innovatieproces.
-        </p>
-        <p class="text-white/60 text-lg leading-relaxed">
-          <strong class="text-white">De casus:</strong> Aurora Writing Instruments Group is een fictieve
+        <h2 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl text-text-primary mb-8">Over dit portfolio</h2>
+        <p class="text-text-secondary text-lg leading-relaxed mb-6">
+          <strong class="text-text-primary font-normal">De casus:</strong> <em>Aurora Writing Instruments Group is een fictieve
           maar realistische Nederlandse producent van potloden, pennen en tekenmaterialen met 125+ jaar
-          historie.
+          historie.</em>
         </p>
-        <!-- Color bar -->
-        <div class="flex gap-1 mt-10 justify-center">
-          <div class="w-12 h-2 rounded-full bg-phase-discover"></div>
-          <div class="w-12 h-2 rounded-full bg-phase-define"></div>
-          <div class="w-12 h-2 rounded-full bg-phase-design"></div>
-          <div class="w-12 h-2 rounded-full bg-phase-refine"></div>
-          <div class="w-12 h-2 rounded-full bg-phase-deliver"></div>
+        <p class="text-text-secondary text-lg leading-relaxed">
+          <em>Dit is het innovatieportfolio voor het minorvak Innovatiemanagement (EDIM.21)
+          van de opleiding Technische Bedrijfskunde. Het portfolio is opgebouwd
+          als een reisverslag door het innovatieproces.</em>
+        </p>
+        <!-- Color bar with wavy style -->
+        <div class="flex gap-2 mt-12 justify-center">
+          {phases.map((phase) => (
+            <div class="w-12 h-1.5 rounded-full" style={`background-color: ${phase.color}; opacity: 0.7;`}></div>
+          ))}
         </div>
       </div>
     </div>
   </section>
+  <style>
+    /* --- Letter-by-letter handwriting animation --- */
+    .hw-word {
+      position: relative;
+      display: block;
+    }
+
+    .hw-letter {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(0.08em) rotate(-2deg) scale(0.8);
+      animation: writeLetter 0.18s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+      transform-origin: bottom left;
+    }
+
+    @keyframes writeLetter {
+      0% {
+        opacity: 0;
+        transform: translateY(0.08em) rotate(-3deg) scale(0.7);
+      }
+      60% {
+        opacity: 1;
+        transform: translateY(-0.02em) rotate(0.5deg) scale(1.02);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg) scale(1);
+      }
+    }
+
+    /* Pen cursor: small dot that moves ahead of the letters */
+    .hw-cursor {
+      position: absolute;
+      bottom: 0.15em;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      background: #D4AF37;
+      border-radius: 50%;
+      opacity: 0;
+      pointer-events: none;
+      box-shadow: 0 0 8px rgba(212, 175, 55, 0.6), 0 0 2px rgba(212, 175, 55, 0.9);
+      animation:
+        cursorShow 0.1s ease forwards,
+        cursorMove 0.72s steps(6, end) forwards,
+        cursorHide 0.2s ease forwards;
+      /* cursorMove duration = letters * 0.12s */
+      animation-delay: var(--cursor-delay, 0.5s), var(--cursor-delay, 0.5s), calc(var(--cursor-delay, 0.5s) + 0.75s);
+    }
+
+    .hw-cursor-2 {
+      animation:
+        cursorShow 0.1s ease forwards,
+        cursorMove2 0.6s steps(5, end) forwards,
+        cursorHide 0.2s ease forwards;
+      animation-delay: 1.4s, 1.4s, 2.05s;
+    }
+
+    @keyframes cursorShow {
+      to { opacity: 1; }
+    }
+    @keyframes cursorHide {
+      to { opacity: 0; }
+    }
+
+    /* "Beyond" = 6 letters, each ~0.55em wide in Patrick Hand at this size */
+    @keyframes cursorMove {
+      0%   { left: 0; }
+      16%  { left: 0.55em; }
+      33%  { left: 1.1em; }
+      50%  { left: 1.65em; }
+      66%  { left: 2.2em; }
+      83%  { left: 2.75em; }
+      100% { left: 3.3em; }
+    }
+
+    /* "Paper" = 5 letters */
+    @keyframes cursorMove2 {
+      0%   { left: 0; }
+      20%  { left: 0.55em; }
+      40%  { left: 1.1em; }
+      60%  { left: 1.65em; }
+      80%  { left: 2.2em; }
+      100% { left: 2.75em; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hw-letter {
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+      .hw-cursor { display: none; }
+    }
+  </style>
 </BaseLayout>

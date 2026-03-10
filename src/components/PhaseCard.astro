@@ -23,12 +23,12 @@ const colors = phaseColors[phase] || phaseColors.discover;
 
 <a
   href={href}
-  class={`block bg-white rounded-2xl border-2 border-transparent ${colors.border} p-6 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 group`}
+  class={`block bg-bg-elevated rounded-2xl border-2 border-transparent ${colors.border} p-6 hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 group`}
 >
   <div class="flex items-start justify-between mb-3">
     <span class={`text-xs font-bold ${colors.bg} text-white px-2.5 py-1 rounded-full`}>{label}</span>
     {evidenceCount > 0 && (
-      <span class="text-xs font-bold text-dark/40 bg-warm-gray px-2.5 py-1 rounded-full">
+      <span class="text-xs font-bold text-dark/40 bg-bg-secondary px-2.5 py-1 rounded-full">
         {evidenceCount} items
       </span>
     )}

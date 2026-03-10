@@ -5,7 +5,7 @@ import { url } from '../../utils/base';
 
 <BaseLayout title="Immersive Research — Discover">
   <!-- Hero -->
-  <section class="bg-dark text-white overflow-hidden relative">
+  <section class="bg-bg-primary text-white overflow-hidden relative">
     <div class="absolute top-0 right-0 w-80 h-80 bg-phase-discover/20 rounded-full blur-3xl"></div>
     <div class="absolute bottom-10 left-20 w-64 h-64 bg-phase-refine/10 rounded-full blur-3xl"></div>
 
@@ -33,21 +33,21 @@ import { url } from '../../utils/base';
       <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-8 text-center">Onderzoeksplan</h2>
 
       <div class="reveal reveal-delay-1 grid md:grid-cols-3 gap-4 mb-10">
-        <div class="bg-white rounded-2xl p-6 border border-dark/5 shadow-sm">
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
           <div class="w-10 h-10 bg-phase-discover rounded-xl flex items-center justify-center text-white text-lg mb-3">?</div>
           <h3 class="font-[family-name:var(--font-display)] font-bold text-dark mb-2">Doel</h3>
           <p class="text-dark/40 text-sm italic leading-relaxed">
             Wat willen we leren over hoe mensen schrijven, tekenen en creatief bezig zijn? Welke onvervulde behoeften bestaan er?
           </p>
         </div>
-        <div class="bg-white rounded-2xl p-6 border border-dark/5 shadow-sm">
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
           <div class="w-10 h-10 bg-phase-refine rounded-xl flex items-center justify-center text-white text-lg mb-3">&#9881;</div>
           <h3 class="font-[family-name:var(--font-display)] font-bold text-dark mb-2">Methode</h3>
           <p class="text-dark/40 text-sm italic leading-relaxed">
             Combinatie van learn from experience, observation en users. Minimaal 1,5 uur per teamlid.
           </p>
         </div>
-        <div class="bg-white rounded-2xl p-6 border border-dark/5 shadow-sm">
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
           <div class="w-10 h-10 bg-phase-design rounded-xl flex items-center justify-center text-white text-lg mb-3">&#128101;</div>
           <h3 class="font-[family-name:var(--font-display)] font-bold text-dark mb-2">Doelgroep</h3>
           <p class="text-dark/40 text-sm italic leading-relaxed">
@@ -57,12 +57,12 @@ import { url } from '../../utils/base';
       </div>
 
       <!-- Planning table placeholder -->
-      <div class="reveal reveal-delay-2 bg-white rounded-2xl p-6 border border-dark/5 shadow-sm">
+      <div class="reveal reveal-delay-2 bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
         <h3 class="font-[family-name:var(--font-display)] font-bold text-dark mb-4">Planning</h3>
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead>
-              <tr class="bg-dark text-white">
+              <tr class="bg-bg-surface text-text-primary">
                 <th class="px-4 py-2.5 text-left rounded-tl-lg">Wat</th>
                 <th class="px-4 py-2.5 text-left">Wanneer</th>
                 <th class="px-4 py-2.5 text-left">Wie</th>
@@ -70,7 +70,7 @@ import { url } from '../../utils/base';
               </tr>
             </thead>
             <tbody>
-              <tr class="border-b border-dark/5">
+              <tr class="border-b border-white/5">
                 <td class="px-4 py-3 text-dark/40 italic">Vul in na groepsdiscussie</td>
                 <td class="px-4 py-3 text-dark/40 italic">—</td>
                 <td class="px-4 py-3 text-dark/40 italic">—</td>
@@ -91,11 +91,11 @@ import { url } from '../../utils/base';
 
       <!-- Session placeholders -->
       <div class="reveal reveal-delay-2 space-y-4">
-        <div class="bg-white rounded-2xl p-6 border border-dark/5 shadow-sm border-l-4 border-l-phase-discover">
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm border-l-4 border-l-phase-discover">
           <h3 class="font-[family-name:var(--font-display)] font-bold text-dark mb-1">Sessie 1</h3>
           <p class="text-dark/40 text-sm italic">Nog in te vullen: beschrijf datum, locatie, deelnemers en wat je hebt gezien/gehoord/gevoeld.</p>
         </div>
-        <div class="bg-white rounded-2xl p-6 border border-dark/5 shadow-sm border-l-4 border-l-phase-define">
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm border-l-4 border-l-phase-define">
           <h3 class="font-[family-name:var(--font-display)] font-bold text-dark mb-1">Sessie 2</h3>
           <p class="text-dark/40 text-sm italic">Nog in te vullen</p>
         </div>
@@ -169,7 +169,7 @@ import { url } from '../../utils/base';
   </section>
 
   <!-- Navigation -->
-  <section class="bg-dark text-white py-16">
+  <section class="bg-bg-primary text-white py-16">
     <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
       <a href={url('/discover/scenario/')} class="reveal inline-flex items-center gap-2 text-white/50 hover:text-white font-bold transition-colors">
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
