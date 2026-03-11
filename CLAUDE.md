@@ -66,9 +66,12 @@ docs/
 - `src/utils/base.ts` — Helper functie `url()` voor correcte base path in alle links
 
 ### Aanpassingen website (maart 2025)
-- Nieuw design: donker thema, felle fase-kleuren, Space Grotesk font, scroll-animaties
+- Nieuw design: donker thema, felle fase-kleuren, scroll-animaties
 - Geinspireerd op stockdutchdesign.com — reis/storytelling door het project
 - Alle interne links gebruiken `url()` helper uit `src/utils/base.ts` voor correcte base path
+- Fonts: Patrick Hand (display/koppen), Kalam (body/UI — licht handgeschreven maar leesbaar)
+- Pen-stroke SVG visual in hero (`public/images/pen-stroke.svg`)
+- Teamleden footer: Anke Maassen van den Brink, Lianne van Os, Jr Bouwman
 
 ### Opdracht 1a Discover - Status
 - Werkdocumenten in `docs/onderzoek/` — alle met bronverwijzingen (genummerd, met URLs)
@@ -79,6 +82,14 @@ docs/
 - Extra theorie gekozen: Christensen's Disruptive Innovation (1997)
 - Klasdiscussie genoteerd: duurzaamheid, goedkope arbeid lage-lonenlanden, ethische productie
 - As 2 scenario: nog te kiezen door groep (3 alternatieven voorgesteld)
+
+### Immersive Research - Status
+- Pagina volledig ingevuld: `src/pages/discover/empathise.astro`
+- Sessie 1 (Learn from Experience): brainstorm eigen ervaringen, timelapse video + foto
+- Sessie 2 (Learn from Users): interviews Anna & Famke, ideeën clusteren
+- 13 Dreams (incl. beveiligde pen tegen fraude via vingerafdrukherkenning) + 8 Gripes
+- Alle omgezet naar HZWK-challenges
+- Media: `public/images/research/sessie1-timelapse.mp4`, `sessie1-foto.jpeg`
 
 ## Rol van Claude
 

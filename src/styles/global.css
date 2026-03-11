@@ -37,9 +37,9 @@
   --color-phase-gate: #F59E0B;
 
   /* Typography */
-  --font-sans: 'Nunito', 'Quicksand', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Kalam', 'Nunito', system-ui, sans-serif;
   --font-display: 'Patrick Hand', 'Caveat', cursive;
-  --font-ui: 'Nunito', sans-serif;
+  --font-ui: 'Kalam', 'Nunito', sans-serif;
 }
 
 /* Base styles */
