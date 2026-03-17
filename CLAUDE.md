@@ -60,6 +60,11 @@ docs/
     kastelle-creativity-entrepreneurship-innovation.md # Creativiteit vs. ondernemerschap vs. innovatie
   beoordeling/
     rubric.md                         # Rubric met criteria per niveau (onvoldoende t/m uitmuntend)
+  onderzoek/
+    sessie-notities.md                # Ruwe notities sessie 1 (board) en sessie 3 (innovatieradar)
+    03-scenariomatrix.md              # Werkdocument scenariomatrix met 4 scenario's
+    bronnen.md                        # Bronnenlijst (26 bronnen)
+media/                                # Originele bronbestanden (niet op de website)
 ```
 
 ## Werkwijze
@@ -68,7 +73,7 @@ docs/
 - `docs/onderzoek/` — Werkdocumenten en uitwerkingen per opdracht (bespreek eerst in groep, daarna naar website)
 - `src/utils/base.ts` — Helper functie `url()` voor correcte base path in alle links
 
-### Aanpassingen website (maart 2025)
+### Aanpassingen website (maart 2026)
 - Nieuw design: donker thema, felle fase-kleuren, scroll-animaties
 - Geinspireerd op stockdutchdesign.com — reis/storytelling door het project
 - Alle interne links gebruiken `url()` helper uit `src/utils/base.ts` voor correcte base path
@@ -100,7 +105,7 @@ docs/
 - Media: `public/images/research/` (sessie1-timelapse.mp4, sessie1-foto.jpeg, dreams-gripes.jpeg)
 
 ### Opdracht 1b Define - Status (IN PROGRESS)
-- Sessie 3 (Innovatieradar, BK3): flipover met 4P-assen, 6 kamers, 31 ideeën op post-its
+- Sessie 3 (Innovatieradar, BK3): flipover met 4P-assen, 6 kamers, 32 ideeën op post-its
   - Kamers: Specialisatie, Nice to have, Hulp, Beveiliging, Klantervaring, Organisatie
   - PMI impliciet toegepast: groene (plus), roze (min), paarse (interessant) stickers
   - Foto's: `public/images/research/sessie3-radar-1.jpeg`, `sessie3-radar-2.jpeg`
@@ -108,8 +113,8 @@ docs/
   - Handleiding: `docs/lessen/innovatieradar-handleiding.md`
   - PDF en DOCX bronbestanden in projectroot
 - 2 denkrichtingen geconvergeerd:
-  1. **De Analoge Security Expert** (Paradigma + Positie): Aurora als vertrouwensinstrument, identiteitsverificatie, anti-deepfake. Robuust in alle scenario's.
-  2. **De Circulaire Standaard** (Paradigma + Proces): regelgeving als wapen (Tesla/Tony's model), EU Digital Product Passport, cradle-to-cradle, radicale ketentransparantie. Sterkst in scenario B.
+  1. **De Analoge Security Expert** (Merk + Oplossingen = Paradigma + Product): pen bewijst wie er geschreven heeft via schrijf-DNA (druk, snelheid, hoek, ritme). Robuust in alle scenario's.
+  2. **De Circulaire Standaard** (Platform + Merk = Product + Paradigma): regelgeving als wapen (Tesla/Tony's model), EU Digital Product Passport, cradle-to-cradle, radicale ketentransparantie. Sterkst in scenario B.
 - Elke denkrichting heeft "Hoe zijn we hier gekomen?" traceerbaarheid: trends → scenario → empathise → challenge → radar
 - Voorbereiding BK4: `docs/opdrachten/voorbereiding-les4-denkrichtingen.md` (PowerPoint 7 slides, gate)
 - **Nog te doen:** Gate (BK4) — selectie van 2 denkrichtingen met minimaal 2 anderen
@@ -124,19 +129,19 @@ docs/
 
 **Define (opdracht 1b):**
 - `/define/` — overzicht met 2 bewijsstukken
-- `/define/innovatieradar/` — sessie 3, 12 dimensies, 31 ideeën per kamer
+- `/define/innovatieradar/` — sessie 3, 12 dimensies, 32 ideeën per kamer
 - `/define/denkrichtingen/` — 2 richtingen met clusters, challenges, reis-traceerbaarheid
 
 ### Media
 - `media/` — originele bronbestanden (WhatsApp foto's, AI-generated images, sessie-originelen)
-- `public/images/research/` — gebruiksklare images voor de website
-  - challenges-hero.jpeg (AI, post-its radial pattern)
-  - denkrichting1-intelligente-pen.jpeg (AI, futuristische pen)
-  - denkrichting2-persoonlijke-ervaring.jpeg (AI, ambachtelijke pen — MOET VERVANGEN voor circulaire standaard)
-  - dreams-gripes.jpeg (AI, split dream vs frustration)
+- `public/images/research/` — gebruiksklare images voor de website:
+  - challenges-hero.jpeg, dreams-gripes.jpeg (AI)
+  - denkrichting1-security-expert.jpeg (AI, biometrische pen bij ondertekening)
+  - denkrichting2-circulaire-standaard.jpeg (AI, gedemonteerde pen met recycling)
+  - innovatieradar-hero.jpeg, brief-2030.jpeg (AI)
   - sessie1-foto.jpeg, sessie1-timelapse.mp4 (eigen)
   - sessie3-radar-1.jpeg, sessie3-radar-2.jpeg (eigen)
-- **Nog nodig:** nieuwe AI image voor innovatieradar (prompt #4 was slecht), nieuwe image voor denkrichting 2 (circulaire standaard)
+- `public/presentatie-define.html` — 8-slide presentatie voor Gate BK4 (standalone HTML, pijltjestoetsen)
 
 ## Rol van Claude
 
