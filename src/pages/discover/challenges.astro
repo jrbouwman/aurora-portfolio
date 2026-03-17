@@ -1,13 +1,58 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { url } from '../../utils/base';
+
+const challenges = [
+  {
+    num: 1,
+    color: 'border-l-phase-discover',
+    bg: 'bg-phase-discover',
+    title: 'Hoe zouden we een pen kunnen laten meedenken, zoals digitale tools dat doen?',
+    basis: 'Dreams: meedenkende pen, AI synoniemen, lijntjes strakmaken',
+    thema: 'Slim & digitaal',
+  },
+  {
+    num: 2,
+    color: 'border-l-phase-define',
+    bg: 'bg-phase-define',
+    title: 'Hoe zouden we schrijfgerei persoonlijker en aanpasbaar kunnen maken?',
+    basis: 'Dreams: persoonlijker, handschriftstijl, veel kleuren, modulair',
+    thema: 'Persoonlijk & multifunctioneel',
+  },
+  {
+    num: 3,
+    color: 'border-l-phase-design',
+    bg: 'bg-phase-design',
+    title: 'Hoe zouden we schrijven comfortabeler kunnen maken, ook voor linkshandigen?',
+    basis: 'Gripes: vermoeidheid, linkshandigen, geluid + Dreams: ergonomie, friemelen',
+    thema: 'Comfort & inclusiviteit',
+  },
+  {
+    num: 4,
+    color: 'border-l-phase-refine',
+    bg: 'bg-phase-refine',
+    title: 'Hoe zouden we kunnen voorkomen dat pennen uitdrogen, lekken of kapotgaan?',
+    basis: 'Gripes: inkt droogt uit, pen lekt, lipje breekt af, dop kwijt',
+    thema: 'Betrouwbaarheid & duurzaamheid',
+  },
+  {
+    num: 5,
+    color: 'border-l-phase-deliver',
+    bg: 'bg-phase-deliver',
+    title: 'Hoe zouden we een pen kunnen beveiligen zodat je handtekening niet te vervalsen is?',
+    basis: 'Dream: beveiligde pen met vingerafdrukherkenning',
+    thema: 'Beveiliging & authenticiteit',
+  },
+];
 ---
 
 <BaseLayout title="Challenges — Discover">
-  <!-- Hero -->
+  <!-- Hero with image -->
   <section class="bg-bg-primary text-white overflow-hidden relative">
-    <div class="absolute top-0 right-0 w-80 h-80 bg-phase-discover/20 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-20 left-10 w-64 h-64 bg-accent-yellow/10 rounded-full blur-3xl"></div>
+    <div class="absolute inset-0">
+      <img src={url('/images/research/challenges-hero.jpeg')} alt="" class="w-full h-full object-cover opacity-20" />
+      <div class="absolute inset-0 bg-gradient-to-b from-bg-primary/60 to-bg-primary"></div>
+    </div>
 
     <div class="max-w-5xl mx-auto px-6 py-16 md:py-24 relative z-10">
       <nav class="reveal text-sm mb-6 flex items-center gap-2">
@@ -21,7 +66,7 @@ import { url } from '../../utils/base';
         Innovatie<span class="gradient-text">challenges</span>
       </h1>
       <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
-        Van dreams en gripes naar "Hoe Zouden We Kunnen...?" vragen. De juiste vraag stellen is halve werk.
+        De dreams en gripes uit ons onderzoek omgezet naar concrete "Hoe Zouden We Kunnen...?" vragen.
       </p>
       <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-discover mt-8"></div>
     </div>
@@ -36,11 +81,11 @@ import { url } from '../../utils/base';
           <div>
             <h2 class="font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-3">De HZWK-methode</h2>
             <p class="text-dark/60 leading-relaxed mb-3">
-              <strong class="text-dark">Hoe Zouden We Kunnen...?</strong> (Engels: How Might We?) is een methode om inzichten uit onderzoek om te zetten in acteerbare innovatie-uitdagingen.
-              De formulering is bewust gekozen: breed genoeg voor creatieve oplossingen, specifiek genoeg om richting te geven.
+              <strong class="text-dark">Hoe Zouden We Kunnen...?</strong> (How Might We?) zet inzichten uit immersive research om in acteerbare innovatie-uitdagingen.
+              Breed genoeg voor creatieve oplossingen, specifiek genoeg om richting te geven.
             </p>
             <p class="text-dark/40 text-sm">
-              Methode: Treffinger (1995), Creative Problem Solving. Zie ook cursusmateriaal <a href={url('/discover/empathise/')} class="underline hover:text-dark/60">discover-challenges</a>.
+              Treffinger (1995), Creative Problem Solving &middot; <a href={url('/discover/empathise/')} class="underline hover:text-dark/60">Immersive research</a>
             </p>
           </div>
         </div>
@@ -48,67 +93,26 @@ import { url } from '../../utils/base';
     </div>
   </section>
 
-  <!-- Compilatie Dreams & Gripes -->
-  <section class="bg-warm-gray py-16">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Compilatie Dreams & Gripes</h2>
-      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Samenvatting van inzichten uit immersive research</p>
-
-      <div class="reveal reveal-delay-2 bg-bg-elevated rounded-2xl overflow-hidden border border-white/5 shadow-sm">
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="bg-bg-surface text-text-primary">
-              <th class="px-4 py-3 text-left w-12">#</th>
-              <th class="px-4 py-3 text-left w-20">Type</th>
-              <th class="px-4 py-3 text-left">Beschrijving</th>
-              <th class="px-4 py-3 text-left w-28">Thema</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[1,2,3,4,5].map((n) => (
-              <tr class={`border-b border-white/5 ${n % 2 === 0 ? 'bg-bg-secondary/50' : ''}`}>
-                <td class="px-4 py-3 text-dark/40">{n}</td>
-                <td class="px-4 py-3">
-                  <span class={`text-xs font-bold px-2 py-0.5 rounded-full ${n <= 3 ? 'bg-phase-deliver/10 text-phase-deliver' : 'bg-phase-discover/10 text-phase-discover'}`}>
-                    {n <= 3 ? 'Dream' : 'Gripe'}
-                  </span>
-                </td>
-                <td class="px-4 py-3 text-dark/40 italic">Vul in na veldonderzoek</td>
-                <td class="px-4 py-3 text-dark/40 italic">—</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
   <!-- HZWK Challenges -->
-  <section class="bg-cream py-20">
+  <section class="bg-warm-gray py-20">
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">HZWK Challenges</h2>
-      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Minimaal 5 challenges geformuleerd als "Hoe Zouden We Kunnen...?" vragen</p>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">5 eerste challenges afgeleid uit de dreams & gripes van de discover-fase</p>
 
       <div class="reveal reveal-delay-2 space-y-4">
-        {[
-          { num: 1, color: 'border-l-phase-discover', bg: 'bg-phase-discover' },
-          { num: 2, color: 'border-l-phase-define', bg: 'bg-phase-define' },
-          { num: 3, color: 'border-l-phase-design', bg: 'bg-phase-design' },
-          { num: 4, color: 'border-l-phase-refine', bg: 'bg-phase-refine' },
-          { num: 5, color: 'border-l-phase-deliver', bg: 'bg-phase-deliver' },
-        ].map((c) => (
+        {challenges.map((c) => (
           <div class={`bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm border-l-4 ${c.color}`}>
             <div class="flex items-start gap-4">
-              <div class={`w-8 h-8 ${c.bg} rounded-lg flex items-center justify-center text-white font-bold text-sm flex-shrink-0`}>
+              <div class={`w-10 h-10 ${c.bg} rounded-xl flex items-center justify-center text-white font-bold text-sm flex-shrink-0`}>
                 {c.num}
               </div>
               <div class="flex-1">
-                <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-1">
-                  HZWK <span class="text-dark/40 italic">...formuleer de challenge...</span>
+                <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-2 leading-snug">
+                  {c.title}
                 </h3>
-                <div class="flex gap-4 text-xs text-dark/40 mt-2">
-                  <span>Gebaseerd op: Dream/Gripe #</span>
-                  <span>Waarom relevant: —</span>
+                <div class="flex flex-wrap gap-x-6 gap-y-1 text-xs text-dark/50 mt-2">
+                  <span><strong class="text-dark/70">Basis:</strong> {c.basis}</span>
+                  <span><strong class="text-dark/70">Thema:</strong> {c.thema}</span>
                 </div>
               </div>
             </div>
@@ -118,39 +122,15 @@ import { url } from '../../utils/base';
     </div>
   </section>
 
-  <!-- Top 3 selectie -->
-  <section class="bg-bg-primary text-white py-20">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold mb-3 text-center">Top 3 Challenges</h2>
-      <p class="reveal reveal-delay-1 text-white/50 text-center mb-10">Na discussie en scoring geselecteerd om mee verder te gaan</p>
-
-      <div class="reveal reveal-delay-2 grid md:grid-cols-3 gap-4">
-        {[
-          { num: 1, color: 'bg-phase-discover', borderColor: 'border-phase-discover/30' },
-          { num: 2, color: 'bg-phase-define', borderColor: 'border-phase-define/30' },
-          { num: 3, color: 'bg-phase-design', borderColor: 'border-phase-design/30' },
-        ].map((c) => (
-          <div class={`bg-white/5 border ${c.borderColor} rounded-2xl p-6 text-center`}>
-            <div class={`w-12 h-12 ${c.color} rounded-2xl flex items-center justify-center text-white font-bold text-xl mx-auto mb-4`}>
-              {c.num}
-            </div>
-            <p class="text-white/40 italic text-sm">HZWK ...?</p>
-            <p class="text-white/30 text-xs mt-3">Vul in na groepsdiscussie</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- Navigation -->
-  <section class="bg-warm-gray py-16">
+  <section class="bg-cream py-16">
     <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
       <a href={url('/discover/empathise/')} class="reveal inline-flex items-center gap-2 text-dark/50 hover:text-dark font-bold transition-colors">
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
         Immersive Research
       </a>
       <div class="reveal reveal-delay-1 text-center">
-        <p class="text-dark/40 text-sm mb-3">Klaar met Discover?</p>
+        <p class="text-dark/40 text-sm mb-3">Discover afgerond, door naar Define</p>
         <a href={url('/define/')} class="inline-flex items-center gap-2 bg-phase-define text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform">
           Naar Define (Fase 2)
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>

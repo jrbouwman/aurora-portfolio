@@ -1,0 +1,211 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../utils/base';
+
+const denkrichtingen = [
+  {
+    num: 1,
+    titel: 'De Analoge Security Expert',
+    subtitel: 'De pen bewijst wie er geschreven heeft',
+    ruimte: 'Merk, Oplossingen (Paradigma + Product)',
+    kleur: 'bg-phase-discover',
+    borderKleur: 'border-phase-discover',
+    image: '/images/research/denkrichting1-security-expert.jpeg',
+    imageAlt: 'Hand die een document ondertekent met een pen met subtiele biometrische gloed',
+    relevantie: 'De belangrijkste handtekeningen staan nog steeds op papier: contracten, testamenten, notariële akten. Maar een handtekening is vrij makkelijk na te maken. Wij vroegen ons af: wat als de pen zelf kan bewijzen wie er geschreven heeft? Niet zoals een ID-kaart (die bewijst alleen wie je bent), maar door het schrijven zelf te analyseren: hoe hard je drukt, hoe snel je schrijft, onder welke hoek. Dat is voor iedereen uniek. Wacom doet iets vergelijkbaars met signature pads in banken, maar dat zijn lelijke schermen. Er is nog niemand die dit in een mooie pen stopt. In onze scenario\'s werkt dit overal: als alles digitaal wordt (scenario D) is analoge verificatie juist meer waard, en bij meer regelgeving (scenario B) kan het zelfs verplicht worden.',
+    clusters: [
+      { naam: 'Schrijf-DNA & biometrie', ideeën: ['Drukpatroon, snelheid, hoek en ritme als unieke schrijfbiometrie', 'Continue authenticatie gedurende het hele schrijfproces', 'Detecteert als de pen halverwege van hand wisselt', 'Vingerafdruksensor in de grip'] },
+      { naam: 'Juridische meerwaarde', ideeën: ['Natte handtekening weegt juridisch zwaarder dan digitaal', 'Cryptografisch bewijs van wie, wanneer en waar ondertekend', 'De pen als draagbare notaris (timestamp + verificatie)', 'Certificering van analoge documenten'] },
+      { naam: 'Positionering als merk', ideeën: ['Aurora = vertrouwen, 125+ jaar heritage', 'De analoge security expert (merkbelofte)', 'Relevant in juridisch, notarieel en financieel'] },
+      { naam: 'Adaptief ontwerp', ideeën: ['Pen die vormt naar de hand', 'Links-/rechtshandige specialisatie', 'Premium materialen passend bij professionele context'] },
+    ],
+    challenge: 'Hoe zouden we een pen kunnen ontwikkelen die via biometrie bewijst wie er geschreven heeft, zodat een handtekening op papier net zo veilig wordt als een digitale?',
+    reis: [
+      { fase: 'Trends', kleur: 'bg-phase-discover', link: '/discover/trends/', tekst: 'AI-deepfakes en digitalisering als megatrend (IBSOTEEP)' },
+      { fase: 'Scenario', kleur: 'bg-phase-discover', link: '/discover/scenario/', tekst: 'Werkt in alle 4 scenario\'s, het sterkst bij Digitale Dominantie (D) en Gouden Kruispunt (B)' },
+      { fase: 'Empathise', kleur: 'bg-phase-discover', link: '/discover/empathise/', tekst: 'Dream: "beveiligde pen tegen fraude via vingerafdrukherkenning" (sessie 1+2)' },
+      { fase: 'Challenge', kleur: 'bg-phase-discover', link: '/discover/challenges/', tekst: 'HZWK #5: identiteitsverificatie voor handtekeningen' },
+      { fase: 'Radar', kleur: 'bg-phase-define', link: '/define/innovatieradar/', tekst: 'Kamer Beveiliging: "analoge security expert", vingerafdruk auth, pen-alarm' },
+    ],
+  },
+  {
+    num: 2,
+    titel: 'De Circulaire Standaard',
+    subtitel: 'Duurzaamheidsregels als voordeel, niet als kostenpost',
+    ruimte: 'Platform, Merk, Waardeketen (Product + Paradigma)',
+    kleur: 'bg-phase-define',
+    borderKleur: 'border-phase-define',
+    image: '/images/research/denkrichting2-circulaire-standaard.jpeg',
+    imageAlt: 'Gedemonteerde pen met recycling-labels naast een groeiend plantje',
+    relevantie: 'De meeste pennenmakers zien duurzaamheidsregels als gedoe. Wij denken: wat als Aurora daar juist van profiteert? Het idee komt van hoe Tesla geld verdient aan carbon credits omdat ze al aan de regels voldoen voordat concurrenten dat doen. En van Tony\'s Chocolonely, die ketentransparantie als verkoopargument gebruiken. De EU gaat binnenkort een Digital Product Passport verplichten, en de eisen voor producentenverantwoordelijkheid worden strenger. BIC en Pilot moeten daar straks aan voldoen en dat kost ze geld. Als Aurora daar nu al op voorloopt (cradle-to-cradle, modulair, hervulbaar) dan worden die regels een voordeel. In ons scenario B (actief overheidsbeleid) is dit de sterkste positie.',
+    clusters: [
+      { naam: 'Circulair systeem', ideeën: ['Modulaire pen: vervang alleen het versleten onderdeel', 'Closed-loop hervulsysteem met biologisch afbreekbare inkt', 'Cradle-to-cradle certificering als eerste pennenmaker', 'EU Digital Product Passport-ready'] },
+      { naam: 'Radicale transparantie', ideeën: ['QR-code op elke pen: zie welke boom het hout leverde', 'Fair trade gecertificeerde productieketen', '"Impact per streep": hoeveel CO2 kost jouw pen vs. een tablet?', 'Update tijdens hele productieproces (grondstof tot hand)'] },
+      { naam: 'Regelgeving als strategie', ideeën: ['Lobby voor strengere duurzaamheidseisen (concurrenten vallen af)', 'Overcompliance levert carbon credits op (Tesla-model)', 'Duurzame materialen & lifecycle als merkbelofte'] },
+      { naam: 'Verhaal als product', ideeën: ['Elk potlood heeft een herkomstverhaal', 'Speelse website met productiereis-tracker', 'Duurzame grondstoffen inkopen als premium positionering', 'Meebewegen met klant (retoursysteem)'] },
+    ],
+    challenge: 'Hoe zouden we Aurora kunnen laten voorlopen op duurzaamheidsregels, zodat strengere wetgeving concurrenten raakt maar Aurora juist sterker maakt?',
+    reis: [
+      { fase: 'Trends', kleur: 'bg-phase-discover', link: '/discover/trends/', tekst: 'Duurzaamheid en EU-regelgeving (ESPR, circulaire economie) als megatrend' },
+      { fase: 'Scenario', kleur: 'bg-phase-discover', link: '/discover/scenario/', tekst: 'Sluit aan op as 2 (overheidsregulering), het sterkst in Gouden Kruispunt (B)' },
+      { fase: 'Empathise', kleur: 'bg-phase-discover', link: '/discover/empathise/', tekst: 'Gripe: "pennen kwijtraken, niet duurzaam, massaproductie" (sessie 1)' },
+      { fase: 'Challenge', kleur: 'bg-phase-discover', link: '/discover/challenges/', tekst: 'HZWK #4: betrouwbaarheid & duurzaamheid' },
+      { fase: 'Radar', kleur: 'bg-phase-define', link: '/define/innovatieradar/', tekst: 'Kamer Organisatie: "duurzame materialen & lifecycle", "duurzame grondstoffen"' },
+      { fase: 'Klasdiscussie', kleur: 'bg-phase-define', link: null, tekst: 'Gate 0: duurzaamheid, ethische productie en lage-lonenlanden als kernthema\'s' },
+    ],
+  },
+];
+---
+
+<BaseLayout title="Denkrichtingen — Define">
+  <!-- Hero with image -->
+  <section class="bg-bg-primary text-white overflow-hidden relative">
+    <div class="absolute inset-0">
+      <img src={url('/images/research/challenges-hero.jpeg')} alt="" class="w-full h-full object-cover opacity-15" />
+      <div class="absolute inset-0 bg-gradient-to-b from-bg-primary/60 to-bg-primary"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24 relative z-10">
+      <nav class="reveal text-sm mb-6 flex items-center gap-2">
+        <a href={url('/')} class="text-white/40 hover:text-white/60 transition-colors">Home</a>
+        <span class="text-white/20">/</span>
+        <a href={url('/define/')} class="text-white/40 hover:text-white/60 transition-colors">Define</a>
+        <span class="text-white/20">/</span>
+        <span class="text-phase-define font-medium">Denkrichtingen</span>
+      </nav>
+      <h1 class="reveal reveal-delay-1 font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold leading-[0.95] mb-4">
+        Denk<span class="gradient-text">richtingen</span>
+      </h1>
+      <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
+        Na het brainstormen met de innovatieradar hebben we de ideeën geclusterd tot twee richtingen met een challenge.
+      </p>
+      <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-define mt-8"></div>
+    </div>
+  </section>
+
+  <!-- Uitleg convergeren -->
+  <section class="bg-cream py-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="reveal bg-bg-elevated rounded-3xl p-8 md:p-10 shadow-sm border border-white/5">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-phase-define rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0 font-bold">&#8594;</div>
+          <div>
+            <h2 class="font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-3">Van divergeren naar convergeren</h2>
+            <p class="text-dark/60 leading-relaxed mb-3">
+              Tijdens sessie 3 hebben we impliciet de <strong class="text-dark">PMI-methode</strong> (Plus, Min, Interessant) toegepast door post-its te markeren met
+              <span class="inline-block w-3 h-3 rounded-full bg-green-400 align-middle mx-0.5"></span> groene (plus),
+              <span class="inline-block w-3 h-3 rounded-full bg-pink-400 align-middle mx-0.5"></span> roze (min) en
+              <span class="inline-block w-3 h-3 rounded-full bg-purple-400 align-middle mx-0.5"></span> paarse (interessant) stickers.
+              Op basis daarvan hebben we geclusterd tot twee denkrichtingen. Belangrijk: een denkrichting is geen oplossing, het is een richting om verder te onderzoeken.
+            </p>
+            <p class="text-dark/40 text-sm">
+              <a href={url('/define/innovatieradar/')} class="underline hover:text-dark/60">Innovatieradar</a> &middot; Huizingh (2019)
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Denkrichtingen -->
+  <section class="bg-bg-primary text-white py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="space-y-20">
+        {denkrichtingen.map((dr) => (
+          <div class="reveal">
+            <!-- Header -->
+            <div class="flex items-start gap-4 mb-6">
+              <div class={`w-14 h-14 ${dr.kleur} rounded-2xl flex items-center justify-center text-white font-bold text-2xl flex-shrink-0`}>
+                {dr.num}
+              </div>
+              <div>
+                <h3 class="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold leading-tight">{dr.titel}</h3>
+                <p class="text-white/50 text-sm mt-1">{dr.subtitel}</p>
+                <span class="inline-block text-xs font-bold px-2.5 py-1 rounded-full bg-white/10 text-white/60 mt-2">{dr.ruimte}</span>
+              </div>
+            </div>
+
+            <!-- Image -->
+            <div class="rounded-2xl overflow-hidden mb-5 border border-white/10">
+              <img src={url(dr.image)} alt={dr.imageAlt} class="w-full" />
+            </div>
+
+            <!-- Relevantie -->
+            <div class="bg-white/5 rounded-2xl p-5 mb-5 border border-white/10">
+              <p class="text-white/60 text-sm leading-relaxed">
+                <strong class="text-white/80">Waarom deze richting?</strong> {dr.relevantie}
+              </p>
+            </div>
+
+            <!-- Clusters -->
+            <div class="grid md:grid-cols-2 gap-3 mb-6">
+              {dr.clusters.map((cluster) => (
+                <div class="bg-white/5 rounded-xl p-4 border border-white/5">
+                  <h4 class="font-[family-name:var(--font-display)] font-bold text-white/80 text-sm mb-2">{cluster.naam}</h4>
+                  <ul class="space-y-1">
+                    {cluster.ideeën.map((idee) => (
+                      <li class="text-white/40 text-xs flex items-start gap-1.5">
+                        <span class="text-white/20 mt-0.5">&#8250;</span>
+                        {idee}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            <!-- Challenge -->
+            <div class={`rounded-2xl p-6 border-l-4 ${dr.borderKleur} bg-white/5 mb-6`}>
+              <p class="text-white/30 text-xs font-bold uppercase tracking-widest mb-2">Challenge (HZWK)</p>
+              <p class="text-white font-[family-name:var(--font-display)] text-lg leading-relaxed font-medium">
+                {dr.challenge}
+              </p>
+            </div>
+
+            <!-- Reis: traceerbaarheid -->
+            <div class="bg-white/[0.03] rounded-2xl p-5 border border-white/5">
+              <p class="text-white/30 text-xs font-bold uppercase tracking-widest mb-3">Hoe zijn we hier gekomen?</p>
+              <div class="space-y-2">
+                {dr.reis.map((stap) => (
+                  <div class="flex items-start gap-3">
+                    <div class={`w-6 h-6 ${stap.kleur} rounded-md flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0 mt-0.5`}>
+                      {stap.fase.substring(0, 2)}
+                    </div>
+                    <div class="flex-1">
+                      {stap.link ? (
+                        <a href={url(stap.link)} class="text-white/50 text-xs hover:text-white/70 transition-colors">
+                          <strong class="text-white/60">{stap.fase}:</strong> {stap.tekst}
+                        </a>
+                      ) : (
+                        <p class="text-white/50 text-xs">
+                          <strong class="text-white/60">{stap.fase}:</strong> {stap.tekst}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="bg-warm-gray py-16">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href={url('/define/innovatieradar/')} class="reveal inline-flex items-center gap-2 text-dark/50 hover:text-dark font-bold transition-colors">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        Innovatieradar
+      </a>
+      <div class="reveal reveal-delay-1 text-center">
+        <p class="text-dark/40 text-sm mb-3">Define afgerond, door naar Design</p>
+        <a href={url('/design/')} class="inline-flex items-center gap-2 bg-phase-design text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform">
+          Naar Design (Fase 3)
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

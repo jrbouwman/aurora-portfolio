@@ -1,17 +1,45 @@
 ---
 import PhaseLayout from '../../layouts/PhaseLayout.astro';
+import { url } from '../../utils/base';
+
+const evidence = [
+  {
+    title: 'Innovatieradar',
+    description: 'Brainstormsessie met de innovatieradar (Huizingh, 2019). 31 ideeën op post-its over 6 kamers.',
+    href: url('/define/innovatieradar/'),
+    icon: '🧭',
+  },
+  {
+    title: 'Denkrichtingen',
+    description: 'De ideeën geclusterd en teruggebracht naar twee richtingen met een challenge per stuk.',
+    href: url('/define/denkrichtingen/'),
+    icon: '🔀',
+  },
+];
 ---
 
 <PhaseLayout
   title="Define"
   phase="define"
   phaseNumber="Fase 2"
-  description="In de Define-fase analyseren we het kernprobleem en formuleren we de innovatierichting voor Aurora."
-  evidence={[]}
+  description="De innovatieruimte verkend met de innovatieradar, en de ideeën teruggebracht naar twee denkrichtingen."
+  evidence={evidence}
 >
-  <h2>Binnenkort beschikbaar</h2>
+  <h2>Wat hebben we gedaan?</h2>
   <p>
-    De content voor de Define-fase wordt ingevuld tijdens BK3. Hier komt de probleemdefiniëring,
-    analyse en formulering van de innovatierichting.
+    Met de innovatieradar (Huizingh, 2019) hebben we in een sessie op een flipover ideeën gegenereerd
+    per innovatieruimte: product, proces, positie, paradigma. Alles mocht, we hebben ons oordeel uitgesteld.
+    Dat leverde 31 ideeën op over 6 kamers.
   </p>
+  <p>
+    Daarna hebben we de ideeën gescoord met gekleurde stickers (groen = goed, roze = minder, paars = interessant)
+    en geclusterd. Daar kwamen twee denkrichtingen uit die we allebei uitgewerkt hebben met een HZWK-challenge.
+  </p>
+
+  <h2>Bewijsstukken (opdracht 1b)</h2>
+  <ul>
+    <li><strong>Ingevulde innovatieradar</strong>: foto's van de flipover en alle ideeën per kamer</li>
+    <li><strong>Denkrichtingen</strong>: twee richtingen met clusters, challenges en hoe we daar gekomen zijn</li>
+    <li><strong>Gate</strong>: selectie samen met anderen (voorbereiding BK4)</li>
+  </ul>
 </PhaseLayout>

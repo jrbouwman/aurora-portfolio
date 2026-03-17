@@ -45,13 +45,16 @@ docs/
     problem-clarification.md          # AT1 template: probleem vs. non-probleem analyse (Andler 2016)
     discover-challenges-hzwk.md       # Dreams & Gripes -> HZWK-methode voor challenges
     gate0-discussie.md                # Gate 0 discussieformulier: trends scoren en selecteren
+    voorbereiding-les4-denkrichtingen.md # Voorbereiding BK4: denkrichtingen ordenen, PMI, PowerPoint
   lessen/
     les1-perspectieven-op-innovatie.md # Les 1: definities, VOCA, DESTEP/IBSOTEEP, design thinking intro
     les2-trends-en-immersive-research.md # Les 2: trendsurfing, PLC, BCG, strategieen, immersive research
+    les3-define-and-design.md         # Les 3: define, design thinking, 4P innovatieruimte, blue ocean, ERRC
     voorbereiding-les2.md             # Voorbereidingsopdracht + verplichte literatuur les 2
     trends-tilborgh.md                # IBSOTEEP-analyse uitleg (Van Tilborgh 2022)
     trend-piramide.md                 # Trendpiramide: micro/macro/mega niveaus
     innovatieruimte-rollen.md         # 4 innovatierollen (Derksen 2012): teamsamenstelling
+    innovatieradar-handleiding.md     # Innovatieradar: 12 dimensies, werkwijze divergeren/convergeren (Huizingh 2019)
   literatuur/
     van-der-voort-innovatieboek-h1-h2.md # H1: wat is innovatie + H2: waarom innoveren (Van der Voort 2011)
     kastelle-creativity-entrepreneurship-innovation.md # Creativiteit vs. ondernemerschap vs. innovatie
@@ -73,23 +76,67 @@ docs/
 - Pen-stroke SVG visual in hero (`public/images/pen-stroke.svg`)
 - Teamleden footer: Anke Maassen van den Brink, Lianne van Os, Jr Bouwman
 
-### Opdracht 1a Discover - Status
+### Opdracht 1a Discover - Status (AFGEROND)
 - Werkdocumenten in `docs/onderzoek/` — alle met bronverwijzingen (genummerd, met URLs)
 - Trendanalyse (IBSOTEEP + Porter + piramide): v2 met 19+ bronnen
-- Scenariomatrix: concept met 4 scenario's + 3 alternatieve opties voor as 2
+- Scenariomatrix: 4 scenario's op 2 assen:
+  - X-as: Tempo digitale adoptie (langzaam ↔ snel)
+  - Y-as: Overheidsregulering (actief beleid ↔ laissez-faire)
+  - Scenario's: A. Analoge Renaissance, B. Gouden Kruispunt, C. Stille Status Quo, D. Digitale Dominantie
 - Aanleiding (geschiedenis schrijfwaren + tijdlijn): v2 met drivers per mijlpaal en 16 bronnen
 - Bronnenlijst: `docs/onderzoek/bronnen.md` — 26 bronnen
 - Extra theorie gekozen: Christensen's Disruptive Innovation (1997)
-- Klasdiscussie genoteerd: duurzaamheid, goedkope arbeid lage-lonenlanden, ethische productie
-- As 2 scenario: nog te kiezen door groep (3 alternatieven voorgesteld)
+- Klasdiscussie (Gate 0): duurzaamheid, goedkope arbeid lage-lonenlanden, ethische productie
+- Empathise: sessie 1 (learn from experience) + sessie 2 (learn from users)
+- Dreams (6 clusters) en Gripes (4 clusters), HZWK op challenges-pagina (5 challenges)
+- HZWK staat ALLEEN op challenges-pagina, NIET op empathise
 
 ### Immersive Research - Status
-- Pagina volledig ingevuld: `src/pages/discover/empathise.astro`
-- Sessie 1 (Learn from Experience): brainstorm eigen ervaringen, timelapse video + foto
-- Sessie 2 (Learn from Users): interviews Anna & Famke, ideeën clusteren
-- 13 Dreams (incl. beveiligde pen tegen fraude via vingerafdrukherkenning) + 8 Gripes
-- Alle omgezet naar HZWK-challenges
-- Media: `public/images/research/sessie1-timelapse.mp4`, `sessie1-foto.jpeg`
+- Pagina: `src/pages/discover/empathise.astro`
+- Sessie 1 (Learn from Experience): brainstorm eigen ervaringen, timelapse + foto
+  - Niet alle punten gelabeld als dream/gripe, sommige zijn observaties (analoog vs. digitaal)
+- Sessie 2 (Learn from Users): interviews Anna & Famke
+- Dreams geclusterd in 6 thema's, Gripes in 4 thema's (compact, zonder HZWK)
+- Media: `public/images/research/` (sessie1-timelapse.mp4, sessie1-foto.jpeg, dreams-gripes.jpeg)
+
+### Opdracht 1b Define - Status (IN PROGRESS)
+- Sessie 3 (Innovatieradar, BK3): flipover met 4P-assen, 6 kamers, 31 ideeën op post-its
+  - Kamers: Specialisatie, Nice to have, Hulp, Beveiliging, Klantervaring, Organisatie
+  - PMI impliciet toegepast: groene (plus), roze (min), paarse (interessant) stickers
+  - Foto's: `public/images/research/sessie3-radar-1.jpeg`, `sessie3-radar-2.jpeg`
+- Innovatieradar: Huizingh (2019), 12 dimensies over 4 sleuteldimensies (Product, Positie, Proces, Paradigma)
+  - Handleiding: `docs/lessen/innovatieradar-handleiding.md`
+  - PDF en DOCX bronbestanden in projectroot
+- 2 denkrichtingen geconvergeerd:
+  1. **De Analoge Security Expert** (Paradigma + Positie): Aurora als vertrouwensinstrument, identiteitsverificatie, anti-deepfake. Robuust in alle scenario's.
+  2. **De Circulaire Standaard** (Paradigma + Proces): regelgeving als wapen (Tesla/Tony's model), EU Digital Product Passport, cradle-to-cradle, radicale ketentransparantie. Sterkst in scenario B.
+- Elke denkrichting heeft "Hoe zijn we hier gekomen?" traceerbaarheid: trends → scenario → empathise → challenge → radar
+- Voorbereiding BK4: `docs/opdrachten/voorbereiding-les4-denkrichtingen.md` (PowerPoint 7 slides, gate)
+- **Nog te doen:** Gate (BK4) — selectie van 2 denkrichtingen met minimaal 2 anderen
+
+### Website structuur (actueel)
+**Discover (opdracht 1a):**
+- `/discover/` — overzicht met 4 bewijsstukken
+- `/discover/trends/` — trendanalyse
+- `/discover/scenario/` — scenariomatrix met 4 scenario's
+- `/discover/empathise/` — sessie 1+2, dreams & gripes (zonder HZWK)
+- `/discover/challenges/` — 5 HZWK-challenges uit dreams/gripes
+
+**Define (opdracht 1b):**
+- `/define/` — overzicht met 2 bewijsstukken
+- `/define/innovatieradar/` — sessie 3, 12 dimensies, 31 ideeën per kamer
+- `/define/denkrichtingen/` — 2 richtingen met clusters, challenges, reis-traceerbaarheid
+
+### Media
+- `media/` — originele bronbestanden (WhatsApp foto's, AI-generated images, sessie-originelen)
+- `public/images/research/` — gebruiksklare images voor de website
+  - challenges-hero.jpeg (AI, post-its radial pattern)
+  - denkrichting1-intelligente-pen.jpeg (AI, futuristische pen)
+  - denkrichting2-persoonlijke-ervaring.jpeg (AI, ambachtelijke pen — MOET VERVANGEN voor circulaire standaard)
+  - dreams-gripes.jpeg (AI, split dream vs frustration)
+  - sessie1-foto.jpeg, sessie1-timelapse.mp4 (eigen)
+  - sessie3-radar-1.jpeg, sessie3-radar-2.jpeg (eigen)
+- **Nog nodig:** nieuwe AI image voor innovatieradar (prompt #4 was slecht), nieuwe image voor denkrichting 2 (circulaire standaard)
 
 ## Rol van Claude
 
@@ -107,7 +154,18 @@ Claude helpt als **studieassistent en sparringpartner** bij het uitwerken van di
 - Focus op het perspectief van een **manager van innovaties**, niet puur technisch
 - Portfolio = reisverslag met structuurdocument (max 4 pag) + bewijsstukken
 - **ELKE bron moet een klikbare hyperlink zijn** naar de originele bron (geen platte tekst)
-- **Zo veel mogelijk illustraties en afbeeldingen** gebruiken — SVG-illustraties waar mogelijk, foto's als illustratie niet voldoet
+- **Zo veel mogelijk illustraties en afbeeldingen** gebruiken, SVG-illustraties waar mogelijk, foto's als illustratie niet voldoet
+
+### AI-toon vermijden (BELANGRIJK)
+De docent moet niet afhaken op AI-toon. Vermijd daarom:
+- **Em dashes (—)** in lopende tekst. Gebruik komma's, punten, of "en"/"of"
+- **Taglines en oneliners** zoals "Niet oplossen, maar ontdekken" of "De juiste vraag stellen is halve werk"
+- **Perfect parallelle opsommingen** die te netjes zijn voor een studentenportfolio
+- **Corporate jargon** zoals "competitive moat", "paradigmashift", "convergeren naar" (behalve als het theorie-termen zijn)
+- **Pitch deck-toon**: te glad, te overtuigend, te veel als verkooppraatje
+- **Te lange HZWK's**: houd ze kort en direct (~15 woorden), niet 40 woorden met bijzinnen
+- Schrijf in **wij-vorm** en gewone spreektaal: "We vroegen ons af...", "Daar kwamen we op door..."
+- Het mag best een beetje rommelig of onaf klinken, dat is geloofwaardiger
 
 ## Kernliteratuur & referenties
 
@@ -124,3 +182,6 @@ Claude helpt als **studieassistent en sparringpartner** bij het uitwerken van di
 - Andler (2016) - Problem clarification
 - Snowden (2005) - Cynefin, paradigmashift
 - BCG (Henderson) - Growth-Share Matrix
+- Huizingh (2019) - Innovatieradar, 12 dimensies binnen 4P (Product, Positie, Proces, Paradigma)
+- Tidd & Bessant - 4P Innovation Space (product, process, position, paradigm)
+- Kim & Mauborgne - Blue Ocean Strategy, ERRC framework, value curves

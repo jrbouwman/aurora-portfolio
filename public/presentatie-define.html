@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aurora - Define Presentatie</title>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+  :root{--bg:#0f0f1a;--bg2:rgba(255,255,255,0.04);--t:#e8e2d8;--td:rgba(232,226,216,0.45);--tm:rgba(232,226,216,0.65);--r:#F47264;--b:#3B82F6;--g:#D4AF37;--gr:#22C55E;--rf:#F59E0B;--p:#A78BFA}
+  html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--t);font-family:-apple-system,'Segoe UI',sans-serif;-webkit-font-smoothing:antialiased}
+  .deck{position:relative;width:100vw;height:100vh}
+  .slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:4vh 6vw;visibility:hidden;opacity:0;transform:translateX(60px);transition:opacity .4s,transform .4s}
+  .slide.active{visibility:visible;opacity:1;transform:translateX(0)}
+  .inner{max-width:960px;width:100%}
+  h1{font-family:'Kalam',cursive;font-size:clamp(2rem,4.5vw,3.2rem);line-height:1.08;margin-bottom:.25em}
+  h2{font-family:'Kalam',cursive;font-size:clamp(1.3rem,3vw,2rem);line-height:1.12;margin-bottom:.35em}
+  .sub{font-size:.84rem;color:var(--td);margin-bottom:1em}
+  .txt{font-size:.92rem;line-height:1.6;color:var(--tm);max-width:700px}
+  .txt+.txt{margin-top:.5em}
+  strong{color:var(--t);font-weight:600}
+  .tag{font-size:.62rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;display:inline-block;padding:.2em .6em;border-radius:100px;margin-bottom:.6em}
+  .tag-r{background:rgba(244,114,100,.15);color:var(--r)}
+  .tag-b{background:rgba(59,130,246,.15);color:var(--b)}
+  .tag-p{background:rgba(167,139,250,.15);color:var(--p)}
+  .bar{width:40px;height:3px;border-radius:2px;margin-bottom:1em}
+  .cards{display:grid;gap:6px;margin-top:.6em}
+  .card{background:var(--bg2);border:1px solid rgba(255,255,255,.06);border-radius:9px;padding:8px 12px;font-size:.78rem;color:var(--tm);line-height:1.35}
+  .d{display:inline-block;width:5px;height:5px;border-radius:50%;margin-right:6px;vertical-align:middle}
+  .iw{position:relative;border-radius:12px;overflow:hidden;margin-bottom:.6em}
+  .iw img{width:100%;display:block;opacity:.85}
+  .ig{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,15,26,.85) 0%,transparent 55%)}
+  .il{position:absolute;bottom:8px;left:10px;font-size:.68rem;font-weight:700}
+  .quote{font-family:'Kalam',cursive;font-size:clamp(1.2rem,2.5vw,1.8rem);line-height:1.4;color:var(--t);padding-left:1.2em;text-align:left;max-width:650px}
+  .qr{border-left:4px solid var(--r)}.qb{border-left:4px solid var(--b)}
+  .refs{display:flex;flex-wrap:wrap;gap:4px;margin-top:.6em}
+  .ref{font-size:.62rem;padding:2px 8px;border-radius:100px;background:var(--bg2);border:1px solid rgba(255,255,255,.06);color:var(--td)}
+  .ctr{position:fixed;bottom:18px;right:24px;font-size:.74rem;color:var(--td);z-index:100}
+  .hint{position:fixed;bottom:18px;left:24px;font-size:.62rem;color:rgba(232,226,216,.18);z-index:100}
+  .orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;opacity:.1}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+  .slbl{font-size:.64rem;color:var(--td);font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:3px}
+  .mx{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .mc{border-radius:10px;padding:10px 12px;border:1px solid rgba(255,255,255,.08)}
+  .mc h3{font-family:'Kalam',cursive;font-size:.85rem;margin-bottom:2px}
+  .mc p{font-size:.72rem;color:var(--tm);line-height:1.35}
+  .mlab{font-size:.64rem;color:var(--td);text-align:center;font-style:italic}
+  .max{display:flex;justify-content:space-between;font-size:.64rem;color:var(--td);margin-top:3px}
+  .rdir{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 18px;margin-bottom:.8em}
+  .dim{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;border-radius:7px;font-size:.76rem;font-weight:600;margin-right:5px;margin-bottom:3px}
+  /* Hero two-col */
+  .hero-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+  .hero-imgs{display:flex;flex-direction:column;gap:10px}
+  .hero-img{border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+  .hero-img img{width:100%;display:block;opacity:.9}
+  .hero-img-label{padding:6px 10px;background:var(--bg2);font-size:.7rem;color:var(--td)}
+  .team{font-size:.68rem;color:var(--td);margin-top:1.2em}
+  @media(max-width:750px){.cols,.mx,.hero-cols{grid-template-columns:1fr}.slide{padding:3vh 5vw}}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- 1: Casus + preview denkrichtingen -->
+  <div class="slide active">
+    <div class="orb" style="width:400px;height:400px;background:var(--r);top:-12%;right:-8%"></div>
+    <div class="orb" style="width:250px;height:250px;background:var(--b);bottom:5%;left:-5%"></div>
+    <div class="inner">
+      <div class="hero-cols">
+        <div>
+          <span class="tag tag-r">Beyond Paper</span>
+          <h1>Aurora Writing<br>Instruments Group</h1>
+          <div class="bar" style="background:linear-gradient(90deg,var(--r),var(--b))"></div>
+          <p class="txt">Nederlandse producent van pennen, potloden en creatieve materialen. 125+ jaar historie. De markt krimpt structureel, maar er liggen kansen.</p>
+          <p class="txt"><strong>Welke rol kan Aurora spelen in een wereld die steeds digitaler schrijft?</strong></p>
+          <p class="team">Anke, Lianne & Jr · EDIM.21</p>
+        </div>
+        <div class="hero-imgs">
+          <div class="hero-img">
+            <img src="images/research/denkrichting1-security-expert.jpeg" alt="Biometrische pen">
+            <div class="hero-img-label">Denkrichting 1: De Analoge Security Expert</div>
+          </div>
+          <div class="hero-img">
+            <img src="images/research/denkrichting2-circulaire-standaard.jpeg" alt="Circulaire pen">
+            <div class="hero-img-label">Denkrichting 2: De Circulaire Standaard</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2: Onderzoek + sessies + scenario's -->
+  <div class="slide">
+    <div class="orb" style="width:300px;height:300px;background:var(--p);top:8%;left:-5%"></div>
+    <div class="inner">
+      <span class="tag tag-r">Discover</span>
+      <h2>Onderzoek en sessies</h2>
+      <div class="cols" style="gap:20px">
+        <div>
+          <p class="slbl" style="margin-bottom:8px">Wat hebben we gedaan?</p>
+          <div class="cards">
+            <div class="card"><span class="d" style="background:var(--r)"></span><strong>Trendanalyse</strong> (IBSOTEEP + Porter): markt krimpt, premium groeit, digitalisering versnelt</div>
+            <div class="card"><span class="d" style="background:var(--r)"></span><strong>Sessie 1</strong> (learn from experience): eigen ervaringen met schrijfgerei op het whiteboard</div>
+            <div class="card"><span class="d" style="background:var(--r)"></span><strong>Sessie 2</strong> (learn from users): interviews met Anna en Famke over hun frustraties en wensen</div>
+            <div class="card"><span class="d" style="background:var(--b)"></span><strong>Sessie 3</strong> (innovatieradar): brainstormen in 6 kamers, 32 ideeën op post-its met PMI-stickers</div>
+          </div>
+        </div>
+        <div>
+          <p class="slbl" style="margin-bottom:8px">Scenariomatrix</p>
+          <div class="mx">
+            <div class="mc" style="background:rgba(245,158,11,.06);border-color:rgba(245,158,11,.15)">
+              <h3 style="color:var(--rf);font-size:.78rem">A. Analoge Renaissance</h3>
+              <p>Stabiel, weinig druk</p>
+            </div>
+            <div class="mc" style="background:rgba(34,197,94,.06);border-color:rgba(34,197,94,.2)">
+              <h3 style="color:var(--gr);font-size:.78rem">&#11088; B. Gouden Kruispunt</h3>
+              <p><strong>Grootste kans</strong></p>
+            </div>
+            <div class="mc" style="background:rgba(59,130,246,.06);border-color:rgba(59,130,246,.12)">
+              <h3 style="color:var(--b);font-size:.78rem">C. Status Quo</h3>
+              <p>Boiled frog</p>
+            </div>
+            <div class="mc" style="background:rgba(244,114,100,.06);border-color:rgba(244,114,100,.15)">
+              <h3 style="color:var(--r);font-size:.78rem">D. Digitale Dominantie</h3>
+              <p>Existentieel risico</p>
+            </div>
+          </div>
+          <div class="max"><span>&#8592; Digitaal langzaam</span><span>Digitaal snel &#8594;</span></div>
+          <p style="font-size:.68rem;color:var(--td);text-align:center;margin-top:2px">&#8593; actief beleid &nbsp;|&nbsp; &#8595; laissez-faire</p>
+
+          <p class="txt" style="font-size:.82rem;margin-top:10px">Uit dit onderzoek kwamen <strong>twee denkrichtingen</strong> die in meerdere scenario's werken.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3: DR1 Innovatieruimte -->
+  <div class="slide">
+    <div class="orb" style="width:350px;height:350px;background:var(--r);top:5%;right:0"></div>
+    <div class="inner">
+      <span class="tag tag-p">Denkrichting 1 · Innovatieruimte</span>
+      <h2>Waar in de radar?</h2>
+      <div class="sub">Na de sessies en het onderzoek kwamen we uit bij deze ruimtes</div>
+      <div class="rdir">
+        <span class="dim" style="background:rgba(167,139,250,.15);color:var(--p)">Paradigma</span>
+        <span class="dim" style="background:rgba(244,114,100,.15);color:var(--r)">Product</span>
+        <p style="font-size:.85rem;color:var(--tm);margin-top:6px;line-height:1.5">
+          <strong>Merk (12)</strong>: Aurora's 125 jaar heritage inzetten als vertrouwensmerk.
+          <strong>Oplossingen (3)</strong>: een concreet probleem oplossen, namelijk de vervalsing van handtekeningen.
+        </p>
+      </div>
+      <p class="txt"><strong>Waarom?</strong> Uit sessie 1+2 kwam de dream "beveiligde pen tegen fraude via vingerafdrukherkenning", dat vonden we zelf verrassend. In sessie 3 werd Beveiliging een eigen kamer op de radar met 4 ideeën. Het past bij de scenario's: in D wordt analoge verificatie juist waardevoller, in B kan regelgeving het verplichten.</p>
+    </div>
+  </div>
+
+  <!-- 4: DR1 Clusters -->
+  <div class="slide">
+    <div class="inner">
+      <span class="tag tag-r">Denkrichting 1 · Clusters</span>
+      <h2>Wat vonden we in deze ruimte?</h2>
+      <div class="cols">
+        <div>
+          <div class="iw" style="position:relative">
+            <img src="images/research/sessie3-radar-2.jpeg" alt="Innovatieradar">
+            <div class="ig" style="opacity:.4"></div>
+            <!-- Highlight box rond Beveiliging (rechterbovenhoek) -->
+            <div style="position:absolute;top:3%;right:0%;width:21%;height:36%;border:2px solid var(--r);border-radius:8px;background:rgba(244,114,100,.1);pointer-events:none;box-shadow:0 0 12px rgba(244,114,100,.3)"></div>
+            <div style="position:absolute;top:4%;right:2%;background:var(--r);color:#fff;font-size:.58rem;font-weight:700;padding:2px 6px;border-radius:5px;z-index:2">Beveiliging</div>
+          </div>
+          <div class="refs">
+            <span class="ref">Dream sessie 1+2: "beveiligde pen tegen fraude"</span>
+            <span class="ref">HZWK #5 uit discover</span>
+          </div>
+        </div>
+        <div>
+          <p class="slbl">Sessie 3: Beveiliging</p>
+          <div class="cards">
+            <div class="card"><span class="d" style="background:var(--r)"></span>Pen piept als die niet van jou is</div>
+            <div class="card"><span class="d" style="background:var(--r)"></span>Voice/vingerafdruk authenticatie</div>
+            <div class="card"><span class="d" style="background:var(--r)"></span>Vingerafdrukbeveiliging handtekeningen</div>
+            <div class="card"><span class="d" style="background:var(--g)"></span>De analoge security expert (positionering)</div>
+          </div>
+          <p class="slbl" style="margin-top:8px">Sessie 1+2: Empathise</p>
+          <div class="cards">
+            <div class="card"><span class="d" style="background:var(--p)"></span>Handschriftstijl is uniek per persoon</div>
+            <div class="card"><span class="d" style="background:var(--p)"></span>Druk, snelheid en hoek als biometrie</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5: Challenge DR1 -->
+  <div class="slide">
+    <div class="orb" style="width:500px;height:500px;background:var(--r);top:20%;left:50%;transform:translateX(-50%);opacity:.07"></div>
+    <div class="inner">
+      <div class="cols" style="align-items:center">
+        <div>
+          <span class="tag tag-r">Challenge 1</span>
+          <h2 style="margin-bottom:.15em">De Analoge Security Expert</h2>
+          <p style="font-size:.78rem;color:var(--td);margin-bottom:1em">Een pen die bewijst wie er geschreven heeft</p>
+          <p class="quote qr">Hoe zouden we een pen kunnen ontwikkelen die via biometrie bewijst wie er geschreven heeft, zodat een handtekening op papier net zo veilig wordt als een digitale?</p>
+          <div style="margin-top:1em"><span class="ref">Merk (Paradigma) + Oplossingen (Product)</span></div>
+        </div>
+        <div>
+          <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1)">
+            <img src="images/research/denkrichting1-security-expert.jpeg" alt="Biometrische pen ondertekent document" style="width:100%;display:block">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6: DR2 Innovatieruimte -->
+  <div class="slide">
+    <div class="orb" style="width:350px;height:350px;background:var(--b);top:5%;right:0"></div>
+    <div class="inner">
+      <span class="tag tag-b">Denkrichting 2 · Innovatieruimte</span>
+      <h2>Waar in de radar?</h2>
+      <div class="sub">De tweede richting die uit de sessies naar voren kwam</div>
+      <div class="rdir">
+        <span class="dim" style="background:rgba(244,114,100,.15);color:var(--r)">Product</span>
+        <span class="dim" style="background:rgba(167,139,250,.15);color:var(--p)">Paradigma</span>
+        <p style="font-size:.85rem;color:var(--tm);margin-top:6px;line-height:1.5">
+          <strong>Platform (2)</strong>: modulair ontwerp, vervangbare onderdelen, hervulbaar systeem.
+          <strong>Merk (12)</strong>: duurzaamheid en ketentransparantie als merkbelofte.
+        </p>
+      </div>
+      <p class="txt"><strong>Waarom?</strong> In sessie 1 kwam de gripe "pennen kwijtraken, niet duurzaam, massaproductie". Bij Gate 0 was duurzaamheid en ethische productie een kernthema. Op de radar kwamen "duurzame materialen" en "duurzame grondstoffen" als ideeën. In scenario B (actief overheidsbeleid) wordt dit de sterkste positie: regelgeving als voordeel.</p>
+    </div>
+  </div>
+
+  <!-- 7: DR2 Clusters -->
+  <div class="slide">
+    <div class="inner">
+      <span class="tag tag-b">Denkrichting 2 · Clusters</span>
+      <h2>Wat vonden we in deze ruimte?</h2>
+      <div class="cols">
+        <div>
+          <div class="iw" style="position:relative">
+            <img src="images/research/sessie3-radar-2.jpeg" alt="Innovatieradar">
+            <div class="ig" style="opacity:.4"></div>
+            <!-- Highlight box rond Organisatie (linksonder, vanaf "Overig organisatie" tekst) -->
+            <div style="position:absolute;top:47%;left:0%;width:48%;height:45%;border:2px solid var(--b);border-radius:8px;background:rgba(59,130,246,.08);pointer-events:none;box-shadow:0 0 12px rgba(59,130,246,.3)"></div>
+            <div style="position:absolute;top:47%;left:1%;background:var(--b);color:#fff;font-size:.55rem;font-weight:700;padding:2px 6px;border-radius:5px;z-index:2">Organisatie</div>
+            <!-- Highlight box rond Klantervaring (rechtsonder, vanaf "Klantervaring" tekst incl. garantie post-its) -->
+            <div style="position:absolute;top:45%;right:0%;width:48%;height:47%;border:2px solid var(--gr);border-radius:8px;background:rgba(34,197,94,.06);pointer-events:none;box-shadow:0 0 12px rgba(34,197,94,.3)"></div>
+            <div style="position:absolute;top:45%;right:1%;background:var(--gr);color:#fff;font-size:.55rem;font-weight:700;padding:2px 6px;border-radius:5px;z-index:2">Klantervaring</div>
+          </div>
+          <div class="refs">
+            <span class="ref">Gripe sessie 1: "niet duurzaam, massaproductie"</span>
+            <span class="ref">Gate 0: duurzaamheid als kernthema</span>
+            <span class="ref">HZWK #4 uit discover</span>
+          </div>
+        </div>
+        <div>
+          <p class="slbl">Sessie 3: Organisatie</p>
+          <div class="cards">
+            <div class="card"><span class="d" style="background:var(--gr)"></span>Duurzame materialen & lifecycle</div>
+            <div class="card"><span class="d" style="background:var(--gr)"></span>Duurzame grondstoffen inkopen</div>
+            <div class="card"><span class="d" style="background:var(--gr)"></span>Meebewegen met klant (retoursysteem)</div>
+          </div>
+          <p class="slbl" style="margin-top:8px">Sessie 3: Klantervaring</p>
+          <div class="cards">
+            <div class="card"><span class="d" style="background:var(--b)"></span>Update tijdens hele productieproces</div>
+            <div class="card"><span class="d" style="background:var(--b)"></span>Speelse website met opties</div>
+          </div>
+          <p class="slbl" style="margin-top:8px">Cross-industry inspiratie</p>
+          <div class="cards">
+            <div class="card"><span class="d" style="background:var(--g)"></span>Tesla: carbon credits door overcompliance</div>
+            <div class="card"><span class="d" style="background:var(--g)"></span>Tony's: ketentransparantie als product</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8: Challenge DR2 -->
+  <div class="slide">
+    <div class="orb" style="width:500px;height:500px;background:var(--b);top:20%;left:50%;transform:translateX(-50%);opacity:.07"></div>
+    <div class="inner">
+      <div class="cols" style="align-items:center">
+        <div>
+          <span class="tag tag-b">Challenge 2</span>
+          <h2 style="margin-bottom:.15em">De Circulaire Standaard</h2>
+          <p style="font-size:.78rem;color:var(--td);margin-bottom:1em">Duurzaamheidsregels als voordeel, niet als kostenpost</p>
+          <p class="quote qb">Hoe zouden we Aurora kunnen laten voorlopen op duurzaamheidsregels, zodat strengere wetgeving concurrenten raakt maar Aurora juist sterker maakt?</p>
+          <div style="margin-top:1em"><span class="ref">Platform (Product) + Merk (Paradigma)</span></div>
+        </div>
+        <div>
+          <div style="border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1)">
+            <img src="images/research/denkrichting2-circulaire-standaard.jpeg" alt="Modulaire pen met circulair ontwerp" style="width:100%;display:block">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="ctr" id="ctr">1 / 8</div>
+<div class="hint">pijltjestoetsen of klik</div>
+<script>
+  var sl=document.querySelectorAll('.slide'),ctr=document.getElementById('ctr'),cur=0,tot=sl.length,busy=false;
+  function go(n){
+    if(n<0||n>=tot||n===cur||busy)return;
+    busy=true;
+    var fw=n>cur;
+    // Immediately hide all non-target slides
+    for(var i=0;i<tot;i++){
+      if(i!==n){sl[i].classList.remove('active');sl[i].style.transition='none';sl[i].style.opacity='0';sl[i].style.transform='translateX(0)';}
+    }
+    var nx=sl[n];
+    nx.style.transition='none';
+    nx.style.transform=fw?'translateX(60px)':'translateX(-60px)';
+    nx.style.opacity='0';
+    nx.classList.add('active');
+    void nx.offsetWidth;
+    nx.style.transition='opacity .35s,transform .35s';
+    nx.style.opacity='1';
+    nx.style.transform='translateX(0)';
+    cur=n;ctr.textContent=(cur+1)+' / '+tot;
+    setTimeout(function(){busy=false},350);
+  }
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();go(cur+1)}
+    if(e.key==='ArrowLeft'){e.preventDefault();go(cur-1)}
+  });
+  document.querySelector('.deck').addEventListener('click',function(e){
+    if(e.target.closest('a'))return;e.clientX/window.innerWidth>.5?go(cur+1):go(cur-1);
+  });
+</script>
+</body>
+</html>

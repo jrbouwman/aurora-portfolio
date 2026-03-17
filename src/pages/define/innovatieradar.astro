@@ -1,0 +1,215 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../utils/base';
+
+// De 12 dimensies van Huizingh (2019) met onze ideeën gemapped
+const dimensies = [
+  { naam: 'Aanbod', as: 'Product', nr: 1, beschrijving: 'Het uiteindelijke product, dienst of combinatie gericht op specifieke klantgroepen.' },
+  { naam: 'Platform', as: 'Product', nr: 2, beschrijving: 'Mogelijkheden om producten modulair op te bouwen.' },
+  { naam: 'Oplossingen', as: 'Product', nr: 3, beschrijving: 'Welk probleem los je op bij klanten? Pijnverzachters en voordeelverschaffers.' },
+  { naam: 'Klanten', as: 'Positie', nr: 4, beschrijving: 'Nog niet vervulde klantbehoeften of markten. Nieuwe PTM-combinaties.' },
+  { naam: 'Klantervaring', as: 'Positie', nr: 5, beschrijving: 'Alles wat een klant ziet, hoort, voelt of ervaart tijdens touchpoints.' },
+  { naam: 'Waardeverkrijging', as: 'Positie', nr: 6, beschrijving: 'Verdienmodellen: abonnementen, nieuwe prijssystemen.' },
+  { naam: 'Aanwezigheid', as: 'Positie', nr: 7, beschrijving: 'Plaats en tijd van contact. Kan een complete paradigmashift zijn!' },
+  { naam: 'Netwerken', as: 'Positie', nr: 8, beschrijving: 'Het netwerk tussen aanbieder en klant inzetten om te innoveren.' },
+  { naam: 'Processen', as: 'Proces', nr: 9, beschrijving: 'Alle interne activiteiten die waarde toevoegen.' },
+  { naam: 'Organisatie', as: 'Proces', nr: 10, beschrijving: 'De organisatie als systeem dat waarde creëert.' },
+  { naam: 'Waardeketen', as: 'Paradigma', nr: 11, beschrijving: 'Stroom van informatie en goederen. Waar kan innovatie in de keten leiden tot waardeverandering?' },
+  { naam: 'Merk', as: 'Paradigma', nr: 12, beschrijving: 'Merkbelofte en merkidentiteit inzetten voor nieuwe posities.' },
+];
+
+const asKleuren: Record<string, string> = {
+  'Product': 'bg-phase-discover',
+  'Positie': 'bg-phase-design',
+  'Proces': 'bg-phase-define',
+  'Paradigma': 'bg-phase-refine',
+};
+
+// Onze teamresultaten per innovatieruimte, gemapped naar Huizingh-dimensies
+const radarResultaten = [
+  {
+    teamNaam: 'Specialisatie',
+    dimensies: 'Aanbod, Klanten',
+    as: 'Product',
+    ideeën: ['Online eigen pen designen', 'Koppeling met ERP-systemen', 'Links-/rechtshandige specialisatie'],
+  },
+  {
+    teamNaam: 'Nice to have',
+    dimensies: 'Aanbod, Platform, Oplossingen',
+    as: 'Product',
+    ideeën: ['Speech-to-write', 'Fidget-pen', 'Dikke pen / ink voor lijnen aanpasbaar', 'Pen met speaker', 'Pen en markeerder in 1', 'Pen die vormt naar de hand'],
+  },
+  {
+    teamNaam: 'Hulp',
+    dimensies: 'Oplossingen',
+    as: 'Product',
+    ideeën: ['Pen die dingen voorstelt', 'Pen met spellingchecker', 'Pen die fouten weghaalt', 'Zelfcorrigerende pen'],
+  },
+  {
+    teamNaam: 'Beveiliging',
+    dimensies: 'Merk (12), Waardeketen (11)',
+    as: 'Paradigma',
+    ideeën: ['Pen piept als die niet van jou is', 'Voice-/vingerafdruk authenticatie', 'Vingerafdrukbeveiliging handtekeningen', 'De analoge security expert (positionering)'],
+  },
+  {
+    teamNaam: 'Klantervaring',
+    dimensies: 'Klantervaring, Waardeverkrijging, Aanwezigheid',
+    as: 'Positie',
+    ideeën: ['Lifetime garantie', 'Goede klantenservice', 'Update tijdens hele productieproces', 'Speelse website met veel opties', 'Persoonlijk contact (geen chatbot)', '100 pennen testen & terugsturen', 'Gratis A4 bij iedere pen'],
+  },
+  {
+    teamNaam: 'Organisatie',
+    dimensies: 'Processen, Organisatie, Netwerken',
+    as: 'Proces',
+    ideeën: ['Loyalty system', 'Pennenboer aan huis (als de melkboer)', 'Duurzame materialen & lifecycle', 'Luxe bezorging (gouden pakketje, handdruk)', 'Meebewegen met klant', 'Duurdere grondstoffen inkopen', 'Inkopen uit buitenland', 'Productie naar lage-lonenlanden'],
+  },
+];
+---
+
+<BaseLayout title="Innovatieradar — Define">
+  <!-- Hero with image -->
+  <section class="bg-bg-primary text-white overflow-hidden relative">
+    <div class="absolute inset-0">
+      <img src={url('/images/research/innovatieradar-hero.jpeg')} alt="" class="w-full h-full object-cover opacity-20" />
+      <div class="absolute inset-0 bg-gradient-to-b from-bg-primary/60 to-bg-primary"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24 relative z-10">
+      <nav class="reveal text-sm mb-6 flex items-center gap-2">
+        <a href={url('/')} class="text-white/40 hover:text-white/60 transition-colors">Home</a>
+        <span class="text-white/20">/</span>
+        <a href={url('/define/')} class="text-white/40 hover:text-white/60 transition-colors">Define</a>
+        <span class="text-white/20">/</span>
+        <span class="text-phase-define font-medium">Innovatieradar</span>
+      </nav>
+      <h1 class="reveal reveal-delay-1 font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold leading-[0.95] mb-4">
+        Innovatie<span class="gradient-text">radar</span>
+      </h1>
+      <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
+        Brainstormen met de innovatieradar: waar zit de ruimte om te innoveren voor Aurora? {radarResultaten.reduce((sum, k) => sum + k.ideeën.length, 0)} ideeën in 6 kamers.
+      </p>
+      <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-define mt-8"></div>
+    </div>
+  </section>
+
+  <!-- Uitleg innovatieradar -->
+  <section class="bg-cream py-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="reveal bg-bg-elevated rounded-3xl p-8 md:p-10 shadow-sm border border-white/5">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-phase-define rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0 font-bold">&#9678;</div>
+          <div>
+            <h2 class="font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-3">De Innovatieradar</h2>
+            <p class="text-dark/60 leading-relaxed mb-3">
+              Huizingh (2019) onderscheidt binnen de vier sleuteldimensies <strong class="text-dark">product, proces, paradigma en positie</strong> twaalf dimensies waarbinnen een organisatie kan innoveren.
+              Het idee is dat je als manager breder kijkt dan alleen het product. Waar kan innovatie nog meer vorm krijgen?
+            </p>
+            <p class="text-dark/40 text-sm">
+              Het is een tool die helpt om te <strong>zoeken</strong>. Het 'vinden' is een creatief en heel eigen proces.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 dimensies -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">De 12 Dimensies</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Vier sleuteldimensies, twaalf innovatieruimtes (Huizingh, 2019)</p>
+
+      <!-- 4P kompas -->
+      <div class="reveal reveal-delay-2 grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        {Object.entries(asKleuren).map(([naam, kleur]) => {
+          const dims = dimensies.filter(d => d.as === naam);
+          return (
+            <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+              <div class={`w-10 h-10 ${kleur} rounded-xl flex items-center justify-center text-white font-bold text-xs mb-3`}>{naam.substring(0, 2)}</div>
+              <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-2">{naam}</h3>
+              <ul class="space-y-1">
+                {dims.map((d) => (
+                  <li class="text-dark/50 text-xs flex items-start gap-1.5">
+                    <span class="text-dark/30 font-bold">{d.nr}.</span>
+                    <span><strong class="text-dark/70">{d.naam}</strong> — {d.beschrijving}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <!-- Foto's van de sessie -->
+  <section class="bg-cream py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Sessie 3 — Innovatieradar</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Divergeren: ideeën genereren per innovatieruimte met post-its op de flipover</p>
+
+      <div class="reveal reveal-delay-2 prose max-w-none mb-10">
+        <p>We hebben op een flipover de vier assen getekend en zijn per kamer gaan brainstormen met post-its. De afspraak: alles mag, niet oordelen, zoveel mogelijk ideeën. We hebben 6 kamers verkend.</p>
+      </div>
+
+      <div class="reveal reveal-delay-2 grid md:grid-cols-2 gap-6">
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+            <img src={url('/images/research/sessie3-radar-1.jpeg')} alt="Innovatieradar flipover — Product & Paradigma kwadranten met post-its" class="w-full" />
+          </div>
+          <p class="text-dark/40 text-sm text-center mt-3 italic">Product & Paradigma kwadranten</p>
+        </div>
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+            <img src={url('/images/research/sessie3-radar-2.jpeg')} alt="Innovatieradar flipover — alle zes kamers met post-its" class="w-full" />
+          </div>
+          <p class="text-dark/40 text-sm text-center mt-3 italic">Volledige radar: 6 kamers</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resultaten per kamer -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Resultaat: ideeën per innovatieruimte</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">
+        {radarResultaten.reduce((sum, k) => sum + k.ideeën.length, 0)} ideeën over 6 verkende ruimtes, gemapped naar de 12 dimensies
+      </p>
+
+      <div class="reveal reveal-delay-2 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {radarResultaten.map((kamer) => (
+          <div class={`bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm`}>
+            <div class="flex items-center gap-2 mb-1">
+              <div class={`w-7 h-7 ${asKleuren[kamer.as]} rounded-lg flex items-center justify-center text-white text-xs font-bold`}>{kamer.ideeën.length}</div>
+              <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm">{kamer.teamNaam}</h3>
+            </div>
+            <p class="text-dark/30 text-xs mb-3">Dimensies: {kamer.dimensies} ({kamer.as})</p>
+            <ul class="space-y-1.5">
+              {kamer.ideeën.map((idee) => (
+                <li class="text-dark/60 text-sm flex items-start gap-2">
+                  <span class="text-dark/30 mt-0.5 text-xs flex-shrink-0">&#9679;</span>
+                  {idee}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="bg-bg-primary text-white py-16">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href={url('/discover/challenges/')} class="reveal inline-flex items-center gap-2 text-white/50 hover:text-white font-bold transition-colors">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        Discover Challenges
+      </a>
+      <a href={url('/define/denkrichtingen/')} class="reveal reveal-delay-1 inline-flex items-center gap-2 bg-phase-define text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform">
+        Denkrichtingen
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
