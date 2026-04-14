@@ -90,8 +90,18 @@ media/                                # Originele bronbestanden (niet op de webs
 - Geinspireerd op stockdutchdesign.com — reis/storytelling door het project
 - Alle interne links gebruiken `url()` helper uit `src/utils/base.ts` voor correcte base path
 - Fonts: Patrick Hand (display/koppen), Kalam (body/UI — licht handgeschreven maar leesbaar)
-- Pen-stroke SVG visual in hero (`public/images/pen-stroke.svg`)
 - Teamleden footer: Anke Maassen van den Brink, Lianne van Os, Jr Bouwman
+
+### Homepage redesign (14 april 2026)
+- Alles in 1 viewport: titel-animatie → landschap → fasen → CTA
+- 3D landschap als hero-visual: `public/images/innovatiereis-landschap.png`
+  - AI-generated via Nano Banana, purple-indigo mountains met 5 gekleurde stations
+  - Stations matchen de fase-kleuren (coral telescoop, blauwe vuurtoren, lavender kristal, amber forge, groene raket)
+  - Post-processed met PIL: top 12% gecropt, delta-shift voor bg-match, via CSS `brightness(0.88)` + asymmetrische fade-mask voor naadloze overloop in #0F0E1A
+- Onder landschap: 5 fase-labels in grid (kleur-dot, titel in fase-kleur, subtitel)
+- "Beyond Paper" handwriting animatie teruggebracht naar compacte maat (clamp 2.75-5.5rem)
+- "Onze reis door het innovatieproces" intro-sectie + pen-stroke SVG weggehaald (overbodig naast landschap)
+- Design fase subtitel gecorrigeerd: "Divergeren: concepten verkennen" (was: "selecteren en uitwerken")
 
 ### Opdracht 1a Discover - Status (AFGEROND)
 - Werkdocumenten in `docs/onderzoek/` — alle met bronverwijzingen (genummerd, met URLs)
