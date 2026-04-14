@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../utils/base';
+---
+
+<BaseLayout title="Convergeren — Define">
+  <!-- Hero -->
+  <section class="bg-bg-primary text-white overflow-hidden relative">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-phase-define/20 rounded-full blur-3xl"></div>
+
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24 relative z-10">
+      <nav class="reveal text-sm mb-6 flex items-center gap-2">
+        <a href={url('/')} class="text-white/40 hover:text-white/60 transition-colors">Home</a>
+        <span class="text-white/20">/</span>
+        <a href={url('/define/')} class="text-white/40 hover:text-white/60 transition-colors">Define</a>
+        <span class="text-white/20">/</span>
+        <span class="text-phase-define font-medium">Convergeren</span>
+      </nav>
+      <h1 class="reveal reveal-delay-1 font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold leading-[0.95] mb-4">
+        Conver<span class="gradient-text">geren</span>
+      </h1>
+      <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
+        Van 32 losse ideeen naar HZWK-challenges per innovatieruimte. Met PMI de sterkste richtingen eruit gefilterd.
+      </p>
+      <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-define mt-8"></div>
+    </div>
+  </section>
+
+  <!-- PMI uitleg -->
+  <section class="bg-cream py-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="reveal prose max-w-none">
+        <h2>PMI: van ideeen naar richtingen</h2>
+        <p>
+          Na de brainstormsessie met de innovatieradar hadden we 32 ideeen op post-its. Leuk, maar daar kun je nog niks mee.
+          We hebben de PMI-methode gebruikt om te convergeren: elke post-it kreeg een sticker.
+        </p>
+      </div>
+
+      <div class="reveal reveal-delay-1 grid md:grid-cols-3 gap-4 mt-8">
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <div class="w-10 h-10 bg-green-500 rounded-xl flex items-center justify-center text-white font-bold text-lg mb-3">P</div>
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-1">Plus (groen)</h3>
+          <p class="text-dark/50 text-sm">Goed startpunt voor een denkproces. Kan gewicht en waarde krijgen.</p>
+        </div>
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <div class="w-10 h-10 bg-rose-500 rounded-xl flex items-center justify-center text-white font-bold text-lg mb-3">M</div>
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-1">Min (roze)</h3>
+          <p class="text-dark/50 text-sm">Te weinig gewicht of raakvlakken. Niet investeren.</p>
+        </div>
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <div class="w-10 h-10 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-lg mb-3">I</div>
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-1">Interessant (paars)</h3>
+          <p class="text-dark/50 text-sm">"Anders" maar veel connecties met andere ideeen. Het puzzelt.</p>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2 prose max-w-none mt-8">
+        <p>
+          De meeste groene stickers zaten bij Beveiliging en Klantervaring. De paarse bij Specialisatie en Organisatie.
+          Bij Hulp zaten de meeste roze stickers, die ideeen voelden te veel als productverbetering en te weinig als echte innovatie.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HZWK per innovatieruimte -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">HZWK per innovatieruimte</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">
+        Per kamer hebben we de plus- en interessant-ideeen omgezet naar HZWK-challenges. Concrete vragen om mee verder te werken.
+      </p>
+
+      <div class="reveal reveal-delay-2 space-y-6">
+        <!-- Beveiliging -->
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 bg-phase-refine rounded-lg flex items-center justify-center text-white text-xs font-bold">Be</div>
+            <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg">Beveiliging</h3>
+            <span class="text-xs bg-green-500/10 text-green-600 px-2 py-0.5 rounded-full font-medium">Sterkste kamer</span>
+          </div>
+          <p class="text-dark/50 text-sm mb-3">Ideeen: pen die geluid maakt bij verkeerd gebruik, voice/finger activated, analoog security expert, vingerafdrukbeveiliging voor handtekeningen</p>
+          <ul class="space-y-2">
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-refine">Hoe zouden we kunnen zorgen dat een product een signaal geeft wanneer iemand anders dan de eigenaar het gebruikt?</li>
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-refine">Hoe zouden we een analoog product kunnen voorzien van slimme beveiligingsfuncties die passen bij privacy en persoonlijk gebruik?</li>
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-refine">Hoe zouden we kunnen zorgen dat een product persoonsgebonden beveiliging biedt voor privacygevoelige toepassingen zoals handtekeningen?</li>
+          </ul>
+        </div>
+
+        <!-- Hulp -->
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 bg-phase-discover rounded-lg flex items-center justify-center text-white text-xs font-bold">Hu</div>
+            <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg">Hulp</h3>
+            <span class="text-xs bg-rose-500/10 text-rose-600 px-2 py-0.5 rounded-full font-medium">Meeste roze stickers</span>
+          </div>
+          <p class="text-dark/50 text-sm mb-3">Ideeen: pen die woorden voorstelt, spellingscorrectie, fouten weghalen, zelfcorrigeerend product</p>
+          <ul class="space-y-2">
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-discover">Hoe zouden we kunnen zorgen dat een product woorden en andere dingen voorstelt?</li>
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-discover">Hoe zouden we kunnen zorgen dat een product spellingscorrectie geeft?</li>
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-discover">Hoe zouden we kunnen zorgen dat een product zelfcorrigeerend is?</li>
+          </ul>
+        </div>
+
+        <!-- Specialisatie -->
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-8 h-8 bg-phase-design rounded-lg flex items-center justify-center text-white text-xs font-bold">Sp</div>
+            <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg">Specialisatie</h3>
+            <span class="text-xs bg-purple-500/10 text-purple-600 px-2 py-0.5 rounded-full font-medium">Veel paarse stickers</span>
+          </div>
+          <p class="text-dark/50 text-sm mb-3">Ideeen: pen voor specifieke handicap, links-/rechtshandig, pen die vormt om hand, online eigen pen designen, koppeling met cloud/ERP</p>
+          <ul class="space-y-2">
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-design">Hoe zouden we een pen kunnen ontwerpen die is afgestemd op de specifieke beperking van de gebruiker?</li>
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-design">Hoe zouden we pennen kunnen ontwerpen die optimaal geschikt zijn voor zowel linkshandige als rechtshandige gebruikers?</li>
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-design">Hoe zouden we gebruikers de mogelijkheid kunnen geven om online hun eigen pen te ontwerpen?</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Conclusie -->
+      <div class="reveal mt-10 bg-phase-define/5 border-l-4 border-phase-define rounded-2xl p-6">
+        <p class="text-dark/70 text-sm leading-relaxed">
+          <strong class="text-dark">Wat we hieruit meenamen:</strong> De HZWK's uit Beveiliging waren het sterkst. Daar zat de meeste energie en de meest verrassende ideeen. Specialisatie was ook interessant maar voelde als productverbetering, niet als echte innovatie. Hulp was te veel "betere pen maken" en te weinig "anders denken." De beveiliging-richting hebben we meegenomen als input voor de denkrichtingen in de Design-fase.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="bg-bg-primary text-white py-16">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href={url('/define/innovatieradar/')} class="reveal inline-flex items-center gap-2 text-white/50 hover:text-white font-bold transition-colors">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        Innovatieradar
+      </a>
+      <a href={url('/define/denkrichtingen/')} class="reveal reveal-delay-1 inline-flex items-center gap-2 bg-phase-define text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform">
+        Denkrichtingen
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

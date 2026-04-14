@@ -1,17 +1,62 @@
 ---
 import PhaseLayout from '../../layouts/PhaseLayout.astro';
+import { url } from '../../utils/base';
+
+const evidence = [
+  {
+    title: 'Prototyping & PELV',
+    description: 'Twee PELV-iteraties: van brainstorm naar rapid prototype. Getest met medestudenten.',
+    href: url('/refine/prototyping/'),
+    icon: '🔧',
+  },
+  {
+    title: 'Pivot',
+    description: 'De pen bleek overbodig. Het probleem zit in de handtekening, niet in het schrijfgereedschap.',
+    href: url('/refine/pivot/'),
+    icon: '🔄',
+  },
+];
 ---
 
 <PhaseLayout
   title="Refine"
   phase="refine"
   phaseNumber="Fase 4"
-  description="In de Refine-fase bouwen we prototypen, testen met gebruikers en itereren op basis van feedback via de PELV-cyclus."
-  evidence={[]}
+  description="In de Refine-fase hebben we ons concept geprototyped en getest. Dat leidde tot een onverwachte draai: de pen bleek overbodig."
+  evidence={evidence}
 >
-  <h2>Binnenkort beschikbaar</h2>
+  <h2>Wat hebben we gedaan?</h2>
   <p>
-    De content voor de Refine-fase wordt ingevuld tijdens BK5-6. Hier komen de conceptcollection,
-    prototyping, gebruikerstesten en minimaal 2 iteraties via de PELV-cyclus.
+    Met een gekozen denkrichting en concept collection in de hand zijn we aan de slag gegaan met prototypen bouwen.
+    We hebben twee prototypes gebouwd en getest via de PELV-cyclus. Eerst een brainstorm met post-its
+    en schetsen, dan een fysiek rapid prototype van piepschuim en karton. We hebben het getest met medestudenten
+    via een vragenlijst over bruikbaarheid, haalbaarheid en fraudepreventie.
   </p>
+  <p>
+    Wat we niet hadden zien aankomen: beide prototypes lieten zien dat de pen eigenlijk overbodig is. Het probleem
+    zit niet in het schrijfgereedschap maar in de handtekening als verificatiemethode. Dat leidde tot een pivot:
+    van analoge pen naar digitaal verificatieproces.
+  </p>
+
+  <h2>Bewijsstukken (opdracht 1c)</h2>
+  <ul>
+    <li><strong>Prototyping</strong>: twee PELV-iteraties met schetsen, testplannen en een fysiek prototype</li>
+    <li><strong>Pivot</strong>: herframe van pen naar verificatieproces, met procesflow</li>
+  </ul>
+
+  <h2>Theorie en methode</h2>
+  <ul>
+    <li><strong>PELV-cyclus (Boehm)</strong>: Plan, Experiment, Learn, Improve. Twee iteraties doorlopen.</li>
+    <li><strong>Rapid Prototyping (Tom Chi)</strong>: Snel en goedkoop iets maken om te testen. Piepschuim en karton in plaats van maanden ontwikkelen.</li>
+    <li><strong>Design Thinking pivot</strong>: De prototypes toonden dat onze aanname (de pen is het product) niet klopte. Dat is precies wat prototyping moet opleveren: investeer in falen.</li>
+  </ul>
+  <p>
+    Wat goed werkte: het fysieke prototype maakte het idee tastbaar. Pas toen we het bouwden en iemand het liet gebruiken, zagen we dat de pen overbodig was.
+  </p>
+
+  <div class="mt-16 pt-8 border-t border-white/10">
+    <a href={url('/deliver/')} class="inline-flex items-center gap-2 text-phase-deliver hover:underline text-lg">
+      Verder naar Deliver →
+    </a>
+  </div>
 </PhaseLayout>

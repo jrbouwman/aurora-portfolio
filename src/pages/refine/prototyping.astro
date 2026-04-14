@@ -1,0 +1,346 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../utils/base';
+
+const clusters = [
+  'Out of the Box',
+  'Stempel',
+  'Data opslag',
+  'Papier + Inkt',
+  'Pen + Persoonlijke activatie',
+  'Biometrische inkt',
+];
+
+const concepten = [
+  {
+    naam: 'Pen met iris-scan',
+    beschrijving: 'Een pen die pas werkt als je iris gescand is. Privacy-bezwaren maakten dat we dit niet verder hebben uitgewerkt.',
+    status: 'Niet verder uitgewerkt',
+  },
+  {
+    naam: 'Pen met pincode + ID',
+    beschrijving: 'Een pen die je activeert met een pincode en koppelt aan je identiteitsbewijs. De pen bewijst dat jij hebt geschreven.',
+    status: 'Testplan geschreven',
+  },
+  {
+    naam: 'Proces met NFC/ID-scan',
+    beschrijving: 'Geen pen maar een device: je scant je ID, voert een PIN in, en het systeem verifieert je identiteit bij het ondertekenen.',
+    status: 'Testplan geschreven',
+  },
+];
+
+const testResultaten = [
+  {
+    concept: 'Pincode',
+    bevindingen: [
+      'Extra verificatie, maar nog steeds fysiek aanwezig nodig',
+      'Handtekening zelf niet beveiligd, alleen de toegang tot de pen',
+      '"Online schrijven is beter" was de terugkerende opmerking',
+    ],
+  },
+  {
+    concept: 'ID-scan',
+    bevindingen: [
+      'Pasje nodig, dus nog steeds fysiek',
+      'Handtekening moet nog steeds kloppen',
+      '"Naar een procesplan kijken" als suggestie',
+    ],
+  },
+];
+
+const vragenlijst = [
+  'Is het product bruikbaar in de praktijk?',
+  'Zou je dit gebruiken als het beschikbaar was?',
+  'Is het technisch haalbaar om te bouwen?',
+  'Heeft het business value voor Aurora?',
+  'Voorkomt het daadwerkelijk fraude?',
+  'Wat mis je nog?',
+  'Wat zou je anders doen?',
+];
+---
+
+<BaseLayout title="Prototyping & PELV — Refine">
+  <!-- Hero -->
+  <section class="bg-bg-primary text-white overflow-hidden relative">
+    <div class="absolute inset-0">
+      <img src={url('/images/research/prototype/postits-brainstorm.jpg')} alt="" class="w-full h-full object-cover opacity-15" />
+      <div class="absolute inset-0 bg-gradient-to-b from-bg-primary/60 to-bg-primary"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24 relative z-10">
+      <nav class="reveal text-sm mb-6 flex items-center gap-2">
+        <a href={url('/')} class="text-white/40 hover:text-white/60 transition-colors">Home</a>
+        <span class="text-white/20">/</span>
+        <a href={url('/refine/')} class="text-white/40 hover:text-white/60 transition-colors">Refine</a>
+        <span class="text-white/20">/</span>
+        <span class="text-phase-refine font-medium">Prototyping & PELV</span>
+      </nav>
+      <h1 class="reveal reveal-delay-1 font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold leading-[0.95] mb-4">
+        Prototyping<br /><span class="gradient-text">& PELV</span>
+      </h1>
+      <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
+        Twee iteraties, drie concepten, en een conclusie die we niet hadden verwacht: de pen is overbodig.
+      </p>
+      <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-refine mt-8"></div>
+    </div>
+  </section>
+
+  <!-- PELV Iteratie 1 -->
+  <section class="bg-cream py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="reveal flex items-center gap-3 mb-8">
+        <div class="w-12 h-12 bg-phase-refine rounded-2xl flex items-center justify-center text-white text-xl font-bold">1</div>
+        <div>
+          <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark">PELV Iteratie 1</h2>
+          <p class="text-dark/50 text-sm">1 april</p>
+        </div>
+      </div>
+
+      <!-- PELV stappen expliciet -->
+      <div class="reveal reveal-delay-1 grid md:grid-cols-4 gap-3 mb-10">
+        <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
+          <div class="text-phase-refine font-bold text-lg mb-1">P — Plan</div>
+          <p class="text-dark/60 text-xs">Wat willen we weten? UX en technische werking van beveiligde schrijfgereedschappen.</p>
+        </div>
+        <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
+          <div class="text-phase-refine font-bold text-lg mb-1">E — Experiment</div>
+          <p class="text-dark/60 text-xs">Brainstorm, 3 concepten uitgetekend, 2 testplannen geschreven en uitgevoerd.</p>
+        </div>
+        <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
+          <div class="text-phase-refine font-bold text-lg mb-1">L — Learn</div>
+          <p class="text-dark/60 text-xs">Pen voegt niks toe. Pincode beveiligt de pen, niet de handtekening. Fysiek blijft beperking.</p>
+        </div>
+        <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
+          <div class="text-phase-refine font-bold text-lg mb-1">V — Verbeter</div>
+          <p class="text-dark/60 text-xs">Weg van de pen. Naar een fysiek device met ID-scan en PIN. Dat werd iteratie 2.</p>
+        </div>
+      </div>
+
+      <div class="reveal prose max-w-none mb-10">
+        <p>
+          We zijn begonnen met een brainstorm op post-its rond het thema "Analoge Security". Iedereen schreef
+          losse ideeen op en daarna hebben we ze geclusterd. Dat leverde zes clusters op.
+        </p>
+      </div>
+
+      <!-- Clusters -->
+      <div class="reveal reveal-delay-2 flex flex-wrap gap-2 mb-10">
+        {clusters.map((cluster) => (
+          <span class="bg-phase-refine/10 text-phase-refine border border-phase-refine/20 px-3 py-1.5 rounded-full text-sm font-medium">
+            {cluster}
+          </span>
+        ))}
+      </div>
+
+      <!-- Foto's brainstorm -->
+      <div class="reveal grid md:grid-cols-2 gap-6 mb-10">
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+            <img src={url('/images/research/prototype/postits-brainstorm.jpg')} alt="Post-its brainstorm sessie" class="w-full" />
+          </div>
+          <p class="text-dark/40 text-sm text-center mt-3 italic">Brainstorm met post-its</p>
+        </div>
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+            <img src={url('/images/research/prototype/postits-geclusterd.jpg')} alt="Post-its geclusterd in zes groepen" class="w-full" />
+          </div>
+          <p class="text-dark/40 text-sm text-center mt-3 italic">Geclusterd in zes groepen</p>
+        </div>
+      </div>
+
+      <!-- Drie concepten -->
+      <h3 class="reveal font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-6">Drie concepten uitgetekend</h3>
+
+      <div class="reveal grid md:grid-cols-3 gap-4 mb-10">
+        {concepten.map((concept, i) => (
+          <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-8 h-8 bg-phase-refine rounded-lg flex items-center justify-center text-white text-sm font-bold">{i + 1}</div>
+              <h4 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm">{concept.naam}</h4>
+            </div>
+            <p class="text-dark/60 text-xs leading-relaxed mb-2">{concept.beschrijving}</p>
+            <span class="text-dark/30 text-xs italic">{concept.status}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Schetsen -->
+      <div class="reveal grid md:grid-cols-2 gap-6 mb-10">
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+            <img src={url('/images/research/prototype/notitie-3-concepten.jpg')} alt="Notities van de drie concepten" class="w-full" />
+          </div>
+          <p class="text-dark/40 text-sm text-center mt-3 italic">Notities drie concepten</p>
+        </div>
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+            <img src={url('/images/research/prototype/schets-device-nfc.jpg')} alt="Schets van het NFC device concept" class="w-full" />
+          </div>
+          <p class="text-dark/40 text-sm text-center mt-3 italic">Schets NFC device</p>
+        </div>
+      </div>
+
+      <!-- Schets 3 prototypes -->
+      <div class="reveal mb-10">
+        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg max-w-2xl mx-auto">
+          <img src={url('/images/research/prototype/schets-3-prototypes.jpg')} alt="Schets van alle drie prototypes naast elkaar" class="w-full" />
+        </div>
+        <p class="text-dark/40 text-sm text-center mt-3 italic">De drie prototypes naast elkaar geschetst</p>
+      </div>
+
+      <!-- Testresultaten -->
+      <h3 class="reveal font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-6">Testplan resultaten</h3>
+
+      <div class="reveal grid md:grid-cols-2 gap-6">
+        {testResultaten.map((test) => (
+          <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
+            <h4 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-3">{test.concept}</h4>
+            <ul class="space-y-2">
+              {test.bevindingen.map((bevinding) => (
+                <li class="text-dark/60 text-sm flex items-start gap-2">
+                  <span class="text-phase-refine mt-0.5 text-xs">&#9679;</span>
+                  {bevinding}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PELV Iteratie 2 -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="reveal flex items-center gap-3 mb-8">
+        <div class="w-12 h-12 bg-phase-refine rounded-2xl flex items-center justify-center text-white text-xl font-bold">2</div>
+        <div>
+          <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark">PELV Iteratie 2</h2>
+          <p class="text-dark/50 text-sm">8 april</p>
+        </div>
+      </div>
+
+      <!-- PELV stappen iteratie 2 -->
+      <div class="reveal reveal-delay-1 grid md:grid-cols-4 gap-3 mb-10">
+        <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
+          <div class="text-phase-refine font-bold text-lg mb-1">P — Plan</div>
+          <p class="text-dark/60 text-xs">Is een fysiek device met ID-scan begrijpelijk? Snappen mensen het concept zonder uitleg?</p>
+        </div>
+        <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
+          <div class="text-phase-refine font-bold text-lg mb-1">E — Experiment</div>
+          <p class="text-dark/60 text-xs">Rapid prototype gebouwd (hout, piepschuim, karton). Paper mockup telefoon. Getest met vragenlijst.</p>
+        </div>
+        <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
+          <div class="text-phase-refine font-bold text-lg mb-1">L — Learn</div>
+          <p class="text-dark/60 text-xs">Concept is duidelijk. Maar: de pen in het device voegt niks toe. Het gaat om het verificatieproces, niet het schrijfgereedschap.</p>
+        </div>
+        <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
+          <div class="text-phase-refine font-bold text-lg mb-1">V — Verbeter</div>
+          <p class="text-dark/60 text-xs">Pivot: laat de pen los. Focus op het digitale verificatieproces met ID-scan + PIN.</p>
+        </div>
+      </div>
+
+      <div class="reveal prose max-w-none mb-10">
+        <p>
+          Op basis van de eerste iteratie hebben we een fysiek rapid prototype gebouwd. Houten blokken, piepschuim
+          en karton. Het stelt een verificatiestation voor: een device met een plek voor de pen, een NFC reader area
+          en LED indicatoren (rood en groen) die aangeven of de verificatie geslaagd is.
+        </p>
+        <p>
+          Daarnaast hebben we een paper mockup gemaakt van een telefoonscherm met pincode-invoer. Het idee was
+          om te testen of mensen het concept snappen en of ze het zouden gebruiken.
+        </p>
+      </div>
+
+      <!-- Foto's prototype -->
+      <div class="reveal grid md:grid-cols-3 gap-4 mb-10">
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+            <img src={url('/images/research/prototype/rapid-prototype-front.jpg')} alt="Rapid prototype vooraanzicht" class="w-full" />
+          </div>
+          <p class="text-dark/40 text-sm text-center mt-3 italic">Vooraanzicht</p>
+        </div>
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+            <img src={url('/images/research/prototype/rapid-prototype-side.jpg')} alt="Rapid prototype zijaanzicht" class="w-full" />
+          </div>
+          <p class="text-dark/40 text-sm text-center mt-3 italic">Zijaanzicht</p>
+        </div>
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+            <img src={url('/images/research/prototype/rapid-prototype-demo.jpg')} alt="Rapid prototype in gebruik" class="w-full" />
+          </div>
+          <p class="text-dark/40 text-sm text-center mt-3 italic">Demo met gebruiker</p>
+        </div>
+      </div>
+
+      <!-- Paper mockups -->
+      <div class="reveal grid md:grid-cols-2 gap-6 mb-10">
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+            <img src={url('/images/research/prototype/paper-mockup-telefoon.jpg')} alt="Paper mockup telefoonscherm met pincode" class="w-full" />
+          </div>
+          <p class="text-dark/40 text-sm text-center mt-3 italic">Paper mockup: pincode-invoer</p>
+        </div>
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+            <img src={url('/images/research/prototype/paper-mockup-scan.jpg')} alt="Paper mockup scan-instructie" class="w-full" />
+          </div>
+          <p class="text-dark/40 text-sm text-center mt-3 italic">Paper mockup: scan-instructie</p>
+        </div>
+      </div>
+
+      <!-- Vragenlijst -->
+      <h3 class="reveal font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-6">Gebruikerstest</h3>
+
+      <div class="reveal prose max-w-none mb-6">
+        <p>
+          We hebben het prototype getest met medestudenten via een vragenlijst met zeven vragen over bruikbaarheid,
+          haalbaarheid en business value. We wilden weten of het concept duidelijk was en of mensen het zouden gebruiken.
+        </p>
+      </div>
+
+      <div class="reveal bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
+        <h4 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-3 uppercase tracking-wide">Vragenlijst</h4>
+        <ol class="space-y-2 list-decimal list-inside">
+          {vragenlijst.map((vraag) => (
+            <li class="text-dark/60 text-sm">{vraag}</li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conclusie -->
+  <section class="bg-cream py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-8 text-center">PELV Conclusie</h2>
+
+      <div class="reveal reveal-delay-1 bg-phase-refine/5 border-l-4 border-phase-refine rounded-2xl p-8">
+        <p class="text-dark/70 text-lg leading-relaxed mb-4">
+          Beide prototypes lieten hetzelfde zien: de pen is overbodig. Het probleem zit niet in het schrijfgereedschap
+          maar in de handtekening als verificatiemethode.
+        </p>
+        <p class="text-dark/50 leading-relaxed">
+          Bij het kluisje met pincode bleek dat je de handtekening zelf niet beveiligt, alleen de toegang tot de pen.
+          Bij het device met ID-scan bleek dat je eigenlijk helemaal geen pen nodig hebt, een ID-bewijs en een PIN
+          zijn voldoende. Dat was het moment dat we dachten: wacht even, we lossen het verkeerde probleem op.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="bg-bg-primary text-white py-16">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href={url('/design/concept-collection/')} class="reveal inline-flex items-center gap-2 text-white/50 hover:text-white font-bold transition-colors">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        Concept Collection
+      </a>
+      <a href={url('/refine/pivot/')} class="reveal reveal-delay-1 inline-flex items-center gap-2 bg-phase-refine text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform">
+        Pivot
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

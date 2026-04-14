@@ -1,17 +1,67 @@
 ---
 import PhaseLayout from '../../layouts/PhaseLayout.astro';
+import { url } from '../../utils/base';
+
+const evidence = [
+  {
+    title: 'Gate',
+    description: 'DVF-formulieren en Blue Ocean value curve met Niels de Munnik en Niels Verwoerd. Security Expert gekozen.',
+    href: url('/design/gate/'),
+    icon: '🚪',
+  },
+  {
+    title: 'Concept Collection',
+    description: 'Moodboard voor De Analoge Security Expert. 35+ afbeeldingen, maximaal divergerend.',
+    href: url('/design/concept-collection/'),
+    icon: '🎨',
+  },
+];
 ---
 
 <PhaseLayout
   title="Design"
   phase="design"
   phaseNumber="Fase 3"
-  description="In de Design-fase genereren we ideeën, selecteren we de meest kansrijke en werken we twee denkrichtingen uit."
-  evidence={[]}
+  description="In de Design-fase hebben we een gate georganiseerd om te selecteren, en voor de gekozen denkrichting een concept collection gemaakt."
+  evidence={evidence}
 >
-  <h2>Binnenkort beschikbaar</h2>
+  <h2>Wat hebben we gedaan?</h2>
   <p>
-    De content voor de Design-fase wordt ingevuld tijdens BK4. Hier komen de innovatieradar,
-    ideeëngeneratie (90 ideeën) en de selectie van 2 denkrichtingen.
+    Met twee denkrichtingen uit de Define-fase (De Analoge Security Expert en De Circulaire Standaard)
+    zijn we de Design-fase ingegaan. We hebben een gate georganiseerd met Niels de Munnik en Niels Verwoerd.
+    Ze hebben DVF-formulieren (Desirability, Viability, Feasibility) ingevuld en we hebben samen een
+    Blue Ocean value curve getekend (Kim en Mauborgne).
   </p>
+  <p>
+    De scores lagen dicht bij elkaar: Circulair 74, Security 73 punten. Toch kozen we voor de Security Expert.
+    De aanleiding was duidelijker en we hadden er meer concrete beelden bij. Bij de Circulaire Standaard
+    voelde het meer als een theoretisch verhaal.
+  </p>
+  <p>
+    Daarna hebben we voor de gekozen richting een concept collection gemaakt: een moodboard met 35+
+    afbeeldingen, bewust zo divergerend mogelijk. Alle vormen van authenticatie en verificatie, los van de pen.
+    Van vingerafdrukken tot octopussen, van Banksy tot yoga.
+  </p>
+
+  <h2>Bewijsstukken (opdracht 1b/1c)</h2>
+  <ul>
+    <li><strong>Gate</strong>: DVF-formulieren, value curve en selectie met twee medestudenten</li>
+    <li><strong>Concept collection</strong>: moodboard met 35+ afbeeldingen als divergerende verkenning van de denkrichting</li>
+  </ul>
+
+  <h2>Theorie en methode</h2>
+  <ul>
+    <li><strong>DVF Framework (Desirability, Viability, Feasibility)</strong>: Gestructureerd scoren van denkrichtingen. Maakte de keuze objectiever.</li>
+    <li><strong>Blue Ocean Strategy (Kim &amp; Mauborgne)</strong>: Value curve getekend om te zien waar Aurora zich onderscheidt van de concurrentie.</li>
+    <li><strong>Concept Collections</strong>: Divergerend verzamelen zonder oordeel. Verbindingen leggen tussen dingen die je normaal niet bij elkaar zet.</li>
+  </ul>
+  <p>
+    Wat goed werkte: de gate met anderen (Niels en Niels) gaf een frisse blik. Ze scoorden anders dan wij verwachtten.
+  </p>
+
+  <div class="mt-16 pt-8 border-t border-white/10">
+    <a href={url('/refine/')} class="inline-flex items-center gap-2 text-phase-refine hover:underline text-lg">
+      Verder naar Refine →
+    </a>
+  </div>
 </PhaseLayout>

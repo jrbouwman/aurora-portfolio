@@ -1,0 +1,153 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../utils/base';
+---
+
+<BaseLayout title="Gate — Design">
+  <!-- Hero -->
+  <section class="bg-bg-primary text-white overflow-hidden relative">
+    <div class="absolute inset-0">
+      <img src={url('/images/research/gate/gate-value-curve.jpg')} alt="" class="w-full h-full object-cover opacity-15" />
+      <div class="absolute inset-0 bg-gradient-to-b from-bg-primary/60 to-bg-primary"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24 relative z-10">
+      <nav class="reveal text-sm mb-6 flex items-center gap-2">
+        <a href={url('/')} class="text-white/40 hover:text-white/60 transition-colors">Home</a>
+        <span class="text-white/20">/</span>
+        <a href={url('/design/')} class="text-white/40 hover:text-white/60 transition-colors">Design</a>
+        <span class="text-white/20">/</span>
+        <span class="text-phase-design font-medium">Gate</span>
+      </nav>
+      <h1 class="reveal reveal-delay-1 font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold leading-[0.95] mb-4">
+        Gate <span class="gradient-text">1</span>
+      </h1>
+      <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
+        Twee denkrichtingen voorgelegd, eentje gekozen. Niet op basis van de score, maar op gevoel en haalbaarheid.
+      </p>
+      <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-design mt-8"></div>
+    </div>
+  </section>
+
+  <!-- Uitleg -->
+  <section class="bg-cream py-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="reveal bg-bg-elevated rounded-3xl p-8 md:p-10 shadow-sm border border-white/5">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-phase-design rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0 font-bold">🚪</div>
+          <div>
+            <h2 class="font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-3">DVF en Value Curve</h2>
+            <p class="text-dark/60 leading-relaxed mb-3">
+              Op 18 maart hebben we onze twee denkrichtingen gepresenteerd aan <strong class="text-dark">Niels de Munnik</strong> en <strong class="text-dark">Niels Verwoerd</strong> (medestudenten).
+              Voor beide richtingen hebben we een <strong class="text-dark">DVF-formulier</strong> (Desirability, Viability, Feasibility) ingevuld en een <strong class="text-dark">Blue Ocean value curve</strong> getekend.
+              Het idee was om niet alleen zelf te beoordelen, maar ook feedback van buitenaf te krijgen.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scores -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Scores</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">DVF-totaalscores per denkrichting</p>
+
+      <div class="reveal reveal-delay-2 grid md:grid-cols-2 gap-6 mb-10">
+        <!-- Circulaire Standaard -->
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-phase-define rounded-xl flex items-center justify-center text-white text-lg font-bold">74</div>
+            <div>
+              <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg">De Circulaire Standaard</h3>
+              <p class="text-dark/40 text-sm">Hoogste score, maar niet gekozen</p>
+            </div>
+          </div>
+          <p class="text-text-secondary text-sm leading-relaxed">
+            Op papier scoorde de circulaire richting net iets hoger. Maar tijdens het invullen merkten we al dat we
+            bij sommige punten aan het "goedpraten" waren. De desirability was lastig te onderbouwen zonder concreet
+            beeld van de klant.
+          </p>
+        </div>
+
+        <!-- Security Expert -->
+        <div class="bg-bg-elevated rounded-2xl p-6 border-2 border-phase-design/30 shadow-sm">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-phase-discover rounded-xl flex items-center justify-center text-white text-lg font-bold">73</div>
+            <div>
+              <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg">De Analoge Security Expert</h3>
+              <p class="text-phase-design text-sm font-medium">Gekozen</p>
+            </div>
+          </div>
+          <p class="text-text-secondary text-sm leading-relaxed">
+            Een punt minder, maar we waren het er met z'n allen over eens: hier zit meer potentie in.
+            De aanleiding was duidelijker en we zagen meteen concrete beelden.
+          </p>
+        </div>
+      </div>
+
+      <div class="reveal prose max-w-none">
+        <p>
+          De aanleiding was gewoon duidelijker bij de Security Expert. We hadden meteen concrete beelden: een pen die
+          bewijst wie er geschreven heeft, biometrische verificatie, fraudepreventie bij handtekeningen. Bij de Circulaire
+          Standaard voelde het meer als een theoretisch verhaal over regelgeving en duurzaamheid. Interessant, maar we
+          konden ons er minder goed in vastbijten.
+        </p>
+        <p>
+          We hebben bewust gekozen om niet puur op de cijfers af te gaan. Een punt verschil zegt weinig, en het gevoel
+          dat je er als team mee verder kunt is minstens zo belangrijk. De Circulaire Standaard hebben we laten vallen.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Foto's -->
+  <section class="bg-cream py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Bewijsstukken</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">DVF-formulieren en value curve</p>
+
+      <!-- Value curve -->
+      <div class="reveal reveal-delay-2 mb-8">
+        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+          <img src={url('/images/research/gate/gate-value-curve.jpg')} alt="Blue Ocean value curve voor beide denkrichtingen" class="w-full" />
+        </div>
+        <p class="text-dark/40 text-sm text-center mt-3 italic">Blue Ocean value curve</p>
+      </div>
+
+      <!-- DVF formulieren -->
+      <div class="reveal grid md:grid-cols-2 gap-6">
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+            <img src={url('/images/research/gate/gate-dvf-1.jpg')} alt="DVF-formulier pagina 1" class="w-full" />
+          </div>
+          <p class="text-dark/40 text-sm text-center mt-3 italic">DVF-formulier (1)</p>
+        </div>
+        <div>
+          <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
+            <img src={url('/images/research/gate/gate-dvf-2.jpg')} alt="DVF-formulier pagina 2" class="w-full" />
+          </div>
+          <p class="text-dark/40 text-sm text-center mt-3 italic">DVF-formulier (2)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="bg-bg-primary text-white py-16">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href={url('/define/denkrichtingen/')} class="reveal inline-flex items-center gap-2 text-white/50 hover:text-white font-bold transition-colors">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        Denkrichtingen
+      </a>
+      <div class="reveal reveal-delay-1 text-center">
+        <p class="text-white/40 text-sm mb-3">Door naar Concept Collection</p>
+        <a href={url('/design/concept-collection/')} class="inline-flex items-center gap-2 bg-phase-design text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform">
+          Concept Collection
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

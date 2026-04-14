@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../utils/base';
+---
+
+<BaseLayout title="Pivot — Refine">
+  <!-- Hero -->
+  <section class="bg-bg-primary text-white overflow-hidden relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-phase-refine/10 to-bg-primary"></div>
+
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24 relative z-10">
+      <nav class="reveal text-sm mb-6 flex items-center gap-2">
+        <a href={url('/')} class="text-white/40 hover:text-white/60 transition-colors">Home</a>
+        <span class="text-white/20">/</span>
+        <a href={url('/refine/')} class="text-white/40 hover:text-white/60 transition-colors">Refine</a>
+        <span class="text-white/20">/</span>
+        <span class="text-phase-refine font-medium">Pivot</span>
+      </nav>
+      <h1 class="reveal reveal-delay-1 font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold leading-[0.95] mb-4">
+        De <span class="gradient-text">Pivot</span>
+      </h1>
+      <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
+        Van analoge pen naar digitale verificatie. De pen bleek overbodig, het probleem zit in de handtekening.
+      </p>
+      <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-refine mt-8"></div>
+    </div>
+  </section>
+
+  <!-- Het herframe -->
+  <section class="bg-cream py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-8 text-center">Het herframe</h2>
+
+      <div class="reveal reveal-delay-1 prose max-w-none mb-10">
+        <p>
+          We hadden twee prototypes gemaakt (kluisje met pincode en pen met ID-scanner) en allebei kwamen we
+          op hetzelfde uit: de pen zelf voegt niks toe. Het probleem zit in de handtekening. Een handtekening
+          op papier is makkelijk na te maken en bewijst eigenlijk niet wie er getekend heeft. Dat verandert niet
+          door er een slimmere pen bij te pakken.
+        </p>
+        <p>
+          Dat was even schrikken, want we waren al een tijdje bezig met "de analoge security expert". Maar
+          achteraf gezien was het logisch. Tijdens de brainstorms kwamen we steeds uit bij processen en systemen,
+          niet bij pennen. De pen was het startpunt, maar niet de oplossing.
+        </p>
+      </div>
+
+      <div class="reveal bg-phase-refine/5 border-l-4 border-phase-refine rounded-2xl p-8 mb-10">
+        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-3">De kernvraag verschoof</p>
+        <p class="text-dark/70 leading-relaxed">
+          <strong class="text-dark">Van:</strong> "Hoe maken we een pen die bewijst wie er geschreven heeft?"
+        </p>
+        <p class="text-dark/70 leading-relaxed mt-2">
+          <strong class="text-dark">Naar:</strong> "Hoe kunnen we identiteit koppelen aan een ondertekeningsactie, zonder dat de handtekening zelf het bewijs is?"
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nieuwe richting -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Nieuwe richting</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Digitaal verificatieproces via ID-bewijs en PIN</p>
+
+      <div class="reveal reveal-delay-2 prose max-w-none mb-10">
+        <p>
+          Het nieuwe concept is een digitaal verificatieproces. In plaats van een handtekening op papier scan je
+          je identiteitsbewijs en voer je een PIN in. Het systeem koppelt jouw identiteit aan de actie van
+          ondertekenen. Geen pen nodig, geen papier nodig.
+        </p>
+      </div>
+
+      <!-- Value -->
+      <div class="reveal grid md:grid-cols-3 gap-4 mb-10">
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <div class="w-10 h-10 bg-phase-discover rounded-xl flex items-center justify-center text-white text-sm mb-3">🔒</div>
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-2">Veiliger</h3>
+          <p class="text-dark/50 text-xs leading-relaxed">
+            Identiteit direct gekoppeld aan de actie. Geen handtekening die nagemaakt kan worden, maar een
+            combinatie van iets dat je hebt (ID) en iets dat je weet (PIN).
+          </p>
+        </div>
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <div class="w-10 h-10 bg-phase-define rounded-xl flex items-center justify-center text-white text-sm mb-3">⚡</div>
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-2">Efficienter</h3>
+          <p class="text-dark/50 text-xs leading-relaxed">
+            Geen papier meer nodig, geen scannen van documenten achteraf. Alles digitaal vastgelegd op het moment
+            van ondertekenen.
+          </p>
+        </div>
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <div class="w-10 h-10 bg-phase-design rounded-xl flex items-center justify-center text-white text-sm mb-3">🌍</div>
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-2">Toegankelijker</h3>
+          <p class="text-dark/50 text-xs leading-relaxed">
+            Op afstand mogelijk. Je hoeft niet fysiek aanwezig te zijn om te ondertekenen. Werkt voor iedereen,
+            ook mensen die moeite hebben met schrijven.
+          </p>
+        </div>
+      </div>
+
+      <!-- Procesflow -->
+      <h3 class="reveal font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-6 text-center">Procesflow</h3>
+      <div class="reveal rounded-2xl overflow-hidden border border-white/10 shadow-lg mb-4">
+        <img src={url('/images/research/prototype/procesflow-verificatiestation.svg')} alt="Procesflow verificatiestation: van ID-scan via PIN naar digitale handtekening" class="w-full bg-white p-4" />
+      </div>
+      <p class="text-dark/40 text-sm text-center italic mb-10">Procesflow: huidig vs. nieuw verificatieproces</p>
+
+      <!-- Vergelijking -->
+      <div class="reveal grid md:grid-cols-2 gap-6">
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
+          <h4 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-4">Huidig proces</h4>
+          <ol class="space-y-2 list-decimal list-inside">
+            <li class="text-dark/60 text-sm">Document wordt gepresenteerd</li>
+            <li class="text-dark/60 text-sm">Persoon leest en gaat akkoord</li>
+            <li class="text-dark/60 text-sm">Handtekening op papier</li>
+            <li class="text-dark/60 text-sm">Geen verificatie van identiteit</li>
+            <li class="text-dark/60 text-sm">Document wordt gescand en opgeslagen</li>
+          </ol>
+        </div>
+        <div class="bg-bg-elevated rounded-2xl p-6 border-2 border-phase-refine/30 shadow-sm">
+          <h4 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-4">Nieuw proces</h4>
+          <ol class="space-y-2 list-decimal list-inside">
+            <li class="text-dark/60 text-sm">Document wordt digitaal gepresenteerd</li>
+            <li class="text-dark/60 text-sm">Persoon leest en gaat akkoord</li>
+            <li class="text-dark/60 text-sm">ID-bewijs scannen</li>
+            <li class="text-dark/60 text-sm">PIN invoeren ter bevestiging</li>
+            <li class="text-dark/60 text-sm">Identiteit gekoppeld, digitaal opgeslagen</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Eerlijk verhaal -->
+  <section class="bg-cream py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-8 text-center">Eerlijk verhaal</h2>
+
+      <div class="reveal reveal-delay-1 prose max-w-none mb-10">
+        <p>
+          We willen er eerlijk over zijn: dit concept bestaat in verschillende vormen al. DigiD, PKIsigning,
+          DocuSign, al die diensten doen iets vergelijkbaars. Het is niet alsof we hier iets compleet nieuws
+          hebben bedacht.
+        </p>
+        <p>
+          Onze bijdrage zit in het inzicht dat Aurora als kennispartij kan bijdragen aan de transitie van
+          fysieke naar digitale verificatie. Aurora heeft 125+ jaar ervaring met schrijfgerei en ondertekening.
+          Die kennis over hoe mensen ondertekenen, wanneer ze dat doen en wat het voor ze betekent, dat is
+          waardevoller dan de pen zelf.
+        </p>
+        <p>
+          Het is een beetje paradoxaal: een pennenmaker die concludeert dat de pen overbodig is. Maar dat is
+          precies wat innovatie soms vraagt. Je moet durven om je eigen product in vraag te stellen.
+        </p>
+      </div>
+
+      <div class="reveal bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
+        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-3">De rol van Aurora</p>
+        <p class="text-dark/60 text-sm leading-relaxed">
+          Niet meer de maker van de pen, maar de expert op het gebied van ondertekenen. Van productbedrijf
+          naar kennispartner. Aurora weet als geen ander wat een handtekening betekent, hoe mensen
+          ondertekenen en waarom dat belangrijk is. Die expertise is de echte waarde, niet het schrijfgereedschap.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="bg-bg-primary text-white py-16">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href={url('/refine/prototyping/')} class="reveal inline-flex items-center gap-2 text-white/50 hover:text-white font-bold transition-colors">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        Prototyping & PELV
+      </a>
+      <div class="reveal reveal-delay-1 text-center">
+        <p class="text-white/40 text-sm mb-3">Refine afgerond, door naar Deliver</p>
+        <a href={url('/deliver/')} class="inline-flex items-center gap-2 bg-phase-deliver text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform">
+          Naar Deliver (Fase 5)
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

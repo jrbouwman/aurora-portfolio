@@ -50,6 +50,10 @@ docs/
     les1-perspectieven-op-innovatie.md # Les 1: definities, VOCA, DESTEP/IBSOTEEP, design thinking intro
     les2-trends-en-immersive-research.md # Les 2: trendsurfing, PLC, BCG, strategieen, immersive research
     les3-define-and-design.md         # Les 3: define, design thinking, 4P innovatieruimte, blue ocean, ERRC
+    les3b-innovatieruimte-ideate.md   # Les 3B: innovatieradar, PTM, 4P, PMI convergeren, ERRC/value curves
+    les5-rapid-prototyping.md         # Les 5: rapid prototyping, concept collections, PELV-cyclus, forced choice
+    les6-concept-collections-prototyping.md # Les 6: concept collections vullen, prototyping, 10 Faces of Innovation (Kelley)
+    concept-collections.md            # Uitleg concept collections: divergeren, convergeren, minimale inhoud
     voorbereiding-les2.md             # Voorbereidingsopdracht + verplichte literatuur les 2
     trends-tilborgh.md                # IBSOTEEP-analyse uitleg (Van Tilborgh 2022)
     trend-piramide.md                 # Trendpiramide: micro/macro/mega niveaus
@@ -64,6 +68,14 @@ docs/
     sessie-notities.md                # Ruwe notities sessie 1 (board) en sessie 3 (innovatieradar)
     03-scenariomatrix.md              # Werkdocument scenariomatrix met 4 scenario's
     bronnen.md                        # Bronnenlijst (26 bronnen)
+    testplannen-pelv.md               # PELV-testplannen: pincode, ID-scan, iris (met conclusies)
+    herframe-pivot-digitaal.md        # Pivot van analoge pen naar digitale authenticatie
+    mckinsey-teamscores.md            # McKinsey innovatiescores Jr/Lianne/Anke
+    huiswerk-les3-hzwk-per-ruimte.md  # HZWK's per innovatieruimte (Beveiliging, Hulp, Specialisatie)
+public/
+  concept-collection-security-expert.pptx # Concept collection moodboard denkrichting 1
+  images/moodboard/                   # ~35 Unsplash afbeeldingen voor concept collections
+create_moodboard.py                   # Generator script voor concept collection (python-pptx)
 media/                                # Originele bronbestanden (niet op de website)
 ```
 
@@ -104,44 +116,138 @@ media/                                # Originele bronbestanden (niet op de webs
 - Dreams geclusterd in 6 thema's, Gripes in 4 thema's (compact, zonder HZWK)
 - Media: `public/images/research/` (sessie1-timelapse.mp4, sessie1-foto.jpeg, dreams-gripes.jpeg)
 
-### Opdracht 1b Define - Status (IN PROGRESS)
-- Sessie 3 (Innovatieradar, BK3): flipover met 4P-assen, 6 kamers, 32 ideeën op post-its
-  - Kamers: Specialisatie, Nice to have, Hulp, Beveiliging, Klantervaring, Organisatie
-  - PMI impliciet toegepast: groene (plus), roze (min), paarse (interessant) stickers
-  - Foto's: `public/images/research/sessie3-radar-1.jpeg`, `sessie3-radar-2.jpeg`
-- Innovatieradar: Huizingh (2019), 12 dimensies over 4 sleuteldimensies (Product, Positie, Proces, Paradigma)
-  - Handleiding: `docs/lessen/innovatieradar-handleiding.md`
-  - PDF en DOCX bronbestanden in projectroot
-- 2 denkrichtingen geconvergeerd:
-  1. **De Analoge Security Expert** (Merk + Oplossingen = Paradigma + Product): pen bewijst wie er geschreven heeft via schrijf-DNA (druk, snelheid, hoek, ritme). Robuust in alle scenario's.
-  2. **De Circulaire Standaard** (Platform + Merk = Product + Paradigma): regelgeving als wapen (Tesla/Tony's model), EU Digital Product Passport, cradle-to-cradle, radicale ketentransparantie. Sterkst in scenario B.
-- Elke denkrichting heeft "Hoe zijn we hier gekomen?" traceerbaarheid: trends → scenario → empathise → challenge → radar
-- Voorbereiding BK4: `docs/opdrachten/voorbereiding-les4-denkrichtingen.md` (PowerPoint 7 slides, gate)
-- **Nog te doen:** Gate (BK4) — selectie van 2 denkrichtingen met minimaal 2 anderen
+### TODO: Empathise diepte verbeteren (breedte is goed, diepte mist)
+1. **Onderzoeksplan schrijven (verplicht, max 1 A4)** — opdracht eist dit, ontbreekt nu
+2. **Interviews verrijken** — Anna & Famke zijn nu alleen bullet points, context/quotes/verhalen toevoegen
+3. **Reflectie per sessie** — "wat hadden we niet verwacht", "wat leerde het zelf ervaren ons"
+4. **Sessie 1 immersie versterken** — nu meer brainstorm dan onderdompeling, beter beschrijven of extra sessie doen
+5. **Observatie-component (learn from observation)** — derde methode, bonus voor diepte
+6. **Brug dreams/gripes → challenges expliciteren** — per cluster 1-2 zinnen waarom dit opviel
 
-### Website structuur (actueel)
-**Discover (opdracht 1a):**
-- `/discover/` — overzicht met 4 bewijsstukken
+### Opdracht 1b Define + Design - Status (AFGEROND)
+**Define (convergeren):**
+- Sessie 3 (Innovatieradar, BK3): flipover met 4P-assen, 6 kamers, 32 ideeen op post-its
+  - Kamers: Specialisatie, Nice to have, Hulp, Beveiliging, Klantervaring, Organisatie
+  - PMI: groene (plus), roze (min), paarse (interessant) stickers
+- Convergentie: HZWK's per innovatieruimte (Beveiliging, Hulp, Specialisatie)
+- 2 denkrichtingen: De Analoge Security Expert + De Circulaire Standaard
+
+**Design (divergeren):**
+- Gate 1 (18 maart): DVF-formulieren met Niels de Munnik en Niels Verwoerd
+  - Scores: Circulair 74, Security 73. Toch Security gekozen (duidelijkere aanleiding)
+  - Blue Ocean value curve getekend
+  - Foto's: `public/images/research/gate/`
+- Concept collection Security Expert: moodboard 35+ afbeeldingen, maximaal divergerend
+
+### Opdracht 1c Refine - Status (IN PROGRESS, pivot gedaan)
+- **Conceptcollection Security Expert:** `public/concept-collection-security-expert.pptx`
+  - Visuele moodboard, ~35 afbeeldingen (Unsplash + AI-generated)
+  - Maximaal divergerend: alle vormen van authenticatie/verificatie
+- **PELV iteratie 1 (1 april):**
+  - Post-its brainstorm "Analoge Security" met clusters: Out of the Box, Stempel, Data opslag, Papier+Inkt, Pen+Persoonlijke activatie, Biometrische inkt
+  - 3 concepten genoteerd: pen met iris-scan, pen met pincode+ID, proces met NFC/ID-scan
+  - Paper prototypes: pen-in-kluisje (pincode), pen+ID-scanner (NFC), device met camera+sensoren+LED
+  - Testplannen: `docs/onderzoek/testplannen-pelv.md`
+  - Foto's: `public/images/research/prototype/postits-*.jpg`, `schets-*.jpg`
+- **PELV iteratie 2 (8 april):**
+  - Fysiek rapid prototype gebouwd: houten blokken + piepschuim + karton
+  - Device met: pen in houder, NFC reader area, LED indicatoren (rood/groen)
+  - Paper mockup van telefoonscherm met pincode-invoer
+  - Demonstratie: iemand scant telefoon/ID bij device
+  - Foto's: `public/images/research/prototype/rapid-prototype-*.jpg`
+  - Video's: `public/images/research/prototype/rapid-prototype-*.mp4`
+- **Gate/test met vragenlijst (Microsoft Forms, 7 vragen):**
+  - Bruikbaarheid, gebruiksvriendelijkheid, haalbaarheid, business value
+  - Verbetervoorstellen NFC-scanner en pennenbak-pincode
+  - Fraudepreventie
+- **Pivot/herframe:**
+  - Conclusie uit beide PELV-iteraties: de pen is overbodig, het probleem zit in de handtekening zelf
+  - Nieuwe richting: digitale authenticatie/verificatie via ID-bewijs (procesinnovatie)
+  - Herframe vastgelegd: `docs/onderzoek/herframe-pivot-digitaal.md`
+  - Value: veiliger (moeilijk te vervalsen), efficienter (geen papier), toegankelijker (op afstand)
+- **Concept keuze na sparring (13 april):**
+  - Digitale verificatieproces via ID-scan + PIN als procesinnovatie
+  - Aurora als kennispartij die domeinkennis authenticiteit inbrengt, techpartner zoeken voor uitvoering
+  - Stemmen als illustratie (van docent), maar breder toepasbaar (notaris, bank, gemeente)
+  - Eerlijk benoemen: dit bestaat al in vormen (DigiD, PKIsigning), Aurora's bijdrage is het inzicht
+  - Procesflow SVG gemaakt: `public/images/research/prototype/procesflow-verificatiestation.svg`
+- **Nog te doen:**
+  - PoV/PoC uitwerking (opdracht 1d, 30% van cijfer)
+  - Onderzoeksplan empathise (1 A4, ontbreekt)
+  - Interviews verrijken (Anna/Famke te mager)
+  - 90 ideeen niet gehaald (32), verantwoorden of aanvullen
+  - Concept collection #2 (Circulaire Standaard) bewust gedumpt, maar opdracht vraagt het
+  - Projectvoorstellen per denkrichting ontbreken
+  - Gate met externen (buiten school) niet gedaan
+  - Opdracht 2a (innovatieadvies, video+PPT) en 2b (rolontwikkeling, video) komen later
+  - Structuurdocument (max 4 pag) ontbreekt
+  - GenAI verantwoordingsformulier bijvoegen
+
+### McKinsey Teamscores
+- Jr: Generating(4), Pioneering(4), Tabulating(4)
+- Lianne: Networking(5), Pioneering(5)
+- Anke: Motivating(5), Absorbing(5)
+- Gaten in team: Motivating(Jr:2), Networking(Jr:2), Tabulating(Lianne:1), Pioneering(Anke:2)
+- Details: `docs/onderzoek/mckinsey-teamscores.md`
+
+### Website structuur (actueel, april 2026)
+**Double diamond: Discover (div) → Define (conv) → Design (div) → Refine (conv) → Deliver**
+
+**Discover (Fase 1, divergeren) — 4 bewijsstukken:**
+- `/discover/` — overzicht, theorie (IBSOTEEP, Porter, scenariomatrix, immersive research, HZWK)
 - `/discover/trends/` — trendanalyse
 - `/discover/scenario/` — scenariomatrix met 4 scenario's
-- `/discover/empathise/` — sessie 1+2, dreams & gripes (zonder HZWK)
-- `/discover/challenges/` — 5 HZWK-challenges uit dreams/gripes
+- `/discover/empathise/` — sessie 1+2, dreams & gripes
+- `/discover/challenges/` — 5 HZWK-challenges
 
-**Define (opdracht 1b):**
-- `/define/` — overzicht met 2 bewijsstukken
-- `/define/innovatieradar/` — sessie 3, 12 dimensies, 32 ideeën per kamer
-- `/define/denkrichtingen/` — 2 richtingen met clusters, challenges, reis-traceerbaarheid
+**Define (Fase 2, convergeren) — 3 bewijsstukken:**
+- `/define/` — overzicht, theorie (innovatieradar, PMI, 4P)
+- `/define/innovatieradar/` — sessie 3, 12 dimensies, 32 ideeen, 6 kamers
+- `/define/convergentie/` — PMI-methode (groen/roze/paars), HZWK per ruimte (Beveiliging, Hulp, Specialisatie)
+- `/define/denkrichtingen/` — 2 richtingen met clusters, challenges, reis-traceerbaarheid → linkt door naar gate
+
+**Design (Fase 3, divergeren) — 2 bewijsstukken:**
+- `/design/` — overzicht, theorie (DVF, Blue Ocean, concept collections)
+- `/design/gate/` — DVF-formulieren + value curve, keuze Security Expert, foto's
+- `/design/concept-collection/` — moodboard 35+ afbeeldingen, productvormen, authenticatie, kruisbestuivingen
+
+**Refine (Fase 4, convergeren) — 2 bewijsstukken:**
+- `/refine/` — overzicht, theorie (PELV, rapid prototyping, design thinking pivot)
+- `/refine/prototyping/` — PELV 1 (brainstorm, schetsen, testplannen) + PELV 2 (rapid prototype, vragenlijst), expliciet P-E-L-V labels
+- `/refine/pivot/` — herframe pen→digitaal, procesflow SVG, vergelijking oud/nieuw
+
+**Deliver (Fase 5) — placeholder:**
+- `/deliver/` — nog leeg, wacht op les 7+
+
+**Overig:**
+- `/aanleiding/` — geschiedenis schrijfwaren + tijdlijn
+
+### Navigatieflow (rode draad)
+Homepage → Aanleiding → Discover → (trends → scenario → empathise → challenges) → Define → (innovatieradar → convergentie → denkrichtingen) → Design → (gate → concept collection) → Refine → (prototyping → pivot) → Deliver
+Elke fase-index heeft "Verder naar X →" link onderaan.
 
 ### Media
 - `media/` — originele bronbestanden (WhatsApp foto's, AI-generated images, sessie-originelen)
 - `public/images/research/` — gebruiksklare images voor de website:
   - challenges-hero.jpeg, dreams-gripes.jpeg (AI)
-  - denkrichting1-security-expert.jpeg (AI, biometrische pen bij ondertekening)
-  - denkrichting2-circulaire-standaard.jpeg (AI, gedemonteerde pen met recycling)
+  - denkrichting1-security-expert.jpeg, denkrichting1-intelligente-pen.jpeg (AI)
+  - denkrichting2-circulaire-standaard.jpeg (AI)
   - innovatieradar-hero.jpeg, brief-2030.jpeg (AI)
   - sessie1-foto.jpeg, sessie1-timelapse.mp4 (eigen)
   - sessie3-radar-1.jpeg, sessie3-radar-2.jpeg (eigen)
-- `public/presentatie-define.html` — 8-slide presentatie voor Gate BK4 (standalone HTML, pijltjestoetsen)
+  - `gate/` — 5 foto's gate 1 DVF-formulieren + value curve (18 maart)
+  - `prototype/` — 12 foto's + 2 video's prototyping (1+8 april)
+  - `brainstorm/` — 3 whiteboardfoto's immersive research (10 maart)
+- `public/presentatie-define.html` — 8-slide presentatie voor Gate BK4
+- `public/concept-collection-security-expert.pptx` — Concept collection moodboard
+- `public/images/moodboard/` — ~35 Unsplash afbeeldingen
+
+### Teams-map (extern, niet in repo)
+Pad: `/Users/jr/Library/CloudStorage/OneDrive-Gedeeldebibliotheken-WindesheimOffice365/O365-Innovatiemanagement - General/`
+- `Fotos/` — alle originele foto's (brainstorm, gate, prototype, persoonlijk)
+- `Huiswerk/` — les 2, les 3, les 7 PowerPoints, McKinsey Excel, immersive research docx
+- `Opdrachten/` — testplannen (pincode/id/iris), gate0, HZWK pdf
+- `Verslagen/Verslag.docx` — (leeg/onbekend)
 
 ## Rol van Claude
 

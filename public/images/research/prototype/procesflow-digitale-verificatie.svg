@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 680" font-family="'Segoe UI', Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="680" fill="#1a1a2e" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" fill="#fff" font-size="20" font-weight="bold">Aurora Digitale Verificatie - Technisch Procesoverzicht</text>
+  <text x="450" y="60" text-anchor="middle" fill="#888" font-size="12">Van ondertekeningsverzoek tot onweerlegbaar bewijs</text>
+
+  <!-- Lane labels -->
+  <rect x="20" y="80" width="120" height="50" rx="6" fill="#16213e"/>
+  <text x="80" y="110" text-anchor="middle" fill="#3b82f6" font-size="11" font-weight="bold">GEBRUIKER</text>
+
+  <rect x="20" y="240" width="120" height="50" rx="6" fill="#1a2744"/>
+  <text x="80" y="270" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="bold">AURORA APP</text>
+
+  <rect x="20" y="400" width="120" height="50" rx="6" fill="#1e2a3a"/>
+  <text x="80" y="430" text-anchor="middle" fill="#10b981" font-size="11" font-weight="bold">SERVER / TSP</text>
+
+  <!-- Swim lane lines -->
+  <line x1="20" y1="220" x2="880" y2="220" stroke="#333" stroke-dasharray="5,5"/>
+  <line x1="20" y1="380" x2="880" y2="380" stroke="#333" stroke-dasharray="5,5"/>
+
+  <!-- ===== STEP 1: Verzoek ontvangen ===== -->
+  <rect x="160" y="85" width="130" height="50" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="225" y="106" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">1. Ontvangen</text>
+  <text x="225" y="122" text-anchor="middle" fill="#aaa" font-size="9">Onderteken-</text>
+  <text x="225" y="132" text-anchor="middle" fill="#aaa" font-size="9">verzoek (e-mail/push)</text>
+
+  <!-- Arrow down to app -->
+  <line x1="225" y1="135" x2="225" y2="245" stroke="#666" marker-end="url(#arrow)"/>
+
+  <!-- ===== STEP 2: NFC Scan ===== -->
+  <rect x="160" y="245" width="130" height="50" rx="8" fill="#2a1f0a" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="225" y="266" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">2. NFC Scan</text>
+  <text x="225" y="282" text-anchor="middle" fill="#aaa" font-size="9">Lees chip ID-bewijs</text>
+  <text x="225" y="292" text-anchor="middle" fill="#aaa" font-size="9">(rijbewijs / paspoort)</text>
+
+  <!-- Arrow right -->
+  <line x1="290" y1="270" x2="330" y2="270" stroke="#666" marker-end="url(#arrow)"/>
+
+  <!-- ===== STEP 3: PIN invoeren ===== -->
+  <rect x="330" y="85" width="130" height="50" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="395" y="106" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">3. PIN invoeren</text>
+  <text x="395" y="122" text-anchor="middle" fill="#aaa" font-size="9">Persoonlijke code</text>
+  <text x="395" y="132" text-anchor="middle" fill="#aaa" font-size="9">(per brief ontvangen)</text>
+
+  <!-- Arrow down -->
+  <line x1="395" y1="135" x2="395" y2="245" stroke="#666" marker-end="url(#arrow)"/>
+
+  <!-- ===== STEP 4: Verificatie ===== -->
+  <rect x="335" y="245" width="130" height="50" rx="8" fill="#2a1f0a" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="400" y="266" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">4. Verificatie</text>
+  <text x="400" y="282" text-anchor="middle" fill="#aaa" font-size="9">NFC-data + PIN</text>
+  <text x="400" y="292" text-anchor="middle" fill="#aaa" font-size="9">combineren en hashen</text>
+
+  <!-- Arrow down to server -->
+  <line x1="400" y1="295" x2="400" y2="405" stroke="#666" marker-end="url(#arrow)"/>
+
+  <!-- ===== STEP 5: Server verificatie ===== -->
+  <rect x="335" y="405" width="130" height="55" rx="8" fill="#0a2a1f" stroke="#10b981" stroke-width="1.5"/>
+  <text x="400" y="425" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">5. Identiteit</text>
+  <text x="400" y="438" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">   valideren</text>
+  <text x="400" y="454" text-anchor="middle" fill="#aaa" font-size="9">Check bij Certificate</text>
+  <text x="400" y="464" text-anchor="middle" fill="#aaa" font-size="9">Authority (CA/TSP)</text>
+
+  <!-- Arrow right -->
+  <line x1="465" y1="432" x2="505" y2="432" stroke="#666" marker-end="url(#arrow)"/>
+
+  <!-- ===== STEP 6: Certificaat ===== -->
+  <!-- Diamond decision -->
+  <polygon points="575,405 620,432 575,460 530,432" fill="#0a2a1f" stroke="#10b981" stroke-width="1.5"/>
+  <text x="575" y="429" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">Identiteit</text>
+  <text x="575" y="441" text-anchor="middle" fill="#fff" font-size="9" font-weight="bold">geldig?</text>
+
+  <!-- NO path -->
+  <line x1="575" y1="460" x2="575" y2="500" stroke="#ef4444" marker-end="url(#arrow)"/>
+  <rect x="525" y="500" width="100" height="30" rx="6" fill="#3a0a0a" stroke="#ef4444" stroke-width="1"/>
+  <text x="575" y="520" text-anchor="middle" fill="#ef4444" font-size="10">Geweigerd</text>
+
+  <!-- YES path right -->
+  <line x1="620" y1="432" x2="660" y2="432" stroke="#10b981" marker-end="url(#arrow)"/>
+
+  <!-- ===== STEP 7: Certificaat genereren ===== -->
+  <rect x="660" y="405" width="130" height="55" rx="8" fill="#0a2a1f" stroke="#10b981" stroke-width="1.5"/>
+  <text x="725" y="425" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">6. Certificaat</text>
+  <text x="725" y="441" text-anchor="middle" fill="#aaa" font-size="9">Tijdelijk gekwalificeerd</text>
+  <text x="725" y="454" text-anchor="middle" fill="#aaa" font-size="9">certificaat aanmaken</text>
+
+  <!-- Arrow up to app -->
+  <line x1="725" y1="405" x2="725" y2="295" stroke="#666" marker-end="url(#arrow)"/>
+
+  <!-- ===== STEP 8: Document tonen ===== -->
+  <rect x="660" y="245" width="130" height="50" rx="8" fill="#2a1f0a" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="725" y="266" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">7. Document</text>
+  <text x="725" y="282" text-anchor="middle" fill="#aaa" font-size="9">Toon document PAS</text>
+  <text x="725" y="292" text-anchor="middle" fill="#aaa" font-size="9">na verificatie</text>
+
+  <!-- Arrow up to user -->
+  <line x1="725" y1="245" x2="725" y2="135" stroke="#666" marker-end="url(#arrow)"/>
+
+  <!-- ===== STEP 9: Bevestigen ===== -->
+  <rect x="660" y="85" width="130" height="50" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="725" y="106" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">8. Bevestigen</text>
+  <text x="725" y="122" text-anchor="middle" fill="#aaa" font-size="9">Bewuste actie:</text>
+  <text x="725" y="132" text-anchor="middle" fill="#aaa" font-size="9">"Ik onderteken"</text>
+
+  <!-- Arrow down to app signing -->
+  <line x1="800" y1="110" x2="830" y2="110" stroke="#666"/>
+  <line x1="830" y1="110" x2="830" y2="330" stroke="#666"/>
+  <line x1="830" y1="330" x2="575" y2="330" stroke="#666" marker-end="url(#arrow)"/>
+
+  <!-- ===== STEP 10: Cryptografisch ondertekenen ===== -->
+  <rect x="510" y="305" width="130" height="50" rx="8" fill="#2a1f0a" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="575" y="323" text-anchor="middle" fill="#fff" font-size="11" font-weight="bold">9. Ondertekenen</text>
+  <text x="575" y="339" text-anchor="middle" fill="#aaa" font-size="9">Cryptografisch sealen</text>
+  <text x="575" y="349" text-anchor="middle" fill="#aaa" font-size="9">met certificaat + hash</text>
+
+  <!-- Arrow down to server storage -->
+  <line x1="575" y1="355" x2="575" y2="555" stroke="#666" marker-end="url(#arrow)"/>
+
+  <!-- ===== STEP 11: Bewijs opslaan ===== -->
+  <rect x="490" y="555" width="170" height="60" rx="8" fill="#0a2a1f" stroke="#10b981" stroke-width="2"/>
+  <text x="575" y="575" text-anchor="middle" fill="#10b981" font-size="12" font-weight="bold">10. Bewijs opslaan</text>
+  <text x="575" y="592" text-anchor="middle" fill="#aaa" font-size="9">Wie + wanneer + welk doc</text>
+  <text x="575" y="605" text-anchor="middle" fill="#aaa" font-size="9">+ welk ID + hash = onweerlegbaar</text>
+
+  <!-- Legend -->
+  <rect x="20" y="560" width="180" height="100" rx="8" fill="#16213e" stroke="#333"/>
+  <text x="30" y="580" fill="#fff" font-size="10" font-weight="bold">Verificatiemethoden:</text>
+  <text x="30" y="598" fill="#aaa" font-size="9">Iets dat je HEBT (ID-bewijs NFC)</text>
+  <text x="30" y="612" fill="#aaa" font-size="9">Iets dat je WEET (PIN per brief)</text>
+  <text x="30" y="626" fill="#aaa" font-size="9">= Multifactor authenticatie</text>
+  <text x="30" y="648" fill="#888" font-size="8">Conform eIDAS 2.0 / EUDI Wallet</text>
+
+  <!-- eIDAS level badge -->
+  <rect x="720" y="560" width="160" height="100" rx="8" fill="#16213e" stroke="#333"/>
+  <text x="800" y="580" text-anchor="middle" fill="#fff" font-size="10" font-weight="bold">eIDAS Niveau:</text>
+  <text x="800" y="600" text-anchor="middle" fill="#10b981" font-size="14" font-weight="bold">Gekwalificeerd</text>
+  <text x="800" y="618" text-anchor="middle" fill="#aaa" font-size="9">(hoogste betrouwbaarheid)</text>
+  <text x="800" y="638" text-anchor="middle" fill="#aaa" font-size="9">Gelijk aan natte</text>
+  <text x="800" y="650" text-anchor="middle" fill="#aaa" font-size="9">handtekening op papier</text>
+</svg>

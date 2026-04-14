@@ -1,0 +1,187 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../utils/base';
+
+const productvormen = [
+  'Ring met biometrische sensor',
+  'Smartwatch-integratie',
+  'Verificatiekastje voor op het bureau',
+  'Handschoen met schrijfherkenning',
+  'Bureaumat met druksensoren',
+  'Stempel met identiteitsverificatie',
+  'Telefoonhoesje met NFC',
+  'Laptop-integratie',
+];
+
+const authenticatie = [
+  'Iris-scan',
+  'Vingerafdruk',
+  'Schrijf-DNA (druk, snelheid, hoek, ritme)',
+  'Klop-ritme als wachtwoord',
+  'Danspatroon-herkenning',
+  'Geurherkenning',
+  'Stemherkenning',
+  'Biometrische combinaties',
+];
+
+const kruisbestuivingen = [
+  { naam: 'Octopus', waarom: 'Meerdere armen, meerdere verificatiemethoden tegelijk' },
+  { naam: 'Papegaai', waarom: 'Nadoen van geluid/stem, maar net niet precies genoeg' },
+  { naam: 'Vlinder', waarom: 'Metamorfose, van rups naar vlinder, van pen naar iets anders' },
+  { naam: 'Banksy', waarom: 'Anonieme kunst die toch geauthenticeerd wordt' },
+  { naam: 'Yoga', waarom: 'Lichaamshouding als uniek kenmerk' },
+  { naam: 'Koken', waarom: 'Recept volgen met eigen interpretatie, net als handschrift' },
+  { naam: 'Graffiti', waarom: 'Straatkunst met een "tag" als handtekening' },
+];
+---
+
+<BaseLayout title="Concept Collection — Design">
+  <!-- Hero -->
+  <section class="bg-bg-primary text-white overflow-hidden relative">
+    <div class="absolute inset-0">
+      <img src={url('/images/research/denkrichting1-security-expert.jpeg')} alt="" class="w-full h-full object-cover opacity-15" />
+      <div class="absolute inset-0 bg-gradient-to-b from-bg-primary/60 to-bg-primary"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24 relative z-10">
+      <nav class="reveal text-sm mb-6 flex items-center gap-2">
+        <a href={url('/')} class="text-white/40 hover:text-white/60 transition-colors">Home</a>
+        <span class="text-white/20">/</span>
+        <a href={url('/design/')} class="text-white/40 hover:text-white/60 transition-colors">Design</a>
+        <span class="text-white/20">/</span>
+        <span class="text-phase-design font-medium">Concept Collection</span>
+      </nav>
+      <h1 class="reveal reveal-delay-1 font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold leading-[0.95] mb-4">
+        Concept<br /><span class="gradient-text">Collection</span>
+      </h1>
+      <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
+        Alles verzamelen wat ook maar iets te maken heeft met authenticatie en verificatie. Hoe wilder, hoe beter.
+      </p>
+      <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-design mt-8"></div>
+    </div>
+  </section>
+
+  <!-- Uitleg concept collection -->
+  <section class="bg-cream py-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="reveal bg-bg-elevated rounded-3xl p-8 md:p-10 shadow-sm border border-white/5">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 bg-phase-design rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0 font-bold">🎨</div>
+          <div>
+            <h2 class="font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-3">Wat is een concept collection?</h2>
+            <p class="text-dark/60 leading-relaxed mb-3">
+              Een concept collection is het resultaat van verzamelwoede. Je begint met een denkrichting en verzamelt alles
+              wat er op wat voor manier dan ook mee te maken heeft. Kwantiteit is kwaliteit: hoe meer je verzamelt,
+              hoe meer verbanden je kunt leggen. Het is bewust divergerend, er zijn geen regels over wat of hoe.
+            </p>
+            <p class="text-dark/40 text-sm">
+              We hebben dit gedaan voor De Analoge Security Expert. De Circulaire Standaard hebben we bewust laten
+              vallen na de gate.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aanpak -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Maximaal divergeren</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Weg van de pen, alle kanten op</p>
+
+      <div class="reveal reveal-delay-2 prose max-w-none mb-10">
+        <p>
+          We hebben ons bewust losgemaakt van de pen. De vraag was niet "hoe maken we een betere pen" maar
+          "hoe kan authenticatie en verificatie eruitzien?" We hebben afbeeldingen verzameld van Unsplash en
+          AI-gegenereerde visuals gemaakt. Alles bij elkaar zo'n 35 beelden op een PowerPoint-moodboard.
+        </p>
+        <p>
+          Het idee was om zo breed mogelijk te kijken. Niet alleen naar technologie, maar ook naar de natuur,
+          kunst en alledaagse dingen. Wat heeft een octopus te maken met verificatie? Meer dan je denkt.
+        </p>
+      </div>
+
+      <!-- Productvormen en authenticatie -->
+      <div class="reveal grid md:grid-cols-2 gap-6 mb-10">
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-4">Productvormen</h3>
+          <p class="text-dark/40 text-sm mb-3">In welke vorm kan het zitten? Niet per se een pen.</p>
+          <ul class="space-y-2">
+            {productvormen.map((item) => (
+              <li class="text-dark/60 text-sm flex items-start gap-2">
+                <span class="text-phase-design mt-0.5 text-xs">&#9679;</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-4">Authenticatiemethoden</h3>
+          <p class="text-dark/40 text-sm mb-3">Hoe bewijs je wie je bent?</p>
+          <ul class="space-y-2">
+            {authenticatie.map((item) => (
+              <li class="text-dark/60 text-sm flex items-start gap-2">
+                <span class="text-phase-design mt-0.5 text-xs">&#9679;</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wilde kruisbestuivingen -->
+  <section class="bg-cream py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Wilde kruisbestuivingen</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Wat heeft een octopus met verificatie te maken?</p>
+
+      <div class="reveal reveal-delay-2 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {kruisbestuivingen.map((item) => (
+          <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+            <h4 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-2">{item.naam}</h4>
+            <p class="text-dark/50 text-xs leading-relaxed">{item.waarom}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Download -->
+  <section class="bg-warm-gray py-16">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="reveal">
+        <h2 class="font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-4">Bekijk de volledige moodboard</h2>
+        <p class="text-dark/50 mb-6">PowerPoint met 35+ afbeeldingen, 1 slide, maximaal divergerend.</p>
+        <a href={url('/concept-collection-security-expert.pptx')} class="inline-flex items-center gap-2 bg-phase-design text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform" download>
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" /></svg>
+          Download PowerPoint
+        </a>
+      </div>
+
+      <div class="reveal reveal-delay-1 mt-8">
+        <p class="text-dark/40 text-sm italic">
+          Concept collection 2 (De Circulaire Standaard) is bewust niet gemaakt. Na de gate hebben we gekozen
+          om alleen met de Security Expert verder te gaan.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigation -->
+  <section class="bg-bg-primary text-white py-16">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href={url('/design/gate/')} class="reveal inline-flex items-center gap-2 text-white/50 hover:text-white font-bold transition-colors">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
+        Gate
+      </a>
+      <a href={url('/refine/')} class="reveal reveal-delay-1 inline-flex items-center gap-2 bg-phase-refine text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform">
+        Naar Refine (Fase 4)
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

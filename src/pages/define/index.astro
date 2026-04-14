@@ -5,13 +5,19 @@ import { url } from '../../utils/base';
 const evidence = [
   {
     title: 'Innovatieradar',
-    description: 'Brainstormsessie met de innovatieradar (Huizingh, 2019). 31 ideeën op post-its over 6 kamers.',
+    description: 'Brainstormsessie met de innovatieradar (Huizingh, 2019). 32 ideeen op post-its over 6 kamers.',
     href: url('/define/innovatieradar/'),
     icon: '🧭',
   },
   {
+    title: 'Convergeren & HZWK',
+    description: 'Met PMI de ideeen gescoord en per innovatieruimte HZWK-challenges geformuleerd.',
+    href: url('/define/convergentie/'),
+    icon: '🎯',
+  },
+  {
     title: 'Denkrichtingen',
-    description: 'De ideeën geclusterd en teruggebracht naar twee richtingen met een challenge per stuk.',
+    description: 'De ideeen geclusterd naar twee richtingen met een challenge per stuk.',
     href: url('/define/denkrichtingen/'),
     icon: '🔀',
   },
@@ -22,24 +28,46 @@ const evidence = [
   title="Define"
   phase="define"
   phaseNumber="Fase 2"
-  description="De innovatieruimte verkend met de innovatieradar, en de ideeën teruggebracht naar twee denkrichtingen."
+  description="De innovatieruimte verkend met de innovatieradar en de ideeen geconvergeerd naar HZWK-challenges."
   evidence={evidence}
 >
   <h2>Wat hebben we gedaan?</h2>
   <p>
     Met de innovatieradar (Huizingh, 2019) hebben we in een sessie op een flipover ideeën gegenereerd
     per innovatieruimte: product, proces, positie, paradigma. Alles mocht, we hebben ons oordeel uitgesteld.
-    Dat leverde 31 ideeën op over 6 kamers.
+    Dat leverde 32 ideeën op over 6 kamers.
   </p>
   <p>
     Daarna hebben we de ideeën gescoord met gekleurde stickers (groen = goed, roze = minder, paars = interessant)
-    en geclusterd. Daar kwamen twee denkrichtingen uit die we allebei uitgewerkt hebben met een HZWK-challenge.
+    en per kamer HZWK-challenges geformuleerd. De kamers Beveiliging, Hulp en Specialisatie leverden de sterkste
+    vragen op. Die hebben we meegenomen naar de Design-fase als input voor onze denkrichtingen.
   </p>
+
+  <h2>Wat viel op?</h2>
+  <ul>
+    <li>De meeste ideeën zaten in Klantervaring en Organisatie (proces-kant), maar de meest innovatieve zaten juist in Beveiliging (paradigma)</li>
+    <li>De kamer Beveiliging was het verrassendst: daar kwam het idee voor de "analoge security expert" vandaan, dat later een denkrichting werd</li>
+    <li>Bij het convergeren merkten we dat de HZWK-methode helpt om losse ideeën te verbinden tot een bredere richting</li>
+  </ul>
 
   <h2>Bewijsstukken (opdracht 1b)</h2>
   <ul>
-    <li><strong>Ingevulde innovatieradar</strong>: foto's van de flipover en alle ideeën per kamer</li>
-    <li><strong>Denkrichtingen</strong>: twee richtingen met clusters, challenges en hoe we daar gekomen zijn</li>
-    <li><strong>Gate</strong>: selectie samen met anderen (voorbereiding BK4)</li>
+    <li><strong>Ingevulde innovatieradar</strong>: foto's van de flipover, alle ideeën per kamer, en de HZWK-challenges per innovatieruimte</li>
   </ul>
+
+  <h2>Theorie en methode</h2>
+  <ul>
+    <li><strong>Innovatieradar (Huizingh, 2019)</strong>: 12 dimensies over 4 sleuteldimensies. Dwingt je om breder te kijken dan alleen het product.</li>
+    <li><strong>PMI-methode (De Bono)</strong>: Plus, Min, Interessant. Simpel maar effectief om 32 ideeen te scoren zonder eindeloos te discussieren.</li>
+    <li><strong>4P Innovation Space (Tidd &amp; Bessant)</strong>: Product, Proces, Positie, Paradigma. Hielp om de ideeen te ordenen per innovatieruimte.</li>
+  </ul>
+  <p>
+    Wat goed werkte: de innovatieradar dwong ons om ook in de paradigma-hoek te kijken. Daar kwam het security-idee vandaan, dat hadden we anders gemist.
+  </p>
+
+  <div class="mt-16 pt-8 border-t border-white/10">
+    <a href={url('/design/')} class="inline-flex items-center gap-2 text-phase-design hover:underline text-lg">
+      Verder naar Design →
+    </a>
+  </div>
 </PhaseLayout>

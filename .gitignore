@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# originele bronbestanden, niet voor de website
+media/
+
+# grote videos (>100MB) niet pushen naar GitHub
+public/images/research/prototype/*.mp4
