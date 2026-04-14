@@ -27,7 +27,7 @@ const phases = [
   },
   {
     title: 'Design',
-    subtitle: 'Divergeren: selecteren en uitwerken',
+    subtitle: 'Divergeren: concepten verkennen',
     description: 'Gate met DVF en value curve, en een concept collection voor de gekozen denkrichting.',
     href: url('/design/'),
     phase: 'design',
@@ -62,152 +62,83 @@ const phases = [
 ---
 
 <BaseLayout title="Home">
-  <!-- Hero -->
-  <section class="relative min-h-screen flex items-center overflow-hidden glow-hero">
+  <!-- Hero + Landschap + Fasen + CTA in 1 view -->
+  <section class="relative min-h-screen flex flex-col justify-center overflow-hidden glow-hero py-12 md:py-16">
     <!-- Decorative glow orbs -->
-    <div class="absolute top-20 right-1/4 w-96 h-96 rounded-full blur-3xl" style="background: rgba(139, 92, 246, 0.12);"></div>
-    <div class="absolute bottom-20 left-1/4 w-72 h-72 rounded-full blur-3xl" style="background: rgba(217, 70, 239, 0.08);"></div>
-    <div class="absolute top-1/3 right-10 w-64 h-64 rounded-full blur-3xl" style="background: rgba(244, 114, 100, 0.06);"></div>
+    <div class="absolute top-20 right-1/4 w-96 h-96 rounded-full blur-3xl pointer-events-none" style="background: rgba(139, 92, 246, 0.12);"></div>
+    <div class="absolute bottom-20 left-1/4 w-72 h-72 rounded-full blur-3xl pointer-events-none" style="background: rgba(217, 70, 239, 0.08);"></div>
 
-    <div class="max-w-6xl mx-auto px-6 md:px-12 py-24 relative z-10">
-      <div class="reveal">
-        <p class="label text-sm mb-8">Innovatiemanagement EDIM.21</p>
+    <div class="max-w-7xl w-full mx-auto px-6 md:px-12 relative z-10">
+      <!-- Titel + subtitel -->
+      <div class="text-center">
+        <div class="reveal">
+          <p class="label text-sm mb-4">Innovatiemanagement EDIM.21</p>
+        </div>
+        <h1 class="font-[family-name:var(--font-display)] leading-[0.95] mb-4 reveal reveal-delay-1" style="font-size: clamp(2.75rem, 7vw, 5.5rem);">
+          <span class="hw-word hw-word-inline text-text-primary" aria-label="Beyond">
+            {'Beyond'.split('').map((letter, i) => (
+              <span class="hw-letter" style={`animation-delay: ${0.5 + i * 0.12}s`}>{letter}</span>
+            ))}
+            <span class="hw-cursor" style={`animation-delay: 0.5s; animation-duration: ${0.12 * 6}s`}></span>
+          </span>
+          <br />
+          <span class="hw-word hw-word-inline text-accent-magenta" aria-label="Paper">
+            {'Paper'.split('').map((letter, i) => (
+              <span class="hw-letter" style={`animation-delay: ${1.4 + i * 0.12}s`}>{letter}</span>
+            ))}
+            <span class="hw-cursor hw-cursor-2" style={`animation-delay: 1.4s; animation-duration: ${0.12 * 5}s`}></span>
+          </span>
+        </h1>
+        <div class="reveal reveal-delay-2 max-w-2xl mx-auto">
+          <p class="text-base md:text-lg text-text-secondary leading-relaxed">
+            Hoe kan <strong class="text-text-primary font-normal">Aurora Writing Instruments Group</strong> relevant blijven in een wereld waarin schrijven en tekenen steeds digitaler worden?
+          </p>
+        </div>
       </div>
-      <!-- Handwriting animation: letter by letter -->
-      <h1 class="font-[family-name:var(--font-display)] leading-[0.95] mb-8 reveal reveal-delay-1" style="font-size: clamp(3.5rem, 8vw, 7rem);">
-        <span class="hw-word block text-text-primary" aria-label="Beyond">
-          {'Beyond'.split('').map((letter, i) => (
-            <span class="hw-letter" style={`animation-delay: ${0.5 + i * 0.12}s`}>{letter}</span>
-          ))}
-          <span class="hw-cursor" style={`animation-delay: 0.5s; animation-duration: ${0.12 * 6}s`}></span>
-        </span>
-        <span class="hw-word block text-accent-magenta" aria-label="Paper">
-          {'Paper'.split('').map((letter, i) => (
-            <span class="hw-letter" style={`animation-delay: ${1.4 + i * 0.12}s`}>{letter}</span>
-          ))}
-          <span class="hw-cursor hw-cursor-2" style={`animation-delay: 1.4s; animation-duration: ${0.12 * 5}s`}></span>
-        </span>
-      </h1>
-      <div class="reveal reveal-delay-2 max-w-2xl">
-        <p class="text-lg md:text-xl text-text-secondary leading-relaxed">
-          Hoe kan <strong class="text-text-primary font-normal">Aurora Writing Instruments Group</strong> relevant blijven in een wereld waarin schrijven en tekenen steeds digitaler worden?
-        </p>
+
+      <!-- Landschap afbeelding -->
+      <div class="reveal reveal-delay-3 relative landschap-fade mt-4 md:mt-6 max-w-5xl mx-auto">
+        <img
+          src={url('/images/innovatiereis-landschap.png')}
+          alt="3D landschap met de vijf fasen van het innovatieproces als stations"
+          class="w-full h-auto block"
+        />
       </div>
-      <div class="reveal reveal-delay-3 mt-12 flex gap-4 flex-wrap">
+
+      <!-- Fasen per station onder het landschap -->
+      <div class="reveal reveal-delay-3 grid grid-cols-5 gap-2 md:gap-4 -mt-2 md:-mt-4 max-w-5xl mx-auto">
+        {phases.map((phase) => (
+          <a
+            href={phase.href}
+            class="group flex flex-col items-center text-center px-1 py-2 rounded-lg transition-all duration-300 hover:bg-bg-secondary/50"
+          >
+            <span
+              class="w-2.5 h-2.5 rounded-full mb-2"
+              style={`background-color: ${phase.color}; box-shadow: 0 0 12px ${phase.color}80;`}
+            ></span>
+            <h3 class="font-[family-name:var(--font-display)] text-lg md:text-2xl group-hover:scale-105 transition-transform" style={`color: ${phase.color};`}>
+              {phase.title}
+            </h3>
+            <span class="text-[10px] md:text-xs text-text-muted mt-0.5 mb-1">{phase.label}</span>
+            <p class="text-[11px] md:text-xs text-text-secondary leading-snug hidden md:block">{phase.subtitle}</p>
+          </a>
+        ))}
+      </div>
+
+      <!-- CTA button onderaan -->
+      <div class="reveal reveal-delay-3 mt-6 md:mt-8 flex justify-center">
         <a href={url('/aanleiding/')} class="btn-primary">
           Start de reis
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
             <path d="M12 5v14M5 12l7 7 7-7" />
           </svg>
         </a>
-        <a href="#reis" class="btn-ghost">
-          Bekijk de fasen
-        </a>
-      </div>
-    </div>
-
-    <!-- Pen visual — right side of hero -->
-    <div class="hidden md:block absolute top-1/2 -translate-y-1/2 right-8 lg:right-16 xl:right-24 w-64 lg:w-80 xl:w-96 opacity-70 pointer-events-none reveal reveal-delay-4">
-      <img src={url('/images/pen-stroke.svg')} alt="" class="w-full" />
-    </div>
-
-    <!-- Decorative wavy separator -->
-    <div class="absolute bottom-0 left-0 right-0">
-      <svg viewBox="0 0 1200 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full" style="opacity: 0.08;">
-        <path d="M0 20 Q 150 0, 300 20 T 600 20 T 900 20 T 1200 20" stroke="#F5F0EB" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-      </svg>
-    </div>
-  </section>
-
-  <!-- Journey intro -->
-  <section id="reis" class="py-24 md:py-32">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-4xl md:text-5xl text-text-primary mb-6">
-        Onze reis door het<br />innovatieproces
-      </h2>
-      <p class="reveal reveal-delay-1 text-lg text-text-secondary max-w-2xl mx-auto">
-        Van ontdekking tot Proof of Value: volg ons pad door vijf fasen
-        van het Design Thinking Stage/Gate model.
-      </p>
-
-      <!-- Phase dots with wavy connections -->
-      <div class="reveal reveal-delay-2 flex items-center justify-center gap-3 mt-12">
-        {phases.map((phase, i) => (
-          <>
-            <a
-              href={phase.href}
-              class="w-5 h-5 rounded-full hover:scale-150 transition-all duration-300"
-              style={`background-color: ${phase.color}; box-shadow: 0 0 12px ${phase.color}40;`}
-              title={phase.title}
-            ></a>
-            {i < phases.length - 1 && (
-              <svg viewBox="0 0 40 6" class="w-10 h-2" style="opacity: 0.2;">
-                <path d="M0 3 Q 10 0, 20 3 T 40 3" stroke="#F5F0EB" stroke-width="1" fill="none" stroke-linecap="round"/>
-              </svg>
-            )}
-          </>
-        ))}
       </div>
     </div>
   </section>
-
-  <!-- Phase Journey Sections -->
-  {phases.map((phase, i) => (
-    <section class="py-20 md:py-28">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12 md:gap-16`}>
-          <!-- Phase visual -->
-          <div class="reveal-left flex-1 flex justify-center">
-            <a href={phase.href} class="group relative">
-              <div
-                class="w-56 h-56 md:w-72 md:h-72 rounded-3xl flex items-center justify-center group-hover:scale-105 transition-all duration-500"
-                style={`background: linear-gradient(135deg, ${phase.color}20, ${phase.color}08); border: 1px solid ${phase.color}15;`}
-              >
-                <span class="font-[family-name:var(--font-display)] text-8xl md:text-9xl" style={`color: ${phase.color}30;`}>{phase.number}</span>
-              </div>
-              <!-- Floating badge -->
-              <div
-                class="absolute -top-3 -right-3 text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg"
-                style={`background-color: ${phase.color}; color: var(--color-bg-primary);`}
-              >
-                {phase.label}
-              </div>
-              {phase.evidenceCount > 0 && (
-                <div class="absolute -bottom-3 -left-3 bg-bg-elevated text-text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg border border-white/10">
-                  {phase.evidenceCount} bewijsstukken
-                </div>
-              )}
-            </a>
-          </div>
-
-          <!-- Phase content -->
-          <div class="reveal-right flex-1">
-            <span class="label text-sm" style={`color: ${phase.color};`}>{phase.label}</span>
-            <h3 class="font-[family-name:var(--font-display)] text-4xl md:text-5xl text-text-primary mt-2 mb-2">
-              {phase.title}
-            </h3>
-            <p class="text-lg mb-4 font-normal" style={`color: ${phase.color};`}>{phase.subtitle}</p>
-            <p class="text-text-secondary text-lg leading-relaxed mb-8">{phase.description}</p>
-            <a
-              href={phase.href}
-              class="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold transition-all duration-300 border-2 hover:shadow-lg"
-              style={`border-color: ${phase.color}; color: ${phase.color};`}
-              onmouseover={`this.style.backgroundColor='${phase.color}'; this.style.color='var(--color-bg-primary)'; this.style.boxShadow='0 0 24px ${phase.color}30';`}
-              onmouseout={`this.style.backgroundColor='transparent'; this.style.color='${phase.color}'; this.style.boxShadow='none';`}
-            >
-              Bekijk fase
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-  ))}
 
   <!-- About -->
-  <section class="relative overflow-hidden">
+  <section id="over" class="relative overflow-hidden">
     <div class="absolute inset-0" style="background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(139, 92, 246, 0.08), transparent);"></div>
     <div class="max-w-6xl mx-auto px-6 py-24 md:py-32 relative z-10">
       <div class="reveal max-w-3xl mx-auto text-center">
@@ -232,10 +163,26 @@ const phases = [
     </div>
   </section>
   <style>
+    /* --- Landschap fade-out naar achtergrond --- */
+    .landschap-fade {
+      filter: brightness(0.88) contrast(1.05);
+      -webkit-mask-image:
+        linear-gradient(to bottom, transparent 0%, #000 15%, #000 90%, transparent 100%),
+        linear-gradient(to right,  transparent 0%, #000 7%, #000 93%, transparent 100%);
+      -webkit-mask-composite: source-in;
+      mask-image:
+        linear-gradient(to bottom, transparent 0%, #000 15%, #000 90%, transparent 100%),
+        linear-gradient(to right,  transparent 0%, #000 7%, #000 93%, transparent 100%);
+      mask-composite: intersect;
+    }
+
     /* --- Letter-by-letter handwriting animation --- */
     .hw-word {
       position: relative;
       display: block;
+    }
+    .hw-word-inline {
+      display: inline-block;
     }
 
     .hw-letter {
