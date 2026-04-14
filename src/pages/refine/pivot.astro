@@ -99,12 +99,61 @@ import { url } from '../../utils/base';
         </div>
       </div>
 
-      <!-- Procesflow -->
-      <h3 class="reveal font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-6 text-center">Procesflow</h3>
-      <div class="reveal rounded-2xl overflow-hidden border border-white/10 shadow-lg mb-4">
-        <img src={url('/images/research/prototype/procesflow-verificatiestation.svg')} alt="Procesflow verificatiestation: van ID-scan via PIN naar digitale handtekening" class="w-full bg-white p-4" />
+      <!-- Procesflow hoogover -->
+      <h3 class="reveal font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-2 text-center">Procesflow hoogover</h3>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center text-sm mb-6">Huidige situatie vs. toekomstige situatie in vogelvlucht</p>
+      <div class="reveal rounded-2xl overflow-hidden border border-white/10 shadow-lg mb-4 bg-white">
+        <img src={url('/images/research/prototype/procesflow-hoogover.svg')} alt="Procesflow hoogover: huidige vs. toekomstige situatie" class="w-full p-4" />
       </div>
-      <p class="text-dark/40 text-sm text-center italic mb-10">Procesflow: huidig vs. nieuw verificatieproces</p>
+
+      <!-- Detail flowcharts als thumbnails -->
+      <p class="reveal text-dark/50 text-center text-sm mb-4 mt-8">Klik voor een uitvergroting</p>
+      <div class="reveal grid md:grid-cols-2 gap-4 mb-10">
+        <button
+          type="button"
+          data-flow-modal="uitgebreid"
+          class="group text-left bg-bg-elevated rounded-2xl p-4 border border-white/5 shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all cursor-zoom-in"
+        >
+          <div class="rounded-xl overflow-hidden bg-white mb-3 aspect-[16/5] flex items-center justify-center p-2">
+            <img src={url('/images/research/prototype/procesflow-uitgebreid.svg')} alt="Uitgebreide procesflow met aanmelding, identificatie, authenticatie, validatie en foutafhandeling" class="w-full h-full object-contain" />
+          </div>
+          <h4 class="font-[family-name:var(--font-display)] font-bold text-dark text-base mb-1">Uitgebreide procesflow</h4>
+          <p class="text-dark/50 text-xs leading-relaxed">Volledige keten incl. foutafhandeling, validatie en fraudedetectie</p>
+        </button>
+
+        <button
+          type="button"
+          data-flow-modal="voorbeeld"
+          class="group text-left bg-bg-elevated rounded-2xl p-4 border border-white/5 shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all cursor-zoom-in"
+        >
+          <div class="rounded-xl overflow-hidden bg-white mb-3 aspect-[16/5] flex items-center justify-center p-2">
+            <img src={url('/images/research/prototype/procesflow-voorbeeld.svg')} alt="Voorbeeld-scenario: servicebalie met scanbalie, ID-scan en pincode" class="w-full h-full object-contain" />
+          </div>
+          <h4 class="font-[family-name:var(--font-display)] font-bold text-dark text-base mb-1">Voorbeeldscenario</h4>
+          <p class="text-dark/50 text-xs leading-relaxed">Concreet voorbeeld: ondertekenen bij de servicebalie</p>
+        </button>
+      </div>
+
+      <!-- Lightbox modals -->
+      <div id="flow-modal-uitgebreid" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-8" data-flow-modal-target>
+        <button type="button" class="absolute top-4 right-4 md:top-8 md:right-8 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors" data-flow-modal-close aria-label="Sluiten">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M6 18L18 6"/></svg>
+        </button>
+        <div class="max-w-7xl w-full max-h-[90vh] bg-white rounded-2xl overflow-auto p-6 md:p-8 shadow-2xl">
+          <h3 class="font-[family-name:var(--font-display)] text-xl md:text-2xl font-bold text-dark mb-4">Uitgebreide procesflow</h3>
+          <img src={url('/images/research/prototype/procesflow-uitgebreid.svg')} alt="Uitgebreide procesflow met aanmelding, identificatie, authenticatie, validatie en foutafhandeling" class="w-full h-auto" />
+        </div>
+      </div>
+
+      <div id="flow-modal-voorbeeld" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-8" data-flow-modal-target>
+        <button type="button" class="absolute top-4 right-4 md:top-8 md:right-8 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors" data-flow-modal-close aria-label="Sluiten">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 6l12 12M6 18L18 6"/></svg>
+        </button>
+        <div class="max-w-7xl w-full max-h-[90vh] bg-white rounded-2xl overflow-auto p-6 md:p-8 shadow-2xl">
+          <h3 class="font-[family-name:var(--font-display)] text-xl md:text-2xl font-bold text-dark mb-4">Voorbeeldscenario: servicebalie</h3>
+          <img src={url('/images/research/prototype/procesflow-voorbeeld.svg')} alt="Voorbeeld-scenario: servicebalie met scanbalie, ID-scan en pincode" class="w-full h-auto" />
+        </div>
+      </div>
 
       <!-- Vergelijking -->
       <div class="reveal grid md:grid-cols-2 gap-6">
@@ -166,6 +215,132 @@ import { url } from '../../utils/base';
     </div>
   </section>
 
+  <!-- Value Proposition Canvas -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Value Proposition Canvas</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center max-w-2xl mx-auto mb-10">
+        De klantkant (jobs, pains, gains) naast onze kant (producten, pain relievers, gain creators).
+        Fit ontstaat als beide zijden elkaar raken.
+      </p>
+
+      <div class="grid lg:grid-cols-2 gap-10 mb-10">
+        <!-- ============ VALUE MAP (square) ============ -->
+        <div class="reveal">
+          <div class="flex items-center justify-between mb-3">
+            <p class="text-xs font-bold uppercase tracking-widest text-phase-refine">Value Map</p>
+            <span class="text-dark/40 text-xs italic">Aurora + techpartner</span>
+          </div>
+          <div class="bg-white border-2 border-dark rounded-lg overflow-hidden shadow-sm">
+            <!-- Gain Creators (top) -->
+            <div class="p-5 md:p-6 border-b-2 border-dark">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="w-7 h-7 rounded-full bg-phase-refine text-white flex items-center justify-center text-lg font-bold">+</span>
+                <h4 class="font-bold text-dark">Gain creators</h4>
+              </div>
+              <ul class="space-y-1 text-dark/70 text-sm list-disc list-inside">
+                <li>Juridisch waterdichte ondertekening met audittrail</li>
+                <li>Schaalbaar over duizenden transacties per dag</li>
+                <li>Compliance-klaar voor toezichthouders</li>
+                <li>Betrouwbaarheid via Aurora's 125+ jaar domeinkennis</li>
+              </ul>
+            </div>
+            <!-- Products & Services (middle, highlighted) -->
+            <div class="p-5 md:p-6 bg-phase-refine/5 border-b-2 border-dark">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="w-7 h-7 rounded bg-dark text-white flex items-center justify-center text-sm font-bold">P/S</span>
+                <h4 class="font-bold text-dark">Producten &amp; diensten</h4>
+              </div>
+              <ul class="space-y-1 text-dark/70 text-sm list-disc list-inside">
+                <li>Kennismodel voor ondertekenings-authenticiteit (Aurora's IP)</li>
+                <li>Verificatiestation: ID-scanner + PIN + koppelingsprotocol</li>
+                <li>Koppeling tussen natte handtekening en unieke authenticatiecode</li>
+                <li>Implementatie-ondersteuning voor partners</li>
+              </ul>
+            </div>
+            <!-- Pain Relievers (bottom) -->
+            <div class="p-5 md:p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="w-7 h-7 rounded-full bg-phase-refine text-white flex items-center justify-center text-lg font-bold">&minus;</span>
+                <h4 class="font-bold text-dark">Pain relievers</h4>
+              </div>
+              <ul class="space-y-1 text-dark/70 text-sm list-disc list-inside">
+                <li>Objectieve ID-check vervangt subjectieve visuele controle</li>
+                <li>Gescande handtekening wordt rechtsgeldig door ID-koppeling</li>
+                <li>Fraudesignalen komen direct boven tafel bij de ID-scan</li>
+                <li>Digitaal doorzoekbaar archief i.p.v. papieren ordners</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- ============ CUSTOMER PROFILE (circle) ============ -->
+        <div class="reveal reveal-delay-1">
+          <div class="flex items-center justify-between mb-3">
+            <p class="text-xs font-bold uppercase tracking-widest text-dark">Customer Profile</p>
+            <span class="text-dark/40 text-xs italic">Notaris, bank, gemeente</span>
+          </div>
+          <div class="bg-white border-2 border-dark rounded-[48px] overflow-hidden shadow-sm">
+            <!-- Gains (top) -->
+            <div class="p-5 md:p-6 border-b-2 border-dark">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="w-7 h-7 rounded-full bg-dark text-white flex items-center justify-center text-lg font-bold">+</span>
+                <h4 class="font-bold text-dark">Gains</h4>
+              </div>
+              <ul class="space-y-1 text-dark/70 text-sm list-disc list-inside">
+                <li>Juridische zekerheid bij iedere ondertekening</li>
+                <li>Sneller proces, minder wachttijd aan de balie</li>
+                <li>Minder administratie achteraf</li>
+                <li>Toezichthouder ziet direct dat het klopt</li>
+                <li>Vertrouwen en imago bij de eindklant</li>
+              </ul>
+            </div>
+            <!-- Customer Jobs (middle, highlighted) -->
+            <div class="p-5 md:p-6 bg-dark/5 border-b-2 border-dark">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="w-7 h-7 rounded bg-dark text-white flex items-center justify-center text-xs font-bold">Job</span>
+                <h4 class="font-bold text-dark">Customer jobs</h4>
+              </div>
+              <ul class="space-y-1 text-dark/70 text-sm list-disc list-inside">
+                <li>Documenten rechtsgeldig laten ondertekenen</li>
+                <li>Zekerheid dat de juiste persoon tekent</li>
+                <li>Audittrail opbouwen voor compliance</li>
+                <li>Klanten snel en professioneel bedienen</li>
+              </ul>
+            </div>
+            <!-- Pains (bottom) -->
+            <div class="p-5 md:p-6">
+              <div class="flex items-center gap-3 mb-3">
+                <span class="w-7 h-7 rounded-full bg-dark text-white flex items-center justify-center text-lg font-bold">&minus;</span>
+                <h4 class="font-bold text-dark">Pains</h4>
+              </div>
+              <ul class="space-y-1 text-dark/70 text-sm list-disc list-inside">
+                <li>Handtekeningvervalsing is lastig te bewijzen</li>
+                <li>Subjectieve ID-check is foutgevoelig en kost tijd</li>
+                <li>Gescande versies zijn niet rechtsgeldig</li>
+                <li>Papieren archief kost ruimte en is slecht doorzoekbaar</li>
+                <li>Fraude komt vaak pas laat aan het licht</li>
+                <li>Klanten verwachten steeds vaker digitaal</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fit -->
+      <div class="reveal bg-phase-refine/10 border-l-4 border-phase-refine rounded-2xl p-6 md:p-8">
+        <p class="text-phase-refine text-xs font-bold uppercase tracking-widest mb-3">De fit</p>
+        <p class="text-dark/70 leading-relaxed">
+          De pains en gains aan de klantkant raken vooral aan ondertekeningsprocessen waar identiteit telt.
+          Aurora brengt daar 125+ jaar domeinkennis over hoe mensen tekenen en wat een handtekening betekent.
+          De techpartner bouwt de infrastructuur. Samen lossen we op wat papier en subjectieve controles niet
+          meer aankunnen: juridische zekerheid, schaalbaarheid en digitale rechtsgeldigheid. De pen blijft
+          bestaan, maar het bewijs verschuift van de krul op papier naar de koppeling tussen ID, moment en handeling.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!-- Navigation -->
   <section class="bg-bg-primary text-white py-16">
     <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -182,4 +357,30 @@ import { url } from '../../utils/base';
       </div>
     </div>
   </section>
+
+  <script is:inline>
+    (() => {
+      const openers = document.querySelectorAll('[data-flow-modal]');
+      const closeBtns = document.querySelectorAll('[data-flow-modal-close]');
+      const modals = document.querySelectorAll('[data-flow-modal-target]');
+      const showModal = (id) => {
+        const modal = document.getElementById(`flow-modal-${id}`);
+        if (!modal) return;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      };
+      const hideAll = () => {
+        modals.forEach((m) => {
+          m.classList.add('hidden');
+          m.classList.remove('flex');
+        });
+        document.body.style.overflow = '';
+      };
+      openers.forEach((btn) => btn.addEventListener('click', () => showModal(btn.dataset.flowModal)));
+      closeBtns.forEach((btn) => btn.addEventListener('click', hideAll));
+      modals.forEach((m) => m.addEventListener('click', (e) => { if (e.target === m) hideAll(); }));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideAll(); });
+    })();
+  </script>
 </BaseLayout>

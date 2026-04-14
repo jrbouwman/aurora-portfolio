@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 180" font-family="Kalam, 'Patrick Hand', system-ui, sans-serif">
+  <defs>
+    <marker id="vb-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#F59E0B"/>
+    </marker>
+  </defs>
+
+  <!-- y=90 horizontal center -->
+
+  <!-- 1 Start (rounded pill) -->
+  <rect x="10" y="50" width="120" height="80" rx="40" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+  <text x="70" y="95" text-anchor="middle" font-size="15" fill="#2D2938">Start</text>
+
+  <line x1="130" y1="90" x2="170" y2="90" stroke="#F59E0B" stroke-width="2" marker-end="url(#vb-arrow)"/>
+
+  <!-- 2 Aanmelden bij de servicebalie -->
+  <rect x="170" y="50" width="170" height="80" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+  <text x="255" y="85" text-anchor="middle" font-size="14" fill="#2D2938">Aanmelden bij</text>
+  <text x="255" y="103" text-anchor="middle" font-size="14" fill="#2D2938">de servicebalie</text>
+
+  <line x1="340" y1="90" x2="370" y2="90" stroke="#F59E0B" stroke-width="2" marker-end="url(#vb-arrow)"/>
+
+  <!-- 3 Bij een scanbalie staan -->
+  <rect x="370" y="50" width="160" height="80" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+  <text x="450" y="85" text-anchor="middle" font-size="14" fill="#2D2938">Bij een scanbalie</text>
+  <text x="450" y="103" text-anchor="middle" font-size="14" fill="#2D2938">staan</text>
+
+  <line x1="530" y1="90" x2="560" y2="90" stroke="#F59E0B" stroke-width="2" marker-end="url(#vb-arrow)"/>
+
+  <!-- 4 Je ID scannen -->
+  <rect x="560" y="50" width="140" height="80" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+  <text x="630" y="95" text-anchor="middle" font-size="15" fill="#2D2938">Je ID scannen</text>
+
+  <line x1="700" y1="90" x2="730" y2="90" stroke="#F59E0B" stroke-width="2" marker-end="url(#vb-arrow)"/>
+
+  <!-- 5 Pincode invullen -->
+  <rect x="730" y="50" width="150" height="80" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+  <text x="805" y="95" text-anchor="middle" font-size="15" fill="#2D2938">Pincode invullen</text>
+
+  <line x1="880" y1="90" x2="910" y2="90" stroke="#F59E0B" stroke-width="2" marker-end="url(#vb-arrow)"/>
+
+  <!-- 6 Goedkeuring (diamond) -->
+  <polygon points="1000,50 1070,90 1000,130 930,90" fill="#FEF3E7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="1000" y="95" text-anchor="middle" font-size="14" fill="#2D2938">Goedkeuring</text>
+
+  <line x1="1070" y1="90" x2="1100" y2="90" stroke="#F59E0B" stroke-width="2" marker-end="url(#vb-arrow)"/>
+
+  <!-- 7 Document ondertekenen -->
+  <rect x="1100" y="50" width="160" height="80" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+  <text x="1180" y="85" text-anchor="middle" font-size="14" fill="#2D2938">Document</text>
+  <text x="1180" y="103" text-anchor="middle" font-size="14" fill="#2D2938">ondertekenen</text>
+
+  <line x1="1260" y1="90" x2="1290" y2="90" stroke="#F59E0B" stroke-width="2" marker-end="url(#vb-arrow)"/>
+
+  <!-- 8 Handtekening scannen -->
+  <rect x="1290" y="50" width="160" height="80" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+  <text x="1370" y="85" text-anchor="middle" font-size="14" fill="#2D2938">Handtekening</text>
+  <text x="1370" y="103" text-anchor="middle" font-size="14" fill="#2D2938">scannen</text>
+
+  <line x1="1450" y1="90" x2="1480" y2="90" stroke="#F59E0B" stroke-width="2" marker-end="url(#vb-arrow)"/>
+
+  <!-- 9 Goedkeuring (diamond) -->
+  <polygon points="1555,50 1625,90 1555,130 1485,90" fill="#FEF3E7" stroke="#F59E0B" stroke-width="2"/>
+  <text x="1555" y="95" text-anchor="middle" font-size="14" fill="#2D2938">Goedkeuring</text>
+
+  <line x1="1625" y1="90" x2="1655" y2="90" stroke="#F59E0B" stroke-width="2" marker-end="url(#vb-arrow)"/>
+
+  <!-- 10 Koppelen aan document -->
+  <rect x="1655" y="50" width="140" height="80" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+  <text x="1725" y="85" text-anchor="middle" font-size="14" fill="#2D2938">Koppelen aan</text>
+  <text x="1725" y="103" text-anchor="middle" font-size="14" fill="#2D2938">document</text>
+</svg>

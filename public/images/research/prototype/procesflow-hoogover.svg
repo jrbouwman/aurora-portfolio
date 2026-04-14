@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 640" font-family="Kalam, 'Patrick Hand', system-ui, sans-serif">
+  <defs>
+    <marker id="arrow-dark" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2D2938"/>
+    </marker>
+    <marker id="arrow-accent" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#F59E0B"/>
+    </marker>
+  </defs>
+
+  <!-- ======= Row 1: Huidige situatie ======= -->
+  <g>
+    <!-- Label bar -->
+    <rect x="10" y="10" width="1060" height="44" rx="10" fill="#F3F0EA" stroke="#2D2938" stroke-width="1.5"/>
+    <text x="540" y="39" text-anchor="middle" font-size="20" font-weight="700" fill="#2D2938">Huidige situatie</text>
+
+    <!-- Main boxes, center y=200 -->
+    <rect x="20" y="150" width="200" height="100" rx="12" fill="#FFFFFF" stroke="#2D2938" stroke-width="2"/>
+    <text x="120" y="190" text-anchor="middle" font-size="15" fill="#2D2938">Document moet</text>
+    <text x="120" y="210" text-anchor="middle" font-size="15" fill="#2D2938">ondertekend</text>
+    <text x="120" y="230" text-anchor="middle" font-size="15" fill="#2D2938">worden</text>
+
+    <line x1="220" y1="200" x2="250" y2="200" stroke="#2D2938" stroke-width="2" marker-end="url(#arrow-dark)"/>
+
+    <rect x="250" y="150" width="220" height="100" rx="12" fill="#FFFFFF" stroke="#2D2938" stroke-width="2"/>
+    <text x="360" y="180" text-anchor="middle" font-size="14" fill="#2D2938">Medewerker doet</text>
+    <text x="360" y="198" text-anchor="middle" font-size="14" fill="#2D2938">subjectieve visuele</text>
+    <text x="360" y="216" text-anchor="middle" font-size="14" fill="#2D2938">check o.b.v. ID of de</text>
+    <text x="360" y="234" text-anchor="middle" font-size="14" fill="#2D2938">juiste persoon tekent</text>
+
+    <line x1="470" y1="200" x2="500" y2="200" stroke="#2D2938" stroke-width="2" marker-end="url(#arrow-dark)"/>
+
+    <rect x="500" y="150" width="200" height="100" rx="12" fill="#FFFFFF" stroke="#2D2938" stroke-width="2"/>
+    <text x="600" y="195" text-anchor="middle" font-size="15" fill="#2D2938">Natte handtekening</text>
+    <text x="600" y="215" text-anchor="middle" font-size="15" fill="#2D2938">op papier</text>
+
+    <!-- fork trunk -->
+    <line x1="700" y1="200" x2="740" y2="200" stroke="#2D2938" stroke-width="2"/>
+    <line x1="740" y1="140" x2="740" y2="260" stroke="#2D2938" stroke-width="2"/>
+    <line x1="740" y1="140" x2="770" y2="140" stroke="#2D2938" stroke-width="2" marker-end="url(#arrow-dark)"/>
+    <line x1="740" y1="260" x2="770" y2="260" stroke="#2D2938" stroke-width="2" marker-end="url(#arrow-dark)"/>
+
+    <!-- Box 4a (top) -->
+    <rect x="770" y="100" width="290" height="80" rx="12" fill="#FFFFFF" stroke="#2D2938" stroke-width="2"/>
+    <text x="915" y="130" text-anchor="middle" font-size="14" fill="#2D2938">Papier wordt ingescand</text>
+    <text x="915" y="150" text-anchor="middle" font-size="14" fill="#2D2938">(niet rechtsgeldig)</text>
+
+    <!-- Box 4b (bottom) -->
+    <rect x="770" y="220" width="290" height="80" rx="12" fill="#FFFFFF" stroke="#2D2938" stroke-width="2"/>
+    <text x="915" y="255" text-anchor="middle" font-size="14" fill="#2D2938">Papier wordt fysiek</text>
+    <text x="915" y="273" text-anchor="middle" font-size="14" fill="#2D2938">bewaard</text>
+  </g>
+
+  <!-- ======= Row 2: Toekomstige situatie (refine accent) ======= -->
+  <g transform="translate(0, 330)">
+    <rect x="10" y="10" width="1060" height="44" rx="10" fill="#FEF3E7" stroke="#F59E0B" stroke-width="1.5"/>
+    <text x="540" y="39" text-anchor="middle" font-size="20" font-weight="700" fill="#2D2938">Toekomstige situatie</text>
+
+    <rect x="20" y="150" width="200" height="100" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+    <text x="120" y="190" text-anchor="middle" font-size="15" fill="#2D2938">Document moet</text>
+    <text x="120" y="210" text-anchor="middle" font-size="15" fill="#2D2938">ondertekend</text>
+    <text x="120" y="230" text-anchor="middle" font-size="15" fill="#2D2938">worden</text>
+
+    <line x1="220" y1="200" x2="250" y2="200" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrow-accent)"/>
+
+    <rect x="250" y="150" width="220" height="100" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+    <text x="360" y="195" text-anchor="middle" font-size="15" fill="#2D2938">ID-check en</text>
+    <text x="360" y="215" text-anchor="middle" font-size="15" fill="#2D2938">authenticatie</text>
+
+    <line x1="470" y1="200" x2="500" y2="200" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrow-accent)"/>
+
+    <rect x="500" y="150" width="200" height="100" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+    <text x="600" y="195" text-anchor="middle" font-size="15" fill="#2D2938">Natte handtekening</text>
+    <text x="600" y="215" text-anchor="middle" font-size="15" fill="#2D2938">op papier</text>
+
+    <line x1="700" y1="200" x2="740" y2="200" stroke="#F59E0B" stroke-width="2"/>
+    <line x1="740" y1="140" x2="740" y2="260" stroke="#F59E0B" stroke-width="2"/>
+    <line x1="740" y1="140" x2="770" y2="140" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrow-accent)"/>
+    <line x1="740" y1="260" x2="770" y2="260" stroke="#F59E0B" stroke-width="2" marker-end="url(#arrow-accent)"/>
+
+    <!-- Box 4a (top) - iets hoger voor 3 regels tekst -->
+    <rect x="770" y="90" width="290" height="100" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+    <text x="915" y="120" text-anchor="middle" font-size="14" fill="#2D2938">Papier wordt ingescand en</text>
+    <text x="915" y="140" text-anchor="middle" font-size="14" fill="#2D2938">gekoppeld aan ID + unieke</text>
+    <text x="915" y="160" text-anchor="middle" font-size="14" fill="#2D2938">authenticatie code</text>
+
+    <!-- Box 4b (bottom) -->
+    <rect x="770" y="220" width="290" height="80" rx="12" fill="#FFFFFF" stroke="#F59E0B" stroke-width="2"/>
+    <text x="915" y="255" text-anchor="middle" font-size="14" fill="#2D2938">Papier wordt fysiek</text>
+    <text x="915" y="273" text-anchor="middle" font-size="14" fill="#2D2938">bewaard</text>
+  </g>
+</svg>
