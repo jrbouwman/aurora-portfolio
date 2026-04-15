@@ -217,114 +217,122 @@ import { url } from '../../utils/base';
 
   <!-- Value Proposition Canvas -->
   <section class="bg-warm-gray py-20">
-    <div class="max-w-7xl mx-auto px-6">
+    <div class="max-w-[1600px] mx-auto px-6">
       <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Value Proposition Canvas</h2>
       <p class="reveal reveal-delay-1 text-dark/50 text-center max-w-2xl mx-auto mb-10">
         De klantkant (jobs, pains, gains) naast onze kant (producten, pain relievers, gain creators).
         Fit ontstaat als beide zijden elkaar raken.
       </p>
 
-      <div class="grid lg:grid-cols-2 gap-10 mb-10">
-        <!-- ============ VALUE MAP (square) ============ -->
-        <div class="reveal">
-          <div class="flex items-center justify-between mb-3">
-            <p class="text-xs font-bold uppercase tracking-widest text-phase-refine">Value Map</p>
-            <span class="text-dark/40 text-xs italic">Aurora + techpartner</span>
-          </div>
-          <div class="bg-white border-2 border-dark rounded-lg overflow-hidden shadow-sm">
-            <!-- Gain Creators (top) -->
-            <div class="p-5 md:p-6 border-b-2 border-dark">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="w-7 h-7 rounded-full bg-phase-refine text-white flex items-center justify-center text-lg font-bold">+</span>
-                <h4 class="font-bold text-dark">Gain creators</h4>
-              </div>
-              <ul class="space-y-1 text-dark/70 text-sm list-disc list-inside">
-                <li>Juridisch waterdichte ondertekening met audittrail</li>
-                <li>Schaalbaar over duizenden transacties per dag</li>
-                <li>Compliance-klaar voor toezichthouders</li>
-                <li>Betrouwbaarheid via Aurora's 125+ jaar domeinkennis</li>
-              </ul>
-            </div>
-            <!-- Products & Services (middle, highlighted) -->
-            <div class="p-5 md:p-6 bg-phase-refine/5 border-b-2 border-dark">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="w-7 h-7 rounded bg-dark text-white flex items-center justify-center text-sm font-bold">P/S</span>
-                <h4 class="font-bold text-dark">Producten &amp; diensten</h4>
-              </div>
-              <ul class="space-y-1 text-dark/70 text-sm list-disc list-inside">
-                <li>Kennismodel voor ondertekenings-authenticiteit (Aurora's IP)</li>
-                <li>Verificatiestation: ID-scanner + PIN + koppelingsprotocol</li>
-                <li>Koppeling tussen natte handtekening en unieke authenticatiecode</li>
-                <li>Implementatie-ondersteuning voor partners</li>
-              </ul>
-            </div>
-            <!-- Pain Relievers (bottom) -->
-            <div class="p-5 md:p-6">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="w-7 h-7 rounded-full bg-phase-refine text-white flex items-center justify-center text-lg font-bold">&minus;</span>
-                <h4 class="font-bold text-dark">Pain relievers</h4>
-              </div>
-              <ul class="space-y-1 text-dark/70 text-sm list-disc list-inside">
-                <li>Objectieve ID-check vervangt subjectieve visuele controle</li>
-                <li>Gescande handtekening wordt rechtsgeldig door ID-koppeling</li>
-                <li>Fraudesignalen komen direct boven tafel bij de ID-scan</li>
-                <li>Digitaal doorzoekbaar archief i.p.v. papieren ordners</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      <div class="reveal bg-white rounded-2xl p-6 md:p-10 shadow-sm border border-dark/10 mb-10 overflow-x-auto">
+        <svg viewBox="0 0 1700 840" class="w-full h-auto min-w-[900px]" xmlns="http://www.w3.org/2000/svg">
+          <!-- ============ VALUE MAP (square, triangles) ============ -->
+          <g>
+            <rect x="40" y="40" width="760" height="760" fill="#FFFFFF" stroke="#2D2938" stroke-width="2.5"/>
+            <!-- Diagonals from right-middle (800, 420) to top-left (40,40) and bottom-left (40, 800) -->
+            <line x1="800" y1="420" x2="40" y2="40" stroke="#2D2938" stroke-width="2"/>
+            <line x1="800" y1="420" x2="40" y2="800" stroke="#2D2938" stroke-width="2"/>
 
-        <!-- ============ CUSTOMER PROFILE (circle) ============ -->
-        <div class="reveal reveal-delay-1">
-          <div class="flex items-center justify-between mb-3">
-            <p class="text-xs font-bold uppercase tracking-widest text-dark">Customer Profile</p>
-            <span class="text-dark/40 text-xs italic">Notaris, bank, gemeente</span>
-          </div>
-          <div class="bg-white border-2 border-dark rounded-[48px] overflow-hidden shadow-sm">
-            <!-- Gains (top) -->
-            <div class="p-5 md:p-6 border-b-2 border-dark">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="w-7 h-7 rounded-full bg-dark text-white flex items-center justify-center text-lg font-bold">+</span>
-                <h4 class="font-bold text-dark">Gains</h4>
-              </div>
-              <ul class="space-y-1 text-dark/70 text-sm list-disc list-inside">
-                <li>Juridische zekerheid bij iedere ondertekening</li>
-                <li>Sneller proces, minder wachttijd aan de balie</li>
-                <li>Minder administratie achteraf</li>
-                <li>Toezichthouder ziet direct dat het klopt</li>
-                <li>Vertrouwen en imago bij de eindklant</li>
+            <!-- Section titles -->
+            <text x="60" y="60" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">PRODUCTS &amp; SERVICES</text>
+            <text x="780" y="60" text-anchor="end" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">GAIN CREATORS</text>
+            <text x="780" y="795" text-anchor="end" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">PAIN RELIEVERS</text>
+
+            <!-- VALUE MAP label above -->
+            <text x="40" y="25" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#F59E0B" letter-spacing="2">VALUE MAP</text>
+            <text x="800" y="25" text-anchor="end" font-family="system-ui, sans-serif" font-size="11" font-style="italic" fill="#6B6173">Aurora + techpartner</text>
+          </g>
+
+          <!-- PRODUCTS &amp; SERVICES content (left triangle, vertical center around x=180, y=420) -->
+          <foreignObject x="60" y="230" width="360" height="380">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:system-ui,sans-serif;color:#2D2938;font-size:14px;line-height:1.45">
+              <ul style="list-style:none;padding:0;margin:0">
+                <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Kennismodel voor ondertekenings-authenticiteit</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Verificatiestation: ID-scanner + PIN</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Koppelingsprotocol handtekening ↔ code</li>
+                <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Implementatie-ondersteuning</li>
               </ul>
             </div>
-            <!-- Customer Jobs (middle, highlighted) -->
-            <div class="p-5 md:p-6 bg-dark/5 border-b-2 border-dark">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="w-7 h-7 rounded bg-dark text-white flex items-center justify-center text-xs font-bold">Job</span>
-                <h4 class="font-bold text-dark">Customer jobs</h4>
-              </div>
-              <ul class="space-y-1 text-dark/70 text-sm list-disc list-inside">
-                <li>Documenten rechtsgeldig laten ondertekenen</li>
-                <li>Zekerheid dat de juiste persoon tekent</li>
-                <li>Audittrail opbouwen voor compliance</li>
-                <li>Klanten snel en professioneel bedienen</li>
+          </foreignObject>
+
+          <!-- GAIN CREATORS content (top-right triangle) -->
+          <foreignObject x="460" y="110" width="320" height="220">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:system-ui,sans-serif;color:#2D2938;font-size:13px;line-height:1.4;text-align:right">
+              <ul style="list-style:none;padding:0;margin:0">
+                <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Juridisch waterdichte audittrail</li>
+                <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Schaalbaar over duizenden transacties</li>
+                <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Compliance-klaar</li>
+                <li style="padding-right:14px;position:relative"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Aurora's domeinkennis geeft gezag</li>
               </ul>
             </div>
-            <!-- Pains (bottom) -->
-            <div class="p-5 md:p-6">
-              <div class="flex items-center gap-3 mb-3">
-                <span class="w-7 h-7 rounded-full bg-dark text-white flex items-center justify-center text-lg font-bold">&minus;</span>
-                <h4 class="font-bold text-dark">Pains</h4>
-              </div>
-              <ul class="space-y-1 text-dark/70 text-sm list-disc list-inside">
-                <li>Handtekeningvervalsing is lastig te bewijzen</li>
-                <li>Subjectieve ID-check is foutgevoelig en kost tijd</li>
-                <li>Gescande versies zijn niet rechtsgeldig</li>
-                <li>Papieren archief kost ruimte en is slecht doorzoekbaar</li>
-                <li>Fraude komt vaak pas laat aan het licht</li>
-                <li>Klanten verwachten steeds vaker digitaal</li>
+          </foreignObject>
+
+          <!-- PAIN RELIEVERS content (bottom-right triangle) -->
+          <foreignObject x="460" y="530" width="320" height="220">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:system-ui,sans-serif;color:#2D2938;font-size:13px;line-height:1.4;text-align:right">
+              <ul style="list-style:none;padding:0;margin:0">
+                <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Objectieve ID-check i.p.v. visuele</li>
+                <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Gescande handtekening rechtsgeldig</li>
+                <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Fraudesignalen direct zichtbaar</li>
+                <li style="padding-right:14px;position:relative"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Digitaal doorzoekbaar archief</li>
               </ul>
             </div>
-          </div>
-        </div>
+          </foreignObject>
+
+          <!-- ============ CUSTOMER PROFILE (circle, 3 pie slices) ============ -->
+          <g>
+            <!-- Outer circle, center (1300, 420), radius 380 -->
+            <circle cx="1300" cy="420" r="380" fill="#FFFFFF" stroke="#2D2938" stroke-width="2.5"/>
+            <!-- 3 radii: top, left, bottom -->
+            <line x1="1300" y1="420" x2="1300" y2="40" stroke="#2D2938" stroke-width="2"/>
+            <line x1="1300" y1="420" x2="920" y2="420" stroke="#2D2938" stroke-width="2"/>
+            <line x1="1300" y1="420" x2="1300" y2="800" stroke="#2D2938" stroke-width="2"/>
+
+            <!-- Section titles -->
+            <text x="1300" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">GAINS</text>
+            <text x="1300" y="795" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">PAINS</text>
+            <text x="1680" y="425" text-anchor="end" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">JOB-TO-BE-DONE</text>
+
+            <text x="920" y="25" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#2D2938" letter-spacing="2">CUSTOMER PROFILE</text>
+            <text x="1680" y="25" text-anchor="end" font-family="system-ui, sans-serif" font-size="11" font-style="italic" fill="#6B6173">Notaris, bank, gemeente</text>
+          </g>
+
+          <!-- GAINS content (top-left pie slice) -->
+          <foreignObject x="970" y="110" width="310" height="270">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:system-ui,sans-serif;color:#2D2938;font-size:13px;line-height:1.4">
+              <ul style="list-style:none;padding:0;margin:0">
+                <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Juridische zekerheid</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Sneller, minder wachttijd</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Minder administratie</li>
+                <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Vertrouwen van de eindklant</li>
+              </ul>
+            </div>
+          </foreignObject>
+
+          <!-- PAINS content (bottom-left pie slice) -->
+          <foreignObject x="970" y="460" width="310" height="270">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:system-ui,sans-serif;color:#2D2938;font-size:13px;line-height:1.4">
+              <ul style="list-style:none;padding:0;margin:0">
+                <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Vervalsing lastig te bewijzen</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Visuele ID-check is foutgevoelig</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Gescande versies niet rechtsgeldig</li>
+                <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Fraude komt laat aan het licht</li>
+              </ul>
+            </div>
+          </foreignObject>
+
+          <!-- JOB-TO-BE-DONE content (right half) -->
+          <foreignObject x="1320" y="230" width="360" height="380">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:system-ui,sans-serif;color:#2D2938;font-size:14px;line-height:1.45">
+              <ul style="list-style:none;padding:0;margin:0">
+                <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Rechtsgeldig laten ondertekenen</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Zeker zijn dat de juiste persoon tekent</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Audittrail voor compliance</li>
+                <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Klanten snel bedienen</li>
+              </ul>
+            </div>
+          </foreignObject>
+        </svg>
       </div>
 
       <!-- Fit -->
