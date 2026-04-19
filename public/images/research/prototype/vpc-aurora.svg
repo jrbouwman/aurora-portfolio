@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 900" font-family="system-ui, sans-serif">
+  <rect width="1700" height="900" fill="#FFFFFF"/>
+
+  <!-- ============ VALUE MAP (square with 3 triangles) ============ -->
+  <g>
+    <rect x="40" y="80" width="760" height="760" fill="#FFFFFF" stroke="#2D2938" stroke-width="2.5"/>
+    <!-- Diagonals from right-middle (800, 460) to top-left (40,80) and bottom-left (40, 840) -->
+    <line x1="800" y1="460" x2="40" y2="80" stroke="#2D2938" stroke-width="2"/>
+    <line x1="800" y1="460" x2="40" y2="840" stroke="#2D2938" stroke-width="2"/>
+
+    <text x="40" y="60" font-size="15" font-weight="700" fill="#F59E0B" letter-spacing="2">VALUE MAP</text>
+    <text x="800" y="60" text-anchor="end" font-size="11" font-style="italic" fill="#6B6173">Aurora + techpartner</text>
+
+    <text x="60" y="460" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">PRODUCTS &amp; SERVICES</text>
+    <text x="780" y="170" text-anchor="end" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">GAIN CREATORS</text>
+    <text x="780" y="760" text-anchor="end" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">PAIN RELIEVERS</text>
+  </g>
+
+  <!-- PRODUCTS & SERVICES content (left triangle) -->
+  <g font-size="13" fill="#2D2938">
+    <circle cx="70" cy="495" r="3" fill="#F59E0B"/><text x="82" y="499">Kennismodel voor ondertekenings-authenticiteit</text>
+    <circle cx="70" cy="525" r="3" fill="#F59E0B"/><text x="82" y="529">Verificatiestation: ID-scanner + PIN</text>
+    <circle cx="70" cy="555" r="3" fill="#F59E0B"/><text x="82" y="559">Koppelingsprotocol handtekening ↔ code</text>
+    <circle cx="70" cy="585" r="3" fill="#F59E0B"/><text x="82" y="589">Implementatie-ondersteuning voor partners</text>
+  </g>
+
+  <!-- GAIN CREATORS content (top-right triangle) -->
+  <g font-size="12.5" fill="#2D2938">
+    <text x="770" y="215" text-anchor="end">Juridisch waterdichte audittrail</text><circle cx="780" cy="211" r="3" fill="#F59E0B"/>
+    <text x="770" y="240" text-anchor="end">Schaalbaar over duizenden transacties</text><circle cx="780" cy="236" r="3" fill="#F59E0B"/>
+    <text x="770" y="265" text-anchor="end">Compliance-klaar voor toezichthouders</text><circle cx="780" cy="261" r="3" fill="#F59E0B"/>
+    <text x="770" y="290" text-anchor="end">Aurora's domeinkennis geeft gezag</text><circle cx="780" cy="286" r="3" fill="#F59E0B"/>
+  </g>
+
+  <!-- PAIN RELIEVERS content (bottom-right triangle) -->
+  <g font-size="12.5" fill="#2D2938">
+    <text x="770" y="630" text-anchor="end">Objectieve ID-check i.p.v. visuele</text><circle cx="780" cy="626" r="3" fill="#F59E0B"/>
+    <text x="770" y="655" text-anchor="end">Gescande handtekening rechtsgeldig</text><circle cx="780" cy="651" r="3" fill="#F59E0B"/>
+    <text x="770" y="680" text-anchor="end">Fraudesignalen direct zichtbaar</text><circle cx="780" cy="676" r="3" fill="#F59E0B"/>
+    <text x="770" y="705" text-anchor="end">Digitaal doorzoekbaar archief</text><circle cx="780" cy="701" r="3" fill="#F59E0B"/>
+  </g>
+
+  <!-- ============ CUSTOMER PROFILE (circle with 3 pie slices) ============ -->
+  <g>
+    <circle cx="1300" cy="460" r="380" fill="#FFFFFF" stroke="#2D2938" stroke-width="2.5"/>
+    <line x1="1300" y1="460" x2="1300" y2="80" stroke="#2D2938" stroke-width="2"/>
+    <line x1="1300" y1="460" x2="920" y2="460" stroke="#2D2938" stroke-width="2"/>
+    <line x1="1300" y1="460" x2="1300" y2="840" stroke="#2D2938" stroke-width="2"/>
+
+    <text x="920" y="60" font-size="15" font-weight="700" fill="#2D2938" letter-spacing="2">CUSTOMER PROFILE</text>
+    <text x="1680" y="60" text-anchor="end" font-size="11" font-style="italic" fill="#6B6173">Notaris, bank, gemeente</text>
+
+    <text x="1030" y="305" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">GAINS</text>
+    <text x="1030" y="605" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">PAINS</text>
+    <text x="1625" y="305" text-anchor="end" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">JOB-TO-BE-DONE</text>
+  </g>
+
+  <!-- GAINS content (top-left quarter) -->
+  <g font-size="12.5" fill="#2D2938">
+    <circle cx="1060" cy="340" r="3" fill="#2D2938"/><text x="1072" y="344">Juridische zekerheid</text>
+    <circle cx="1060" cy="370" r="3" fill="#2D2938"/><text x="1072" y="374">Sneller proces, minder wachttijd</text>
+    <circle cx="1060" cy="400" r="3" fill="#2D2938"/><text x="1072" y="404">Minder administratie</text>
+    <circle cx="1060" cy="430" r="3" fill="#2D2938"/><text x="1072" y="434">Vertrouwen van de eindklant</text>
+  </g>
+
+  <!-- PAINS content (bottom-left quarter) -->
+  <g font-size="12.5" fill="#2D2938">
+    <circle cx="1060" cy="640" r="3" fill="#2D2938"/><text x="1072" y="644">Vervalsing lastig te bewijzen</text>
+    <circle cx="1060" cy="670" r="3" fill="#2D2938"/><text x="1072" y="674">Visuele ID-check is foutgevoelig</text>
+    <circle cx="1060" cy="700" r="3" fill="#2D2938"/><text x="1072" y="704">Gescande versies niet rechtsgeldig</text>
+    <circle cx="1060" cy="730" r="3" fill="#2D2938"/><text x="1072" y="734">Fraude komt laat aan het licht</text>
+  </g>
+
+  <!-- JOB-TO-BE-DONE content (right half) -->
+  <g font-size="13" fill="#2D2938">
+    <circle cx="1345" cy="390" r="3" fill="#2D2938"/><text x="1357" y="394">Rechtsgeldig laten ondertekenen</text>
+    <circle cx="1345" cy="425" r="3" fill="#2D2938"/><text x="1357" y="429">Zeker dat de juiste persoon tekent</text>
+    <circle cx="1345" cy="460" r="3" fill="#2D2938"/><text x="1357" y="464">Audittrail voor compliance</text>
+    <circle cx="1345" cy="495" r="3" fill="#2D2938"/><text x="1357" y="499">Klanten snel bedienen</text>
+  </g>
+</svg>

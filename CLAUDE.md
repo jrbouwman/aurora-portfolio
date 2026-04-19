@@ -97,7 +97,8 @@ media/                                # Originele bronbestanden (niet op de webs
 - 3D landschap als hero-visual: `public/images/innovatiereis-landschap.png`
   - AI-generated via Nano Banana, purple-indigo mountains met 5 gekleurde stations
   - Stations matchen de fase-kleuren (coral telescoop, blauwe vuurtoren, lavender kristal, amber forge, groene raket)
-  - Post-processed met PIL: top 12% gecropt, delta-shift voor bg-match, via CSS `brightness(0.88)` + asymmetrische fade-mask voor naadloze overloop in #0F0E1A
+  - 14 april: originele complete versie teruggeplaatst (eerdere crop was te agressief, raket rechtsboven werd afgeknipt)
+  - Fade-mask enkel op zijkanten (7%/93%) + subtiele top/bottom afloop, geen harde randen meer
 - Onder landschap: 5 fase-labels in grid (kleur-dot, titel in fase-kleur, subtitel)
 - "Beyond Paper" handwriting animatie teruggebracht naar compacte maat (clamp 2.75-5.5rem)
 - "Onze reis door het innovatieproces" intro-sectie + pen-stroke SVG weggehaald (overbodig naast landschap)
@@ -180,7 +181,20 @@ media/                                # Originele bronbestanden (niet op de webs
   - Aurora als kennispartij die domeinkennis authenticiteit inbrengt, techpartner zoeken voor uitvoering
   - Stemmen als illustratie (van docent), maar breder toepasbaar (notaris, bank, gemeente)
   - Eerlijk benoemen: dit bestaat al in vormen (DigiD, PKIsigning), Aurora's bijdrage is het inzicht
-  - Procesflow SVG gemaakt: `public/images/research/prototype/procesflow-verificatiestation.svg`
+  - Procesflow SVG's gemaakt (zie Pivot-pagina hieronder)
+- **Pivot-pagina uitgebreid (15 april 2026):**
+  - Nieuwe hoogover-procesflow SVG: huidige situatie (donker) vs toekomstige situatie (amber, refine-kleur). Belangrijk inzicht: de handtekening en het papier BLIJVEN, de innovatie zit in de ID-check ervoor en de koppeling aan unieke authenticatiecode erna
+  - Uitgebreide procesflow SVG in huisstijl: volledige keten incl. foutafhandeling, validatie, fraudedetectie, Nee-lus bij bevestiging. Met pill-labels (Ja/Nee/goedkeuring), drop-shadow, amber happy-path band, exception-zones en legenda
+  - Voorbeeldscenario SVG: concrete servicebalie-flow met ID-scannen, pincode invullen, Goedkeuring, etc.
+  - Alle drie de flows: `public/images/research/prototype/procesflow-{hoogover,uitgebreid,voorbeeld}.svg`
+  - Hoogover is hoofdvisual op pivot-pagina; uitgebreid + voorbeeld zijn klikbare thumbnails in grid met lightbox-modal (Esc/X/klik-buiten = sluiten)
+  - Narratief gecorrigeerd: pivot-subtitel herschreven (geen em-dashes, natuurlijker)
+  - **Value Proposition Canvas** toegevoegd als sectie: volgens Business Models Inc standaard template
+    - Vierkant (Value Map, amber accent): 3 driehoeken — Products & Services (links), Gain Creators (rechtsboven), Pain Relievers (rechtsonder)
+    - Cirkel (Customer Profile, dark): 3 taartpunten — Gains (linksboven), Pains (linksonder), Job-to-be-done (rechterhelft)
+    - Inhoud ingevuld voor Aurora + techpartner (aanbiederzijde) en notaris/bank/gemeente (klantzijde)
+    - Fit-samenvatting in accent-blok eronder
+    - Standalone versie: `public/images/research/prototype/vpc-aurora.svg`
 - **Nog te doen:**
   - PoV/PoC uitwerking (opdracht 1d, 30% van cijfer)
   - Onderzoeksplan empathise (1 A4, ontbreekt)
@@ -249,6 +263,9 @@ Elke fase-index heeft "Verder naar X →" link onderaan.
   - `prototype/` — 12 foto's + 2 video's prototyping (1+8 april)
   - `brainstorm/` — 3 whiteboardfoto's immersive research (10 maart)
 - `public/presentatie-define.html` — 8-slide presentatie voor Gate BK4
+- `public/presentatie-pivot.pptx` — 5-slide PowerPoint voor pivot-sessie (voorpagina + hoogover-flowchart + strategische/technische analyse + waarde/financieel + VPC als native PowerPoint-vormen). VPC-slide met vierkant+ovaal+connectors is handmatig bewerkbaar in PowerPoint. Jr heeft handmatig verder opgemaakt, NIET opnieuw genereren want python-pptx kan formatting kwijtraken
+- `create_presentatie_pivot.py` — genereert presentatie-pivot.pptx vanaf 0 (gebruikt `/tmp/hoogover-export.png` en `/tmp/vpc-export.png` gerenderd via agent-browser)
+- `add_voorpagina.py` — voegt losstaande voorpagina toe aan bestaande pptx (niet meer gebruiken: risico op formatting-verlies)
 - `public/concept-collection-security-expert.pptx` — Concept collection moodboard
 - `public/images/moodboard/` — ~35 Unsplash afbeeldingen
 
