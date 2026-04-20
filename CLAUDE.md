@@ -29,6 +29,9 @@ Discover --> Gate 1 --> Define --> Design --> Gate 2 --> Refine --> Gate 3 --> D
 ```
 docs/
   studiehandleiding.md                # Volledige studiewijzer met leerdoelen, toetsing, deadlines
+  onderzoek/review/                   # Review-documenten: master-review, per-fase reviews, claude-verse-blik, concepten-terug-te-leggen
+  opdrachten/bijlagen/                # Originele bronbestanden bij opdrachten (Proof of Value outline docx, html-exports)
+  lessen/bijlagen/                    # Originele bronbestanden bij lessen (les 8 PDF)
   casus/
     aurora-strategische-casus.md      # Hoofdcasus: strategische context, kernprobleem, opdracht
     aurora-management-samenvatting.md # Executive summary NL + EN
@@ -210,19 +213,25 @@ media/                                # Originele bronbestanden (niet op de webs
   - `docs/lessen/les8-waarde-leveren.md` — diffusie, adoptie (Rogers), DVF, waardecreatie, marketing innovaties
   - `docs/opdrachten/opdracht-1d-proof-of-value.md` — aangevuld met PoV-eisen, suggested outline, waardecreatie-vragen
 - **Pivot-presentatie:** downloadlink op pivot-pagina toegevoegd
-- **VPC op pivot-pagina:** tekst vervangen door versie uit Jr's PowerPoint (slide 5)
+- **VPC op pivot-pagina:** PowerPoint-slide als PNG (`vpc-powerpoint.png`) met titel "Waar Aurora's aanbod de klant raakt". Inline SVG bestaat nog in de DOM maar is `display:none` (fallback).
 - **Procesflow-uitgebreid.svg gefixed:** goedkeuring-label, Deactivatie-eindpunt, error zone
 
-- **Nog te doen:**
-  - Onderzoeksplan empathise (1 A4, ontbreekt)
-  - Interviews verrijken (Anna/Famke te mager)
-  - 90 ideeen niet gehaald (32), verantwoorden of aanvullen
-  - Concept collection #2 (Circulaire Standaard) bewust gedumpt, maar opdracht vraagt het
-  - Projectvoorstellen per denkrichting ontbreken
-  - Gate met externen (buiten school) niet gedaan
+- **Stand per 21 april 2026 (feedback-rondes verwerkt):**
+  - Ondernemingsplan met BMC + 90-dagen plan + teamplan + kosten-per-post: compleet
+  - Projectvoorstellen per denkrichting (Security + Circulair): compleet
+  - Structuurdocument als homepage-sectie: compleet
+  - GenAI-pagina met Windesheim-disclaimer: compleet
+  - Externe bronnen gecontroleerd en APA-blok onder PoV: compleet
+  - Feitelijke en URL-fouten gefixt na onafhankelijke review
+  - Concept collection: PowerPoint-overview als hoofdvisual, losse beeldgrid weg
+  - Anna/Famke als TBK-klasgenoten genuanceerd
+  - 90 ideeen: verantwoord op innovatieradar-pagina (niet verder gekomen in klas-sessie)
+  - Concept collection #2 Circulair: bewust verantwoord op concept-collection-pagina
+
+- **Nog open:**
+  - Interviews Anna/Famke verrijken (letterlijke citaten, demografie)
+  - Gate met externen (buiten school): in fase 1 van roadmap/ondernemingsplan ingepland, niet als afgerond bewijsstuk
   - Opdracht 2a (innovatieadvies, video+PPT) en 2b (rolontwikkeling, video) komen later
-  - Structuurdocument (max 4 pag) ontbreekt
-  - GenAI verantwoordingsformulier bijvoegen
 
 ### Stand per 19 april 2026
 - **PoV volgens les-8-template** (`proof-of-value.astro`): 10 secties met table of contents. Introductie met Aurora-context en strategische driver, huidige situatie met meetbare problemen (visuele ID-check, handtekening-bewijs, dossiertijd) en fraudecontext Betaalvereniging NL, oplossing met 3-stappen-flow, prototype-samenvatting uit PELV 1+2 met N=6 testresultaten, status-nu-blok (6 componenten), waardepropositie met cijfers per stakeholder (notaris circa €20k/jaar tijdwinst-aanname, bank: fraudecontext, verzekeraar: archief), concurrentie-matrix (DocuSign/Signicat/itsme/iDIN/PKIsigning), DVF herleidbaar naar Gate 2, financieel model met marktomvang NL-tabel + investeringsbehoefte €660k-€1,3 mln + break-even-schatting, roadmap-samenvatting met go/no-go, conclusie met concrete CTA (3 besluiten gevraagd aan MT) en AVG-noot.
@@ -230,7 +239,7 @@ media/                                # Originele bronbestanden (niet op de webs
 - **PELV** (`prototyping.astro`): PELV-labels als `P · Plan` etc. Testresultaten iteratie 2: N=6 medestudenten, scores per vraag, 3 letterlijke citaten ("waarom niet DigiD?", "de pen doet niks"), verbeterloop 1→2 expliciet, 2 presentabele concepten benoemd (A gekozen, B afgevallen met reden), externe gate als gat benoemd, methodologische beperking (perceptie-test, geen technische veiligheid).
 - **Huizingh-mapping** (`innovatieradar.astro`): officiele verdeling 4+4+2+2 (Klanten onder Product). 4P-kleuren als 4 tinten van de Define-kleur zodat ze als cluster ogen. Reflectie-alinea "Wat werkte wel en niet aan de radar".
 - **Design gate** (`design/gate.astro`): DVF-subscores tabel per as (Circulair 28/24/22=74, Security 24/24/25=73), ERRC-framework (4 blokjes), value-curve-uitleg met concrete as-factoren en concurrentie, Security-keuze methodisch verantwoord (D-voorsprong Circulair op aannames, F-voorsprong Security op concrete klantpijn), reflectie op DVF als instrument.
-- **Concept collection** (`concept-collection.astro`): 48 beelden uit `public/images/moodboard/` inline in responsive grid met hover-tag en caption. Vier kern-vragen uit lesmateriaal beantwoord (hoe al geprobeerd, waar lijkt op, wie is expert, welke verbanden). Kiem voor pivot expliciet gemarkeerd.
+- **Concept collection** (`concept-collection.astro`): PowerPoint-overview als hoofdvisual (geannoteerde beelden in context + clustering, `public/images/research/prototype/concept-collection-overview.png`). Download-knop voor volledige pptx. Losse moodboard-grid is verwijderd na constatering dat veel files niet matchten met hun naam (sword.jpg was diner, lego.jpg was kat, etc.). Vier kern-vragen uit lesmateriaal beantwoord (hoe al geprobeerd, waar lijkt op, wie is expert, welke verbanden). "Waarom geen tweede concept collection"-blok methodisch verantwoord. Kiem voor pivot expliciet gemarkeerd.
 - **Convergentie** (`convergentie.astro`): PMI-fotobewijs (sessie3-radar-2.jpeg). HZWK's per kamer <15 woorden zonder oplossing in de vraag. Bridge van 3 HZWK-kamers naar 2 denkrichtingen als expliciete mini-beslismatrix.
 - **Denkrichtingen** (`denkrichtingen.astro`): breadcrumb "Design" → "Define". "Impliciet PMI toegepast" vervangen door "kleurcode vooraf afgesproken". Challenge-HZWK's ingekort (van 27/21 woorden naar 13/11).
 - **Discover-index** (`discover/index.astro`): Aurora-strategie-analyse als eigen blok (portfolio, kanalen, strategische beweging), tijdsbesteding immersive research vermeld (ca. 2u45min over 2 sessies), methode-reflectie per theorie (IBSOTEEP vs DESTEP, Porter + Christensen, scenariomatrix, immersive research).
@@ -272,17 +281,44 @@ media/                                # Originele bronbestanden (niet op de webs
 - `/refine/prototyping/` — PELV 1 (brainstorm, schetsen, testplannen) + PELV 2 (rapid prototype, vragenlijst), expliciet P-E-L-V labels
 - `/refine/pivot/` — herframe pen→digitaal, procesflow SVG, vergelijking oud/nieuw
 
-**Deliver (Fase 5) — 2 bewijsstukken:**
+**Define (Fase 2) - 4e bewijsstuk:**
+- `/define/projectvoorstellen/` — 2 volwaardige projectvoorstellen (Security + Circulair) met team-rollen (zonder namen), scope, success/afbreek-criteria (opdracht-eis 1b)
+
+**Deliver (Fase 5) — 3 bewijsstukken:**
 - `/deliver/` — overzicht, Gate 2 DVF-feedback (scores + foto's), theorie (DVF, diffusie, ambidexteriteit, waardecreatie)
-- `/deliver/proof-of-value/` — challenge, concept met fysieke vormgeving, procesflow, waardepropositie per stakeholder, DVF-beoordeling, financieel model
+- `/deliver/proof-of-value/` — challenge, concept met fysieke vormgeving, procesflow, waardepropositie per stakeholder, DVF-beoordeling, financieel model, DigiD-FAQ, risico-overzicht, APA-bronnenblok
+- `/deliver/ondernemingsplan/` — BMC (Osterwalder, 9 blokken), 90-dagen plan per 2-weken-blok, teamplan per fase (4 → 12-15 → 25-30 FTE), kostenstructuur per post
 - `/deliver/roadmap/` — startup-argumentatie (ambidexteriteit), 4-fasen implementatieplan, diffusie per sector (Rogers), 5 adoptiefactoren, risico's en mitigatie
 
 **Overig:**
-- `/aanleiding/` — geschiedenis schrijfwaren + tijdlijn
+- `/aanleiding/` — geschiedenis schrijfwaren + tijdlijn + Aurora-nulpunt (60 landen export, 125 jaar, marktcontext -2%/jaar, portfolio 24/18/31/27 uit casus bijlage C)
+- `/genai/` — GenAI-verantwoording met Windesheim-disclaimer als kernblok, "waar AI wel/niet" en integriteitsborg
 
 ### Navigatieflow (rode draad)
-Homepage → Aanleiding → Discover → (trends → scenario → empathise → challenges) → Define → (innovatieradar → convergentie → denkrichtingen) → Design → (gate → concept collection) → Refine → (prototyping → pivot) → Deliver
-Elke fase-index heeft "Verder naar X →" link onderaan.
+Homepage (nu uitgebreid tot structuurdocument met leeswijzer + rubric-mapping + reflectie-blok) → Aanleiding → Discover → (trends → scenario → empathise → challenges) → Define → (innovatieradar → convergentie → denkrichtingen → projectvoorstellen) → Design → (gate → concept collection) → Refine → (prototyping → pivot) → Deliver → (proof-of-value → ondernemingsplan → roadmap)
+Elke fase-index heeft "Verder naar X →" link onderaan. Homepage linkt ook naar `/genai/` voor AI-verantwoording.
+
+### Homepage als structuurdocument (21 april 2026)
+De homepage is uitgebreid met een volledig structuurdocument voor de docent:
+- **Leeswijzer** (3 routes: docent / MT / nieuwsgierige)
+- **Reis in 1 oogopslag** met procesdiagram + twee bochten (Gate 1 Security-keuze ondanks lagere DVF, Pivot pen→digitaal)
+- **Bewijsstukken per opdracht-eis** (tabel met rubric-mapping + status per item)
+- **Wat we hebben geleerd** (3 blokjes: proces, team, eerlijk oordeel eigen werk)
+- Link naar GenAI-pagina voor verantwoording
+
+### Feedback-rondes na ChatGPT→Claude-review (20-21 april 2026)
+- **Onafhankelijke Claude-review:** `docs/onderzoek/review/review-claude-verse-blik.md` en `concepten-terug-te-leggen.md`. 6 eerder deelreviews van ChatGPT blijven als aparte bestanden aanwezig.
+- **Feitelijke fixes:** Aurora cijfers alleen uit casus-bijlagen (60 landen export, geen FTE/omzet claim); notariskantoren 800→930 en 1.300→2.000 notarissen (KNB); Fase 2 kosten consistent op €500k-€1 mln; Viability-score 3,8→3,6 (rekensom); artikel 43 Wna verwijderd (fout artikelnummer); dode links vervangen (Politie, Logius, AFM, Managementboek-ISBN, Tidd-Bessant-site); Notaris BAS passeertijd max 30 min ipv 30-60 min; 55%-claim op scenariomatrix gesplitst in 24% onderwijs + 31% creatief; Huizingh-Tidd&Bessant niet meer als synoniemen; PELV-expansie voetnoot; bol.com-URL weg op convergentie; klasdiscussie klikbaar naar trends#klasdiscussie.
+- **Nieuwe externe bronnen:** Fraudehelpdesk Terugblik 2025 (9.000 meldingen ID-fraude), Signicat 2024 (+2137% deepfake-fraude, N=1.206), KNB/ECH Programma Digitaal Passeren, AFM digitale identiteit, itsme/iDIN-overname december 2025, Wilkinson & Kupers HBR 2013 (scenariomatrix-assenverantwoording).
+- **GenAI-pagina:** volledig herschreven volgens Windesheim AI-disclaimer-template. Geen tool-tabelletjes met namen en datums meer.
+- **Moodboard op concept-collection:** losse beeldgrid weggehaald (veel files hadden inhoud die niet matchte met filename: sword.jpg = diner, lego.jpg = oranje kat, mirror.jpg = cactus, etc.). Alleen PowerPoint-overview als hoofdvisual + download-knop behouden.
+- **VPC op pivot-pagina:** inline SVG vervangen door PNG-export uit PowerPoint (`public/images/research/prototype/vpc-powerpoint.png`).
+- **FAQ-blok contrast-fix:** "Waarom niet DigiD/EUDI" kreeg inline styles voor garantie van leesbaar contrast (witte bg, donkere tekst).
+- **Week 3-4 90-dagen plan:** teamleden-namen vervangen door rollen (CEO/Product, Commercial lead, Operations lead).
+- **FTE-consistentie:** roadmap fase 2 "2 FTE" → "12-15 FTE" (consistent met ondernemingsplan). PoV investering "Team (2 FTE, 18 mnd)" → "gem. 8 FTE over 18 mnd".
+- **"Aurora's naam opent deuren":** vervangen door concrete B2B-netwerk-uitleg (accountants, verzekeraars die Aurora-kantoormateriaal afnemen).
+- **Projectvoorstellen:** "Waarom op deze pagina"-sectie weg; team-rollen zonder persoonsnamen en zonder "McKinsey-rollen"-label (nu "Taakverdeling en profielen").
+- **PoV bronnenblok (APA):** 12 bronnen onderaan PoV, allemaal klikbaar. Signicat, Fraudehelpdesk, KNB, AFM, Osterwalder, Rogers, O'Reilly&Tushman, Wilkinson&Kupers, Wna.
 
 ### Media
 - `media/` — originele bronbestanden (WhatsApp foto's, AI-generated images, sessie-originelen)
@@ -301,7 +337,9 @@ Elke fase-index heeft "Verder naar X →" link onderaan.
 - `create_presentatie_pivot.py` — genereert presentatie-pivot.pptx vanaf 0 (gebruikt `/tmp/hoogover-export.png` en `/tmp/vpc-export.png` gerenderd via agent-browser)
 - `add_voorpagina.py` — voegt losstaande voorpagina toe aan bestaande pptx (niet meer gebruiken: risico op formatting-verlies)
 - `public/concept-collection-security-expert.pptx` — Concept collection moodboard
-- `public/images/moodboard/` — ~35 Unsplash afbeeldingen
+- `public/images/moodboard/` — ~49 bestanden; niet meer gebruikt in website (files/captions matchten vaak niet, sword.jpg = diner, lego.jpg = kat, etc.). Alleen PowerPoint-overview gebruikt nu.
+- `public/images/research/prototype/vpc-powerpoint.png` — VPC-slide export uit presentatie-pivot.pptx (titel "Waar Aurora's aanbod de klant raakt"), gebruikt op pivot-pagina
+- `public/images/research/prototype/concept-collection-overview.png` — overzicht-slide van concept-collection-pptx (geannoteerde beelden "De Analoge Security Expert — Divergeer!"), gebruikt op concept-collection-pagina
 
 ### Teams-map (extern, niet in repo)
 Pad: `/Users/jr/Library/CloudStorage/OneDrive-Gedeeldebibliotheken-WindesheimOffice365/O365-Innovatiemanagement - General/`
