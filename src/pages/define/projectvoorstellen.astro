@@ -16,10 +16,10 @@ const voorstellen = [
     },
     oplossing: 'Fysiek station bij de balie met NFC-uitlezing van het paspoort of ID-kaart, pincode-invoer door de klant, en een cryptografische koppeling van het verificatie-moment aan het document via een unieke auditcode. Papier blijft het rechtsgeldige exemplaar; de digitale koppeling levert het bewijs dat de juiste persoon tekende.',
     team: [
-      { rol: 'Productontwerp + tech-interface', wie: 'Jr (Pioneering 4, Generating 4)' },
-      { rol: 'Partnerships en techpartner-selectie', wie: 'Lianne (Networking 5)' },
-      { rol: 'Eerste klantgesprekken en onboarding-verhaal', wie: 'Anke (Motivating 5, Absorbing 5)' },
-      { rol: 'Gaten die we erkennen', wie: 'Tabulating / operationele uitvoering: daarvoor moet een financieel-operationeel hire erbij' },
+      { rol: 'Productontwerp + tech-interface', wie: 'Product-lead / generator-profiel' },
+      { rol: 'Partnerships en techpartner-selectie', wie: 'Commercial-lead met sterk netwerk-profiel' },
+      { rol: 'Eerste klantgesprekken en onboarding-verhaal', wie: 'Operations-lead met motivator-/luisteraar-profiel' },
+      { rol: 'Open gat', wie: 'Financieel-operationele kant (Tabulating): vraagt om een aanvullende hire' },
     ],
     looptijd: '9 maanden naar werkend MVP',
     budget: 'ordegrootte €350-500k voor eerste pilot-klare versie met techpartner',
@@ -47,10 +47,10 @@ const voorstellen = [
     },
     oplossing: 'Open standaard voor circulair schrijfwaren-gebruik: take-back-programma, bio-based of gerecyclede materialen per product-categorie, meetbare lifecycle-impact per SKU. Aurora certificeert andere merken tegen deze standaard (licentiemodel) en positioneert eigen portfolio als referentie-implementatie.',
     team: [
-      { rol: 'Standaardisatie-netwerk en partnerships', wie: 'Lianne (Networking 5)' },
-      { rol: 'Regelgevings- en content-onderbouwing (ESPR, DPP, CSRD)', wie: 'Anke (Absorbing 5)' },
-      { rol: 'Productdesign en materiaalkeuze', wie: 'Jr (Generating 4, Pioneering 4)' },
-      { rol: 'Gat: certificeringsauditor-ervaring', wie: 'In te huren of samen te werken met een bestaande certificerende instantie' },
+      { rol: 'Standaardisatie-netwerk en partnerships', wie: 'Commercial-lead met netwerk-profiel' },
+      { rol: 'Regelgevings- en content-onderbouwing (ESPR, DPP, CSRD)', wie: 'Content-lead met absorbing-profiel' },
+      { rol: 'Productdesign en materiaalkeuze', wie: 'Product-lead / generator-profiel' },
+      { rol: 'Open gat', wie: 'Certificeringsauditor-ervaring: in te huren of in samenwerking met een bestaande certificerende instantie' },
     ],
     looptijd: '12 maanden naar standaarddocument + proof-of-concept take-back',
     budget: 'ordegrootte €250-400k (juridische/technische opstelling standaard, pilot take-back-logistiek)',
@@ -85,18 +85,6 @@ const voorstellen = [
         Twee denkrichtingen, twee projectvoorstellen. Eentje gekozen voor Design, eentje bewust op de plank.
       </p>
       <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-define mt-8"></div>
-    </div>
-  </section>
-
-  <!-- Context -->
-  <section class="bg-cream py-12">
-    <div class="max-w-3xl mx-auto px-6">
-      <div class="reveal bg-bg-elevated rounded-2xl p-6 border border-white/10 shadow-sm">
-        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">Waarom op deze pagina?</p>
-        <p class="text-dark/70 text-sm leading-relaxed">
-          Opdracht 1b vraagt een projectvoorstel per denkrichting als bewijs van convergentie. Het bevat wat, voor wie, door wie, wanneer en wanneer je stopt. Beide voorstellen staan hier op gelijke voet. Dat we er eentje hebben gekozen in Gate 1 maakt het andere niet minder serieus uitgewerkt; het laat juist zien hoe het afwegingsmoment eruit zag.
-        </p>
-      </div>
     </div>
   </section>
 
@@ -144,7 +132,7 @@ const voorstellen = [
           <div class="grid md:grid-cols-2 gap-4 mb-6">
             <!-- Team -->
             <div class="bg-white/40 rounded-xl p-5">
-              <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-3">Team-inzet (McKinsey-rollen)</p>
+              <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-3">Taakverdeling en profielen</p>
               <ul class="space-y-2 text-dark/70 text-sm">
                 {v.team.map((t) => (
                   <li><strong class="text-dark">{t.rol}:</strong> {t.wie}</li>

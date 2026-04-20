@@ -2,57 +2,45 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { url } from '../../utils/base';
 
-// Moodboard-beelden met tag (wat raakt het aan). Kwantiteit over kwaliteit.
+// Moodboard-beelden met tag (wat raakt het aan). Captions zijn gecontroleerd tegen de feitelijke foto-inhoud.
+// Bestanden die een andere foto bevatten dan hun naam suggereerde zijn verwijderd of herbenoemd in caption/tag.
 const moodboard = [
-  { file: 'fingerprint.jpg', tag: 'biometrie', caption: 'vingerafdruk' },
-  { file: 'eye-scan.jpg', tag: 'biometrie', caption: 'iris-scan' },
+  { file: 'eye-scan.jpg', tag: 'biometrie', caption: 'oogscan / iris' },
   { file: 'dna-helix.jpg', tag: 'biometrie', caption: 'DNA als unieke code' },
   { file: 'signing.jpg', tag: 'ritueel', caption: 'handtekening-moment' },
-  { file: 'fountain-pen.jpg', tag: 'erfgoed', caption: 'vulpen-craft' },
-  { file: 'wax-seal.jpg', tag: 'erfgoed', caption: 'lakzegel' },
+  { file: 'fountain-pen.jpg', tag: 'ritueel', caption: 'schrijven als handeling' },
   { file: 'handshake.jpg', tag: 'ritueel', caption: 'handdruk als vertrouwen' },
-  { file: 'lock.jpg', tag: 'beveiliging', caption: 'slot' },
-  { file: 'vault.jpg', tag: 'beveiliging', caption: 'kluis' },
-  { file: 'door-knocker.jpg', tag: 'ritueel', caption: 'aankloppen' },
-  { file: 'escape-room.jpg', tag: 'beveiliging', caption: 'raadsel ontrafelen' },
-  { file: 'maze.jpg', tag: 'beveiliging', caption: 'doolhof' },
-  { file: 'circuit.jpg', tag: 'technologie', caption: 'chip' },
+  { file: 'lock.jpg', tag: 'beveiliging', caption: 'digitaal slot met statuslicht' },
+  { file: 'vault.jpg', tag: 'beveiliging', caption: 'kluisdeur' },
+  { file: 'fingerprint.jpg', tag: 'beveiliging', caption: 'verlicht toetsenbord als toegangspoort' },
+  { file: 'maze.jpg', tag: 'digitaal', caption: 'anonieme stad bij nacht' },
+  { file: 'circuit.jpg', tag: 'technologie', caption: 'printplaat met chips' },
   { file: 'smartwatch.jpg', tag: 'productvorm', caption: 'wearable' },
-  { file: 'ring.jpg', tag: 'productvorm', caption: 'ring als sensor' },
+  { file: 'ring.jpg', tag: 'productvorm', caption: 'ring als kostbaar object' },
   { file: 'chess.jpg', tag: 'strategie', caption: 'zet berekenen' },
   { file: 'octopus.jpg', tag: 'associatie', caption: 'meerdere armen, meerdere checks' },
   { file: 'parrot.jpg', tag: 'associatie', caption: 'nadoen, net niet precies' },
-  { file: 'butterfly.jpg', tag: 'associatie', caption: 'metamorfose' },
-  { file: 'jellyfish.jpg', tag: 'associatie', caption: 'doorzichtig, toch herkenbaar' },
-  { file: 'fire.jpg', tag: 'associatie', caption: 'brandmerk' },
-  { file: 'diamond.jpg', tag: 'uniek', caption: 'unieke kristalstructuur' },
-  { file: 'constellation.jpg', tag: 'uniek', caption: 'sterrenbeeld' },
-  { file: 'tree-rings.jpg', tag: 'uniek', caption: 'jaarringen' },
-  { file: 'sand-writing.jpg', tag: 'vergankelijkheid', caption: 'schrijven in zand' },
-  { file: 'ink-paper.jpg', tag: 'materialen', caption: 'inkt op papier' },
-  { file: 'leather.jpg', tag: 'materialen', caption: 'leer' },
-  { file: 'gold-texture.jpg', tag: 'materialen', caption: 'goud' },
-  { file: 'metal-texture.jpg', tag: 'materialen', caption: 'metaal' },
-  { file: 'wine-cork.jpg', tag: 'materialen', caption: 'kurk' },
-  { file: 'yoga.jpg', tag: 'lichaam', caption: 'unieke houding' },
+  { file: 'jellyfish.jpg', tag: 'identiteit', caption: 'blik die alles vraagt, rest verborgen' },
+  { file: 'diamond.jpg', tag: 'uniek', caption: 'kostbare authenticiteit' },
+  { file: 'constellation.jpg', tag: 'uniek', caption: 'sterrenhemel' },
+  { file: 'tree-rings.jpg', tag: 'uniek', caption: 'bomen, groei door de tijd' },
+  { file: 'sand-writing.jpg', tag: 'vergankelijkheid', caption: 'vergankelijk spoor in zand' },
+  { file: 'ink-paper.jpg', tag: 'materialen', caption: 'pen op papier, klaar om te tekenen' },
+  { file: 'gold-texture.jpg', tag: 'uniek', caption: 'unieke kleurexplosie in water' },
+  { file: 'wine-cork.jpg', tag: 'ritueel', caption: 'proostmoment, gezamenlijk ritueel' },
+  { file: 'yoga.jpg', tag: 'lichaam', caption: 'unieke meditatiehouding' },
   { file: 'dancing.jpg', tag: 'lichaam', caption: 'bewegingspatroon' },
   { file: 'tattoo.jpg', tag: 'lichaam', caption: 'permanente markering' },
   { file: 'cooking.jpg', tag: 'eigen signatuur', caption: 'recept met eigen draai' },
-  { file: 'graffiti.jpg', tag: 'eigen signatuur', caption: 'tag als handtekening' },
   { file: 'perfume.jpg', tag: 'eigen signatuur', caption: 'geur-combinatie' },
   { file: 'swiss-watch.jpg', tag: 'craft', caption: 'vakmanschap' },
-  { file: 'zen-garden.jpg', tag: 'ritueel', caption: 'rituele herhaling' },
-  { file: 'neon-city.jpg', tag: 'digitaal', caption: 'digitale wereld' },
-  { file: 'spy.jpg', tag: 'identiteit', caption: 'dubbele identiteit' },
-  { file: 'mirror.jpg', tag: 'identiteit', caption: 'jezelf zien' },
-  { file: 'magic-wand.jpg', tag: 'productvorm', caption: 'staf / stok' },
-  { file: 'sword.jpg', tag: 'erfgoed', caption: 'wapenstok als statussymbool' },
-  { file: 'lego.jpg', tag: 'modulariteit', caption: 'onderdelen die passen' },
+  { file: 'neon-city.jpg', tag: 'digitaal', caption: 'digitale energie, datastromen' },
+  { file: 'magic-wand.jpg', tag: 'ritueel', caption: 'rituele handelingen' },
   { file: 'chocolate.jpg', tag: 'ritueel', caption: 'inpakken en geven' },
   { file: 'cat-serious.jpg', tag: 'identiteit', caption: 'herkenbaar karakter' },
-  { file: 'pen-writing.jpg', tag: 'pen', caption: 'schrijven in actie' },
-  { file: 'space.jpg', tag: 'associatie', caption: 'unieke positie' },
-  { file: 'baby-feet.jpg', tag: 'uniek', caption: 'voetafdruk' },
+  { file: 'pen-writing.jpg', tag: 'ritueel', caption: 'bureauscène' },
+  { file: 'space.jpg', tag: 'uniek', caption: 'aarde, verbonden vanaf afstand' },
+  { file: 'baby-feet.jpg', tag: 'uniek', caption: 'begin van een unieke identiteit' },
 ];
 
 const productvormen = [
@@ -134,12 +122,36 @@ const kruisbestuivingen = [
     </div>
   </section>
 
+  <!-- Moodboard PowerPoint-overview als hoofdvisual -->
+  <section class="bg-cream py-16">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Moodboard in PowerPoint</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-6 max-w-2xl mx-auto">
+        Zo zag onze concept collection eruit als presentatie-document. Hieronder de bewerkte beelden per cluster in grid-vorm; de volledige PowerPoint staat daaronder als download.
+      </p>
+
+      <div class="reveal reveal-delay-2 rounded-2xl overflow-hidden border border-dark/10 shadow-sm bg-white p-3 mb-6">
+        <img src={url('/images/research/prototype/concept-collection-overview.png')} alt="Overzicht concept collection uit PowerPoint" class="w-full h-auto block rounded-xl" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div style="display:none" class="bg-warm-gray/60 border border-dashed border-dark/20 rounded-xl p-10 text-center">
+          <p class="text-dark/50 text-sm">Exporteer een overview-slide van de concept collection PowerPoint als <code>concept-collection-overview.png</code> naar <code>public/images/research/prototype/</code> om hem hier te tonen. Download van de volledige PowerPoint staat onder de grid.</p>
+        </div>
+      </div>
+
+      <div class="reveal text-center">
+        <a href={url('/concept-collection-security-expert.pptx')} download class="inline-flex items-center gap-2 bg-phase-design/10 hover:bg-phase-design/20 text-phase-design font-bold px-5 py-3 rounded-xl transition-colors border border-phase-design/20">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download volledige concept collection (PowerPoint)
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- De moodboard inline -->
   <section class="bg-warm-gray py-20">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">De moodboard</h2>
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">De losse beelden</h2>
       <p class="reveal reveal-delay-1 text-dark/50 text-center mb-6 max-w-2xl mx-auto">
-        48 beelden, verzameld in drie avonden. Hover voor de tag. Patronen die terugkomen: biometrie, rituele momenten, materialen die vertrouwen uitstralen, en vorm-variaties weg van de pen.
+        36 beelden uit de collectie, verzameld in drie avonden. Hover voor de tag. Patronen die terugkomen: biometrie, rituele momenten, materialen die vertrouwen uitstralen, en vorm-variaties weg van de pen.
       </p>
 
       <div class="reveal reveal-delay-2 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 mb-8">
