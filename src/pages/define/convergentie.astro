@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { url } from '../../utils/base';
 ---
 
-<BaseLayout title="Convergeren — Define">
+<BaseLayout title="Convergeren · Define">
   <!-- Hero -->
   <section class="bg-bg-primary text-white overflow-hidden relative">
     <div class="absolute top-0 right-0 w-96 h-96 bg-phase-define/20 rounded-full blur-3xl"></div>
@@ -33,7 +33,7 @@ import { url } from '../../utils/base';
         <h2>PMI: van ideeen naar richtingen</h2>
         <p>
           Na de brainstormsessie met de innovatieradar hadden we 32 ideeen op post-its. Leuk, maar daar kun je nog niks mee.
-          We hebben de PMI-methode gebruikt om te convergeren: elke post-it kreeg een sticker.
+          We hebben de <a href="https://www.debonogroup.com/services/thinking-tools/pmi/" target="_blank" rel="noopener">PMI-methode van De Bono</a> gebruikt om te convergeren: elke post-it kreeg een sticker, waarbij we de kleurcode van tevoren hadden afgesproken.
         </p>
       </div>
 
@@ -46,19 +46,26 @@ import { url } from '../../utils/base';
         <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
           <div class="w-10 h-10 bg-rose-500 rounded-xl flex items-center justify-center text-white font-bold text-lg mb-3">M</div>
           <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-1">Min (roze)</h3>
-          <p class="text-dark/50 text-sm">Te weinig gewicht of raakvlakken. Niet investeren.</p>
+          <p class="text-dark/50 text-sm">Te weinig gewicht of raakvlakken. Niet in investeren.</p>
         </div>
         <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
           <div class="w-10 h-10 bg-purple-500 rounded-xl flex items-center justify-center text-white font-bold text-lg mb-3">I</div>
           <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-1">Interessant (paars)</h3>
-          <p class="text-dark/50 text-sm">"Anders" maar veel connecties met andere ideeen. Het puzzelt.</p>
+          <p class="text-dark/50 text-sm">Afwijkend, maar met veel connecties met andere ideeen. Het puzzelt.</p>
         </div>
+      </div>
+
+      <!-- Fotobewijs PMI-stickering -->
+      <div class="reveal reveal-delay-2 mt-10">
+        <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg max-w-2xl mx-auto">
+          <img src={url('/images/research/sessie3-radar-2.jpeg')} alt="Flipover met post-its gemarkeerd met groene, roze en paarse PMI-stickers over zes innovatieruimtes" class="w-full" />
+        </div>
+        <p class="text-dark/40 text-sm text-center mt-3 italic">De flipover na PMI-stickering: groen voor plus, roze voor min, paars voor interessant</p>
       </div>
 
       <div class="reveal reveal-delay-2 prose max-w-none mt-8">
         <p>
-          De meeste groene stickers zaten bij Beveiliging en Klantervaring. De paarse bij Specialisatie en Organisatie.
-          Bij Hulp zaten de meeste roze stickers, die ideeen voelden te veel als productverbetering en te weinig als echte innovatie.
+          Per innovatieruimte telden we de kleuren. <strong>Beveiliging</strong> kreeg de meeste groene stickers (4 van de 4 ideeen groen). Bij <strong>Klantervaring</strong> en <strong>Organisatie</strong> was het beeld gemengd: vooral groen en paars, weinig roze. <strong>Hulp</strong> kreeg de meeste roze stickers (3 van de 4) omdat de ideeen daar als "slim iets aan de pen toevoegen" voelden, wat als productverbetering niet echt innovatief was. Bij <strong>Specialisatie</strong> zaten veel paarse stickers op rare combinaties ("pen die vormt naar de hand" + "online eigen pen designen").
         </p>
       </div>
     </div>
@@ -82,9 +89,9 @@ import { url } from '../../utils/base';
           </div>
           <p class="text-dark/50 text-sm mb-3">Ideeen: pen die geluid maakt bij verkeerd gebruik, voice/finger activated, analoog security expert, vingerafdrukbeveiliging voor handtekeningen</p>
           <ul class="space-y-2">
-            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-refine">Hoe zouden we kunnen zorgen dat een product een signaal geeft wanneer iemand anders dan de eigenaar het gebruikt?</li>
-            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-refine">Hoe zouden we een analoog product kunnen voorzien van slimme beveiligingsfuncties die passen bij privacy en persoonlijk gebruik?</li>
-            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-refine">Hoe zouden we kunnen zorgen dat een product persoonsgebonden beveiliging biedt voor privacygevoelige toepassingen zoals handtekeningen?</li>
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-refine">Hoe zouden we een schrijfproduct persoonsgebonden kunnen beveiligen?</li>
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-refine">Hoe zouden we fraude op papieren handtekeningen kunnen voorkomen?</li>
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-refine">Hoe zouden we eigenaarschap van een schrijfgereedschap zichtbaar kunnen maken?</li>
           </ul>
         </div>
 
@@ -97,9 +104,9 @@ import { url } from '../../utils/base';
           </div>
           <p class="text-dark/50 text-sm mb-3">Ideeen: pen die woorden voorstelt, spellingscorrectie, fouten weghalen, zelfcorrigeerend product</p>
           <ul class="space-y-2">
-            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-discover">Hoe zouden we kunnen zorgen dat een product woorden en andere dingen voorstelt?</li>
-            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-discover">Hoe zouden we kunnen zorgen dat een product spellingscorrectie geeft?</li>
-            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-discover">Hoe zouden we kunnen zorgen dat een product zelfcorrigeerend is?</li>
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-discover">Hoe zouden we een schrijfproduct kunnen laten meedenken met de schrijver?</li>
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-discover">Hoe zouden we schrijfgemak kunnen vergroten tijdens het schrijven?</li>
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-discover">Hoe zouden we fouten bij het schrijven kunnen verminderen?</li>
           </ul>
         </div>
 
@@ -112,17 +119,43 @@ import { url } from '../../utils/base';
           </div>
           <p class="text-dark/50 text-sm mb-3">Ideeen: pen voor specifieke handicap, links-/rechtshandig, pen die vormt om hand, online eigen pen designen, koppeling met cloud/ERP</p>
           <ul class="space-y-2">
-            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-design">Hoe zouden we een pen kunnen ontwerpen die is afgestemd op de specifieke beperking van de gebruiker?</li>
-            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-design">Hoe zouden we pennen kunnen ontwerpen die optimaal geschikt zijn voor zowel linkshandige als rechtshandige gebruikers?</li>
-            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-design">Hoe zouden we gebruikers de mogelijkheid kunnen geven om online hun eigen pen te ontwerpen?</li>
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-design">Hoe zouden we schrijfgerei op een individuele gebruiker kunnen afstemmen?</li>
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-design">Hoe zouden we schrijfcomfort voor links- en rechtshandigen gelijk kunnen trekken?</li>
+            <li class="text-dark/70 text-sm pl-4 border-l-2 border-phase-design">Hoe zouden we de klant mee kunnen laten ontwerpen aan het eigen product?</li>
           </ul>
         </div>
       </div>
 
-      <!-- Conclusie -->
-      <div class="reveal mt-10 bg-phase-define/5 border-l-4 border-phase-define rounded-2xl p-6">
+      <!-- Conclusie + bridge naar 2 denkrichtingen -->
+      <div class="reveal mt-10 bg-phase-define/5 border-l-4 border-phase-define rounded-2xl p-6 mb-6">
         <p class="text-dark/70 text-sm leading-relaxed">
-          <strong class="text-dark">Wat we hieruit meenamen:</strong> De HZWK's uit Beveiliging waren het sterkst. Daar zat de meeste energie en de meest verrassende ideeen. Specialisatie was ook interessant maar voelde als productverbetering, niet als echte innovatie. Hulp was te veel "betere pen maken" en te weinig "anders denken." De beveiliging-richting hebben we meegenomen als input voor de denkrichtingen in de Design-fase.
+          <strong class="text-dark">Wat we hieruit meenamen:</strong> de HZWK's uit Beveiliging waren het sterkst onderbouwd in de stickertelling en raakten een echte klantpijn (handtekeningfraude). Specialisatie kwam wel ver in de paarse stickers maar bleef in essentie productverbetering. Hulp was te veel "slim iets aan de pen toevoegen" zonder echte innovatiebelofte.
+        </p>
+        <p class="text-dark/70 text-sm leading-relaxed mt-3">
+          Het lesmateriaal (BK3) en <a href="https://www.huizingh.com/boeken/innovatiemanagement" target="_blank" rel="noopener" class="underline">Huizingh (2019)</a> waarschuwen allebei voor deze valkuil: beperk je niet tot procesverbetering, dit leidt in de regel niet tot innovatie. Dat zagen we bij Hulp en Specialisatie optreden. Reden om die te laten vallen.
+        </p>
+      </div>
+
+      <!-- Brug naar 2 denkrichtingen -->
+      <div class="reveal bg-bg-elevated rounded-2xl p-6 border border-white/10 shadow-sm">
+        <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-4">Van 3 HZWK-kamers naar 2 denkrichtingen</h3>
+        <p class="text-dark/60 text-sm leading-relaxed mb-4">
+          Voor de Design-fase moesten we terug naar 2 richtingen. De opdracht vraagt om minimaal twee, dus we wilden niet alles op Beveiliging zetten. We hebben daarom een tweede richting opgebouwd uit een kamer die methodisch lager scoorde maar die aansloot op een scenario-as die we belangrijk vonden.
+        </p>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="bg-phase-refine/5 rounded-xl p-4 border-l-4 border-phase-refine">
+            <p class="text-xs uppercase tracking-wide text-phase-refine font-bold mb-1">Richting 1</p>
+            <p class="text-dark/80 text-sm font-medium mb-1">De Analoge Security Expert</p>
+            <p class="text-dark/50 text-xs leading-relaxed">Bron: kamer Beveiliging (sterkste PMI-score). Sluit aan op scenario D (digitale dominantie maakt analoge verificatie juist meer waard).</p>
+          </div>
+          <div class="bg-phase-define/10 rounded-xl p-4 border-l-4 border-phase-define">
+            <p class="text-xs uppercase tracking-wide text-phase-define font-bold mb-1">Richting 2</p>
+            <p class="text-dark/80 text-sm font-medium mb-1">De Circulaire Standaard</p>
+            <p class="text-dark/50 text-xs leading-relaxed">Bron: kamer Organisatie (paarse stickers op duurzame materialen, lifecycle). Geen aparte HZWK gekregen omdat we de kamer als "operationeel" labelden, maar later teruggepakt: sluit aan op scenario-as 2 (overheidsregulering rond duurzaamheid).</p>
+          </div>
+        </div>
+        <p class="text-dark/40 text-xs italic mt-4">
+          Specialisatie en Hulp sneuvelden omdat we ze als productverbetering zagen. Klantervaring bewaarden we voor eventuele latere toepassing. Circulair was dus een bewuste toevoeging om de methodische druk op Beveiliging tegenwicht te geven.
         </p>
       </div>
     </div>

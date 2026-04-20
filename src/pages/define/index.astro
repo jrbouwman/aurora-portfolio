@@ -21,6 +21,12 @@ const evidence = [
     href: url('/define/denkrichtingen/'),
     icon: '🔀',
   },
+  {
+    title: 'Projectvoorstellen',
+    description: 'Twee projectvoorstellen (Security + Circulair), inclusief team, scope, success- en afbreekcriteria.',
+    href: url('/define/projectvoorstellen/'),
+    icon: '📋',
+  },
 ];
 ---
 
@@ -31,43 +37,52 @@ const evidence = [
   description="De innovatieruimte verkend met de innovatieradar en de ideeen geconvergeerd naar HZWK-challenges."
   evidence={evidence}
 >
-  <h2>Wat hebben we gedaan?</h2>
+  <h2>Van breed zoeken naar twee richtingen</h2>
   <p>
-    Met de innovatieradar (Huizingh, 2019) hebben we in een sessie op een flipover ideeën gegenereerd
-    per innovatieruimte: product, proces, positie, paradigma. Alles mocht, we hebben ons oordeel uitgesteld.
-    Dat leverde 32 ideeën op over 6 kamers.
+    We zijn begonnen met de <a href="https://www.huizingh.com/boeken/innovatiemanagement" target="_blank" rel="noopener">innovatieradar van Huizingh (2019)</a>, 12 dimensies binnen 4 sleuteldimensies: product, positie, proces en paradigma. In een flipoversessie genereerden we per kamer ideeen, met als afspraak dat we niet oordelen. Dat leverde 32 post-its op over 6 verkende kamers.
   </p>
   <p>
-    Daarna hebben we de ideeën gescoord met gekleurde stickers (groen = goed, roze = minder, paars = interessant)
-    en per kamer HZWK-challenges geformuleerd. De kamers Beveiliging, Hulp en Specialisatie leverden de sterkste
-    vragen op. Die hebben we meegenomen naar de Design-fase als input voor onze denkrichtingen.
+    Die hebben we daarna gescoord met de <a href="https://www.debonogroup.com/services/thinking-tools/pmi/" target="_blank" rel="noopener">PMI-methode van De Bono</a>: groen voor plus, roze voor min, paars voor interessant. De kleurcode stond van tevoren vast, zodat we live konden stickeren zonder achteraf te rationaliseren. Op basis van de verdeling hebben we HZWK's opgesteld per kamer en zijn we geconvergeerd naar twee denkrichtingen.
   </p>
 
   <h2>Wat viel op?</h2>
   <ul>
-    <li>De meeste ideeën zaten in Klantervaring en Organisatie (proces-kant), maar de meest innovatieve zaten juist in Beveiliging (paradigma)</li>
-    <li>De kamer Beveiliging was het verrassendst: daar kwam het idee voor de "analoge security expert" vandaan, dat later een denkrichting werd</li>
-    <li>Bij het convergeren merkten we dat de HZWK-methode helpt om losse ideeën te verbinden tot een bredere richting</li>
+    <li>De meeste ideeen zaten in Klantervaring en Organisatie (de proces-kant). De meest innovatieve zaten juist in Beveiliging (paradigma).</li>
+    <li>Beveiliging was het verrassendste cluster: daar kwam het idee voor "de analoge security expert" vandaan, dat later een denkrichting werd.</li>
+    <li>Bij het convergeren merkten we dat ideeen vaak in meerdere kamers tegelijk vielen. De radar is meer een zoeklamp dan een ordener.</li>
+    <li>De tweede denkrichting (Circulaire Standaard) kwam uit een kamer (Organisatie) die we eerder niet als "innovatie-sterk" hadden gelabeld. Dat was een bewuste keuze om niet alles op Beveiliging te zetten.</li>
   </ul>
 
   <h2>Bewijsstukken (opdracht 1b)</h2>
   <ul>
-    <li><strong>Ingevulde innovatieradar</strong>: foto's van de flipover, alle ideeën per kamer, en de HZWK-challenges per innovatieruimte</li>
+    <li><strong><a href={url('/define/innovatieradar/')}>Ingevulde innovatieradar</a></strong>: foto's van de flipover, alle 32 ideeen per kamer, gemapped naar Huizingh's 12 dimensies (officiele verdeling 4+4+2+2)</li>
+    <li><strong><a href={url('/define/convergentie/')}>Convergentie</a></strong>: PMI-uitkomst met fotobewijs, HZWK per innovatieruimte, bridge naar twee denkrichtingen</li>
+    <li><strong><a href={url('/define/denkrichtingen/')}>Denkrichtingen</a></strong>: de twee richtingen met clusters, challenge en terugkoppeling naar Discover</li>
+    <li><strong><a href={url('/define/projectvoorstellen/')}>Projectvoorstellen</a></strong>: per denkrichting een volwaardig voorstel met team, scope, success- en afbreekcriteria (opdracht-eis 1b)</li>
   </ul>
 
   <h2>Theorie en methode</h2>
   <ul>
-    <li><strong>Innovatieradar (Huizingh, 2019)</strong>: 12 dimensies over 4 sleuteldimensies. Dwingt je om breder te kijken dan alleen het product.</li>
-    <li><strong>PMI-methode (De Bono)</strong>: Plus, Min, Interessant. Simpel maar effectief om 32 ideeen te scoren zonder eindeloos te discussieren.</li>
-    <li><strong>4P Innovation Space (Tidd &amp; Bessant)</strong>: Product, Proces, Positie, Paradigma. Hielp om de ideeen te ordenen per innovatieruimte.</li>
+    <li><strong>Innovatieradar</strong> (<a href="https://www.huizingh.com/boeken/innovatiemanagement" target="_blank" rel="noopener">Huizingh, 2019</a>): 12 dimensies over 4 sleuteldimensies. Dwingt je om ook in paradigma en positie te kijken, niet alleen het product.</li>
+    <li><strong>PMI-methode</strong> (<a href="https://www.debonogroup.com/services/thinking-tools/pmi/" target="_blank" rel="noopener">De Bono</a>): Plus, Min, Interessant. Snel scoren zonder eindeloos discussieren.</li>
+    <li><strong>4P Innovation Space</strong> (Tidd &amp; Bessant, <em>Managing Innovation</em>, 6e druk 2018): Product, Proces, Positie, Paradigma als overkoepelend kader. Huizingh's radar is een fijnmazigere uitwerking in 12 dimensies onder diezelfde vier sleuteldimensies. Niet identiek, wel verwant: de 4P's vormen de ruggengraat, de 12 dimensies helpen je binnen elke P concreet te worden.</li>
+    <li><strong>HZWK-formulering</strong> (Treffinger, 1995): uit Creative Problem Solving-traditie. Wij streven naar &lt;15 woorden, zonder oplossing in de vraag.</li>
   </ul>
+
+  <h2>Wat deze methoden wel en niet opleverden</h2>
   <p>
-    Wat goed werkte: de innovatieradar dwong ons om ook in de paradigma-hoek te kijken. Daar kwam het security-idee vandaan, dat hadden we anders gemist.
+    <strong>Innovatieradar:</strong> de brede verkenning dwong ons om buiten het productdenken te treden. Beveiliging kwam uit de paradigma-hoek, die we anders waarschijnlijk zouden hebben overgeslagen. Beperking: 32 ideeen over 6 kamers geeft gemiddeld ~5 per kamer, terwijl de methode tien per kamer aanbeveelt. En ideeen vallen vaak in meerdere kamers tegelijk. We hebben 'm daarom gebruikt als checklist om niks over te slaan, niet als strakke taxonomie.
+  </p>
+  <p>
+    <strong>PMI:</strong> simpel en effectief. Met drie stickers krijg je snel zicht op waar de groepsenergie zit. Beperking: het blijft een subjectief oordeel. Een tweede groep zou andere stickers plakken. We hebben het gebruikt om patronen te zien, niet om keuzes te legitimeren.
+  </p>
+  <p>
+    <strong>HZWK:</strong> werkt om van observatie naar een onderzoekbare vraag te komen. Beperking: als je niet oppast smokkel je de oplossing in de vraag ("hoe zouden we een pen kunnen ontwerpen die via biometrie..."). Dat hebben we in onze eerste versies ook gedaan en later gecorrigeerd.
   </p>
 
   <div class="mt-16 pt-8 border-t border-white/10">
     <a href={url('/design/')} class="inline-flex items-center gap-2 text-phase-design hover:underline text-lg">
-      Verder naar Design →
+      Verder naar Design &rarr;
     </a>
   </div>
 </PhaseLayout>

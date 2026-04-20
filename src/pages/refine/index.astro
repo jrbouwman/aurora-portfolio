@@ -25,33 +25,37 @@ const evidence = [
   description="In de Refine-fase hebben we ons concept geprototyped en getest. Dat leidde tot een onverwachte draai: de pen bleek overbodig."
   evidence={evidence}
 >
-  <h2>Wat hebben we gedaan?</h2>
+  <h2>Refine in het kort</h2>
   <p>
-    Met een gekozen denkrichting en concept collection in de hand zijn we aan de slag gegaan met prototypen bouwen.
-    We hebben twee prototypes gebouwd en getest via de PELV-cyclus. Eerst een brainstorm met post-its
-    en schetsen, dan een fysiek rapid prototype van piepschuim en karton. We hebben het getest met medestudenten
-    via een vragenlijst over bruikbaarheid, haalbaarheid en fraudepreventie.
+    We begonnen Refine met een duidelijke richting (Security Expert) en een concept collection vol beelden
+    van authenticatie en verificatie. Daarmee zijn we gaan prototypen. Eerst met post-its en schetsen,
+    daarna een fysiek rapid prototype van hout, piepschuim en karton. Getest met medestudenten via een
+    korte vragenlijst over bruikbaarheid, haalbaarheid en fraudepreventie.
   </p>
   <p>
-    Wat we niet hadden zien aankomen: beide prototypes lieten zien dat de pen eigenlijk overbodig is. Het probleem
-    zit niet in het schrijfgereedschap maar in de handtekening als verificatiemethode. Dat leidde tot een pivot:
-    van analoge pen naar digitaal verificatieproces.
+    Na twee iteraties kwamen we tot dezelfde conclusie: de pen voegt in dit proces niks toe. Het probleem
+    zit in de handtekening zelf, niet in wat je ermee schrijft. Daar hebben we onze richting op aangepast.
   </p>
 
   <h2>Bewijsstukken (opdracht 1c)</h2>
   <ul>
-    <li><strong>Prototyping</strong>: twee PELV-iteraties met schetsen, testplannen en een fysiek prototype</li>
-    <li><strong>Pivot</strong>: herframe van pen naar verificatieproces, met procesflow</li>
+    <li><strong><a href={url('/refine/prototyping/')}>Prototyping</a></strong>: twee PELV-iteraties met schetsen, testplannen, rapid prototype en testresultaten</li>
+    <li><strong><a href={url('/refine/pivot/')}>Pivot</a></strong>: herframe van pen naar verificatieproces, met procesflow en Value Proposition Canvas</li>
   </ul>
 
   <h2>Theorie en methode</h2>
   <ul>
-    <li><strong>PELV-cyclus (Boehm)</strong>: Plan, Experiment, Learn, Improve. Twee iteraties doorlopen.</li>
-    <li><strong>Rapid Prototyping (Tom Chi)</strong>: Snel en goedkoop iets maken om te testen. Piepschuim en karton in plaats van maanden ontwikkelen.</li>
-    <li><strong>Design Thinking pivot</strong>: De prototypes toonden dat onze aanname (de pen is het product) niet klopte. Dat is precies wat prototyping moet opleveren: investeer in falen.</li>
+    <li><strong>PELV-cyclus</strong>: Plan, Experiment, Learn, Verbeter. Dit is de variant uit het lesmateriaal (BK5-6). In de academische literatuur vind je vergelijkbare cycli als Plan-Execute-Learn-Verify (IDEO) of Plan-Do-Study-Act (Deming). De kern is steeds hetzelfde: iteratief leren door doen. Conceptueel verwant aan <a href="https://www.simplypsychology.org/learning-kolb.html" target="_blank" rel="noopener">Kolb's leercyclus (1984)</a>.</li>
+    <li><strong>Rapid Prototyping</strong>: snel en goedkoop iets fysieks maken om te testen. Piepschuim en karton in plaats van maanden ontwikkelen. Praktijkbron: <a href="https://www.youtube.com/watch?v=L2zqTYgcpfg" target="_blank" rel="noopener">Tom Chi's "Rapid Prototyping Google Glass"</a> (Google X, practitioner-bron, geen academische publicatie).</li>
+    <li><strong>Design Thinking pivot</strong>: als het prototype een andere vraag opwerpt dan waar je mee begon, volg die vraag. Dat is precies wat prototyping zou moeten opleveren.</li>
   </ul>
+
+  <h2>Wat deze methoden wel en niet opleverden</h2>
   <p>
-    Wat goed werkte: het fysieke prototype maakte het idee tastbaar. Pas toen we het bouwden en iemand het liet gebruiken, zagen we dat de pen overbodig was.
+    <strong>Wat werkte voor ons:</strong> het fysieke prototype maakte het idee tastbaar. Pas toen we het bouwden en iemand het echt liet gebruiken, zagen we dat de pen in het proces niks deed. Een schets alleen had ons dat niet laten zien.
+  </p>
+  <p>
+    <strong>Wat niet werkte:</strong> onze vragenlijst testte vooral perceptie, niet meerwaarde. We vroegen medestudenten of iets "fraude voorkomt", terwijl ze geen security-expert zijn. En ons prototype was wel tastbaar, maar niet echt testbaar: een tester kon geen ID scannen, geen PIN invoeren. Een Wizard-of-Oz-opzet (iemand achter het gordijn simuleert de respons) had die testbaarheid opgelost. Dat weten we nu voor een volgende ronde.
   </p>
 
   <div class="mt-16 pt-8 border-t border-white/10">

@@ -1,17 +1,107 @@
 ---
 import PhaseLayout from '../../layouts/PhaseLayout.astro';
+import { url } from '../../utils/base';
+
+const evidence = [
+  {
+    title: 'Proof of Value',
+    description: 'Wat het concept is, hoe het er fysiek uitziet, en welke waarde het oplevert voor notarissen en banken.',
+    href: url('/deliver/proof-of-value/'),
+    icon: '🚀',
+  },
+  {
+    title: 'Ondernemingsplan',
+    description: 'BMC, 90-dagen plan, teamplan per fase en kostenopbouw per post. Tactisch werkboek.',
+    href: url('/deliver/ondernemingsplan/'),
+    icon: '📖',
+  },
+  {
+    title: 'Roadmap',
+    description: 'Hoe we van concept naar markt gaan: startup oprichten, pilot draaien, opschalen.',
+    href: url('/deliver/roadmap/'),
+    icon: '🗺️',
+  },
+];
 ---
 
 <PhaseLayout
   title="Deliver"
   phase="deliver"
   phaseNumber="Fase 5"
-  description="In de Deliver-fase presenteren we ons Proof of Value en formuleren we het innovatieadvies voor Aurora."
-  evidence={[]}
+  description="We kwamen deze fase in met een gepivoteerd concept en gingen eruit met een onderbouwde waardepropositie en een plan om het te realiseren."
+  evidence={evidence}
 >
-  <h2>Binnenkort beschikbaar</h2>
+  <h2>De laatste stap van de reis</h2>
   <p>
-    De content voor de Deliver-fase wordt ingevuld tijdens BK7-9. Hier komt het Proof of Value/Proof
-    of Concept, de eindpresentatie en het innovatieadvies.
+    We kwamen Deliver in met het gepivoteerde concept uit Refine, een <a href={url('/refine/pivot/')}>digitaal verificatieproces</a> dat ID-scan en PIN combineert. Drie dingen moesten in deze fase gebeuren: het concept door een tweede gate halen, de waarde concreet maken voor echte stakeholders, en een plan opstellen hoe we van idee naar pilot komen.
+  </p>
+  <p>
+    In Gate 2 beoordeelden vier medestudenten ons concept via het DVF-framework. Alle vier gaven GO. Tegelijk kregen we één terugkerend signaal: Aurora's technische kerncompetenties zijn niet toereikend om dit alleen te bouwen. Dat bracht ons bij de lastigste keuze van deze fase: hoe zorgen we dat Aurora wel de eigenaar van deze innovatie kan zijn, zonder de bottleneck te worden? Antwoord in het kort: een spin-off-BV met Aurora's merk en een techpartner voor de uitvoering.
+  </p>
+
+  <h2>Gate 2: feedback</h2>
+  <p>
+    Vier medestudenten beoordeelden ons concept via het DVF-framework. Alle vier gaven een GO.
+    Customer value scoorde het hoogst (gemiddeld 4.5/5), kerncompetenties het laagst (1.8/5).
+    Dat bevestigt dat het idee waardevol is, maar dat Aurora de technische kant niet zelf kan bouwen.
+  </p>
+
+  <div class="not-prose grid grid-cols-2 md:grid-cols-4 gap-3 my-6">
+    <div class="bg-bg-elevated rounded-xl p-4 border border-white/5 text-center">
+      <div class="text-2xl font-bold text-phase-deliver">4.5</div>
+      <div class="text-dark/50 text-xs mt-1">Customer value</div>
+    </div>
+    <div class="bg-bg-elevated rounded-xl p-4 border border-white/5 text-center">
+      <div class="text-2xl font-bold text-phase-deliver">3.8</div>
+      <div class="text-dark/50 text-xs mt-1">Financiële kansen</div>
+    </div>
+    <div class="bg-bg-elevated rounded-xl p-4 border border-white/5 text-center">
+      <div class="text-2xl font-bold text-phase-deliver">3.4</div>
+      <div class="text-dark/50 text-xs mt-1">Concurrentievoordeel</div>
+    </div>
+    <div class="bg-bg-elevated rounded-xl p-4 border border-white/5 text-center">
+      <div class="text-2xl font-bold text-phase-refine">1.8</div>
+      <div class="text-dark/50 text-xs mt-1">Kerncompetenties</div>
+    </div>
+  </div>
+
+  <details class="not-prose my-6">
+    <summary class="cursor-pointer text-dark/70 hover:text-dark text-sm font-medium py-2">
+      DVF-formulieren en feedback bekijken
+    </summary>
+    <div class="mt-4 space-y-4">
+      <div class="bg-bg-elevated rounded-xl p-4 border border-white/5">
+        <p class="text-dark/50 text-xs mb-3 font-medium">Feedback van beoordelaars:</p>
+        <ul class="text-dark/60 text-xs space-y-1 list-disc list-inside">
+          <li>"AUTHENTICATIE - HOELANG IS DIT VEILIG?"</li>
+          <li>"Waarom zetten we nog steeds een handtekening, terwijl de verificatie/id ook persoonlijk is"</li>
+          <li>"Online ondertekenen met ID en gezichtsscan"</li>
+        </ul>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <img src={url('/images/research/gate2/dvf-formulier-1.jpeg')} alt="DVF formulier 1" class="rounded-xl border border-dark/10 w-full" loading="lazy" />
+        <img src={url('/images/research/gate2/dvf-formulier-2.jpeg')} alt="DVF formulier 2" class="rounded-xl border border-dark/10 w-full" loading="lazy" />
+        <img src={url('/images/research/gate2/dvf-formulier-3.jpeg')} alt="DVF formulier 3" class="rounded-xl border border-dark/10 w-full" loading="lazy" />
+        <img src={url('/images/research/gate2/dvf-formulier-4.jpeg')} alt="DVF formulier 4" class="rounded-xl border border-dark/10 w-full" loading="lazy" />
+      </div>
+    </div>
+  </details>
+
+  <h2>Belangrijkste keuzes</h2>
+  <ul>
+    <li><strong>Spin-off-BV:</strong> het concept past niet in Aurora's huidige organisatie. Een aparte BV krijgt merk en kennis mee, maar bouwt een eigen team en techpartnerschap op. Theoretisch gekaderd als structurele ambidexteriteit (O'Reilly &amp; Tushman 2013).</li>
+    <li><strong>Volgorde van sectoren:</strong> eerst notariaat (ongeveer 930 kantoren, bereikbaar via KNB, hoge urgentie rond identiteitsvaststelling), daarna banken en vervolgens verzekeraars. Dit is een strategische volgorde, geen Rogers-adopter-categorisering (adopter-types gelden per individu, niet per sector, zie <a href={url('/deliver/roadmap/')}>roadmap</a>).</li>
+    <li><strong>Hybride positionering:</strong> we mikken op de plek waar papier en fysieke aanwezigheid blijven bestaan. Dat is een bewuste keuze om niet frontaal te concurreren met volledig-digitale diensten zoals DocuSign, maar een aanvullende niche te pakken.</li>
+  </ul>
+
+  <h2>Wat deze theorieen wel en niet opleverden</h2>
+  <p>
+    <strong>DVF</strong> gaf ons een gesprekskader in Gate 2. Het maakte verschillen tussen gate-invullers zichtbaar en dwong het team tot nuance. Wat het niet oploste: de score suggereert objectiviteit waar die er niet is (zie <a href={url('/design/gate/')}>de reflectie in Design</a>).
+  </p>
+  <p>
+    <strong>Rogers' diffusie en adoptiefactoren</strong> waren nuttig om de volgorde van segmenten te doordenken en randvoorwaarden expliciet te maken (compatibiliteit, probeerbaarheid). De vijf factoren zijn goed om naar je eigen concept te kijken; de indeling in adopter-categorieen is dat minder als je die per sector probeert toe te passen. Die foutstap hebben we gecorrigeerd na de review.
+  </p>
+  <p>
+    <strong>Ambidexteriteit</strong> gaf een taal voor de structurele keuze (aparte BV). Maar de theorie zelf onderscheidt drie vormen (structureel, contextueel, sequentieel) en we kozen meteen voor de zwaarste variant. Voor een echt MT-besluit zou je die drie tegen elkaar moeten afwegen, niet alleen de gekozen variant benoemen.
   </p>
 </PhaseLayout>

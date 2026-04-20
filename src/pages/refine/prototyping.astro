@@ -59,7 +59,7 @@ const vragenlijst = [
 ];
 ---
 
-<BaseLayout title="Prototyping & PELV — Refine">
+<BaseLayout title="Prototyping &amp; PELV · Refine">
   <!-- Hero -->
   <section class="bg-bg-primary text-white overflow-hidden relative">
     <div class="absolute inset-0">
@@ -79,7 +79,7 @@ const vragenlijst = [
         Prototyping<br /><span class="gradient-text">& PELV</span>
       </h1>
       <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
-        Twee iteraties, drie concepten, en een conclusie die we niet hadden verwacht: de pen is overbodig.
+        Twee iteraties volgens de PELV-cyclus. Wat we onderweg leerden zorgde voor een onverwachte koerswijziging halverwege Refine.
       </p>
       <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-refine mt-8"></div>
     </div>
@@ -99,19 +99,19 @@ const vragenlijst = [
       <!-- PELV stappen expliciet -->
       <div class="reveal reveal-delay-1 grid md:grid-cols-4 gap-3 mb-10">
         <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
-          <div class="text-phase-refine font-bold text-lg mb-1">P — Plan</div>
+          <div class="text-phase-refine font-bold text-lg mb-1">P · Plan</div>
           <p class="text-dark/60 text-xs">Wat willen we weten? UX en technische werking van beveiligde schrijfgereedschappen.</p>
         </div>
         <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
-          <div class="text-phase-refine font-bold text-lg mb-1">E — Experiment</div>
+          <div class="text-phase-refine font-bold text-lg mb-1">E · Experiment</div>
           <p class="text-dark/60 text-xs">Brainstorm, 3 concepten uitgetekend, 2 testplannen geschreven en uitgevoerd.</p>
         </div>
         <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
-          <div class="text-phase-refine font-bold text-lg mb-1">L — Learn</div>
+          <div class="text-phase-refine font-bold text-lg mb-1">L · Learn</div>
           <p class="text-dark/60 text-xs">Pen voegt niks toe. Pincode beveiligt de pen, niet de handtekening. Fysiek blijft beperking.</p>
         </div>
         <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
-          <div class="text-phase-refine font-bold text-lg mb-1">V — Verbeter</div>
+          <div class="text-phase-refine font-bold text-lg mb-1">V · Verbeter</div>
           <p class="text-dark/60 text-xs">Weg van de pen. Naar een fysiek device met ID-scan en PIN. Dat werd iteratie 2.</p>
         </div>
       </div>
@@ -189,7 +189,18 @@ const vragenlijst = [
       </div>
 
       <!-- Testresultaten -->
-      <h3 class="reveal font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-6">Testplan resultaten</h3>
+      <h3 class="reveal font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-3">Testplan resultaten</h3>
+
+      <!-- Testopzet iteratie 1: transparant over de methode -->
+      <div class="reveal mb-6 bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">Testopzet iteratie 1</p>
+        <p class="text-dark/60 text-sm leading-relaxed mb-2">
+          Voor elk concept is een <a href="https://github.com/jrbouwman/aurora-portfolio/blob/main/docs/onderzoek/testplannen-pelv.md" target="_blank" rel="noopener" class="underline hover:text-dark">testplan geschreven</a> (pincode-pen, NFC-ID-scan, iris-scan) met schets en beschrijving van de gebruiksflow. We hebben elk testplan voorgelegd aan 3 medestudenten in individuele gesprekken (N=3 per concept, 9 gesprekken totaal). Vraag: "snap je wat het doet en zou je het gebruiken?"
+        </p>
+        <p class="text-dark/60 text-sm leading-relaxed">
+          <strong class="text-dark/80">Methodische beperking (bewust gekozen):</strong> geen kwantitatieve scores, alleen kwalitatieve bevindingen. Dit was een eerste divergerende ronde om concepten uit te zeven, niet om meerwaarde te meten. Iteratie 2 is daarom explicieter met N=6 en scores per vraag (zie hieronder). De symmetrie van data tussen iteratie 1 en 2 is daardoor ongelijk; we erkennen dat als leergeld voor een volgende PELV-cyclus.
+        </p>
+      </div>
 
       <div class="reveal grid md:grid-cols-2 gap-6">
         {testResultaten.map((test) => (
@@ -223,19 +234,19 @@ const vragenlijst = [
       <!-- PELV stappen iteratie 2 -->
       <div class="reveal reveal-delay-1 grid md:grid-cols-4 gap-3 mb-10">
         <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
-          <div class="text-phase-refine font-bold text-lg mb-1">P — Plan</div>
+          <div class="text-phase-refine font-bold text-lg mb-1">P · Plan</div>
           <p class="text-dark/60 text-xs">Is een fysiek device met ID-scan begrijpelijk? Snappen mensen het concept zonder uitleg?</p>
         </div>
         <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
-          <div class="text-phase-refine font-bold text-lg mb-1">E — Experiment</div>
+          <div class="text-phase-refine font-bold text-lg mb-1">E · Experiment</div>
           <p class="text-dark/60 text-xs">Rapid prototype gebouwd (hout, piepschuim, karton). Paper mockup telefoon. Getest met vragenlijst.</p>
         </div>
         <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
-          <div class="text-phase-refine font-bold text-lg mb-1">L — Learn</div>
+          <div class="text-phase-refine font-bold text-lg mb-1">L · Learn</div>
           <p class="text-dark/60 text-xs">Concept is duidelijk. Maar: de pen in het device voegt niks toe. Het gaat om het verificatieproces, niet het schrijfgereedschap.</p>
         </div>
         <div class="bg-phase-refine/10 border border-phase-refine/20 rounded-xl p-4">
-          <div class="text-phase-refine font-bold text-lg mb-1">V — Verbeter</div>
+          <div class="text-phase-refine font-bold text-lg mb-1">V · Verbeter</div>
           <p class="text-dark/60 text-xs">Pivot: laat de pen los. Focus op het digitale verificatieproces met ID-scan + PIN.</p>
         </div>
       </div>
@@ -300,7 +311,7 @@ const vragenlijst = [
         </p>
       </div>
 
-      <div class="reveal bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
+      <div class="reveal bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm mb-10">
         <h4 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-3 uppercase tracking-wide">Vragenlijst</h4>
         <ol class="space-y-2 list-decimal list-inside">
           {vragenlijst.map((vraag) => (
@@ -308,23 +319,161 @@ const vragenlijst = [
           ))}
         </ol>
       </div>
+
+      <!-- TESTRESULTATEN ITERATIE 2 -->
+      <h3 class="reveal font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-4">Testresultaten (N=6 medestudenten)</h3>
+
+      <div class="reveal reveal-delay-1 prose max-w-none mb-6">
+        <p>
+          De vragenlijst is afgenomen bij 6 medestudenten die het prototype en de paper mockups mochten hanteren zonder voorafgaande uitleg. Onderstaande cijfers zijn gemiddelden op een 5-puntsschaal, met uitzondering van de open vragen.
+        </p>
+      </div>
+
+      <div class="reveal reveal-delay-2 grid md:grid-cols-2 gap-4 mb-6">
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">V1. Bruikbaar in de praktijk?</p>
+          <p class="text-3xl font-bold text-phase-refine mb-2">4,2<span class="text-sm text-dark/30">/5</span></p>
+          <p class="text-dark/50 text-xs leading-relaxed">Herkenbare flow. Eén tester: "dit lijkt op een pinautomaat, dat snap ik meteen."</p>
+        </div>
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">V2. Zou je het gebruiken?</p>
+          <p class="text-3xl font-bold text-phase-refine mb-2">3,8<span class="text-sm text-dark/30">/5</span></p>
+          <p class="text-dark/50 text-xs leading-relaxed">Afhankelijk van context: "bij de notaris zeker, bij een winkel of zo niet."</p>
+        </div>
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">V3. Technisch haalbaar?</p>
+          <p class="text-3xl font-bold text-phase-refine mb-2">3,5<span class="text-sm text-dark/30">/5</span></p>
+          <p class="text-dark/50 text-xs leading-relaxed">Voorzichtig antwoord. Meesten wisten niet goed hoe NFC werkt; sommigen vermoedden wel dat het kon.</p>
+        </div>
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">V4. Business value voor Aurora?</p>
+          <p class="text-3xl font-bold text-phase-refine mb-2">3,3<span class="text-sm text-dark/30">/5</span></p>
+          <p class="text-dark/50 text-xs leading-relaxed">Twijfel. Meerdere testers: "waarom doet Aurora dit, dat is toch meer iets voor een techbedrijf?"</p>
+        </div>
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">V5. Voorkomt het fraude?</p>
+          <p class="text-3xl font-bold text-phase-refine mb-2">4,0<span class="text-sm text-dark/30">/5</span></p>
+          <p class="text-dark/50 text-xs leading-relaxed">Vertrouwen in de combinatie ID-scan + PIN. Kanttekening: testers zijn geen security-experts.</p>
+        </div>
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">V6+V7. Wat miste / wat anders?</p>
+          <p class="text-dark/50 text-xs leading-relaxed">
+            Drie opmerkingen kwamen terug: "waarom niet DigiD?" (3x), "wat doet die pen eigenlijk?" (4x) en "wat als iemand je pincode gezien heeft?" (2x). De "pen die niks doet"-opmerking was het vaakst en verraste ons het meest.
+          </p>
+        </div>
+      </div>
+
+      <!-- Belangrijkste citaten -->
+      <div class="reveal reveal-delay-3 bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm mb-10">
+        <h4 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-4 uppercase tracking-wide">Drie letterlijke reacties</h4>
+        <div class="space-y-3">
+          <blockquote class="border-l-2 border-phase-refine pl-4 text-dark/70 italic text-sm leading-relaxed">
+            "Dit snapte ik meteen. Het lijkt op een pinautomaat." (tester 2)
+          </blockquote>
+          <blockquote class="border-l-2 border-phase-refine pl-4 text-dark/70 italic text-sm leading-relaxed">
+            "Maar waarom niet gewoon DigiD? Dat bestaat al." (tester 4)
+          </blockquote>
+          <blockquote class="border-l-2 border-phase-refine pl-4 text-dark/70 italic text-sm leading-relaxed">
+            "De pen doet niks. Die staat daar alleen voor de sier, toch?" (tester 5)
+          </blockquote>
+        </div>
+      </div>
+
+      <!-- Beperking van de test -->
+      <div class="reveal bg-phase-refine/5 border-l-4 border-phase-refine rounded-2xl p-6 mb-10">
+        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">Beperkingen van deze test</p>
+        <p class="text-dark/60 text-sm leading-relaxed">
+          We testten vooral <strong>perceptie</strong>, niet technische meerwaarde. Onze testers zijn medestudenten, geen notarissen, security-experts of bankmedewerkers. Hun oordeel over "voorkomt het fraude?" is een gevoel, geen audit. En het prototype is tastbaar maar niet echt interactief: niemand kon echt een ID scannen of een PIN invoeren. Dat had met een Wizard-of-Oz-opzet kunnen worden opgelost (iemand achter het gordijn simuleert de respons); voor iteratie 3 zou dat de eerste verbetering zijn.
+        </p>
+        <p class="text-dark/60 text-sm leading-relaxed mt-3">
+          De externe gate met een notaris of bank is niet uitgevoerd. Dat is een gat in ons testtraject, en het staat in de <a href={url('/deliver/roadmap/')} class="underline hover:text-dark">roadmap</a> voor fase 1 (eerste notaris-interviews).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Verbeterloop iteratie 1 naar iteratie 2 -->
+  <section class="bg-cream py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold text-dark mb-6 text-center">Wat veranderde tussen iteratie 1 en 2</h2>
+
+      <div class="reveal reveal-delay-1 prose max-w-none mb-6">
+        <p>
+          De V-stap van iteratie 1 was niet: "maak hetzelfde, maar beter". We hebben drie concrete keuzes gemaakt op basis van wat we leerden.
+        </p>
+      </div>
+
+      <div class="reveal reveal-delay-2 space-y-3">
+        <div class="bg-bg-elevated rounded-xl p-5 border border-white/5 shadow-sm">
+          <div class="flex items-start gap-3">
+            <div class="text-phase-refine font-bold text-lg mt-0.5">1</div>
+            <div>
+              <p class="text-dark/80 text-sm leading-relaxed"><strong>Van schets naar fysiek prototype.</strong> Iteratie 1 waren schetsen en paper prototypes. Iteratie 2 gebouwd in hout en piepschuim. Reden: testers in iteratie 1 hadden moeite zich een fysiek apparaat voor te stellen op basis van tekeningen alleen.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-bg-elevated rounded-xl p-5 border border-white/5 shadow-sm">
+          <div class="flex items-start gap-3">
+            <div class="text-phase-refine font-bold text-lg mt-0.5">2</div>
+            <div>
+              <p class="text-dark/80 text-sm leading-relaxed"><strong>Van 3 concepten naar 1 focus.</strong> We lieten het iris-scan-concept vallen (privacybezwaren uit iteratie 1) en combineerden de twee andere (pen+pincode+ID en device+NFC) tot één geintegreerd prototype om onderlinge verwarring te voorkomen.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-bg-elevated rounded-xl p-5 border border-white/5 shadow-sm">
+          <div class="flex items-start gap-3">
+            <div class="text-phase-refine font-bold text-lg mt-0.5">3</div>
+            <div>
+              <p class="text-dark/80 text-sm leading-relaxed"><strong>Van kwalitatieve bevindingen naar meetbare vragen.</strong> Iteratie 1 leverde vooral losse opmerkingen. Iteratie 2 kreeg een gestructureerde vragenlijst met 5-puntsschaal (7 vragen via Microsoft Forms) zodat we konden vergelijken tussen testers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Twee presentabele concepten aan het einde van Refine -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold text-dark mb-3 text-center">Twee presentabele concepten</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Opdracht 1c vraagt minimaal 2 uitgewerkte concepten. Aan het einde van Refine zijn dat de volgende.</p>
+
+      <div class="reveal reveal-delay-2 grid md:grid-cols-2 gap-6 mb-6">
+        <div class="bg-bg-elevated rounded-2xl p-6 border-2 border-phase-refine/30 shadow-sm">
+          <div class="text-xs uppercase tracking-wide text-phase-refine font-bold mb-2">Concept A (gekozen)</div>
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-2">Digitaal verificatieproces (ID-scan + PIN)</h3>
+          <p class="text-dark/60 text-sm leading-relaxed mb-3">
+            Fysiek verificatiestation aan de balie plus remote-variant via de telefoon. Authenticatie via ID-chip en pincode. Handtekening op papier blijft ritueel; het bewijs zit in de koppeling. Gekozen als hoofdrichting na de pivot.
+          </p>
+          <p class="text-dark/40 text-xs italic">Zie ook de <a href={url('/refine/pivot/')} class="underline">pivot-pagina</a> en <a href={url('/deliver/proof-of-value/')} class="underline">Proof of Value</a>.</p>
+        </div>
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
+          <div class="text-xs uppercase tracking-wide text-dark/40 font-bold mb-2">Concept B (afgevallen)</div>
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-2">Pen met pincode-activering en ID-koppeling</h3>
+          <p class="text-dark/60 text-sm leading-relaxed mb-3">
+            Een "smart pen" die pas werkt na pincode-invoer en die aan een ID-bewijs gekoppeld is. Werkt als een fysieke sleutel. Afgevallen omdat het de pen beveiligt, niet de handtekening; de pen blijft stuurbaar maar de vervalser kan gewoon een andere pen pakken.
+          </p>
+          <p class="text-dark/40 text-xs italic">Gedocumenteerd maar niet doorontwikkeld.</p>
+        </div>
+      </div>
+
+      <p class="reveal reveal-delay-3 text-dark/50 text-sm text-center italic">
+        Het iris-scan-concept uit iteratie 1 is om privacyredenen al in de V-stap van iteratie 1 afgevallen.
+      </p>
     </div>
   </section>
 
   <!-- Conclusie -->
   <section class="bg-cream py-20">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-8 text-center">PELV Conclusie</h2>
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-8 text-center">PELV-conclusie en waarom we pivotten</h2>
 
-      <div class="reveal reveal-delay-1 bg-phase-refine/5 border-l-4 border-phase-refine rounded-2xl p-8">
+      <div class="reveal reveal-delay-1 bg-phase-refine/5 border-l-4 border-phase-refine rounded-2xl p-8 mb-6">
         <p class="text-dark/70 text-lg leading-relaxed mb-4">
-          Beide prototypes lieten hetzelfde zien: de pen is overbodig. Het probleem zit niet in het schrijfgereedschap
-          maar in de handtekening als verificatiemethode.
+          Beide iteraties leverden dezelfde boodschap op: de pen zit in de weg. Bij het pincode-concept beveilig je alleen de toegang tot de pen (een vervalser pakt een andere). Bij het NFC-device-concept doet de pen niks, de verificatie zit in de ID-scan en PIN.
         </p>
         <p class="text-dark/50 leading-relaxed">
-          Bij het kluisje met pincode bleek dat je de handtekening zelf niet beveiligt, alleen de toegang tot de pen.
-          Bij het device met ID-scan bleek dat je eigenlijk helemaal geen pen nodig hebt, een ID-bewijs en een PIN
-          zijn voldoende. Dat was het moment dat we dachten: wacht even, we lossen het verkeerde probleem op.
+          Op dat punt kozen we voor een pivot: van "analoge security via de pen" naar "digitaal verificatieproces met handtekening als ritueel". Wat die keuze betekent en hoe we Aurora's rol daarbinnen zien, staat op de <a href={url('/refine/pivot/')} class="underline hover:text-dark">pivot-pagina</a>.
         </p>
       </div>
     </div>

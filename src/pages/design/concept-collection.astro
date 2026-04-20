@@ -2,6 +2,59 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { url } from '../../utils/base';
 
+// Moodboard-beelden met tag (wat raakt het aan). Kwantiteit over kwaliteit.
+const moodboard = [
+  { file: 'fingerprint.jpg', tag: 'biometrie', caption: 'vingerafdruk' },
+  { file: 'eye-scan.jpg', tag: 'biometrie', caption: 'iris-scan' },
+  { file: 'dna-helix.jpg', tag: 'biometrie', caption: 'DNA als unieke code' },
+  { file: 'signing.jpg', tag: 'ritueel', caption: 'handtekening-moment' },
+  { file: 'fountain-pen.jpg', tag: 'erfgoed', caption: 'vulpen-craft' },
+  { file: 'wax-seal.jpg', tag: 'erfgoed', caption: 'lakzegel' },
+  { file: 'handshake.jpg', tag: 'ritueel', caption: 'handdruk als vertrouwen' },
+  { file: 'lock.jpg', tag: 'beveiliging', caption: 'slot' },
+  { file: 'vault.jpg', tag: 'beveiliging', caption: 'kluis' },
+  { file: 'door-knocker.jpg', tag: 'ritueel', caption: 'aankloppen' },
+  { file: 'escape-room.jpg', tag: 'beveiliging', caption: 'raadsel ontrafelen' },
+  { file: 'maze.jpg', tag: 'beveiliging', caption: 'doolhof' },
+  { file: 'circuit.jpg', tag: 'technologie', caption: 'chip' },
+  { file: 'smartwatch.jpg', tag: 'productvorm', caption: 'wearable' },
+  { file: 'ring.jpg', tag: 'productvorm', caption: 'ring als sensor' },
+  { file: 'chess.jpg', tag: 'strategie', caption: 'zet berekenen' },
+  { file: 'octopus.jpg', tag: 'associatie', caption: 'meerdere armen, meerdere checks' },
+  { file: 'parrot.jpg', tag: 'associatie', caption: 'nadoen, net niet precies' },
+  { file: 'butterfly.jpg', tag: 'associatie', caption: 'metamorfose' },
+  { file: 'jellyfish.jpg', tag: 'associatie', caption: 'doorzichtig, toch herkenbaar' },
+  { file: 'fire.jpg', tag: 'associatie', caption: 'brandmerk' },
+  { file: 'diamond.jpg', tag: 'uniek', caption: 'unieke kristalstructuur' },
+  { file: 'constellation.jpg', tag: 'uniek', caption: 'sterrenbeeld' },
+  { file: 'tree-rings.jpg', tag: 'uniek', caption: 'jaarringen' },
+  { file: 'sand-writing.jpg', tag: 'vergankelijkheid', caption: 'schrijven in zand' },
+  { file: 'ink-paper.jpg', tag: 'materialen', caption: 'inkt op papier' },
+  { file: 'leather.jpg', tag: 'materialen', caption: 'leer' },
+  { file: 'gold-texture.jpg', tag: 'materialen', caption: 'goud' },
+  { file: 'metal-texture.jpg', tag: 'materialen', caption: 'metaal' },
+  { file: 'wine-cork.jpg', tag: 'materialen', caption: 'kurk' },
+  { file: 'yoga.jpg', tag: 'lichaam', caption: 'unieke houding' },
+  { file: 'dancing.jpg', tag: 'lichaam', caption: 'bewegingspatroon' },
+  { file: 'tattoo.jpg', tag: 'lichaam', caption: 'permanente markering' },
+  { file: 'cooking.jpg', tag: 'eigen signatuur', caption: 'recept met eigen draai' },
+  { file: 'graffiti.jpg', tag: 'eigen signatuur', caption: 'tag als handtekening' },
+  { file: 'perfume.jpg', tag: 'eigen signatuur', caption: 'geur-combinatie' },
+  { file: 'swiss-watch.jpg', tag: 'craft', caption: 'vakmanschap' },
+  { file: 'zen-garden.jpg', tag: 'ritueel', caption: 'rituele herhaling' },
+  { file: 'neon-city.jpg', tag: 'digitaal', caption: 'digitale wereld' },
+  { file: 'spy.jpg', tag: 'identiteit', caption: 'dubbele identiteit' },
+  { file: 'mirror.jpg', tag: 'identiteit', caption: 'jezelf zien' },
+  { file: 'magic-wand.jpg', tag: 'productvorm', caption: 'staf / stok' },
+  { file: 'sword.jpg', tag: 'erfgoed', caption: 'wapenstok als statussymbool' },
+  { file: 'lego.jpg', tag: 'modulariteit', caption: 'onderdelen die passen' },
+  { file: 'chocolate.jpg', tag: 'ritueel', caption: 'inpakken en geven' },
+  { file: 'cat-serious.jpg', tag: 'identiteit', caption: 'herkenbaar karakter' },
+  { file: 'pen-writing.jpg', tag: 'pen', caption: 'schrijven in actie' },
+  { file: 'space.jpg', tag: 'associatie', caption: 'unieke positie' },
+  { file: 'baby-feet.jpg', tag: 'uniek', caption: 'voetafdruk' },
+];
+
 const productvormen = [
   'Ring met biometrische sensor',
   'Smartwatch-integratie',
@@ -26,16 +79,16 @@ const authenticatie = [
 
 const kruisbestuivingen = [
   { naam: 'Octopus', waarom: 'Meerdere armen, meerdere verificatiemethoden tegelijk' },
-  { naam: 'Papegaai', waarom: 'Nadoen van geluid/stem, maar net niet precies genoeg' },
-  { naam: 'Vlinder', waarom: 'Metamorfose, van rups naar vlinder, van pen naar iets anders' },
-  { naam: 'Banksy', waarom: 'Anonieme kunst die toch geauthenticeerd wordt' },
+  { naam: 'Papegaai', waarom: 'Nadoen van geluid of stem, maar net niet precies genoeg' },
+  { naam: 'Vlinder', waarom: 'Metamorfose van rups naar vlinder, zelfde wezen onder andere vorm' },
+  { naam: 'Banksy', waarom: 'Anonieme kunst die toch te authenticeren is' },
   { naam: 'Yoga', waarom: 'Lichaamshouding als uniek kenmerk' },
   { naam: 'Koken', waarom: 'Recept volgen met eigen interpretatie, net als handschrift' },
-  { naam: 'Graffiti', waarom: 'Straatkunst met een "tag" als handtekening' },
+  { naam: 'Graffiti', waarom: 'Straatkunst met een tag als persoonlijke merk' },
 ];
 ---
 
-<BaseLayout title="Concept Collection — Design">
+<BaseLayout title="Concept Collection · Design">
   <!-- Hero -->
   <section class="bg-bg-primary text-white overflow-hidden relative">
     <div class="absolute inset-0">
@@ -55,7 +108,7 @@ const kruisbestuivingen = [
         Concept<br /><span class="gradient-text">Collection</span>
       </h1>
       <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
-        Alles verzamelen wat ook maar iets te maken heeft met authenticatie en verificatie. Hoe wilder, hoe beter.
+        Een visuele verzamelbak rond authenticatie en verificatie. We hebben breed gezocht: technologie, natuur, kunst en rituelen. Kwantiteit stond voorop, convergeren deden we pas daarna.
       </p>
       <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-design mt-8"></div>
     </div>
@@ -66,17 +119,14 @@ const kruisbestuivingen = [
     <div class="max-w-4xl mx-auto px-6">
       <div class="reveal bg-bg-elevated rounded-3xl p-8 md:p-10 shadow-sm border border-white/5">
         <div class="flex items-start gap-4">
-          <div class="w-12 h-12 bg-phase-design rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0 font-bold">🎨</div>
+          <div class="w-12 h-12 bg-phase-design rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0 font-bold">&#127912;</div>
           <div>
             <h2 class="font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-3">Wat is een concept collection?</h2>
             <p class="text-dark/60 leading-relaxed mb-3">
-              Een concept collection is het resultaat van verzamelwoede. Je begint met een denkrichting en verzamelt alles
-              wat er op wat voor manier dan ook mee te maken heeft. Kwantiteit is kwaliteit: hoe meer je verzamelt,
-              hoe meer verbanden je kunt leggen. Het is bewust divergerend, er zijn geen regels over wat of hoe.
+              Een concept collection is het resultaat van verzamelwoede. Je begint met een denkrichting en verzamelt alles wat er op wat voor manier dan ook mee te maken heeft. Kwantiteit telt: hoe meer je verzamelt, hoe meer verbanden je kunt leggen. Expliciet divergerend.
             </p>
             <p class="text-dark/40 text-sm">
-              We hebben dit gedaan voor De Analoge Security Expert. De Circulaire Standaard hebben we bewust laten
-              vallen na de gate.
+              We hebben dit gedaan voor De Analoge Security Expert. De Circulaire Standaard hebben we bewust laten vallen na Gate 1 omdat het methodisch zwakker bleek en de klant voor ons op dat moment abstract was (zie <a href={url('/design/gate/')} class="underline hover:text-dark/60">gate-pagina</a> voor de onderbouwing).
             </p>
           </div>
         </div>
@@ -84,29 +134,103 @@ const kruisbestuivingen = [
     </div>
   </section>
 
-  <!-- Aanpak -->
+  <!-- De moodboard inline -->
   <section class="bg-warm-gray py-20">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Maximaal divergeren</h2>
-      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Weg van de pen, alle kanten op</p>
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">De moodboard</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-6 max-w-2xl mx-auto">
+        48 beelden, verzameld in drie avonden. Hover voor de tag. Patronen die terugkomen: biometrie, rituele momenten, materialen die vertrouwen uitstralen, en vorm-variaties weg van de pen.
+      </p>
 
-      <div class="reveal reveal-delay-2 prose max-w-none mb-10">
-        <p>
-          We hebben ons bewust losgemaakt van de pen. De vraag was niet "hoe maken we een betere pen" maar
-          "hoe kan authenticatie en verificatie eruitzien?" We hebben afbeeldingen verzameld van Unsplash en
-          AI-gegenereerde visuals gemaakt. Alles bij elkaar zo'n 35 beelden op een PowerPoint-moodboard.
+      <div class="reveal reveal-delay-2 grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 mb-8">
+        {moodboard.map((item) => (
+          <div class="group relative aspect-square overflow-hidden rounded-lg border border-white/10 shadow-sm">
+            <img
+              src={url(`/images/moodboard/${item.file}`)}
+              alt={item.caption}
+              loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-2">
+              <span class="text-white text-xs font-medium leading-tight">{item.caption}</span>
+              <span class="text-white/60 text-[10px] uppercase tracking-wide">{item.tag}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="reveal text-dark/60 text-sm mx-auto max-w-2xl mb-6 bg-warm-gray/40 border-l-4 border-phase-design rounded-r-lg p-4">
+        <p class="leading-relaxed">
+          <strong class="text-dark">Over de beeldkeuze:</strong> het grootste deel komt van <a href="https://unsplash.com" target="_blank" rel="noopener" class="underline">Unsplash</a>. Een aantal sfeerbeelden (met name de octopus-associatie en een paar abstracte authenticatiebeelden) is AI-gegenereerd omdat we specifieke combinaties niet in stockbeelden vonden.
         </p>
-        <p>
-          Het idee was om zo breed mogelijk te kijken. Niet alleen naar technologie, maar ook naar de natuur,
-          kunst en alledaagse dingen. Wat heeft een octopus te maken met verificatie? Meer dan je denkt.
+        <p class="leading-relaxed mt-2">
+          <strong class="text-dark">Methodische noot:</strong> we beseffen dat AI-beelden statistische gemiddelden zijn, wat haaks staat op het doel van een moodboard (onverwachte associaties oproepen). Vandaar dat we AI alleen hebben gebruikt om een gevonden idee visueel aan te scherpen, niet om nieuwe richtingen te verzinnen. De kruisbestuivingen in het volgende blok zijn allemaal ontstaan uit Unsplash-beelden.
         </p>
       </div>
 
+      <!-- Waarom slechts 1 concept collection (Security) en niet ook voor Circulaire Standaard -->
+      <div class="reveal max-w-3xl mx-auto bg-bg-elevated rounded-2xl p-6 border border-white/10 shadow-sm mb-6">
+        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-3">Waarom geen tweede concept collection?</p>
+        <p class="text-dark/60 text-sm leading-relaxed mb-3">
+          De opdracht vraagt idealiter een concept collection per denkrichting. Wij hebben er 1 (Security Expert, bovenstaand). Voor Circulaire Standaard hebben we die stap niet gezet. Twee redenen, eerlijk benoemd:
+        </p>
+        <ol class="list-decimal pl-5 space-y-2 text-dark/60 text-sm leading-relaxed mb-3">
+          <li>In de <a href={url('/design/gate/')} class="underline">DVF-afweging op Gate 1</a> zagen we dat Circulair's Desirability-voorsprong rustte op een bedachte klant, terwijl Security een geobserveerde klantpijn had (handtekeningfraude). Een concept collection voor een richting waarvan we de klant nog niet hadden gevonden, voelde als methodische afronding zonder richting om naartoe te werken.</li>
+          <li>Een concept collection kost ons realistisch 3-4 uur inspiratie-verzameling, clustering en reflectie. We hebben die tijd liever ingezet in de richting die we wel hebben gekozen (prototyping iteratie 1 en 2 voor Security, later de pivot).</li>
+        </ol>
+        <p class="text-dark/60 text-sm leading-relaxed">
+          <strong class="text-dark">Methodische schuld die we erkennen:</strong> als de Security-richting in fase 1 van de roadmap sneuvelt bij notaris-interviews, hebben we geen warm alternatief om op terug te vallen. In een commerciele setting zou dat onverantwoord zijn. In deze leeropdracht accepteren we het als bewuste concentratie van de focus, niet als vergetelheid.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kern-vragen concept collection (uit lesmateriaal) -->
+  <section class="bg-cream py-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold text-dark mb-3 text-center">Wat hebben we hiermee gedaan?</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Vier vragen uit het lesmateriaal als kapstok</p>
+
+      <div class="reveal reveal-delay-2 space-y-4">
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <p class="text-dark/40 text-xs font-bold uppercase tracking-wide mb-2">Hoe is dit al eens geprobeerd?</p>
+          <p class="text-dark/70 text-sm leading-relaxed">
+            In de digitale wereld: <a href="https://www.docusign.com/" target="_blank" rel="noopener" class="underline">DocuSign</a>, <a href="https://www.pkisigning.nl/" target="_blank" rel="noopener" class="underline">PKIsigning</a>, <a href="https://www.signicat.com/" target="_blank" rel="noopener" class="underline">Signicat</a>. In de fysiek-juridische wereld: <a href="https://www.knb.nl" target="_blank" rel="noopener" class="underline">notarissen</a> met ID-check-protocollen, banken met KYC-procedures. In consumentenmarkt: <a href="https://www.itsme-id.com/" target="_blank" rel="noopener" class="underline">itsme</a>, <a href="https://www.idin.nl/" target="_blank" rel="noopener" class="underline">iDIN</a>. Wat opviel: allemaal kiezen voor volledig-digitaal of voor mens-als-controleur. Niks op de brug daartussen.
+          </p>
+        </div>
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <p class="text-dark/40 text-xs font-bold uppercase tracking-wide mb-2">Waar lijkt dit op?</p>
+          <p class="text-dark/70 text-sm leading-relaxed">
+            Veel associaties met rituelen (lakzegel, handdruk, aankloppen) en materiaal-traditie (leer, goud, vulpen). Die kant helpt om merkwaarde en fysiek-gevoel te beladen. Aan de technische kant sloegen beelden aan van modulariteit (Lego), kluizen (lock, vault) en biometrie (fingerprint, iris).
+          </p>
+        </div>
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <p class="text-dark/40 text-xs font-bold uppercase tracking-wide mb-2">Wie is expert?</p>
+          <p class="text-dark/70 text-sm leading-relaxed">
+            In Nederland: de <a href="https://www.knb.nl" target="_blank" rel="noopener" class="underline">Koninklijke Notariele Beroepsorganisatie</a>, <a href="https://www.logius.nl/" target="_blank" rel="noopener" class="underline">Logius</a> (DigiD), <a href="https://www.acm.nl/" target="_blank" rel="noopener" class="underline">ACM</a> en certificeringsbureau's rond eIDAS. Academisch: security researchers bij TU Delft en Radboud. Praktijk: banken-KYC-teams en zelfstandig ID-verificatiedienstverleners zoals Jumio.
+          </p>
+        </div>
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <p class="text-dark/40 text-xs font-bold uppercase tracking-wide mb-2">Welke verbanden legden we?</p>
+          <p class="text-dark/70 text-sm leading-relaxed">
+            Drie belangrijke: (1) de octopus-associatie (meerdere verificaties tegelijk) bracht ons op het idee van gelaagde authenticatie ("iets dat je hebt + iets dat je weet + iets dat je bent"). (2) De lakzegel-associatie legde een brug tussen erfgoed en digitale audittrail: een zegel is altijd al een cryptografische koppeling geweest. (3) Het nadenken over "waarom eigenlijk een pen?" in deze verzameling was de kiem van de <a href={url('/refine/pivot/')} class="underline">latere pivot</a>. Die gedachte ("los van de pen") is hier geboren, niet tijdens de PELV-iteraties.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Convergentie: van beelden naar clusters -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold text-dark mb-3 text-center">Van beelden naar clusters</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Na verzamelen hebben we drie bundels gemaakt als aanvliegroutes voor de prototype-fase</p>
+
       <!-- Productvormen en authenticatie -->
-      <div class="reveal grid md:grid-cols-2 gap-6 mb-10">
+      <div class="reveal reveal-delay-2 grid md:grid-cols-2 gap-6 mb-8">
         <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
-          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-4">Productvormen</h3>
-          <p class="text-dark/40 text-sm mb-3">In welke vorm kan het zitten? Niet per se een pen.</p>
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-2">Productvormen</h3>
+          <p class="text-dark/40 text-sm mb-3">In welke vorm kan het zitten, als het niet per se een pen hoeft te zijn?</p>
           <ul class="space-y-2">
             {productvormen.map((item) => (
               <li class="text-dark/60 text-sm flex items-start gap-2">
@@ -118,8 +242,8 @@ const kruisbestuivingen = [
         </div>
 
         <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
-          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-4">Authenticatiemethoden</h3>
-          <p class="text-dark/40 text-sm mb-3">Hoe bewijs je wie je bent?</p>
+          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-2">Authenticatiemethoden</h3>
+          <p class="text-dark/40 text-sm mb-3">Hoe bewijs je wie je bent? Breed kijken.</p>
           <ul class="space-y-2">
             {authenticatie.map((item) => (
               <li class="text-dark/60 text-sm flex items-start gap-2">
@@ -130,43 +254,41 @@ const kruisbestuivingen = [
           </ul>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Wilde kruisbestuivingen -->
-  <section class="bg-cream py-20">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Wilde kruisbestuivingen</h2>
-      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Wat heeft een octopus met verificatie te maken?</p>
+      <!-- Kruisbestuivingen -->
+      <div class="reveal">
+        <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-3">Wilde kruisbestuivingen</h3>
+        <p class="text-dark/40 text-sm mb-6">Zeven onverwachte bronnen. Elk werd onze aanleiding om over een aspect nieuw na te denken.</p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-3">
+          {kruisbestuivingen.map((item) => (
+            <div class="bg-bg-elevated rounded-xl p-4 border border-white/5 shadow-sm">
+              <h4 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-1">{item.naam}</h4>
+              <p class="text-dark/50 text-xs leading-relaxed">{item.waarom}</p>
+            </div>
+          ))}
+        </div>
+      </div>
 
-      <div class="reveal reveal-delay-2 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {kruisbestuivingen.map((item) => (
-          <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
-            <h4 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-2">{item.naam}</h4>
-            <p class="text-dark/50 text-xs leading-relaxed">{item.waarom}</p>
-          </div>
-        ))}
+      <!-- Kiem voor pivot expliciet -->
+      <div class="reveal mt-10 bg-phase-refine/10 border-l-4 border-phase-refine rounded-2xl p-6">
+        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">Wat we toen niet wisten</p>
+        <p class="text-dark/70 text-sm leading-relaxed">
+          Dit losmaken van de pen bleek achteraf cruciaal. Tijdens het verzamelen viel op dat veel goede associaties juist niet over pennen gingen. Die gedachte droegen we mee naar de prototype-fase en daar kwam de pivot van: het idee dat de pen in het verificatieproces overbodig was. Zie <a href={url('/refine/pivot/')} class="underline">de pivot-pagina</a>.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- Download -->
-  <section class="bg-warm-gray py-16">
+  <section class="bg-cream py-16">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <div class="reveal">
-        <h2 class="font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-4">Bekijk de volledige moodboard</h2>
-        <p class="text-dark/50 mb-6">PowerPoint met 35+ afbeeldingen, 1 slide, maximaal divergerend.</p>
+        <h2 class="font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-4">De volledige PowerPoint-moodboard</h2>
+        <p class="text-dark/50 mb-6">Een slide met alle beelden op volle resolutie. Dezelfde inhoud als hierboven, maar in presentatievorm.</p>
         <a href={url('/concept-collection-security-expert.pptx')} class="inline-flex items-center gap-2 bg-phase-design text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform" download>
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" /></svg>
           Download PowerPoint
         </a>
-      </div>
-
-      <div class="reveal reveal-delay-1 mt-8">
-        <p class="text-dark/40 text-sm italic">
-          Concept collection 2 (De Circulaire Standaard) is bewust niet gemaakt. Na de gate hebben we gekozen
-          om alleen met de Security Expert verder te gaan.
-        </p>
       </div>
     </div>
   </section>

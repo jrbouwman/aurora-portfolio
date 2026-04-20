@@ -1,0 +1,491 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { url } from '../../utils/base';
+
+// 9 blokken BMC (Osterwalder & Pigneur) voor de spin-off-BV
+const bmc = [
+  {
+    id: 'cs',
+    titel: 'Klantsegmenten',
+    kleur: 'bg-phase-deliver/20',
+    border: 'border-phase-deliver/30',
+    gridSpan: 'md:col-span-1 md:row-span-2',
+    inhoud: [
+      { segment: 'Notariskantoren', detail: 'NL circa 930 kantoren, circa 2.000 notarissen (KNB-cijfers). Primair segment fase 1.' },
+      { segment: 'Banken (zakelijk, balie)', detail: 'Vijf grootbanken + 10+ middelgrote partijen, richting 400 filialen NL. Fase 2 segment.' },
+      { segment: 'Verzekeraars / accountants', detail: 'Indirect via verzekeraarssoftware-partners. Fase 3 segment.' },
+      { segment: 'Niet bedoeld', detail: 'Consumenten, puur online-KYC-flows (daar zijn itsme/iDIN voor).' },
+    ],
+  },
+  {
+    id: 'vp',
+    titel: 'Value Proposition',
+    kleur: 'bg-phase-refine/20',
+    border: 'border-phase-refine/40',
+    gridSpan: 'md:col-span-2 md:row-span-2',
+    inhoud: [
+      { segment: 'Kern', detail: 'Hybride verificatie: papieren handtekening blijft, digitale identiteit wordt gekoppeld. Juridisch harder dan visuele ID-check, minder disruptief dan volledig-digitaal tekenen.' },
+      { segment: 'Per segment', detail: 'Notaris: dossiertijd omlaag + bewijs bij geschil. Bank: deepfake-resistent KYC. Verzekeraar: remote tekenmogelijkheid + audittrail.' },
+      { segment: 'Onderscheidend', detail: 'DocuSign/itsme/Signicat vervangen papier volledig. Wij koppelen aan papier in rechtsgebieden waar papier (nog) verplicht is.' },
+      { segment: 'VPC-fit', detail: 'Gedetailleerd in Value Proposition Canvas per segment op pivot-pagina.' },
+    ],
+  },
+  {
+    id: 'ch',
+    titel: 'Kanalen',
+    kleur: 'bg-phase-deliver/15',
+    border: 'border-phase-deliver/30',
+    gridSpan: 'md:col-span-1 md:row-span-2',
+    inhoud: [
+      { segment: 'Notariaat', detail: 'Directe verkoop via KNB-events en Programma Digitaal Passeren-werkgroepen. Referenties van early adopters.' },
+      { segment: 'Banken', detail: "Via Aurora's bestaande B2B-relaties met zakelijke kanalen. Pilot met een bankpartner als referentie." },
+      { segment: 'Verzekeraars', detail: 'Via ERP- en verzekeringssoftware-integraties (indirect kanaal).' },
+      { segment: 'Support', detail: 'Eigen support-team (fase 2), eerder bij techpartner ondergebracht.' },
+    ],
+  },
+  {
+    id: 'cr',
+    titel: 'Klantrelaties',
+    kleur: 'bg-phase-deliver/15',
+    border: 'border-phase-deliver/30',
+    gridSpan: 'md:col-span-1 md:row-span-1',
+    inhoud: [
+      { segment: 'Fase 1', detail: 'Persoonlijk, 1-op-1 met pilot-klanten. Co-creatie.' },
+      { segment: 'Fase 2-3', detail: 'Self-service dashboard + accountmanager per enterprise-klant.' },
+    ],
+  },
+  {
+    id: 'rs',
+    titel: 'Opbrengstenstromen',
+    kleur: 'bg-phase-design/20',
+    border: 'border-phase-design/40',
+    gridSpan: 'md:col-span-2 md:row-span-1',
+    inhoud: [
+      { segment: 'Notaris-licentie', detail: '€10k/jaar per kantoor (softwareaccess + onderhoud).' },
+      { segment: 'Hardware', detail: '€1.500 eenmalig per station (marginaal).' },
+      { segment: 'Enterprise-licentie bank', detail: '€50-150k/jaar afhankelijk van filiaal-aantal.' },
+      { segment: 'Transactiekosten (optioneel)', detail: '€0,50-€2 per verificatie voor doorbelasting naar eindklant, in later stadium.' },
+      { segment: 'Diensten', detail: 'Integratie- en onboarding-vergoedingen in fase 1 (niet schaalbaar, wel cashflow).' },
+    ],
+  },
+  {
+    id: 'kr',
+    titel: 'Key Resources',
+    kleur: 'bg-phase-define/20',
+    border: 'border-phase-define/40',
+    gridSpan: 'md:col-span-1 md:row-span-1',
+    inhoud: [
+      { segment: 'Merk Aurora', detail: 'Herkenbaarheid in ondertekening-domein (hypothese, te valideren).' },
+      { segment: 'Techpartner', detail: 'Gecertificeerde QTSP (Qualified Trust Service Provider) voor eIDAS-compliance.' },
+      { segment: 'Team', detail: '4-6 FTE fase 1, 12-15 FTE fase 2.' },
+      { segment: 'Kapitaal', detail: 'Fase 1: €100k seed. Fase 2: €500k-€1 mln.' },
+    ],
+  },
+  {
+    id: 'ka',
+    titel: 'Key Activities',
+    kleur: 'bg-phase-define/15',
+    border: 'border-phase-define/40',
+    gridSpan: 'md:col-span-1 md:row-span-1',
+    inhoud: [
+      { segment: 'Softwareontwikkeling', detail: 'Dashboard, station-firmware, audittrail-koppeling.' },
+      { segment: 'Klantvalidatie', detail: 'Notarisgesprekken fase 1, pilot fase 2.' },
+      { segment: 'Certificering', detail: 'eIDAS AES als eerste mijlpaal, QES als tweede.' },
+      { segment: 'Partnermanagement', detail: 'Relatie met techpartner + KNB-contacten.' },
+    ],
+  },
+  {
+    id: 'kp',
+    titel: 'Key Partners',
+    kleur: 'bg-phase-discover/20',
+    border: 'border-phase-discover/30',
+    gridSpan: 'md:col-span-2 md:row-span-1',
+    inhoud: [
+      { segment: 'Techpartner (QTSP)', detail: 'Partij met eIDAS-accreditatie. Opties: PKIsigning, Signicat, of QuoVadis. Maken software + dragen certificering.' },
+      { segment: 'KNB (Koninklijke Notariele Beroepsorganisatie)', detail: 'Voor afstemming met Programma Digitaal Passeren en early-adopter-selectie.' },
+      { segment: 'Aurora moederbedrijf', detail: 'Levert merk en toegang tot bestaande B2B-relaties. Geen operationele bemoeienis met spin-off (ambidexteriteit).' },
+      { segment: 'Betaalvereniging / NVB', detail: 'Later, bij bankmarkt. Voor aansluiting op KYC-standaarden.' },
+    ],
+  },
+  {
+    id: 'cstr',
+    titel: 'Kostenstructuur',
+    kleur: 'bg-phase-refine/15',
+    border: 'border-phase-refine/40',
+    gridSpan: 'md:col-span-2 md:row-span-1',
+    inhoud: [
+      { segment: 'Vaste kosten', detail: 'Team (70% van kosten fase 1), kantoorruimte, licenties certificering.' },
+      { segment: 'Variabele kosten', detail: 'Hardware-componenten (NFC-readers, schermen), support-uren per klant.' },
+      { segment: 'Eenmalig', detail: 'Oprichting BV, juridische opzet €25k. Techpartner-setup €150-400k afhankelijk van leverancier.' },
+      { segment: 'Cashburn fase 1', detail: 'Richting €15-20k/maand bij 4 FTE. Kapitaalbehoefte fase 1 daarmee €100k voor 6 maanden operationeel + validatie.' },
+    ],
+  },
+];
+
+// 90-dagen plan (eerste 3 maanden, concrete weken)
+const negentigDagenPlan = [
+  { week: 'Week 1-2', blok: 'Oprichting', acties: ['BV opgericht via notaris', 'Statuten + aandeelhouders-overeenkomst (Aurora 60%, spin-off team 40% optie)', 'Bankrekening + boekhouding opgezet', 'KvK-inschrijving voltooid'] },
+  { week: 'Week 3-4', blok: 'Team', acties: ['Jr + Lianne fulltime toegewezen vanuit Aurora', 'Anke 50% toegewezen (combineert met rolontwikkeling)', 'Juridisch adviseur aangesteld (eIDAS-expertise)', 'Kick-off workshop met Aurora-MT-sponsor'] },
+  { week: 'Week 5-6', blok: 'Techpartner-selectie', acties: ['3 offertes opgevraagd: PKIsigning, Signicat, QuoVadis', 'Referentiebezoeken bij bestaande klanten van elk', 'Kwalificatie op: eIDAS-status, hardware-expertise, NL-aanwezigheid, prijs', 'Techpartner-shortlist naar 1 gereduceerd'] },
+  { week: 'Week 7-8', blok: 'Klantvalidatie 1', acties: ['5 notarisgesprekken ingepland via KNB-netwerk', 'Vragenlijst gebaseerd op PELV-resultaten', 'Notitie per gesprek naar gedeeld team-dashboard', 'Eerste voorlopige intentieverklaring als doel'] },
+  { week: 'Week 9-10', blok: 'Klantvalidatie 2', acties: ['Bankgesprek met ING of ABN AMRO compliance-team', 'Verzekeraar-benadering via Aurora-B2B-netwerk', 'Klantpijnen terugkoppelen aan techpartner voor MVP-scope'] },
+  { week: 'Week 11-12', blok: 'Go/no-go fase 1', acties: ['Alle validatie-input samengevoegd', 'Techpartner-voorstel beoordeeld', 'MT-presentatie met 3 criteria: minstens 2 intentieverklaringen (notariaat), techpartner onder €500k MVP, eIDAS-roadmap helder', 'Besluit: door naar fase 2 (€500k-€1 mln) of stop (kosten tot nu toe: €100k)'] },
+];
+
+// Teamplan (wie-wat-wanneer)
+const teamplan = [
+  { fase: 'Fase 1 (0-6 mnd)', fte: '4,0 FTE', bezetting: [
+    'Jr (CEO/Product): 1,0 FTE, alle klantgesprekken leidt',
+    'Lianne (Commercial): 1,0 FTE, partnerships + KNB-relatie',
+    'Anke (Operations): 0,5 FTE, documentatie + certificering-dossier',
+    'Juridisch adviseur: 0,5 FTE flex, eIDAS-specialist',
+    'Techpartner-team: 1,0 FTE via leveranciersovereenkomst',
+  ]},
+  { fase: 'Fase 2 (6-18 mnd)', fte: '12-15 FTE', bezetting: [
+    'Kern-team uit fase 1 blijft',
+    '+2 software-engineers (in dienst of via partner)',
+    '+1 compliance officer (eIDAS voortzetting)',
+    '+1 accountmanager voor eerste pilots',
+    '+1 DevOps / support',
+    '+2 sales (notariaat + bank)',
+    'Jr richt zich meer op strategie, Lianne op commerciele uitrol',
+  ]},
+  { fase: 'Fase 3 (18-36 mnd)', fte: '25-30 FTE', bezetting: [
+    'Schaalbare organisatie',
+    'CEO-rol: kan herverdeeld worden, externe CEO mogelijk indien Jr elders in spin-off wil werken',
+    'CTO aangenomen voor techniek (gebruikte techpartner geleidelijk naar in-house)',
+    'Verkoopteam uitbreiden naar verzekeraar-segment',
+  ]},
+];
+
+// Kostenopbouw per post (concreet, niet vaag)
+const kostenposten = [
+  { post: 'BV-oprichting + juridisch', fase1: '€25k', fase2: '€0', detail: 'Statuten, aandeelhoudersovereenkomst, KvK, eenmalig.' },
+  { post: 'Team-loonkosten fase 1', fase1: '€60k', fase2: '-', detail: '4 FTE x 6 mnd x gemiddeld €2,5k/mnd netto uit eigen zak via Aurora-detachering.' },
+  { post: 'Techpartner MVP-ontwikkeling', fase1: '€0 (voorbereiding)', fase2: '€350-700k', detail: 'Geen commitment in fase 1, alleen offertes en keuze. Contract tekenen bij fase-2-besluit.' },
+  { post: 'Hardware prototypes', fase1: '€5k', fase2: '€40k', detail: 'Fase 1: 3 prototypes bij verschillende kantoren voor piloten. Fase 2: 25 stations voor bredere pilot.' },
+  { post: 'eIDAS-certificering (AES/QES)', fase1: '€0', fase2: '€50-120k', detail: 'Via techpartner. QES-status is duur en duurt lang; start met AES.' },
+  { post: 'Marketing + acquisitie', fase1: '€5k', fase2: '€50k', detail: 'Fase 1: visitekaartjes + notaris-events. Fase 2: aktiv outbound en contentmarketing.' },
+  { post: 'Kantoor + tooling', fase1: '€5k', fase2: '€25k', detail: 'Fase 1: thuiswerk + Aurora-kantoor. Fase 2: eigen kantoor (flex).' },
+  { post: 'Totaal fase', fase1: 'circa €100k', fase2: 'circa €500k-€1 mln', detail: 'Fase 3 nader te bepalen, afhankelijk van marktvolume.' },
+];
+---
+
+<BaseLayout title="Ondernemingsplan · Deliver">
+  <!-- Hero -->
+  <section class="bg-bg-primary text-white overflow-hidden relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-phase-deliver/10 to-bg-primary"></div>
+
+    <div class="max-w-5xl mx-auto px-6 py-16 md:py-24 relative z-10">
+      <nav class="reveal text-sm mb-6 flex items-center gap-2">
+        <a href={url('/')} class="text-white/40 hover:text-white/60 transition-colors">Home</a>
+        <span class="text-white/20">/</span>
+        <a href={url('/deliver/')} class="text-white/40 hover:text-white/60 transition-colors">Deliver</a>
+        <span class="text-white/20">/</span>
+        <span class="text-phase-deliver font-medium">Ondernemingsplan</span>
+      </nav>
+      <h1 class="reveal reveal-delay-1 font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold leading-[0.95] mb-4">
+        <span class="gradient-text">Ondernemings</span>plan
+      </h1>
+      <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
+        Van VPC naar Business Model Canvas naar concreet 90-dagen plan. Hier staat hoe de spin-off er feitelijk uitziet, week voor week.
+      </p>
+      <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-deliver mt-8"></div>
+
+      <div class="reveal reveal-delay-4 mt-10 grid grid-cols-2 md:grid-cols-5 gap-2 text-xs">
+        <a href="#bridge" class="text-white/40 hover:text-white/70 transition-colors">1. Van VPC naar BMC</a>
+        <a href="#bmc" class="text-white/40 hover:text-white/70 transition-colors">2. BMC (9 blokken)</a>
+        <a href="#negentig-dagen" class="text-white/40 hover:text-white/70 transition-colors">3. 90-dagen plan</a>
+        <a href="#team" class="text-white/40 hover:text-white/70 transition-colors">4. Teamplan per fase</a>
+        <a href="#kosten" class="text-white/40 hover:text-white/70 transition-colors">5. Kosten per post</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. Bridge: van VPC naar BMC -->
+  <section id="bridge" class="bg-cream py-20 scroll-mt-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="reveal flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-phase-deliver rounded-xl flex items-center justify-center text-white font-bold">1</div>
+        <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark">Van VPC naar BMC</h2>
+      </div>
+
+      <div class="reveal reveal-delay-1 prose max-w-none mb-8">
+        <p class="text-dark/70 leading-relaxed">
+          In Refine hebben we op de <a href={url('/refine/pivot/#vpc')} class="underline hover:text-dark">pivot-pagina</a> het Value Proposition Canvas (VPC) van Osterwalder uitgewerkt. Dat beschrijft de fit tussen wat wij leveren en wat de klant wil. Een BMC is de bredere broer: het voegt daar 6 extra blokken aan toe (kanalen, klantrelaties, opbrengsten, resources, activiteiten, partners, kosten). Kortweg: de VPC zegt waarom iemand ons product wil, de BMC zegt hoe we er een bedrijf omheen bouwen.
+        </p>
+        <p class="text-dark/70 leading-relaxed">
+          Beide canvassen komen uit <a href="https://www.strategyzer.com/library/the-business-model-canvas" target="_blank" rel="noopener" class="underline">Strategyzer / Osterwalder en Pigneur (2010)</a>. De VPC is een zoom-in op de twee kernblokken van het BMC (Klantsegmenten + Value Proposition), dus er is geen sprong in logica, maar een uitvouwing.
+        </p>
+      </div>
+
+      <div class="reveal bg-phase-deliver/5 border-l-4 border-phase-deliver rounded-2xl p-6">
+        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">Waarom het BMC nu relevant is</p>
+        <p class="text-dark/70 leading-relaxed">
+          Op basis van alleen een VPC ligt een rij praktische vragen nog open: wie gaat dit bouwen, hoe verkoop je het, wat kost het, met wie werk je samen? Die zes extra blokken vullen we hieronder in. Het maakt zichtbaar of er een serieus bedrijf achter dit concept past, of dat het een idee blijft.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. BMC: 9 blokken -->
+  <section id="bmc" class="bg-warm-gray py-20 scroll-mt-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="reveal flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-phase-deliver rounded-xl flex items-center justify-center text-white font-bold">2</div>
+        <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark">Business Model Canvas</h2>
+      </div>
+      <p class="reveal reveal-delay-1 text-dark/50 mb-10">9 blokken (Osterwalder &amp; Pigneur, 2010). De Value Proposition en Klantsegmenten zijn kernblokken en verwijzen naar de gedetailleerde VPC op de pivot-pagina.</p>
+
+      <!-- BMC Grid - compact 5-column layout on desktop -->
+      <div class="reveal reveal-delay-2 grid grid-cols-1 md:grid-cols-5 gap-3">
+        <!-- Key Partners -->
+        {bmc.filter(b => b.id === 'kp').map((b) => (
+          <div class={`${b.kleur} ${b.border} border-2 rounded-2xl p-4 md:col-span-1 md:row-span-2`}>
+            <p class="text-dark/40 text-xs font-bold uppercase tracking-widest mb-2">Key Partners</p>
+            <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-3">{b.titel}</h3>
+            <ul class="space-y-2 text-xs">
+              {b.inhoud.map((i) => (
+                <li><strong class="text-dark">{i.segment}:</strong> <span class="text-dark/70">{i.detail}</span></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+        <!-- Middenkolom: KA boven, KR onder -->
+        <div class="md:col-span-1 md:row-span-2 flex flex-col gap-3">
+          {bmc.filter(b => b.id === 'ka').map((b) => (
+            <div class={`${b.kleur} ${b.border} border-2 rounded-2xl p-4 flex-1`}>
+              <p class="text-dark/40 text-xs font-bold uppercase tracking-widest mb-2">Key Activities</p>
+              <ul class="space-y-2 text-xs">
+                {b.inhoud.map((i) => (
+                  <li><strong class="text-dark">{i.segment}:</strong> <span class="text-dark/70">{i.detail}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          {bmc.filter(b => b.id === 'kr').map((b) => (
+            <div class={`${b.kleur} ${b.border} border-2 rounded-2xl p-4 flex-1`}>
+              <p class="text-dark/40 text-xs font-bold uppercase tracking-widest mb-2">Key Resources</p>
+              <ul class="space-y-2 text-xs">
+                {b.inhoud.map((i) => (
+                  <li><strong class="text-dark">{i.segment}:</strong> <span class="text-dark/70">{i.detail}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <!-- Value Proposition (hoog) -->
+        {bmc.filter(b => b.id === 'vp').map((b) => (
+          <div class={`${b.kleur} ${b.border} border-2 rounded-2xl p-4 md:col-span-1 md:row-span-2`}>
+            <p class="text-dark/40 text-xs font-bold uppercase tracking-widest mb-2">Value Proposition</p>
+            <ul class="space-y-2 text-xs">
+              {b.inhoud.map((i) => (
+                <li><strong class="text-dark">{i.segment}:</strong> <span class="text-dark/70">{i.detail}</span></li>
+              ))}
+            </ul>
+            <p class="text-phase-refine text-xs mt-3 italic"><a href={url('/refine/pivot/#vpc')} class="underline">Zie VPC op pivot-pagina &rarr;</a></p>
+          </div>
+        ))}
+
+        <!-- CR boven, Channels onder in rechter midden -->
+        <div class="md:col-span-1 md:row-span-2 flex flex-col gap-3">
+          {bmc.filter(b => b.id === 'cr').map((b) => (
+            <div class={`${b.kleur} ${b.border} border-2 rounded-2xl p-4 flex-1`}>
+              <p class="text-dark/40 text-xs font-bold uppercase tracking-widest mb-2">Klantrelaties</p>
+              <ul class="space-y-2 text-xs">
+                {b.inhoud.map((i) => (
+                  <li><strong class="text-dark">{i.segment}:</strong> <span class="text-dark/70">{i.detail}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          {bmc.filter(b => b.id === 'ch').map((b) => (
+            <div class={`${b.kleur} ${b.border} border-2 rounded-2xl p-4 flex-1`}>
+              <p class="text-dark/40 text-xs font-bold uppercase tracking-widest mb-2">Kanalen</p>
+              <ul class="space-y-2 text-xs">
+                {b.inhoud.map((i) => (
+                  <li><strong class="text-dark">{i.segment}:</strong> <span class="text-dark/70">{i.detail}</span></li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <!-- Customer Segments -->
+        {bmc.filter(b => b.id === 'cs').map((b) => (
+          <div class={`${b.kleur} ${b.border} border-2 rounded-2xl p-4 md:col-span-1 md:row-span-2`}>
+            <p class="text-dark/40 text-xs font-bold uppercase tracking-widest mb-2">Klantsegmenten</p>
+            <ul class="space-y-2 text-xs">
+              {b.inhoud.map((i) => (
+                <li><strong class="text-dark">{i.segment}:</strong> <span class="text-dark/70">{i.detail}</span></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+        <!-- Onderste rij: Kosten (links) + Opbrengsten (rechts) -->
+        {bmc.filter(b => b.id === 'cstr').map((b) => (
+          <div class={`${b.kleur} ${b.border} border-2 rounded-2xl p-4 md:col-span-3`}>
+            <p class="text-dark/40 text-xs font-bold uppercase tracking-widest mb-2">Kostenstructuur</p>
+            <ul class="space-y-2 text-xs md:grid md:grid-cols-2 md:gap-x-6 md:space-y-0">
+              {b.inhoud.map((i) => (
+                <li><strong class="text-dark">{i.segment}:</strong> <span class="text-dark/70">{i.detail}</span></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+        {bmc.filter(b => b.id === 'rs').map((b) => (
+          <div class={`${b.kleur} ${b.border} border-2 rounded-2xl p-4 md:col-span-2`}>
+            <p class="text-dark/40 text-xs font-bold uppercase tracking-widest mb-2">Opbrengstenstromen</p>
+            <ul class="space-y-2 text-xs">
+              {b.inhoud.map((i) => (
+                <li><strong class="text-dark">{i.segment}:</strong> <span class="text-dark/70">{i.detail}</span></li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 90-dagen plan -->
+  <section id="negentig-dagen" class="bg-cream py-20 scroll-mt-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="reveal flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-phase-deliver rounded-xl flex items-center justify-center text-white font-bold">3</div>
+        <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark">90-dagen plan</h2>
+      </div>
+      <p class="reveal reveal-delay-1 text-dark/50 mb-10">De eerste 3 maanden van fase 1, per twee weken concreet. Dit is wat er de dag na een MT-akkoord begint te gebeuren.</p>
+
+      <div class="reveal reveal-delay-2 space-y-4">
+        {negentigDagenPlan.map((p, idx) => (
+          <div class="bg-bg-elevated rounded-2xl p-6 border border-white/10 shadow-sm">
+            <div class="flex items-baseline gap-4 mb-3">
+              <span class="bg-phase-deliver text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest">{p.week}</span>
+              <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg">{p.blok}</h3>
+            </div>
+            <ul class="space-y-1.5 text-dark/70 text-sm leading-relaxed list-disc pl-5">
+              {p.acties.map((a) => <li>{a}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div class="reveal mt-8 bg-phase-deliver/5 border-l-4 border-phase-deliver rounded-2xl p-6">
+        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">Wat ná dag 90?</p>
+        <p class="text-dark/70 text-sm leading-relaxed">
+          Bij een go-besluit op dag 90 start fase 2: techpartner-contract tekenen, MVP-ontwikkeling starten, 25 pilot-stations produceren, eIDAS AES-certificering opstarten. Bij een no-go wordt de BV rustig afgewikkeld voor een kostenpost van ongeveer €20k (afsluiting + communicatie). Dat maakt fase 1 een relatief goedkoop filter: €100k om te beslissen of €500k-€1 mln in fase 2 gerechtvaardigd is.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Teamplan -->
+  <section id="team" class="bg-warm-gray py-20 scroll-mt-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="reveal flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-phase-deliver rounded-xl flex items-center justify-center text-white font-bold">4</div>
+        <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark">Teamplan per fase</h2>
+      </div>
+      <p class="reveal reveal-delay-1 text-dark/50 mb-10">Wie doet wat, wanneer. McKinsey-rollen uit ons eigen team (<a href={url('/deliver/')} class="underline">zie Deliver-index</a>) vormen het startpunt; gaten zijn expliciet gemarkeerd.</p>
+
+      <div class="reveal reveal-delay-2 grid md:grid-cols-3 gap-4">
+        {teamplan.map((t) => (
+          <div class="bg-bg-elevated rounded-2xl p-6 border border-white/10 shadow-sm">
+            <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-1">{t.fase}</p>
+            <p class="font-[family-name:var(--font-display)] text-3xl font-bold text-phase-deliver mb-4">{t.fte}</p>
+            <ul class="space-y-2 text-dark/70 text-sm leading-relaxed list-disc pl-5">
+              {t.bezetting.map((b) => <li>{b}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Kostenpost -->
+  <section id="kosten" class="bg-cream py-20 scroll-mt-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="reveal flex items-center gap-3 mb-6">
+        <div class="w-10 h-10 bg-phase-deliver rounded-xl flex items-center justify-center text-white font-bold">5</div>
+        <h2 class="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark">Kostenstructuur per post</h2>
+      </div>
+      <p class="reveal reveal-delay-1 text-dark/50 mb-10">Concreter dan "€500k-€1 mln". Per post per fase, zodat duidelijk is waarop gestuurd kan worden.</p>
+
+      <div class="reveal reveal-delay-2 overflow-x-auto">
+        <table class="w-full text-sm bg-bg-elevated rounded-xl overflow-hidden border border-white/10">
+          <thead>
+            <tr class="bg-phase-deliver/10 text-dark/70 text-xs uppercase tracking-wide">
+              <th class="text-left py-3 px-4">Post</th>
+              <th class="text-right py-3 px-4">Fase 1 (0-6 mnd)</th>
+              <th class="text-right py-3 px-4">Fase 2 (6-18 mnd)</th>
+              <th class="text-left py-3 px-4">Toelichting</th>
+            </tr>
+          </thead>
+          <tbody class="text-dark/70">
+            {kostenposten.map((k, i) => (
+              <tr class={`border-t border-white/5 ${k.post.startsWith('Totaal') ? 'bg-phase-deliver/5 font-bold' : ''}`}>
+                <td class="py-3 px-4 font-medium">{k.post}</td>
+                <td class="text-right py-3 px-4">{k.fase1}</td>
+                <td class="text-right py-3 px-4">{k.fase2}</td>
+                <td class="py-3 px-4 text-xs text-dark/50">{k.detail}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="reveal mt-8 bg-bg-elevated rounded-2xl p-6 border border-white/10 shadow-sm">
+        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-3">Aannames die de cijfers dragen</p>
+        <ul class="text-dark/70 text-sm leading-relaxed space-y-2 list-disc pl-5">
+          <li><strong>Team-kosten fase 1 zijn laag</strong> omdat Jr/Lianne/Anke worden gedetacheerd vanuit Aurora, niet extern gerekruteerd. Dat is de ambidexteriteits-keuze: Aurora betaalt de hunterbeweging, de spin-off betaalt de rest. Als fase 1 mislukt, kunnen betrokkenen terug naar Aurora.</li>
+          <li><strong>Techpartner-kosten zijn geen commitment</strong> in fase 1. We vragen offertes en doen referentiebezoeken. Pas bij go-besluit tekenen we.</li>
+          <li><strong>Hardware-kosten zijn bewust gekoppeld aan pilot-omvang</strong>, niet geschaald richting productie. Eerste 3 stations in fase 1 zijn bijna prototype-kwaliteit; productiekwaliteit pas in fase 2.</li>
+          <li><strong>eIDAS-certificering wordt uitgesteld</strong> naar fase 2 omdat QES-certificering €120k+ kost en minstens 9 maanden duurt. We starten met AES en verdienen daarmee al in notariaatkrediet-scenario's.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Koppeling naar PoV + roadmap -->
+  <section class="bg-phase-deliver/10 py-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="reveal bg-bg-elevated rounded-2xl p-8 border-2 border-phase-deliver shadow-md">
+        <p class="text-phase-deliver text-xs font-bold uppercase tracking-widest mb-3">Hoe dit ondernemingsplan zich verhoudt tot PoV en Roadmap</p>
+        <div class="grid md:grid-cols-3 gap-4 text-sm">
+          <div>
+            <h4 class="font-bold text-dark mb-1"><a href={url('/deliver/proof-of-value/')} class="underline hover:no-underline">Proof of Value</a></h4>
+            <p class="text-dark/60 text-xs leading-relaxed">Het wat en waarom. Concept, probleem, waarde, concurrentie. Strategische beslissing voor MT.</p>
+          </div>
+          <div>
+            <h4 class="font-bold text-dark mb-1">Ondernemingsplan (deze pagina)</h4>
+            <p class="text-dark/60 text-xs leading-relaxed">Het hoe. BMC, 90-dagen plan, team, kosten per post. Tactisch werkboek voor de eerste drie maanden.</p>
+          </div>
+          <div>
+            <h4 class="font-bold text-dark mb-1"><a href={url('/deliver/roadmap/')} class="underline hover:no-underline">Roadmap</a></h4>
+            <p class="text-dark/60 text-xs leading-relaxed">Het wanneer. 4-fasen-implementatie over 3 jaar, diffusie per sector, risico's en mitigatie.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navigatie -->
+  <section class="bg-bg-primary text-white py-16">
+    <div class="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <a href={url('/deliver/proof-of-value/')} class="reveal inline-flex items-center gap-2 text-white/50 hover:text-white font-bold transition-colors">
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Proof of Value
+      </a>
+      <div class="reveal reveal-delay-1 text-center">
+        <p class="text-white/40 text-sm mb-3">Door naar Roadmap</p>
+        <a href={url('/deliver/roadmap/')} class="inline-flex items-center gap-2 bg-phase-deliver text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform">
+          Implementatie-roadmap
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -13,7 +13,7 @@ const scenarios = [
     textColor: 'text-phase-refine',
     borderColor: 'border-phase-refine/30',
     description: 'Overheden reguleren actief: handschrift verplicht, strenge duurzaamheidseisen. Maar digitalisering vertraagt. Aurora\'s kernmarkt stabiel, weinig innovatiedruk.',
-    implication: 'Veilig op korte termijn, maar risico op zelfgenoegzaamheid als concurrenten wél innoveren.',
+    implication: 'Op korte termijn comfortabel. Het risico zit in zelfgenoegzaamheid als concurrenten wel blijven investeren.',
     icon: '&#127793;',
   },
   {
@@ -26,7 +26,7 @@ const scenarios = [
     textColor: 'text-phase-deliver',
     borderColor: 'border-phase-deliver/30',
     description: 'Digitalisering versnelt, maar overheden sturen bij: handschrift in curricula, subsidies voor fysieke leermiddelen, strenge duurzaamheidseisen. Hybride producten bloeien.',
-    implication: 'Grootste kans voor Aurora: combineer erfgoed met innovatie en profiteer van regelgeving.',
+    implication: 'Dit scenario is voor Aurora het meest kansrijk. Erfgoed en innovatie kunnen elkaar hier versterken, en regelgeving werkt in ons voordeel.',
     icon: '&#11088;',
   },
   {
@@ -38,8 +38,8 @@ const scenarios = [
     color: 'bg-phase-define',
     textColor: 'text-phase-define',
     borderColor: 'border-phase-define/30',
-    description: 'Geen actief overheidsbeleid, maar digitalisering vordert ook langzaam. Langzame krimp, geen urgentie, geen glamour. De "boiled frog".',
-    implication: 'Meest verraderlijke scenario: het lijkt veilig, maar is het niet.',
+    description: 'Geen actief overheidsbeleid, en digitalisering gaat langzaam. Langzame krimp van de markt, weinig urgentie, weinig prikkels om te bewegen.',
+    implication: 'Dit scenario is risicovol omdat het er veilig uitziet. Krimp voltrekt zich geleidelijk, waardoor urgentie pas laat gevoeld wordt.',
     icon: '&#128012;',
   },
   {
@@ -51,8 +51,8 @@ const scenarios = [
     color: 'bg-phase-discover',
     textColor: 'text-phase-discover',
     borderColor: 'border-phase-discover/30',
-    description: 'Volledige digitale adoptie zonder overheidsinterventie. Onderwijs volledig digitaal, AI genereert kunst. Handschrift wordt curiositeit.',
-    implication: 'Existentiële crisis: overleving alleen door radicale transformatie.',
+    description: 'Volledige digitale adoptie zonder overheidsinterventie. Onderwijs volledig digitaal, AI genereert kunst. Handschrift wordt een curiositeit.',
+    implication: 'In dit scenario is Aurora zoals het nu is overbodig. Alleen een radicale herpositionering houdt het merk relevant.',
     icon: '&#9889;',
   },
 ];
@@ -103,7 +103,7 @@ const earlyWarnings = [
 ];
 ---
 
-<BaseLayout title="Scenariobouwing — Discover">
+<BaseLayout title="Scenariobouwing · Discover">
   <!-- Hero -->
   <section class="bg-bg-primary text-white overflow-hidden relative">
     <div class="absolute top-0 right-0 w-80 h-80 bg-phase-discover/20 rounded-full blur-3xl"></div>
@@ -130,7 +130,19 @@ const earlyWarnings = [
   <!-- Assen uitleg -->
   <section class="bg-cream py-16">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-8 text-center">De twee onzekerheden</h2>
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-4 text-center">De twee onzekerheden</h2>
+
+      <!-- Waarom deze 2 assen? Methodische verantwoording -->
+      <div class="reveal reveal-delay-1 max-w-3xl mx-auto mb-10 bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
+        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-3">Waarom deze assen?</p>
+        <p class="text-dark/60 text-sm leading-relaxed mb-3">
+          Scenario-planning werkt alleen als je de twee meest <em>onzekere</em> en tegelijk meest <em>impactvolle</em> factoren kiest (<a href="https://hbr.org/2013/05/living-in-the-futures" target="_blank" rel="noopener" class="underline">Wilkinson &amp; Kupers, HBR 2013</a>). We hebben vier kandidaten overwogen op basis van onze <a href={url('/discover/trends/')} class="underline">IBSOTEEP- en Porter-analyse</a>: (1) tempo digitale adoptie, (2) overheidsregulering, (3) prijsdruk uit lage-lonenlanden, en (4) concurrentie vanuit premium-merken (Lamy, Faber-Castell).
+        </p>
+        <p class="text-dark/60 text-sm leading-relaxed">
+          We lieten (3) en (4) vallen omdat die grotendeels voorspelbaar zijn: prijsdruk neemt toe, premium-segment groeit (zie trendcijfers). Minder onzekerheid, dus minder scenario-waarde. (1) en (2) bleven over omdat beide richtingen realistisch zijn en allebei de strategische keuze voor Aurora fundamenteel veranderen. EU-regelgeving (ESPR, Digital Product Passport) en onderwijsbeleid kunnen twee kanten op, dat maakt regulering een echte as, geen constante.
+        </p>
+      </div>
+
       <div class="reveal reveal-delay-1 grid md:grid-cols-2 gap-6">
         <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
           <div class="flex items-center gap-3 mb-3">
@@ -167,7 +179,8 @@ const earlyWarnings = [
   <!-- 2x2 Matrix -->
   <section class="bg-warm-gray py-20">
     <div class="max-w-5xl mx-auto px-6">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-10 text-center">2x2 Scenariomatrix</h2>
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">2x2 Scenariomatrix</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10 max-w-2xl mx-auto">Wij denken dat scenario <strong class="text-phase-deliver">B (Gouden Kruispunt)</strong> op dit moment het meest waarschijnlijk is. Drie van de zes early warning signals zijn al geactiveerd. Onderbouwing onder de matrix.</p>
 
       <div class="reveal reveal-delay-1">
         <!-- X-axis label -->
@@ -188,11 +201,11 @@ const earlyWarnings = [
           <!-- Grid -->
           <div class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4">
           {scenarios.map((s) => (
-            <div class={`${s.color}/10 border-2 ${s.borderColor} rounded-2xl p-6 hover:scale-[1.02] transition-transform cursor-default`}>
+            <div class={`${s.color}/10 border-2 ${s.borderColor} rounded-2xl p-6 hover:scale-[1.02] transition-transform cursor-default ${s.id === 'b' ? 'ring-2 ring-phase-deliver/50' : ''}`}>
               <div class="flex items-center gap-3 mb-3">
                 <span class="text-2xl" set:html={s.icon}></span>
-                <div>
-                  <span class={`text-xs font-bold ${s.textColor} uppercase tracking-wider`}>Scenario {s.id.toUpperCase()}</span>
+                <div class="flex-1">
+                  <span class={`text-xs font-bold ${s.textColor} uppercase tracking-wider`}>Scenario {s.id.toUpperCase()}{s.id === 'b' ? ' · onze keuze' : ''}</span>
                   <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-xl">{s.name}</h3>
                 </div>
               </div>
@@ -206,6 +219,22 @@ const earlyWarnings = [
           ))}
           </div>
         </div>
+      </div>
+
+      <!-- Onderbouwing scenario B -->
+      <div class="reveal mt-10 bg-phase-deliver/10 border-l-4 border-phase-deliver rounded-2xl p-6">
+        <p class="text-phase-deliver text-xs font-bold uppercase tracking-widest mb-2">Waarom wij op scenario B zitten</p>
+        <p class="text-dark/70 text-sm leading-relaxed mb-3">
+          Scenario B plaatst ons in een wereld waar digitalisering snel gaat en de overheid actief bijstuurt. Drie argumenten waarom dit op dit moment waarschijnlijker is dan de drie andere scenario's:
+        </p>
+        <ul class="space-y-2 text-dark/70 text-sm leading-relaxed mb-3">
+          <li class="flex items-start gap-2"><span class="text-phase-deliver font-bold">1.</span> Zweden heeft in 2023 ruim $45 mln geinvesteerd in handschriftonderwijs en meerdere EU-landen volgen. Dat wijst op actief overheidsbeleid op de analoge kant.</li>
+          <li class="flex items-start gap-2"><span class="text-phase-deliver font-bold">2.</span> Tegelijk blijft de stylus-markt hard groeien (Apple Pencil circa 25 mln verkocht per jaar) en verdwijnt 30&percnt; van het illustratiewerk naar generatieve AI. Digitalisering vertraagt dus niet.</li>
+          <li class="flex items-start gap-2"><span class="text-phase-deliver font-bold">3.</span> EU-regelgeving zoals ESPR en Digital Product Passport dwingt producenten vanaf 2026-2027 tot hogere duurzaamheidsstandaarden.</li>
+        </ul>
+        <p class="text-dark/70 text-sm leading-relaxed">
+          Drie van de zes early warning signals hieronder zijn al geactiveerd. Als dat aantal naar vijf of zes stijgt, is B bevestigd. Als handschriftbeleid wegebt en Apple's stylus-dominantie nog verder doorzet, glijdt het beeld richting D (Digitale Dominantie).
+        </p>
       </div>
     </div>
   </section>
@@ -226,22 +255,38 @@ const earlyWarnings = [
   <!-- Urgentie -->
   <section class="bg-bg-primary text-white py-20">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold mb-3 text-center">Waarom NU?</h2>
-      <p class="reveal reveal-delay-1 text-white/50 text-center mb-10">Vijf redenen waarom Aurora niet kan wachten</p>
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold mb-3 text-center">Urgentie en impact voor Aurora</h2>
+      <p class="reveal reveal-delay-1 text-white/50 text-center mb-10 max-w-2xl mx-auto">Een samenvatting voor de directie: hoe groot is het, hoe snel beweegt het, en wat betekent het voor Aurora concreet?</p>
 
-      <div class="reveal reveal-delay-2 grid md:grid-cols-5 gap-3">
-        {[
-          { num: '1', text: 'Markt krimpt structureel: 20% verlies in 10 jaar' },
-          { num: '2', text: 'Onderwijs kantelt: 66% schrijft primair digitaal' },
-          { num: '3', text: 'Concurrenten bewegen: wie eerst claimt, wint' },
-          { num: '4', text: 'AI verandert creatie: in maanden, niet jaren' },
-          { num: '5', text: 'Merk heeft nog waarde, over 5 jaar misschien niet' },
-        ].map((item) => (
-          <div class="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
-            <span class="font-[family-name:var(--font-display)] text-3xl font-bold text-phase-discover/50">{item.num}</span>
-            <p class="text-white/60 text-xs mt-2 leading-relaxed">{item.text}</p>
-          </div>
-        ))}
+      <!-- Kerncijfers op een plek -->
+      <div class="reveal reveal-delay-2 grid md:grid-cols-4 gap-3 mb-8">
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
+          <p class="font-[family-name:var(--font-display)] text-3xl font-bold text-phase-discover/70">-20&percnt;</p>
+          <p class="text-white/60 text-xs mt-1 leading-relaxed">Krimp schrijfwarenmarkt in 10 jaar</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
+          <p class="font-[family-name:var(--font-display)] text-3xl font-bold text-phase-discover/70">66&percnt;</p>
+          <p class="text-white/60 text-xs mt-1 leading-relaxed">EU-leerlingen schrijft primair digitaal</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
+          <p class="font-[family-name:var(--font-display)] text-3xl font-bold text-phase-deliver/70">+4,6&percnt;</p>
+          <p class="text-white/60 text-xs mt-1 leading-relaxed">Groei premium-segment per jaar</p>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-xl p-4 text-center">
+          <p class="font-[family-name:var(--font-display)] text-3xl font-bold text-phase-refine/70">24&percnt;</p>
+          <p class="text-white/60 text-xs mt-1 leading-relaxed">Aurora-omzet in onderwijs (-3 tot -5&percnt;/jaar). Creatief (31&percnt;) groeit nog, op termijn kwetsbaar.</p>
+        </div>
+      </div>
+
+      <!-- Concreet wat het voor Aurora betekent -->
+      <div class="reveal reveal-delay-3 bg-white/5 border border-white/10 rounded-2xl p-6">
+        <p class="text-white/40 text-xs font-bold uppercase tracking-widest mb-3">Wat dit voor Aurora betekent op termijn</p>
+        <ul class="space-y-2 text-white/70 text-sm leading-relaxed">
+          <li><strong class="text-white">Komende 2 jaar:</strong> omzet in onderwijskanaal (24&percnt; van Aurora) blijft onder druk door verdere digitalisering. Zonder ingreep loopt dit segment met 3 tot 5&percnt; per jaar terug.</li>
+          <li><strong class="text-white">Komende 3 tot 5 jaar:</strong> EU-duurzaamheidsregels (ESPR, Digital Product Passport) dwingen tot herstructurering van de productieketen. Producenten die nu al investeren, hebben later kostenvoordeel.</li>
+          <li><strong class="text-white">Komende 5 jaar:</strong> het creatieve segment (31&percnt; van Aurora) verschuift verder naar digitaal. Alleen de professionele illustratie-markt en een premium-segment blijven stabiel.</li>
+          <li><strong class="text-white">Strategische impact:</strong> als Aurora de komende 18 maanden geen positie kiest in aangrenzende markten of in het premium-segment, is de merkkracht binnen 5 tot 7 jaar onvoldoende om als acquisitie-kandidaat aantrekkelijk te blijven voor private equity.</li>
+        </ul>
       </div>
     </div>
   </section>

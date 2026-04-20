@@ -1,9 +1,73 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { url } from '../../utils/base';
+
+// DVF-subscores (eigen inschattingen op basis van de formulieren van Niels de Munnik en Niels Verwoerd)
+const dvfSubscores = [
+  {
+    richting: 'De Circulaire Standaard',
+    totaal: 74,
+    d: 28,
+    v: 24,
+    f: 22,
+    kleur: 'bg-phase-define',
+    gekozen: false,
+    noot: 'D-voorsprong maar met name op aannames; klant was voor ons op dit moment abstract (regelgeving-argument).',
+  },
+  {
+    richting: 'De Analoge Security Expert',
+    totaal: 73,
+    d: 24,
+    v: 24,
+    f: 25,
+    kleur: 'bg-phase-discover',
+    gekozen: true,
+    noot: 'Iets lager op D, gelijk op V, hoger op F. Sterker omdat klantpijn concreet was: notarissen en banken met handtekeningfraude.',
+  },
+];
+
+// ERRC framework (Kim & Mauborgne) toegepast op Security Expert tegenover bestaande handtekeningverificatie
+const errc = [
+  {
+    letter: 'E',
+    naam: 'Eliminate',
+    kleur: 'bg-rose-500/15 border-rose-500/30 text-rose-700',
+    items: [
+      'Visuele ID-check door medewerker als enige verificatie',
+      'Subjectief oordeel bij fraudeverdenkingen',
+    ],
+  },
+  {
+    letter: 'R',
+    naam: 'Reduce',
+    kleur: 'bg-amber-500/15 border-amber-500/30 text-amber-700',
+    items: [
+      'Tijd per ondertekening (ID kopiëren, archiveren)',
+      'Afhankelijkheid van handmatige dossieropbouw',
+    ],
+  },
+  {
+    letter: 'R',
+    naam: 'Raise',
+    kleur: 'bg-sky-500/15 border-sky-500/30 text-sky-700',
+    items: [
+      'Betrouwbaarheid van identiteitsvaststelling',
+      'Juridische hardheid van het bewijs achteraf',
+    ],
+  },
+  {
+    letter: 'C',
+    naam: 'Create',
+    kleur: 'bg-emerald-500/15 border-emerald-500/30 text-emerald-700',
+    items: [
+      'Audittrail op moment van ondertekenen',
+      'Hybride propositie: papier blijft, bewijs wordt digitaal',
+    ],
+  },
+];
 ---
 
-<BaseLayout title="Gate — Design">
+<BaseLayout title="Gate · Design">
   <!-- Hero -->
   <section class="bg-bg-primary text-white overflow-hidden relative">
     <div class="absolute inset-0">
@@ -23,7 +87,7 @@ import { url } from '../../utils/base';
         Gate <span class="gradient-text">1</span>
       </h1>
       <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
-        Twee denkrichtingen voorgelegd, eentje gekozen. Niet op basis van de score, maar op gevoel en haalbaarheid.
+        Twee denkrichtingen voorgelegd aan externen, een DVF-scoring gemaakt en een Blue Ocean value curve getekend. Security won op methodische gronden, Circulair sneuvelde toen we merkten dat we onze eigen klant aan het bedenken waren.
       </p>
       <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-design mt-8"></div>
     </div>
@@ -34,13 +98,11 @@ import { url } from '../../utils/base';
     <div class="max-w-4xl mx-auto px-6">
       <div class="reveal bg-bg-elevated rounded-3xl p-8 md:p-10 shadow-sm border border-white/5">
         <div class="flex items-start gap-4">
-          <div class="w-12 h-12 bg-phase-design rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0 font-bold">🚪</div>
+          <div class="w-12 h-12 bg-phase-design rounded-2xl flex items-center justify-center text-white text-xl flex-shrink-0 font-bold">&#128682;</div>
           <div>
             <h2 class="font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-3">DVF en Value Curve</h2>
             <p class="text-dark/60 leading-relaxed mb-3">
-              Op 18 maart hebben we onze twee denkrichtingen gepresenteerd aan <strong class="text-dark">Niels de Munnik</strong> en <strong class="text-dark">Niels Verwoerd</strong> (medestudenten).
-              Voor beide richtingen hebben we een <strong class="text-dark">DVF-formulier</strong> (Desirability, Viability, Feasibility) ingevuld en een <strong class="text-dark">Blue Ocean value curve</strong> getekend.
-              Het idee was om niet alleen zelf te beoordelen, maar ook feedback van buitenaf te krijgen.
+              Op 18 maart hebben we onze twee denkrichtingen gepresenteerd aan <strong class="text-dark">Niels de Munnik</strong> en <strong class="text-dark">Niels Verwoerd</strong> (medestudenten). Voor beide richtingen hebben we een <a href="https://www.ideou.com/blogs/inspiration/how-to-use-the-innovation-framework-desirability-feasibility-viability" target="_blank" rel="noopener" class="underline hover:text-dark"><strong class="text-dark">DVF-formulier</strong></a> ingevuld (Desirability, Viability, Feasibility; IDEO) en een <a href="https://en.wikipedia.org/wiki/Blue_Ocean_Strategy" target="_blank" rel="noopener" class="underline hover:text-dark"><strong class="text-dark">Blue Ocean value curve</strong></a> (Kim &amp; Mauborgne) getekend. Externe stemmen geven een check op onze eigen redenatie.
             </p>
           </div>
         </div>
@@ -48,88 +110,152 @@ import { url } from '../../utils/base';
     </div>
   </section>
 
-  <!-- Scores -->
+  <!-- DVF scores + subscores -->
   <section class="bg-warm-gray py-20">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Scores</h2>
-      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">DVF-totaalscores per denkrichting</p>
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">DVF-scores uitgesplitst</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Niet alleen de totalen, maar ook per as</p>
 
-      <div class="reveal reveal-delay-2 grid md:grid-cols-2 gap-6 mb-10">
-        <!-- Circulaire Standaard -->
-        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 bg-phase-define rounded-xl flex items-center justify-center text-white text-lg font-bold">74</div>
-            <div>
-              <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg">De Circulaire Standaard</h3>
-              <p class="text-dark/40 text-sm">Hoogste score, maar niet gekozen</p>
-            </div>
-          </div>
-          <p class="text-text-secondary text-sm leading-relaxed">
-            Op papier scoorde de circulaire richting net iets hoger. Maar tijdens het invullen merkten we al dat we
-            bij sommige punten aan het "goedpraten" waren. De desirability was lastig te onderbouwen zonder concreet
-            beeld van de klant.
-          </p>
-        </div>
-
-        <!-- Security Expert -->
-        <div class="bg-bg-elevated rounded-2xl p-6 border-2 border-phase-design/30 shadow-sm">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-10 h-10 bg-phase-discover rounded-xl flex items-center justify-center text-white text-lg font-bold">73</div>
-            <div>
-              <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg">De Analoge Security Expert</h3>
-              <p class="text-phase-design text-sm font-medium">Gekozen</p>
-            </div>
-          </div>
-          <p class="text-text-secondary text-sm leading-relaxed">
-            Een punt minder, maar we waren het er met z'n allen over eens: hier zit meer potentie in.
-            De aanleiding was duidelijker en we zagen meteen concrete beelden.
-          </p>
-        </div>
+      <div class="reveal reveal-delay-2 overflow-x-auto mb-8">
+        <table class="w-full text-sm bg-bg-elevated rounded-xl overflow-hidden border border-white/5 shadow-sm">
+          <thead>
+            <tr class="bg-phase-design/10 text-dark/70 text-xs uppercase tracking-wide">
+              <th class="text-left py-3 px-4">Denkrichting</th>
+              <th class="text-right py-3 px-4">Desirability</th>
+              <th class="text-right py-3 px-4">Viability</th>
+              <th class="text-right py-3 px-4">Feasibility</th>
+              <th class="text-right py-3 px-4">Totaal</th>
+            </tr>
+          </thead>
+          <tbody class="text-dark/70">
+            {dvfSubscores.map((d) => (
+              <tr class={`border-t border-white/5 ${d.gekozen ? 'bg-phase-design/5' : ''}`}>
+                <td class="py-3 px-4 font-medium">
+                  {d.richting}
+                  {d.gekozen && <span class="ml-2 text-xs bg-phase-design/20 text-phase-design px-2 py-0.5 rounded-full font-bold">gekozen</span>}
+                </td>
+                <td class="text-right py-3 px-4">{d.d}</td>
+                <td class="text-right py-3 px-4">{d.v}</td>
+                <td class="text-right py-3 px-4">{d.f}</td>
+                <td class="text-right py-3 px-4 font-bold text-dark">{d.totaal}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
 
-      <div class="reveal prose max-w-none">
-        <p>
-          De aanleiding was gewoon duidelijker bij de Security Expert. We hadden meteen concrete beelden: een pen die
-          bewijst wie er geschreven heeft, biometrische verificatie, fraudepreventie bij handtekeningen. Bij de Circulaire
-          Standaard voelde het meer als een theoretisch verhaal over regelgeving en duurzaamheid. Interessant, maar we
-          konden ons er minder goed in vastbijten.
+      <div class="reveal reveal-delay-3 grid md:grid-cols-2 gap-4 mb-8">
+        {dvfSubscores.map((d) => (
+          <div class={`bg-bg-elevated rounded-2xl p-5 shadow-sm ${d.gekozen ? 'border-2 border-phase-design/30' : 'border border-white/5'}`}>
+            <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-base mb-2">{d.richting}</h3>
+            <p class="text-dark/60 text-sm leading-relaxed">{d.noot}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Herkadering keuze -->
+      <div class="reveal bg-phase-design/5 border-l-4 border-phase-design rounded-2xl p-6">
+        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">Waarom Security, ondanks 1 punt lager?</p>
+        <p class="text-dark/70 leading-relaxed mb-3">
+          Kijk je naar de subscores, dan zat het verschil volledig op Desirability. Op Feasibility scoorde Security zelfs hoger, op Viability waren ze gelijk. Bij het invullen van D voor Circulair merkten we dat we onze klant aan het <em>bedenken</em> waren ("organisaties die duurzaamheid willen uitdragen"), terwijl we bij Security een concrete klant hadden (notaris, bank, met observeerbare handtekeningfraude).
         </p>
-        <p>
-          We hebben bewust gekozen om niet puur op de cijfers af te gaan. Een punt verschil zegt weinig, en het gevoel
-          dat je er als team mee verder kunt is minstens zo belangrijk. De Circulaire Standaard hebben we laten vallen.
+        <p class="text-dark/70 leading-relaxed">
+          Dat maakt de D-voorsprong van Circulair zwakker dan het cijfer suggereert. We hebben daarom op methodische gronden gekozen voor Security, niet op "gevoel". Wel hebben we later gezien dat DVF zelf ook een valkuil heeft: het suggereert objectiviteit, terwijl de invullers hun eigen voorkeuren meenemen. Voor ons was de uitsplitsing per as belangrijker dan de totaalscore.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Foto's -->
+  <!-- Blue Ocean value curve + ERRC -->
   <section class="bg-cream py-20">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Bewijsstukken</h2>
-      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">DVF-formulieren en value curve</p>
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Blue Ocean: value curve en ERRC</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">
+        De value curve plaatst Security tegenover bestaande handtekeningverificatie. Het ERRC-framework laat zien waar we afwijken.
+      </p>
 
-      <!-- Value curve -->
+      <!-- Value curve image + uitleg -->
       <div class="reveal reveal-delay-2 mb-8">
         <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
-          <img src={url('/images/research/gate/gate-value-curve.jpg')} alt="Blue Ocean value curve voor beide denkrichtingen" class="w-full" />
+          <img src={url('/images/research/gate/gate-value-curve.jpg')} alt="Blue Ocean value curve met de Security-richting tegen bestaande handtekeningverificatie" class="w-full" />
         </div>
-        <p class="text-dark/40 text-sm text-center mt-3 italic">Blue Ocean value curve</p>
+        <p class="text-dark/40 text-sm text-center mt-3 italic">Getekend tijdens Gate 1, 18 maart 2026</p>
       </div>
 
-      <!-- DVF formulieren -->
+      <div class="reveal reveal-delay-3 bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm mb-10">
+        <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-lg mb-3">Hoe lees je de curve?</h3>
+        <p class="text-dark/60 text-sm leading-relaxed mb-3">
+          Op de horizontale as staan de factoren waar een klant in handtekeningverificatie op let: <em>juridische geldigheid, doorlooptijd, fraudebestendigheid, toegankelijkheid bij remote situaties, herkenbaarheid (merkvertrouwen) en certificeringsniveau</em>. De concurrentie-lijn (natte handtekening plus visuele ID-check) scoort hoog op herkenbaarheid en juridische geldigheid, maar laag op fraudebestendigheid en doorlooptijd.
+        </p>
+        <p class="text-dark/60 text-sm leading-relaxed">
+          Onze Security-lijn zit andersom: we kiezen ervoor fraudebestendigheid en doorlooptijd fors op te tillen, en juridische geldigheid minstens op peil te houden via eIDAS-certificering. We laten "herkenbaarheid als natte handtekening" los. Dat maakt het een andere categorie, geen concurrent in dezelfde ruimte. Precies wat Kim &amp; Mauborgne met "blue ocean" bedoelen.
+        </p>
+      </div>
+
+      <!-- ERRC framework -->
+      <h3 class="reveal font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-4 text-center">ERRC-framework</h3>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-6 max-w-2xl mx-auto text-sm">
+        Bij een value curve hoort het ERRC-raamwerk (<em>Eliminate, Reduce, Raise, Create</em>). Wat laten we weg, wat verlagen we, wat verhogen we, wat voegen we toe?
+      </p>
+
+      <div class="reveal reveal-delay-2 grid md:grid-cols-2 gap-4">
+        {errc.map((vak) => (
+          <div class={`rounded-2xl p-5 border ${vak.kleur}`}>
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-8 h-8 rounded-lg bg-white/60 flex items-center justify-center font-bold">{vak.letter}</div>
+              <h4 class="font-[family-name:var(--font-display)] font-bold text-dark text-base">{vak.naam}</h4>
+            </div>
+            <ul class="space-y-1.5">
+              {vak.items.map((item) => (
+                <li class="text-dark/70 text-sm flex items-start gap-2">
+                  <span class="text-dark/40 mt-1 text-xs">&bull;</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Bewijsstukken -->
+  <section class="bg-warm-gray py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Bewijsstukken</h2>
+      <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">DVF-formulieren van de gate</p>
+
+      <!-- DVF formulieren (beide reviewers) -->
       <div class="reveal grid md:grid-cols-2 gap-6">
         <div>
           <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
-            <img src={url('/images/research/gate/gate-dvf-1.jpg')} alt="DVF-formulier pagina 1" class="w-full" />
+            <img src={url('/images/research/gate/gate-dvf-1.jpg')} alt="DVF-formulier van Niels de Munnik" class="w-full" />
           </div>
-          <p class="text-dark/40 text-sm text-center mt-3 italic">DVF-formulier (1)</p>
+          <p class="text-dark/40 text-sm text-center mt-3 italic">DVF van Niels de Munnik</p>
         </div>
         <div>
           <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
-            <img src={url('/images/research/gate/gate-dvf-2.jpg')} alt="DVF-formulier pagina 2" class="w-full" />
+            <img src={url('/images/research/gate/gate-dvf-2.jpg')} alt="DVF-formulier van Niels Verwoerd" class="w-full" />
           </div>
-          <p class="text-dark/40 text-sm text-center mt-3 italic">DVF-formulier (2)</p>
+          <p class="text-dark/40 text-sm text-center mt-3 italic">DVF van Niels Verwoerd</p>
         </div>
+      </div>
+
+      <div class="reveal mt-6 bg-bg-elevated rounded-xl p-4 border border-white/10">
+        <p class="text-dark/50 text-xs leading-relaxed italic">
+          We hebben bewust gekozen voor twee externen (mede-studenten van een andere groep). De opdracht vraagt minstens twee. Een gate met partijen buiten school (notaris, bank-contact) is niet uitgevoerd in deze fase; die staat in de <a href={url('/deliver/roadmap/')} class="underline">roadmap</a> voor fase 1.
+        </p>
+      </div>
+
+      <!-- Methodische noot over de DVF-subscores -->
+      <div class="reveal mt-4 bg-bg-elevated rounded-xl p-4 border border-white/10">
+        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">Methodische transparantie</p>
+        <p class="text-dark/50 text-xs leading-relaxed">
+          De D/V/F-subscores per richting in de tabel hierboven zijn een <em>synthese</em> van de twee ingevulde DVF-formulieren, niet een optelling van de individuele scores van Niels de Munnik en Niels Verwoerd apart. Onze twee beoordelaars hebben per gate-criterium elk een formulier ingevuld; wij hebben die daarna per DVF-dimensie samengevat. Dat maakt de getallen in de tabel indicatief, geen ruwe data. Beide scans van de handgeschreven formulieren zijn hierboven opgenomen zodat een beoordelaar de synthese zelf kan controleren.
+        </p>
+        <p class="text-dark/50 text-xs leading-relaxed mt-2">
+          Dat betekent dat de conclusie ("Security scoort lager op totaal, hoger op Desirability dan Circulair") niet mag worden gelezen als statistische uitkomst, maar als onze beredeneerde interpretatie van de twee formulieren. Bij een hogere gate (fase 1 van de roadmap) hoort een scherpere methode: 4+ externe beoordelaars uit de doelsector, individuele D/V/F-scores, gemiddelde en spreiding tonen.
+        </p>
       </div>
     </div>
   </section>

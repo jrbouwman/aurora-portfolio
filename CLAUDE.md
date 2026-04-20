@@ -195,8 +195,25 @@ media/                                # Originele bronbestanden (niet op de webs
     - Inhoud ingevuld voor Aurora + techpartner (aanbiederzijde) en notaris/bank/gemeente (klantzijde)
     - Fit-samenvatting in accent-blok eronder
     - Standalone versie: `public/images/research/prototype/vpc-aurora.svg`
+### Opdracht 1d Deliver - Status (IN PROGRESS)
+- **Gate 2 (15 april):** DVF-formulieren van 4 medestudenten, allemaal GO
+  - Customer value hoogst (gem. 4.5/5), kerncompetenties laagst (gem. 1.8/5)
+  - Handgeschreven feedback: "startup, nieuwe BV in deze richting", "hoelang is dit veilig?", "waarom nog handtekening als verificatie/id ook persoonlijk is"
+  - Foto's: `public/images/research/gate2/dvf-formulier-{1-4}.jpeg`, `dvf-feedback-{1-5}.jpeg`
+- **Docent feedback:** voor innovatie die zo losstaand is van huidige werkprocessen, is aparte startup logisch
+  - Sluit aan bij ambidexteriteit (O'Reilly & Tushman, 2013): exploiteren vs exploreren
+- **Deliver-pagina's gebouwd (19 april):**
+  - `/deliver/` — index met Gate 2 feedback, DVF-scores tabel, theorie
+  - `/deliver/proof-of-value/` — challenge, concept, fysieke vormgeving, waardepropositie per stakeholder, DVF-beoordeling, financieel model
+  - `/deliver/roadmap/` — startup-argumentatie (ambidexteriteit), 4-fasen implementatieplan, diffusie-strategie per sector (Rogers), 5 adoptiefactoren, risico's en mitigatie
+- **Les 8 materiaal geconverteerd:**
+  - `docs/lessen/les8-waarde-leveren.md` — diffusie, adoptie (Rogers), DVF, waardecreatie, marketing innovaties
+  - `docs/opdrachten/opdracht-1d-proof-of-value.md` — aangevuld met PoV-eisen, suggested outline, waardecreatie-vragen
+- **Pivot-presentatie:** downloadlink op pivot-pagina toegevoegd
+- **VPC op pivot-pagina:** tekst vervangen door versie uit Jr's PowerPoint (slide 5)
+- **Procesflow-uitgebreid.svg gefixed:** goedkeuring-label, Deactivatie-eindpunt, error zone
+
 - **Nog te doen:**
-  - PoV/PoC uitwerking (opdracht 1d, 30% van cijfer)
   - Onderzoeksplan empathise (1 A4, ontbreekt)
   - Interviews verrijken (Anna/Famke te mager)
   - 90 ideeen niet gehaald (32), verantwoorden of aanvullen
@@ -206,6 +223,21 @@ media/                                # Originele bronbestanden (niet op de webs
   - Opdracht 2a (innovatieadvies, video+PPT) en 2b (rolontwikkeling, video) komen later
   - Structuurdocument (max 4 pag) ontbreekt
   - GenAI verantwoordingsformulier bijvoegen
+
+### Stand per 19 april 2026
+- **PoV volgens les-8-template** (`proof-of-value.astro`): 10 secties met table of contents. Introductie met Aurora-context en strategische driver, huidige situatie met meetbare problemen (visuele ID-check, handtekening-bewijs, dossiertijd) en fraudecontext Betaalvereniging NL, oplossing met 3-stappen-flow, prototype-samenvatting uit PELV 1+2 met N=6 testresultaten, status-nu-blok (6 componenten), waardepropositie met cijfers per stakeholder (notaris circa €20k/jaar tijdwinst-aanname, bank: fraudecontext, verzekeraar: archief), concurrentie-matrix (DocuSign/Signicat/itsme/iDIN/PKIsigning), DVF herleidbaar naar Gate 2, financieel model met marktomvang NL-tabel + investeringsbehoefte €660k-€1,3 mln + break-even-schatting, roadmap-samenvatting met go/no-go, conclusie met concrete CTA (3 besluiten gevraagd aan MT) en AVG-noot.
+- **Roadmap** (`roadmap.astro`): ambidexteriteit met drie varianten (structureel / contextueel / sequentieel) expliciet afgewogen, per fase randvoorwaarden + go/no-go-criteria + budget, strategische sectorvolgorde (notaris → bank → verzekeraar) op basis van urgentie + bereikbaarheid (niet als Rogers-adopter-categorieen), Rogers' 5 adoptiefactoren realistischer ingeschat (compatibiliteit laag-gemiddeld).
+- **PELV** (`prototyping.astro`): PELV-labels als `P · Plan` etc. Testresultaten iteratie 2: N=6 medestudenten, scores per vraag, 3 letterlijke citaten ("waarom niet DigiD?", "de pen doet niks"), verbeterloop 1→2 expliciet, 2 presentabele concepten benoemd (A gekozen, B afgevallen met reden), externe gate als gat benoemd, methodologische beperking (perceptie-test, geen technische veiligheid).
+- **Huizingh-mapping** (`innovatieradar.astro`): officiele verdeling 4+4+2+2 (Klanten onder Product). 4P-kleuren als 4 tinten van de Define-kleur zodat ze als cluster ogen. Reflectie-alinea "Wat werkte wel en niet aan de radar".
+- **Design gate** (`design/gate.astro`): DVF-subscores tabel per as (Circulair 28/24/22=74, Security 24/24/25=73), ERRC-framework (4 blokjes), value-curve-uitleg met concrete as-factoren en concurrentie, Security-keuze methodisch verantwoord (D-voorsprong Circulair op aannames, F-voorsprong Security op concrete klantpijn), reflectie op DVF als instrument.
+- **Concept collection** (`concept-collection.astro`): 48 beelden uit `public/images/moodboard/` inline in responsive grid met hover-tag en caption. Vier kern-vragen uit lesmateriaal beantwoord (hoe al geprobeerd, waar lijkt op, wie is expert, welke verbanden). Kiem voor pivot expliciet gemarkeerd.
+- **Convergentie** (`convergentie.astro`): PMI-fotobewijs (sessie3-radar-2.jpeg). HZWK's per kamer <15 woorden zonder oplossing in de vraag. Bridge van 3 HZWK-kamers naar 2 denkrichtingen als expliciete mini-beslismatrix.
+- **Denkrichtingen** (`denkrichtingen.astro`): breadcrumb "Design" → "Define". "Impliciet PMI toegepast" vervangen door "kleurcode vooraf afgesproken". Challenge-HZWK's ingekort (van 27/21 woorden naar 13/11).
+- **Discover-index** (`discover/index.astro`): Aurora-strategie-analyse als eigen blok (portfolio, kanalen, strategische beweging), tijdsbesteding immersive research vermeld (ca. 2u45min over 2 sessies), methode-reflectie per theorie (IBSOTEEP vs DESTEP, Porter + Christensen, scenariomatrix, immersive research).
+- **Scenario** (`scenario.astro`): scenario B expliciet gemarkeerd met ring-highlight en "onze keuze" label, "Waarom wij op scenario B zitten" blok met 3 onderbouwingen. "Waarom NU?" vervangen door kerncijfers-blok (-20% krimp, 66% digitaal, +4,6% premium, 55% Aurora-omzet krimp-segment) + concrete impact-per-termijn voor Aurora.
+- **Kritische theorie-reflectie** op alle 5 fase-indexen: "Wat deze methoden wel en niet opleverden". Les-theorieen kritisch beoordeeld, geen nieuwe theorieen toegevoegd.
+- **AI-toon**: em-dashes in titles/H2/alt-text/PELV-labels vervangen (→ `:` of `·`). "Niet X, maar Y"-taglines weg, "als geen ander" weg, "paradigmashift!" weg, "waterdicht" vervangen, scenario-implications herschreven zonder pitch-deck-toon, Porter key insight afgezwakt naar feitelijke conclusie.
+- **Bronnen klikbaar**: Huizingh, De Bono PMI, DVF/IDEO, Treffinger, O'Reilly & Tushman, Rogers, Blue Ocean, Betaalvereniging, KNB, eIDAS, DocuSign/Signicat/itsme/iDIN/PKIsigning, Logius, ACM, HBR.
 
 ### McKinsey Teamscores
 - Jr: Generating(4), Pioneering(4), Tabulating(4)
@@ -240,8 +272,10 @@ media/                                # Originele bronbestanden (niet op de webs
 - `/refine/prototyping/` — PELV 1 (brainstorm, schetsen, testplannen) + PELV 2 (rapid prototype, vragenlijst), expliciet P-E-L-V labels
 - `/refine/pivot/` — herframe pen→digitaal, procesflow SVG, vergelijking oud/nieuw
 
-**Deliver (Fase 5) — placeholder:**
-- `/deliver/` — nog leeg, wacht op les 7+
+**Deliver (Fase 5) — 2 bewijsstukken:**
+- `/deliver/` — overzicht, Gate 2 DVF-feedback (scores + foto's), theorie (DVF, diffusie, ambidexteriteit, waardecreatie)
+- `/deliver/proof-of-value/` — challenge, concept met fysieke vormgeving, procesflow, waardepropositie per stakeholder, DVF-beoordeling, financieel model
+- `/deliver/roadmap/` — startup-argumentatie (ambidexteriteit), 4-fasen implementatieplan, diffusie per sector (Rogers), 5 adoptiefactoren, risico's en mitigatie
 
 **Overig:**
 - `/aanleiding/` — geschiedenis schrijfwaren + tijdlijn

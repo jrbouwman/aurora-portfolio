@@ -19,7 +19,7 @@ const denkrichtingen = [
       { naam: 'Positionering als merk', ideeën: ['Aurora = vertrouwen, 125+ jaar heritage', 'De analoge security expert (merkbelofte)', 'Relevant in juridisch, notarieel en financieel'] },
       { naam: 'Adaptief ontwerp', ideeën: ['Pen die vormt naar de hand', 'Links-/rechtshandige specialisatie', 'Premium materialen passend bij professionele context'] },
     ],
-    challenge: 'Hoe zouden we een pen kunnen ontwikkelen die via biometrie bewijst wie er geschreven heeft, zodat een handtekening op papier net zo veilig wordt als een digitale?',
+    challenge: 'Hoe zouden we een handtekening op papier kunnen koppelen aan een unieke, verifieerbare identiteit?',
     reis: [
       { fase: 'Trends', kleur: 'bg-phase-discover', link: '/discover/trends/', tekst: 'AI-deepfakes en digitalisering als megatrend (IBSOTEEP)' },
       { fase: 'Scenario', kleur: 'bg-phase-discover', link: '/discover/scenario/', tekst: 'Werkt in alle 4 scenario\'s, het sterkst bij Digitale Dominantie (D) en Gouden Kruispunt (B)' },
@@ -44,20 +44,20 @@ const denkrichtingen = [
       { naam: 'Regelgeving als strategie', ideeën: ['Lobby voor strengere duurzaamheidseisen (concurrenten vallen af)', 'Overcompliance levert carbon credits op (Tesla-model)', 'Duurzame materialen & lifecycle als merkbelofte'] },
       { naam: 'Verhaal als product', ideeën: ['Elk potlood heeft een herkomstverhaal', 'Speelse website met productiereis-tracker', 'Duurzame grondstoffen inkopen als premium positionering', 'Meebewegen met klant (retoursysteem)'] },
     ],
-    challenge: 'Hoe zouden we Aurora kunnen laten voorlopen op duurzaamheidsregels, zodat strengere wetgeving concurrenten raakt maar Aurora juist sterker maakt?',
+    challenge: 'Hoe zouden we duurzaamheidseisen als voorsprong kunnen inzetten in plaats van als last?',
     reis: [
       { fase: 'Trends', kleur: 'bg-phase-discover', link: '/discover/trends/', tekst: 'Duurzaamheid en EU-regelgeving (ESPR, circulaire economie) als megatrend' },
       { fase: 'Scenario', kleur: 'bg-phase-discover', link: '/discover/scenario/', tekst: 'Sluit aan op as 2 (overheidsregulering), het sterkst in Gouden Kruispunt (B)' },
       { fase: 'Empathise', kleur: 'bg-phase-discover', link: '/discover/empathise/', tekst: 'Gripe: "pennen kwijtraken, niet duurzaam, massaproductie" (sessie 1)' },
       { fase: 'Challenge', kleur: 'bg-phase-discover', link: '/discover/challenges/', tekst: 'HZWK #4: betrouwbaarheid & duurzaamheid' },
       { fase: 'Radar', kleur: 'bg-phase-define', link: '/define/innovatieradar/', tekst: 'Kamer Organisatie: "duurzame materialen & lifecycle", "duurzame grondstoffen"' },
-      { fase: 'Klasdiscussie', kleur: 'bg-phase-define', link: null, tekst: 'Gate 0: duurzaamheid, ethische productie en lage-lonenlanden als kernthema\'s' },
+      { fase: 'Klasdiscussie', kleur: 'bg-phase-define', link: '/discover/trends/#klasdiscussie', tekst: 'Gate 0: duurzaamheid, ethische productie en lage-lonenlanden als kernthema\'s' },
     ],
   },
 ];
 ---
 
-<BaseLayout title="Denkrichtingen — Design">
+<BaseLayout title="Denkrichtingen · Define">
   <!-- Hero with image -->
   <section class="bg-bg-primary text-white overflow-hidden relative">
     <div class="absolute inset-0">
@@ -69,7 +69,7 @@ const denkrichtingen = [
       <nav class="reveal text-sm mb-6 flex items-center gap-2">
         <a href={url('/')} class="text-white/40 hover:text-white/60 transition-colors">Home</a>
         <span class="text-white/20">/</span>
-        <a href={url('/define/')} class="text-white/40 hover:text-white/60 transition-colors">Design</a>
+        <a href={url('/define/')} class="text-white/40 hover:text-white/60 transition-colors">Define</a>
         <span class="text-white/20">/</span>
         <span class="text-phase-define font-medium">Denkrichtingen</span>
       </nav>
@@ -92,14 +92,13 @@ const denkrichtingen = [
           <div>
             <h2 class="font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-3">Van divergeren naar convergeren</h2>
             <p class="text-dark/60 leading-relaxed mb-3">
-              Tijdens sessie 3 hebben we impliciet de <strong class="text-dark">PMI-methode</strong> (Plus, Min, Interessant) toegepast door post-its te markeren met
-              <span class="inline-block w-3 h-3 rounded-full bg-green-400 align-middle mx-0.5"></span> groene (plus),
-              <span class="inline-block w-3 h-3 rounded-full bg-pink-400 align-middle mx-0.5"></span> roze (min) en
-              <span class="inline-block w-3 h-3 rounded-full bg-purple-400 align-middle mx-0.5"></span> paarse (interessant) stickers.
-              Op basis daarvan hebben we geclusterd tot twee denkrichtingen. Belangrijk: een denkrichting is geen oplossing, het is een richting om verder te onderzoeken.
+              Na het divergeren hebben we de post-its gewogen met de <strong class="text-dark">PMI-methode</strong> van <a href="https://www.debonogroup.com/services/thinking-tools/pmi/" target="_blank" rel="noopener" class="underline hover:text-dark">De Bono</a> (Plus, Min, Interessant):
+              <span class="inline-block w-3 h-3 rounded-full bg-green-400 align-middle mx-0.5"></span> groen voor plus,
+              <span class="inline-block w-3 h-3 rounded-full bg-pink-400 align-middle mx-0.5"></span> roze voor min en
+              <span class="inline-block w-3 h-3 rounded-full bg-purple-400 align-middle mx-0.5"></span> paars voor interessant. We hadden de kleurcode van tevoren afgesproken en pasten 'm live toe tijdens het stickeren. Op basis van de verdeling hebben we geclusterd tot twee denkrichtingen. Een denkrichting is nog geen oplossing, het is een richting om verder te onderzoeken.
             </p>
             <p class="text-dark/40 text-sm">
-              <a href={url('/define/innovatieradar/')} class="underline hover:text-dark/60">Innovatieradar</a> &middot; Huizingh (2019)
+              <a href={url('/define/innovatieradar/')} class="underline hover:text-dark/60">Innovatieradar</a> &middot; <a href="https://www.huizingh.com/boeken/innovatiemanagement" target="_blank" rel="noopener" class="underline hover:text-dark/60">Huizingh (2019)</a>
             </p>
           </div>
         </div>
@@ -199,8 +198,12 @@ const denkrichtingen = [
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
         Innovatieradar
       </a>
-      <div class="reveal reveal-delay-1 text-center">
-        <p class="text-dark/40 text-sm mb-3">Welke richting kiezen we? Naar de gate.</p>
+      <div class="reveal reveal-delay-1 text-center flex flex-col gap-2">
+        <a href={url('/define/projectvoorstellen/')} class="inline-flex items-center gap-2 bg-bg-elevated text-phase-define border border-phase-define/30 font-bold px-6 py-3 rounded-full hover:bg-phase-define/5 transition-colors text-sm">
+          Projectvoorstellen per richting
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+        </a>
+        <p class="text-dark/40 text-sm">Of door naar de gate:</p>
         <a href={url('/design/gate/')} class="inline-flex items-center gap-2 bg-phase-design text-white font-bold px-6 py-3 rounded-full hover:scale-105 transition-transform">
           Gate: selectie denkrichting
           <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>

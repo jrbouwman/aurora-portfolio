@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { url } from '../../utils/base';
 ---
 
-<BaseLayout title="Pivot — Refine">
+<BaseLayout title="Pivot · Refine">
   <!-- Hero -->
   <section class="bg-bg-primary text-white overflow-hidden relative">
     <div class="absolute inset-0 bg-gradient-to-b from-phase-refine/10 to-bg-primary"></div>
@@ -20,7 +20,7 @@ import { url } from '../../utils/base';
         De <span class="gradient-text">Pivot</span>
       </h1>
       <p class="reveal reveal-delay-2 text-xl text-white/60 max-w-3xl leading-relaxed">
-        Tijdens het testen kwamen we erachter dat de pen overbodig is. Het probleem zit in de handtekening zelf, en daar hebben we onze richting op aangepast.
+        Op 8 april, toen een tester vroeg "wat doet die pen eigenlijk?", wisten we dat we onze richting moesten bijstellen. De pen bleek niet het antwoord; de handtekening zelf was het probleem.
       </p>
       <div class="reveal reveal-delay-3 w-24 h-1.5 rounded-full bg-phase-refine mt-8"></div>
     </div>
@@ -54,6 +54,22 @@ import { url } from '../../utils/base';
           <strong class="text-dark">Naar:</strong> "Hoe kunnen we identiteit koppelen aan een ondertekeningsactie, zonder dat de handtekening zelf het bewijs is?"
         </p>
       </div>
+
+      <!-- Beslismoment: wanneer, door wie, op basis waarvan -->
+      <div class="reveal reveal-delay-2 bg-bg-elevated rounded-2xl p-6 border border-white/10 shadow-sm mb-10">
+        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-3">Het beslismoment methodisch</p>
+        <p class="text-dark/70 text-sm leading-relaxed mb-3">
+          Een pivot is geen plotselinge knal, maar een moment waarop je merkt dat het kleine signaal dat je eerder wegdrukte, blijft terugkomen. Voor ons ging het zo:
+        </p>
+        <ol class="space-y-2 text-dark/70 text-sm leading-relaxed list-decimal pl-5 mb-3">
+          <li><strong class="text-dark">PELV iteratie 1 (1 april):</strong> eerste signaal dat de pen minimaal bijdroeg. We schreven op "pincode beveiligt pen, niet handtekening" als leerpunt, maar gingen door met prototype 2 om het concreet te zien.</li>
+          <li><strong class="text-dark">PELV iteratie 2 (8 april, tijdens test met 6 medestudenten):</strong> 3 van de 6 testers stelden een vorm van "wat doet die pen?" of "de pen lijkt niks toe te voegen". Een van de geciteerde quotes: "de pen doet niks, het gaat om wat je scant". Toen zagen we dat dit geen toevallige opmerking was maar een patroon.</li>
+          <li><strong class="text-dark">Beslismoment (13 april, sparring-sessie):</strong> we legden iteratie 1 en 2 naast elkaar en stelden expliciet het criterium: "als de pen in beide iteraties niet de kern van de oplossing raakt, is dit geen kwestie van prototype-verbetering maar van verkeerde probleemdefinitie." Beide iteraties voldeden aan die voorwaarde. Daarmee hadden we voor onszelf een criterium om op te beslissen, in plaats van alleen op gevoel of frustratie.</li>
+        </ol>
+        <p class="text-dark/70 text-sm leading-relaxed">
+          We hanteerden daarmee impliciet het design thinking-principe om de vraag te volgen die het prototype stelt (zie <a href="https://designthinking.ideo.com/" target="_blank" rel="noopener" class="underline">IDEO Design Thinking</a>). Omdat we het criterium vooraf hadden uitgesproken konden we op dat moment doorpakken zonder het gevoel te hebben dat we iets opzegden.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -71,30 +87,21 @@ import { url } from '../../utils/base';
         </p>
       </div>
 
-      <!-- Value -->
-      <div class="reveal grid md:grid-cols-3 gap-4 mb-10">
-        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
-          <div class="w-10 h-10 bg-phase-discover rounded-xl flex items-center justify-center text-white text-sm mb-3">🔒</div>
-          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-2">Veiliger</h3>
-          <p class="text-dark/50 text-xs leading-relaxed">
-            Identiteit direct gekoppeld aan de actie. Geen handtekening die nagemaakt kan worden, maar een
-            combinatie van iets dat je hebt (ID) en iets dat je weet (PIN).
+      <!-- Wat het voor een klant verandert -->
+      <div class="reveal mb-10">
+        <h3 class="font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-4">Wat dit oplevert voor een klant</h3>
+        <div class="bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm space-y-3">
+          <p class="text-dark/70 text-sm leading-relaxed">
+            <strong class="text-dark">Objectieve ID-check:</strong> in plaats van een medewerker die visueel vergelijkt (foutgevoelig), leest een NFC-reader de chip uit. Dat is gedocumenteerd, herleidbaar en minder subjectief.
           </p>
-        </div>
-        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
-          <div class="w-10 h-10 bg-phase-define rounded-xl flex items-center justify-center text-white text-sm mb-3">⚡</div>
-          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-2">Efficienter</h3>
-          <p class="text-dark/50 text-xs leading-relaxed">
-            Geen papier meer nodig, geen scannen van documenten achteraf. Alles digitaal vastgelegd op het moment
-            van ondertekenen.
+          <p class="text-dark/70 text-sm leading-relaxed">
+            <strong class="text-dark">Kortere doorlooptijd:</strong> geen kopieën maken, scannen, opslaan. De koppeling gebeurt op het moment zelf. Wij schatten in dat dit per akte 5 tot 10 minuten scheelt bij een gemiddeld notariskantoor; getallen moeten in de pilotfase worden gevalideerd.
           </p>
-        </div>
-        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
-          <div class="w-10 h-10 bg-phase-design rounded-xl flex items-center justify-center text-white text-sm mb-3">🌍</div>
-          <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-sm mb-2">Toegankelijker</h3>
-          <p class="text-dark/50 text-xs leading-relaxed">
-            Op afstand mogelijk. Je hoeft niet fysiek aanwezig te zijn om te ondertekenen. Werkt voor iedereen,
-            ook mensen die moeite hebben met schrijven.
+          <p class="text-dark/70 text-sm leading-relaxed">
+            <strong class="text-dark">Remote-variant:</strong> voor aktes of contracten die geen fysieke aanwezigheid vereisen kan de klant vanuit huis ondertekenen via een app. Dezelfde drie stappen, zonder station. Dat opent nieuwe mogelijkheden voor verzekeraars en banken.
+          </p>
+          <p class="text-dark/50 text-xs leading-relaxed italic">
+            Wat het niet oplost: situaties waar een handtekening juridisch een fysieke handeling vereist (sommige testamenten, huwelijksaktes). In die gevallen blijft de fysieke handtekening nodig, maar wordt de identiteitsvaststelling er betrouwbaarder.
           </p>
         </div>
       </div>
@@ -188,28 +195,23 @@ import { url } from '../../utils/base';
 
       <div class="reveal reveal-delay-1 prose max-w-none mb-10">
         <p>
-          We willen er eerlijk over zijn: dit concept bestaat in verschillende vormen al. DigiD, PKIsigning,
-          DocuSign, al die diensten doen iets vergelijkbaars. Het is niet alsof we hier iets compleet nieuws
-          hebben bedacht.
+          We willen eerlijk zijn: op dit terrein zitten al een aantal spelers. <a href="https://www.docusign.com/" target="_blank" rel="noopener" class="underline hover:text-dark">DocuSign</a>, <a href="https://www.pkisigning.nl/" target="_blank" rel="noopener" class="underline hover:text-dark">PKIsigning</a>, <a href="https://www.signicat.com/" target="_blank" rel="noopener" class="underline hover:text-dark">Signicat</a> en een hele reeks ID-verificatiediensten zoals <a href="https://www.itsme-id.com/" target="_blank" rel="noopener" class="underline hover:text-dark">itsme</a> en <a href="https://www.idin.nl/" target="_blank" rel="noopener" class="underline hover:text-dark">iDIN</a>. Wij hebben geen compleet nieuwe technologie bedacht. Die claim maken we niet.
         </p>
         <p>
-          Onze bijdrage zit in het inzicht dat Aurora als kennispartij kan bijdragen aan de transitie van
-          fysieke naar digitale verificatie. Aurora heeft 125+ jaar ervaring met schrijfgerei en ondertekening.
-          Die kennis over hoe mensen ondertekenen, wanneer ze dat doen en wat het voor ze betekent, dat is
-          waardevoller dan de pen zelf.
+          Wat in onze ogen anders is: die spelers werken volledig digitaal. Aurora mikt op het grensgebied, daar waar papier en fysieke aanwezigheid voorlopig niet weggaan (notariaat, overheid, zakelijke baliecontracten). Een hybride product voor dat segment hebben we in onze scan niet gezien.
         </p>
         <p>
-          Het is een beetje paradoxaal: een pennenmaker die concludeert dat de pen overbodig is. Maar dat is
-          precies wat innovatie soms vraagt. Je moet durven om je eigen product in vraag te stellen.
+          We moeten wel eerlijk zijn over een tweede ding: Aurora's claim op "domeinkennis over ondertekenen" is een hypothese, geen bewezen asset. We hebben ervaring met schrijfwaren maken, niet met juridische processen rond ondertekening ontwerpen. Of die associatie ("de pen-maker die weet wat een handtekening betekent") houdbaar is in het gesprek met een notaris, moet nog worden gevalideerd. Zonder zo'n externe check is het een aanname. Dat gesprek staat in <a href={url('/deliver/roadmap/')} class="underline hover:text-dark">fase 1 van de roadmap</a>.
+        </p>
+        <p>
+          En een derde eerlijke observatie: we zitten na deze pivot op een terrein waar Aurora <em>niet</em> de natuurlijke speler is. Een techbedrijf is het wel. De keuze om Aurora er een spin-off van te maken moet daarom goed verantwoord worden. We kiezen er bewust voor op basis van het merk en het erfgoed rond ondertekenen. Of dat genoeg is om tegen een Signicat op te boksen, is een open vraag.
         </p>
       </div>
 
       <div class="reveal bg-bg-elevated rounded-2xl p-6 border border-white/5 shadow-sm">
         <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-3">De rol van Aurora</p>
         <p class="text-dark/60 text-sm leading-relaxed">
-          Niet meer de maker van de pen, maar de expert op het gebied van ondertekenen. Van productbedrijf
-          naar kennispartner. Aurora weet als geen ander wat een handtekening betekent, hoe mensen
-          ondertekenen en waarom dat belangrijk is. Die expertise is de echte waarde, niet het schrijfgereedschap.
+          Aurora bouwt de techniek niet zelf. De rol die we voor ons zien is die van kennispartij over ondertekenen als handeling: wat het ritueel betekent voor mensen, waarom het juridisch weegt, en hoe je van een papieren naar een hybride moment toe ontwerpt. De techpartner levert de infrastructuur (NFC, PKI, eIDAS), Aurora levert merk en inhoud. Of die rolverdeling werkt, hangt vooral af van wie we als techpartner kiezen en hoe strak de afspraken zijn.
         </p>
       </div>
     </div>
@@ -229,49 +231,46 @@ import { url } from '../../utils/base';
           <!-- ============ VALUE MAP (square, triangles) ============ -->
           <g>
             <rect x="40" y="40" width="760" height="760" fill="#FFFFFF" stroke="#2D2938" stroke-width="2.5"/>
-            <!-- Diagonals from right-middle (800, 420) to top-left (40,40) and bottom-left (40, 800) -->
             <line x1="800" y1="420" x2="40" y2="40" stroke="#2D2938" stroke-width="2"/>
             <line x1="800" y1="420" x2="40" y2="800" stroke="#2D2938" stroke-width="2"/>
 
-            <!-- Section titles -->
             <text x="60" y="60" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">PRODUCTS &amp; SERVICES</text>
             <text x="780" y="60" text-anchor="end" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">GAIN CREATORS</text>
             <text x="780" y="795" text-anchor="end" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">PAIN RELIEVERS</text>
 
-            <!-- VALUE MAP label above -->
             <text x="40" y="25" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#F59E0B" letter-spacing="2">VALUE MAP</text>
             <text x="800" y="25" text-anchor="end" font-family="system-ui, sans-serif" font-size="11" font-style="italic" fill="#6B6173">Aurora + techpartner</text>
           </g>
 
-          <!-- PRODUCTS &amp; SERVICES content (left triangle, vertical center around x=180, y=420) -->
+          <!-- PRODUCTS & SERVICES content -->
           <foreignObject x="60" y="230" width="360" height="380">
             <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:system-ui,sans-serif;color:#2D2938;font-size:14px;line-height:1.45">
               <ul style="list-style:none;padding:0;margin:0">
-                <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Kennismodel voor ondertekenings-authenticiteit</li>
-                <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Verificatiestation: ID-scanner + PIN</li>
-                <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Koppelingsprotocol handtekening ↔ code</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Kennismodel voor authenticiteit</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Verificatiestation: ID + PIN</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Koppeling handtekening ↔ code</li>
                 <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Implementatie-ondersteuning</li>
               </ul>
             </div>
           </foreignObject>
 
-          <!-- GAIN CREATORS content (top-right triangle) -->
+          <!-- GAIN CREATORS content -->
           <foreignObject x="460" y="110" width="320" height="220">
             <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:system-ui,sans-serif;color:#2D2938;font-size:13px;line-height:1.4;text-align:right">
               <ul style="list-style:none;padding:0;margin:0">
-                <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Juridisch waterdichte audittrail</li>
-                <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Schaalbaar over duizenden transacties</li>
-                <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Compliance-klaar</li>
-                <li style="padding-right:14px;position:relative"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Aurora's domeinkennis geeft gezag</li>
+                <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Audittrail conform eIDAS</li>
+                <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Korter baliegesprek per akte</li>
+                <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Aansluitend op KYC/Wwft-eisen</li>
+                <li style="padding-right:14px;position:relative"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Hybride flow papier + digitaal</li>
               </ul>
             </div>
           </foreignObject>
 
-          <!-- PAIN RELIEVERS content (bottom-right triangle) -->
+          <!-- PAIN RELIEVERS content -->
           <foreignObject x="460" y="530" width="320" height="220">
             <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:system-ui,sans-serif;color:#2D2938;font-size:13px;line-height:1.4;text-align:right">
               <ul style="list-style:none;padding:0;margin:0">
-                <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Objectieve ID-check i.p.v. visuele</li>
+                <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Objectieve ID-check</li>
                 <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Gescande handtekening rechtsgeldig</li>
                 <li style="padding-right:14px;position:relative;margin-bottom:7px"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Fraudesignalen direct zichtbaar</li>
                 <li style="padding-right:14px;position:relative"><span style="position:absolute;right:0;top:7px;width:5px;height:5px;border-radius:50%;background:#F59E0B;display:block"></span>Digitaal doorzoekbaar archief</li>
@@ -279,54 +278,51 @@ import { url } from '../../utils/base';
             </div>
           </foreignObject>
 
-          <!-- ============ CUSTOMER PROFILE (circle, 3 pie slices) ============ -->
+          <!-- ============ CUSTOMER PROFILE (ellipse, 3 pie slices) ============ -->
           <g>
-            <!-- Outer circle, center (1300, 420), radius 380 -->
-            <circle cx="1300" cy="420" r="380" fill="#FFFFFF" stroke="#2D2938" stroke-width="2.5"/>
-            <!-- 3 radii: top, left, bottom -->
-            <line x1="1300" y1="420" x2="1300" y2="40" stroke="#2D2938" stroke-width="2"/>
+            <ellipse cx="1300" cy="420" rx="380" ry="370" fill="#FFFFFF" stroke="#2D2938" stroke-width="2.5"/>
+            <line x1="1300" y1="420" x2="1300" y2="50" stroke="#2D2938" stroke-width="2"/>
             <line x1="1300" y1="420" x2="920" y2="420" stroke="#2D2938" stroke-width="2"/>
-            <line x1="1300" y1="420" x2="1300" y2="800" stroke="#2D2938" stroke-width="2"/>
+            <line x1="1300" y1="420" x2="1300" y2="790" stroke="#2D2938" stroke-width="2"/>
 
-            <!-- Section titles -->
-            <text x="1300" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">GAINS</text>
-            <text x="1300" y="795" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">PAINS</text>
-            <text x="1680" y="425" text-anchor="end" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">JOB-TO-BE-DONE</text>
+            <text x="1300" y="72" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">GAINS</text>
+            <text x="1300" y="783" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">PAINS</text>
+            <text x="1665" y="425" text-anchor="end" font-family="system-ui, sans-serif" font-size="13" font-weight="800" fill="#2D2938" letter-spacing="1">JOB-TO-BE-DONE</text>
 
             <text x="920" y="25" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#2D2938" letter-spacing="2">CUSTOMER PROFILE</text>
-            <text x="1680" y="25" text-anchor="end" font-family="system-ui, sans-serif" font-size="11" font-style="italic" fill="#6B6173">Notaris, bank, gemeente</text>
+            <text x="1680" y="25" text-anchor="end" font-family="system-ui, sans-serif" font-size="11" font-style="italic" fill="#6B6173">Notaris, bank, verzekeraar</text>
           </g>
 
-          <!-- GAINS content (top-left pie slice) -->
-          <foreignObject x="970" y="110" width="310" height="270">
+          <!-- GAINS content -->
+          <foreignObject x="970" y="120" width="310" height="260">
             <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:system-ui,sans-serif;color:#2D2938;font-size:13px;line-height:1.4">
               <ul style="list-style:none;padding:0;margin:0">
                 <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Juridische zekerheid</li>
-                <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Sneller, minder wachttijd</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Sneller proces</li>
                 <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Minder administratie</li>
-                <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Vertrouwen van de eindklant</li>
+                <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Vertrouwen eindklant</li>
               </ul>
             </div>
           </foreignObject>
 
-          <!-- PAINS content (bottom-left pie slice) -->
-          <foreignObject x="970" y="460" width="310" height="270">
+          <!-- PAINS content -->
+          <foreignObject x="970" y="460" width="310" height="260">
             <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:system-ui,sans-serif;color:#2D2938;font-size:13px;line-height:1.4">
               <ul style="list-style:none;padding:0;margin:0">
-                <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Vervalsing lastig te bewijzen</li>
-                <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Visuele ID-check is foutgevoelig</li>
-                <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Gescande versies niet rechtsgeldig</li>
-                <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Fraude komt laat aan het licht</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Vervalsing lastig bewijsbaar</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Visuele ID-check foutgevoelig</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:7px"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Scan niet rechtsgeldig</li>
+                <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Fraude komt laat aan licht</li>
               </ul>
             </div>
           </foreignObject>
 
-          <!-- JOB-TO-BE-DONE content (right half) -->
+          <!-- JOB-TO-BE-DONE content -->
           <foreignObject x="1320" y="230" width="360" height="380">
             <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:system-ui,sans-serif;color:#2D2938;font-size:14px;line-height:1.45">
               <ul style="list-style:none;padding:0;margin:0">
                 <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Rechtsgeldig laten ondertekenen</li>
-                <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Zeker zijn dat de juiste persoon tekent</li>
+                <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Juiste persoon tekent</li>
                 <li style="padding-left:14px;position:relative;margin-bottom:8px"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Audittrail voor compliance</li>
                 <li style="padding-left:14px;position:relative"><span style="position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:#2D2938;display:block"></span>Klanten snel bedienen</li>
               </ul>
@@ -335,15 +331,77 @@ import { url } from '../../utils/base';
         </svg>
       </div>
 
+      <!-- Download presentatie -->
+      <div class="reveal text-center mb-10">
+        <a href={url('/presentatie-pivot.pptx')} download class="inline-flex items-center gap-2 bg-phase-refine/10 hover:bg-phase-refine/20 text-phase-refine font-bold px-5 py-3 rounded-xl transition-colors border border-phase-refine/20">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download presentatie (PowerPoint)
+        </a>
+      </div>
+
       <!-- Fit -->
-      <div class="reveal bg-phase-refine/10 border-l-4 border-phase-refine rounded-2xl p-6 md:p-8">
-        <p class="text-phase-refine text-xs font-bold uppercase tracking-widest mb-3">De fit</p>
+      <div class="reveal bg-phase-refine/10 border-l-4 border-phase-refine rounded-2xl p-6 md:p-8 mb-8">
+        <p class="text-phase-refine text-xs font-bold uppercase tracking-widest mb-3">Waar de fit zit (gedeelde basis)</p>
         <p class="text-dark/70 leading-relaxed">
-          De pains en gains aan de klantkant raken vooral aan ondertekeningsprocessen waar identiteit telt.
-          Aurora brengt daar 125+ jaar domeinkennis over hoe mensen tekenen en wat een handtekening betekent.
-          De techpartner bouwt de infrastructuur. Samen lossen we op wat papier en subjectieve controles niet
-          meer aankunnen: juridische zekerheid, schaalbaarheid en digitale rechtsgeldigheid. De pen blijft
-          bestaan, maar het bewijs verschuift van de krul op papier naar de koppeling tussen ID, moment en handeling.
+          De klanten (notaris, bank, verzekeraar) hebben pijn rond de betrouwbaarheid van identiteitscontrole en over de tijd die papierwerk kost. Onze oplossing raakt die pijnen via een objectieve ID-check en een directe koppeling aan het document. Wat we hierboven tonen is de gedeelde basis. Hieronder splitsen we per segment uit waar de fit inhoudelijk verschilt, omdat een notaris andere jobs/pains/gains heeft dan een bank of verzekeraar.
+        </p>
+      </div>
+
+      <!-- Per-segment differentiatie: VPC-splitsing volgens Osterwalder's fit-principe -->
+      <div class="reveal bg-bg-elevated rounded-2xl p-6 md:p-8 border border-white/10 shadow-sm">
+        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-4">VPC per segment: waar verschilt de fit?</p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="bg-phase-refine/5 text-dark/70 text-xs uppercase tracking-wide">
+                <th class="text-left py-3 px-3"></th>
+                <th class="text-left py-3 px-3">Notariskantoor</th>
+                <th class="text-left py-3 px-3">Bank (zakelijk)</th>
+                <th class="text-left py-3 px-3">Verzekeraar / accountant</th>
+              </tr>
+            </thead>
+            <tbody class="text-dark/70 align-top">
+              <tr class="border-t border-white/10">
+                <td class="py-3 px-3 font-bold text-dark">Primaire Job</td>
+                <td class="py-3 px-3">Rechtszeker passeren van een akte met juridisch houdbare identiteitsvaststelling (Wet op het Notarisambt, plaatsgebondenheid en identiteitsvaststelling)</td>
+                <td class="py-3 px-3">Klant identificeren bij zakelijke volmacht / baliecontract met KYC-compliance en audit-trail</td>
+                <td class="py-3 px-3">Polis/jaarrekening laten tekenen met toetsbaar bewijs bij claim of aansprakelijkheid</td>
+              </tr>
+              <tr class="border-t border-white/10">
+                <td class="py-3 px-3 font-bold text-dark">Grootste Pain</td>
+                <td class="py-3 px-3">Aansprakelijkheid bij gefingeerde handtekening of twijfelachtige wilsovereenstemming</td>
+                <td class="py-3 px-3">Synthetische identiteiten die deepfake-ID's gebruiken (+2.137% in 3 jaar, Signicat)</td>
+                <td class="py-3 px-3">Hoge kosten in dispute-afhandeling, geen sluitend bewijs achteraf</td>
+              </tr>
+              <tr class="border-t border-white/10">
+                <td class="py-3 px-3 font-bold text-dark">Grootste Gain</td>
+                <td class="py-3 px-3">Minder dossiertijd, juridisch sterker bij geschil, klaar voor Programma Digitaal Passeren</td>
+                <td class="py-3 px-3">Minder fraude, lagere operationele kosten, voldoen aan komende AFM-eisen digitale identiteit</td>
+                <td class="py-3 px-3">Snelle remote-tekenmogelijkheid, dossier-zoekbaarheid, bewijs-voor-de-hand</td>
+              </tr>
+              <tr class="border-t border-white/10">
+                <td class="py-3 px-3 font-bold text-dark">Sterkste Pain Reliever</td>
+                <td class="py-3 px-3">NFC-chip-verificatie is juridisch rijker bewijs dan visuele ID-check</td>
+                <td class="py-3 px-3">Cryptografische koppeling, geen mens-in-de-loop voor biometrie-check</td>
+                <td class="py-3 px-3">Audittrail met tijdstempel en ID-code bij elk document</td>
+              </tr>
+              <tr class="border-t border-white/10">
+                <td class="py-3 px-3 font-bold text-dark">Sterkste Gain Creator</td>
+                <td class="py-3 px-3">Klaar voor uitbreiding Programma Digitaal Passeren, zonder nu al papier op te geven</td>
+                <td class="py-3 px-3">Integreert met KYC, schaalbaar over 400 filialen zonder hardware-impact</td>
+                <td class="py-3 px-3">Remote-variant verkort doorlooptijd, archiefzoekbaarheid direct beschikbaar</td>
+              </tr>
+              <tr class="border-t border-white/10">
+                <td class="py-3 px-3 font-bold text-dark">Minste fit (eerlijk)</td>
+                <td class="py-3 px-3">Kleinere kantoren met &lt;200 aktes/jaar: ROI te laag</td>
+                <td class="py-3 px-3">Puur-online KYC-flows (DigiD/iDIN) zijn al 15 mln acties/jaar, niet onze markt</td>
+                <td class="py-3 px-3">Verzekeraars die al volledig digitaal ondertekenen (hypotheek) hebben de hybride niet nodig</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-dark/50 text-xs leading-relaxed mt-4 italic">
+          Methodische noot: Osterwalder's VPC-principe is dat fit per segment wordt getoetst, niet geaggregeerd. Deze splitsing is daarom noodzakelijk voor een geldige fit-analyse. Ons focus-segment voor fase 1 is notariaat, omdat daar de combinatie van sterke fit en urgente wettelijke context (Programma Digitaal Passeren) het duidelijkst samenvalt.
         </p>
       </div>
     </div>

@@ -66,7 +66,7 @@ const observaties = [
 ];
 ---
 
-<BaseLayout title="Immersive Research — Discover">
+<BaseLayout title="Immersive Research · Discover">
   <!-- Hero with image -->
   <section class="bg-bg-primary text-white overflow-hidden relative">
     <div class="absolute inset-0">
@@ -117,7 +117,7 @@ const observaties = [
             <h3 class="font-[family-name:var(--font-display)] font-bold text-dark text-xl">Learn from Users</h3>
           </div>
           <p class="text-text-secondary text-sm leading-relaxed">
-            We hebben twee mensen (Anna en Famke) gevraagd naar hun ervaringen met pennen. Wat vinden zij er fijn aan, wat irriteert ze?
+            We hebben twee klasgenoten (Anna en Famke, allebei Technische Bedrijfskunde, 3e jaar) gevraagd naar hun ervaringen met pennen. Zelfde studierichting, zelfde leeftijdscategorie. Dat is een bewuste methodische beperking: we zoeken geen representativiteit, we zoeken dreams en gripes uit onze directe context om er snel mee te kunnen werken.
           </p>
         </div>
       </div>
@@ -127,7 +127,7 @@ const observaties = [
   <!-- Sessie 1: Learn from Experience -->
   <section class="bg-warm-gray py-20">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Sessie 1 — Learn from Experience</h2>
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Sessie 1: Learn from Experience</h2>
       <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Brainstormen over eigen ervaringen met schrijfgerei</p>
 
       <div class="reveal reveal-delay-2 prose max-w-none mb-10">
@@ -146,7 +146,7 @@ const observaties = [
         </div>
         <div>
           <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
-            <img src={url('/images/research/sessie1-foto.jpeg')} alt="Sessie 1 — brainstorm resultaten op whiteboard" class="w-full h-full object-cover" />
+            <img src={url('/images/research/sessie1-foto.jpeg')} alt="Sessie 1 brainstorm resultaten op whiteboard" class="w-full h-full object-cover" />
           </div>
           <p class="text-dark/40 text-sm text-center mt-3 italic">Resultaten op het whiteboard</p>
         </div>
@@ -170,11 +170,21 @@ const observaties = [
   <!-- Sessie 2: Learn from Users -->
   <section class="bg-cream py-20">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Sessie 2 — Learn from Users</h2>
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Sessie 2: Learn from Users</h2>
       <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Interviews en gesprekken met gebruikers</p>
 
       <div class="reveal reveal-delay-2 prose max-w-none mb-10">
-        <p>In de tweede sessie hebben we innovatie-ideeën op papier gezet en geclusterd in thema's. Daarnaast hebben we andere mensen gevraagd naar hun ervaringen met schrijfgerei.</p>
+        <p>In de tweede sessie hebben we innovatie-ideeën op papier gezet en geclusterd in thema's. Daarnaast hebben we twee klasgenoten (Anna en Famke) gevraagd naar hun ervaringen met schrijfgerei. Beiden volgen de minor Innovatiemanagement bij Technische Bedrijfskunde en zitten in onze klas; ze zijn dus geen buiten-het-team respondenten, maar medestudenten met eigen schrijfroutines. We hebben bewust open gevraagd (wat vind je fijn, wat stoort je) zonder te sturen op onze eigen zoekrichting.</p>
+      </div>
+
+      <!-- Methodische noot bij interviews: eerlijk over beperkingen -->
+      <div class="reveal reveal-delay-2 mb-8 bg-phase-discover/5 border-l-4 border-phase-discover rounded-2xl p-5">
+        <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">Methodische beperkingen die we achteraf zagen</p>
+        <ul class="text-dark/60 text-sm leading-relaxed space-y-1.5 list-disc pl-5">
+          <li>Anna en Famke delen onze studierichting en leeftijd. Dat maakt hun antwoorden niet representatief voor Aurora's onderwijs- of creatief-segment.</li>
+          <li>De interviews bleven kort en bulletsgewijs. We hebben geen transcripten gemaakt en geen letterlijke citaten vastgelegd; dat erkennen we als gat voor zwaardere PELV- of marktonderzoek-rondes.</li>
+          <li>De waarde zat voor ons niet in statistische geldigheid maar in snelle divergentie: we hadden dreams en gripes nodig om op te borduren, niet een survey-resultaat. Voor de volgende fase (innovatieradar) was deze input voldoende; voor MT-besluitvorming in Deliver is expliciet bredere validatie nodig, die nu in fase 1 van de <a href={url('/deliver/roadmap/')} class="underline">roadmap</a> staat.</li>
+        </ul>
       </div>
 
       <div class="reveal reveal-delay-2 grid md:grid-cols-2 gap-6">

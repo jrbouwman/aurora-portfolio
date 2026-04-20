@@ -2,15 +2,16 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { url } from '../../utils/base';
 
-// De 12 dimensies van Huizingh (2019) met onze ideeën gemapped
+// De 12 dimensies van Huizingh (2019) met onze ideeën gemapped.
+// Officiele verdeling: Product (1-4), Positie (5-8), Proces (9-10), Paradigma (11-12).
 const dimensies = [
   { naam: 'Aanbod', as: 'Product', nr: 1, beschrijving: 'Het uiteindelijke product, dienst of combinatie gericht op specifieke klantgroepen.' },
   { naam: 'Platform', as: 'Product', nr: 2, beschrijving: 'Mogelijkheden om producten modulair op te bouwen.' },
   { naam: 'Oplossingen', as: 'Product', nr: 3, beschrijving: 'Welk probleem los je op bij klanten? Pijnverzachters en voordeelverschaffers.' },
-  { naam: 'Klanten', as: 'Positie', nr: 4, beschrijving: 'Nog niet vervulde klantbehoeften of markten. Nieuwe PTM-combinaties.' },
+  { naam: 'Klanten', as: 'Product', nr: 4, beschrijving: 'Nog niet vervulde klantbehoeften of markten. Nieuwe PTM-combinaties.' },
   { naam: 'Klantervaring', as: 'Positie', nr: 5, beschrijving: 'Alles wat een klant ziet, hoort, voelt of ervaart tijdens touchpoints.' },
   { naam: 'Waardeverkrijging', as: 'Positie', nr: 6, beschrijving: 'Verdienmodellen: abonnementen, nieuwe prijssystemen.' },
-  { naam: 'Aanwezigheid', as: 'Positie', nr: 7, beschrijving: 'Plaats en tijd van contact. Kan een complete paradigmashift zijn!' },
+  { naam: 'Aanwezigheid', as: 'Positie', nr: 7, beschrijving: 'Plaats en tijd van contact. Kan de hele klantrelatie op z\'n kop zetten.' },
   { naam: 'Netwerken', as: 'Positie', nr: 8, beschrijving: 'Het netwerk tussen aanbieder en klant inzetten om te innoveren.' },
   { naam: 'Processen', as: 'Proces', nr: 9, beschrijving: 'Alle interne activiteiten die waarde toevoegen.' },
   { naam: 'Organisatie', as: 'Proces', nr: 10, beschrijving: 'De organisatie als systeem dat waarde creëert.' },
@@ -18,11 +19,13 @@ const dimensies = [
   { naam: 'Merk', as: 'Paradigma', nr: 12, beschrijving: 'Merkbelofte en merkidentiteit inzetten voor nieuwe posities.' },
 ];
 
+// De vier sleuteldimensies krijgen tinten van de Define-kleur, zodat ze als
+// één cluster oogen en niet gekoppeld lijken aan andere fasen in de reis.
 const asKleuren: Record<string, string> = {
-  'Product': 'bg-phase-discover',
-  'Positie': 'bg-phase-design',
-  'Proces': 'bg-phase-define',
-  'Paradigma': 'bg-phase-refine',
+  'Product': 'bg-phase-define/90',
+  'Positie': 'bg-phase-define/70',
+  'Proces': 'bg-phase-define/50',
+  'Paradigma': 'bg-phase-define/30',
 };
 
 // Onze teamresultaten per innovatieruimte, gemapped naar Huizingh-dimensies
@@ -47,7 +50,7 @@ const radarResultaten = [
   },
   {
     teamNaam: 'Beveiliging',
-    dimensies: 'Merk (12), Waardeketen (11)',
+    dimensies: 'Oplossingen (3), Waardeketen (11), Merk (12)',
     as: 'Paradigma',
     ideeën: ['Pen piept als die niet van jou is', 'Voice-/vingerafdruk authenticatie', 'Vingerafdrukbeveiliging handtekeningen', 'De analoge security expert (positionering)'],
   },
@@ -59,14 +62,14 @@ const radarResultaten = [
   },
   {
     teamNaam: 'Organisatie',
-    dimensies: 'Processen, Organisatie, Netwerken',
+    dimensies: 'Processen, Organisatie',
     as: 'Proces',
     ideeën: ['Loyalty system', 'Pennenboer aan huis (als de melkboer)', 'Duurzame materialen & lifecycle', 'Luxe bezorging (gouden pakketje, handdruk)', 'Meebewegen met klant', 'Duurdere grondstoffen inkopen', 'Inkopen uit buitenland', 'Productie naar lage-lonenlanden'],
   },
 ];
 ---
 
-<BaseLayout title="Innovatieradar — Define">
+<BaseLayout title="Innovatieradar · Define">
   <!-- Hero with image -->
   <section class="bg-bg-primary text-white overflow-hidden relative">
     <div class="absolute inset-0">
@@ -101,11 +104,23 @@ const radarResultaten = [
           <div>
             <h2 class="font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-3">De Innovatieradar</h2>
             <p class="text-dark/60 leading-relaxed mb-3">
-              Huizingh (2019) onderscheidt binnen de vier sleuteldimensies <strong class="text-dark">product, proces, paradigma en positie</strong> twaalf dimensies waarbinnen een organisatie kan innoveren.
-              Het idee is dat je als manager breder kijkt dan alleen het product. Waar kan innovatie nog meer vorm krijgen?
+              <a href="https://www.huizingh.com/boeken/innovatiemanagement" target="_blank" rel="noopener" class="text-phase-define underline decoration-phase-define/40 hover:decoration-phase-define">Huizingh (2019)</a> onderscheidt binnen de vier sleuteldimensies <strong class="text-dark">product, positie, proces en paradigma</strong> twaalf dimensies waarbinnen een organisatie kan innoveren.
+              Tidd &amp; Bessant noemen dezelfde vier in hun 4P Innovation Space. Het idee is dat je als manager breder kijkt dan alleen het product.
             </p>
-            <p class="text-dark/40 text-sm">
-              Het is een tool die helpt om te <strong>zoeken</strong>. Het 'vinden' is een creatief en heel eigen proces.
+            <p class="text-dark/40 text-sm mb-3">
+              Het is een zoekinstrument, geen ordenaar. Het vinden blijft een creatief en eigen proces.
+            </p>
+            <p class="text-dark/50 text-sm leading-relaxed">
+              <strong class="text-dark/70">Wat werkte voor ons:</strong> de radar dwong ons om ook in paradigma en positie te kijken, terwijl we anders waarschijnlijk bij product waren blijven hangen. Daar kwam de Security-denkrichting vandaan (Merk + Waardeketen, paradigma-as).
+            </p>
+            <p class="text-dark/50 text-sm leading-relaxed mt-2">
+              <strong class="text-dark/70">Wat niet werkte:</strong> ideeën vielen vaak in meerdere kamers tegelijk. "Online eigen pen designen" raakt Aanbod én Klantervaring. We hebben geforceerd ingedeeld en achteraf herplaatst. Als ordenaar is de radar dus beperkt. We hebben 'm uiteindelijk gebruikt als checklist om niks over te slaan, niet als taxonomie.
+            </p>
+            <p class="text-dark/50 text-sm leading-relaxed mt-3 pt-3 border-t border-white/10">
+              <strong class="text-dark/70">Over het aantal ideeen:</strong> Huizingh (2019) beveelt ruwweg 10 ideeen per dimensie aan, dus richting 90-120 in totaal. Wij kwamen tijdens de klassikale sessie (BK3, 1 uur) op 32 ideeen verdeeld over 6 kamers. Niet omdat we bewust hadden gekozen voor 6 van de 12 kamers, maar omdat we binnen het tijdvak van de les niet verder kwamen dan deze 6, en niet verder dan gemiddeld 5 ideeen per kamer voordat we tegen herhaling aanliepen.
+            </p>
+            <p class="text-dark/50 text-sm leading-relaxed mt-2">
+              Achteraf hadden we een tweede sessie kunnen beleggen om verder te divergeren. Dat hebben we niet gedaan; we vonden het belangrijker om met wat er lag direct te convergeren naar denkrichtingen dan om te blijven verzamelen. Beperking die we erkennen: de 6 onbetreden kamers (bv. Netwerken, Waardeverkrijging) kunnen nog krachtige ideeen verbergen.
             </p>
           </div>
         </div>
@@ -131,7 +146,7 @@ const radarResultaten = [
                 {dims.map((d) => (
                   <li class="text-dark/50 text-xs flex items-start gap-1.5">
                     <span class="text-dark/30 font-bold">{d.nr}.</span>
-                    <span><strong class="text-dark/70">{d.naam}</strong> — {d.beschrijving}</span>
+                    <span><strong class="text-dark/70">{d.naam}:</strong> {d.beschrijving}</span>
                   </li>
                 ))}
               </ul>
@@ -145,7 +160,7 @@ const radarResultaten = [
   <!-- Foto's van de sessie -->
   <section class="bg-cream py-20">
     <div class="max-w-4xl mx-auto px-6">
-      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Sessie 3 — Innovatieradar</h2>
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-dark mb-3 text-center">Sessie 3: Innovatieradar</h2>
       <p class="reveal reveal-delay-1 text-dark/50 text-center mb-10">Divergeren: ideeën genereren per innovatieruimte met post-its op de flipover</p>
 
       <div class="reveal reveal-delay-2 prose max-w-none mb-10">
@@ -155,13 +170,13 @@ const radarResultaten = [
       <div class="reveal reveal-delay-2 grid md:grid-cols-2 gap-6">
         <div>
           <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
-            <img src={url('/images/research/sessie3-radar-1.jpeg')} alt="Innovatieradar flipover — Product & Paradigma kwadranten met post-its" class="w-full" />
+            <img src={url('/images/research/sessie3-radar-1.jpeg')} alt="Innovatieradar flipover, Product en Paradigma kwadranten met post-its" class="w-full" />
           </div>
           <p class="text-dark/40 text-sm text-center mt-3 italic">Product & Paradigma kwadranten</p>
         </div>
         <div>
           <div class="rounded-2xl overflow-hidden border border-white/10 shadow-lg">
-            <img src={url('/images/research/sessie3-radar-2.jpeg')} alt="Innovatieradar flipover — alle zes kamers met post-its" class="w-full" />
+            <img src={url('/images/research/sessie3-radar-2.jpeg')} alt="Innovatieradar flipover, alle zes kamers met post-its" class="w-full" />
           </div>
           <p class="text-dark/40 text-sm text-center mt-3 italic">Volledige radar: 6 kamers</p>
         </div>
