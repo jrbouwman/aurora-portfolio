@@ -195,7 +195,7 @@ import { url } from '../../utils/base';
 
       <!-- Procesdemo video (voor niet-technische lezers) -->
       <h3 class="reveal font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-2 text-center">Hoe ziet dit eruit in de praktijk</h3>
-      <p class="reveal text-dark/50 text-center text-sm mb-6">Korte demo van het proces vanuit de gebruiker, zonder technisch jargon. Speelt automatisch af als je 'm in beeld krijgt.</p>
+      <p class="reveal text-dark/50 text-center text-sm mb-6">Korte demo van het proces vanuit de gebruiker.</p>
       <div class="reveal rounded-2xl overflow-hidden border border-white/10 shadow-lg mb-4 bg-warm-gray relative" data-no-lightbox>
         <video
           id="proces-demo-video"
@@ -208,7 +208,26 @@ import { url } from '../../utils/base';
           controls
         ></video>
       </div>
-      <p class="reveal text-dark/40 text-center text-xs mb-10">Geluid staat standaard uit. Klik op het luidsprekericoon om uitleg te horen.</p>
+      <p class="reveal text-dark/40 text-center text-xs mb-8">Geluid staat standaard uit. Klik op het luidsprekericoon om uitleg te horen.</p>
+
+      <!-- Hoeveel verandert er voor wie -->
+      <div class="reveal grid md:grid-cols-2 gap-4 mb-10">
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">Voor de eindklant</p>
+          <p class="text-dark/70 text-sm leading-relaxed">
+            De grootste verandering: in plaats van alleen je ID-bewijs laten zien, voer je er ook een persoonlijke pincode bij in. Eén handeling extra, vergelijkbaar met pinnen.
+          </p>
+        </div>
+        <div class="bg-bg-elevated rounded-2xl p-5 border border-white/5 shadow-sm">
+          <p class="text-dark/30 text-xs font-bold uppercase tracking-widest mb-2">Voor de medewerker aan de balie</p>
+          <p class="text-dark/70 text-sm leading-relaxed">
+            Nog kleiner. De ID-check die nu visueel gebeurt, gaat via het station. De medewerker bevestigt op het scherm en houdt het gesprek met de klant. Geen kopietjes meer maken, geen handmatig overtypen.
+          </p>
+        </div>
+      </div>
+      <p class="reveal text-dark/50 text-center text-sm italic mb-10">
+        Dat we het gedrag van zowel klant als medewerker bijna intact laten, is geen toeval. Hoe minder een innovatie afwijkt van wat mensen al doen, hoe sneller die wordt opgepakt (compatibiliteit, <a href="https://en.wikipedia.org/wiki/Diffusion_of_innovations#Characteristics_of_innovations" target="_blank" rel="noopener" class="underline hover:text-dark">Rogers, 2003</a>).
+      </p>
 
       <!-- Procesflow (voor technische lezers) -->
       <h3 class="reveal font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-2 text-center">Procesflow voor de techneuten</h3>
