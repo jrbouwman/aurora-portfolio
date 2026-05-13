@@ -1,6 +1,120 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { url } from '../../utils/base';
+
+// Bell curve berekening voor Rogers' diffusion curve
+const N = 80;
+const mu = 0.5;
+const sigma = 0.15;
+const xStart = 80;
+const xEnd = 920;
+const yBase = 380;
+const yPeak = 90;
+
+const pts: [number, number][] = [];
+for (let i = 0; i <= N; i++) {
+  const t = i / N;
+  const xPx = xStart + t * (xEnd - xStart);
+  const z = (t - mu) / sigma;
+  const yVal = Math.exp(-z * z / 2);
+  const yPx = yBase - yVal * (yBase - yPeak);
+  pts.push([xPx, yPx]);
+}
+const linePath = 'M ' + pts.map(p => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' L ');
+const fillPath = linePath + ` L ${xEnd.toFixed(1)} ${yBase} L ${xStart.toFixed(1)} ${yBase} Z`;
+
+const tToX = (t: number) => xStart + t * (xEnd - xStart);
+
+// Y van curve op gegeven t
+const yAtT = (t: number) => {
+  const z = (t - mu) / sigma;
+  const yVal = Math.exp(-z * z / 2);
+  return yBase - yVal * (yBase - yPeak);
+};
+
+const categorieGrenzen = [0.206, 0.351, 0.5, 0.649];
+
+const adopterBands = [
+  { label: 'Innovators', pct: '2,5%', midT: 0.10, kleur: '#86efac' },
+  { label: 'Early Adopters', pct: '13,5%', midT: 0.279, kleur: '#4ade80' },
+  { label: 'Early Majority', pct: '34%', midT: 0.426, kleur: '#22c55e' },
+  { label: 'Late Majority', pct: '34%', midT: 0.574, kleur: '#16a34a' },
+  { label: 'Laggards', pct: '16%', midT: 0.82, kleur: '#15803d' },
+];
+
+const faseMarkers = [
+  { num: '1', label: 'Validatie', t: 0.105, partij: 'Pioniers', initialen: 'N', partijRol: 'individueel', duur: '0-3 mnd', investering: '€100k seed', omzet: '€0', kostenLabel: 'Seed' },
+  { num: '2', label: 'Pilot', t: 0.279, partij: 'AKD', initialen: 'A', partijRol: 'koploper-kantoor', duur: '4-15 mnd', investering: '€500k-€1 mln', omzet: '€100-200k pilot', kostenLabel: 'Series A' },
+  { num: '3', label: 'Schalen', t: 0.42, partij: 'CMS NL', initialen: 'C', partijRol: 'via AKD', duur: '16-30 mnd', investering: '€2-4 mln', omzet: '€1-3 mln per jaar', kostenLabel: 'Scale-up' },
+  { num: '4', label: 'Markt', t: 0.56, partij: 'Verzekeraars', initialen: 'V', partijRol: 'via premie', duur: '30+ mnd', investering: 'Cashflow', omzet: '€5+ mln per jaar', kostenLabel: 'Hefboom' },
+];
+
+const faseKaartjes = [
+  {
+    num: '1',
+    titel: 'Validatie',
+    mikkop: 'Innovators (2,5%)',
+    rogersKenmerk: 'De eerste 2,5% durft te falen, staat soms aan de rand van de eigen beroepsgroep en heeft contacten buiten het notariaat. Geen prestige-zoekers maar nieuwsgierigen.',
+    doelpartij: { naam: 'Jonge notaris-pioniers (individuen)', initialen: 'N', rol: 'Geen grote kantoren maar mensen die zelf publiceren of experimenteren', link: 'https://www.knb.nl/' },
+    doelprofiel: 'Notarissen die zelf actief praten en schrijven over digitalisering. Vaak jong, soms net partner, met een eigen LinkedIn-stem of een opinieartikel in een vakblad voor notarissen. Zij staan open voor nieuwe ideeën zonder dat hun reputatie meteen op het spel staat.',
+    signaal: 'Concrete herkenningspunten: een opinieartikel in een vakblad over digitale ondertekening, LinkedIn-posts over legal tech, deelname aan de KNB-werkgroep Digitaal Passeren of eigen experimenten met blockchain-aktes. Grote prestige-kantoren staan hier nog niet, die volgen in fase 2.',
+    contactpersoon: 'De notaris zelf, niet de partner of de directie. We identificeren 2 of 3 individuen via vakbladen, LinkedIn en de KNB-werkgroep.',
+    kanaal: 'Direct LinkedIn-bericht of e-mail naar de auteur van een recent stuk. Geen KNB-event als startpunt, want daar zit de gevestigde orde.',
+    tovToon: 'Nieuwsgierig en peer-to-peer. Geen verkoop, geen sales-jargon. Twee mensen die elkaar in de ogen kijken over een gedeeld probleem.',
+    pitch: 'Ik las je stuk over digitale ondertekening. We onderzoeken een nieuwe aanpak voor ID-verificatie en zoeken 2 of 3 mensen die er kritisch naar willen kijken. Geen pitch, geen verkoop. Een gesprek van 30 minuten. Als je het interessant vindt, mag je co-auteur worden op het onderzoeksverslag dat eruit komt.',
+    waarom: 'Deze groep wil herkenning voor hun pioniersrol, geen verkooppraatje. Co-auteurschap geeft status binnen het eigen vakgebied. Wij ruilen toegang tot hun denken voor zichtbaarheid in het uiteindelijke verhaal.',
+    backup: 'Alternatief: deelnemers van de KNB-werkgroep Digitaal Passeren als kleinere kring van actieve digitaliseringspioniers binnen het beroep.',
+    backupLink: 'https://www.knb.nl/',
+  },
+  {
+    num: '2',
+    titel: 'Pilot',
+    mikkop: 'Early Adopters (13,5%)',
+    rogersKenmerk: 'Lokaal gerespecteerde kantoren. De groep waar de rest van de markt naar kijkt. Zij adopteren niet voor de techniek maar voor hun reputatie als koploper.',
+    doelpartij: { naam: 'AKD', initialen: 'A', rol: 'Middelgroot notariaat met eigen innovatieprogramma', link: 'https://www.akd.eu/' },
+    doelprofiel: 'Middelgrote tot grote kantoren (5-50 notarissen) met een interne digitaliseringsagenda en een publieke positie als koploper. Groot genoeg om een pilot te dragen, klein genoeg om snel te beslissen, en gevoelig voor reputatie binnen de beroepsgroep.',
+    signaal: 'Eigen interne innovatie-portfolio of legal-tech-team, persberichten over digitalisering, partners die op congressen spreken. Hun reputatie als vooruitstrevend kantoor is publiek bewezen.',
+    contactpersoon: 'Partner notariaat met operationele verantwoordelijkheid. Belangrijk: degene die het gesprek voert moet uit het notariaat zelf komen, geen externe techverkoper. Notarissen praten makkelijker met soortgenoten.',
+    kanaal: 'Persoonlijk pilotvoorstel na een warme introductie vanuit een fase-1-contact. Direct daarbij het aanbod van een spreekplek en co-auteurschap, niet als bonus achteraf.',
+    tovToon: 'Partnerschappelijk en gelijkwaardig. Het gaat niet over wat wij leveren, maar over wat zij krijgen aan zichtbaarheid en eerste-naamsbekendheid.',
+    pitch: 'Onze pioniers-notarissen bevestigden de pijn. We willen drie maanden testen bij jullie op één vestiging. Jullie worden eerste naam in het verhaal: co-auteurschap op het whitepaper, spreekplek op het volgende KNB-event, eerste publieke case. Wij dragen de ontwikkelkosten. Het succes is van jullie.',
+    waarom: 'Deze groep adopteert voor reputatie, niet voor korting. Co-auteurschap en spreekplekken geven die reputatie direct. Een puur transactionele pitch ("wij dragen kosten, jullie geven data") onderschat waarom zij meedoen.',
+    backup: 'Alternatief: NautaDutilh of een tech-bank-balie (bunq) als parallelle pilot in compliance-omgeving.',
+    backupLink: 'https://www.nautadutilh.com/',
+  },
+  {
+    num: '3',
+    titel: 'Schalen',
+    mikkop: 'Vroege middenmoot (eerste 5-10%)',
+    rogersKenmerk: 'Voorzichtige beslissers. Zij worden NIET overtuigd door ons als leverancier, maar door succes-verhalen van vergelijkbare kantoren. Pas hier slaat de motor om: van actief benaderen naar wachten op interesse.',
+    doelpartij: { naam: 'CMS Nederland (via AKD)', initialen: 'C', rol: 'AKD spreekt namens ons, wij faciliteren', link: 'https://cms.law/nl/' },
+    doelprofiel: 'Grote, gevestigde notariskantoren die wachten op bewijs bij vergelijkbare partijen voor ze zelf bewegen. Zij volgen niet op een droom, maar op een aantoonbare track record bij peer-kantoren. Hun beslissingsproces is langer en zorgvuldiger dan dat van fase 2.',
+    signaal: 'Zij volgen wat hun peers doen. Komt CMS uit zichzelf vragen na een AKD-presentatie, dan is het signaal goed. Bellen we hen actief op, dan zitten we te vroeg.',
+    contactpersoon: 'Bewust geen direct contact. We wachten op inkomende interesse na peer-presentaties. Pas dan voeren we een gesprek, en zelfs dan vanuit een ondersteunende rol.',
+    kanaal: 'AKD spreekt zelf op een KNB-bijeenkomst over hun ervaring. Wij zitten in de zaal, niet op het podium. Vakblad-publicatie onder AKD-naam met ons als co-auteur op de achtergrond. Inkomende vragen daarna opvangen.',
+    tovToon: 'Onze stem verdwijnt naar de achtergrond. AKD voert het woord. We worden facilitator, niet verkoper. Stilte is hier strategie.',
+    pitch: 'Uitgesproken door AKD: "We werken zes maanden met deze methode. We zijn ermee begonnen vanuit een eigen vraagstuk en hebben hem aangepast voor onze werkwijze. Doorlooptijd ID-check terug met 40%, geen fraudemeldingen. Vragen mogen."',
+    waarom: 'Deze groep ervaart een peer-presentatie als sociaal bewijs, niet als verkoop. Hun overtuiging komt uit gesprekken binnen de eigen beroepsgroep, niet van leveranciers. Vanaf hier benaderen wij niet meer actief, maar laten we het verhaal door peers vertellen.',
+    backup: 'Als CMS niet uit zichzelf komt: andere middelgrote kantoren in AKDs netwerk via dezelfde route. Géén directe sales-aanpak.',
+    backupLink: 'https://www.nautadutilh.com/',
+  },
+  {
+    num: '4',
+    titel: 'Markt',
+    mikkop: 'Brede middenmoot + late volgers',
+    rogersKenmerk: 'Sceptische, late beslissers. Zij komen pas in beweging als het duurder wordt om NIET te adopteren dan om wel mee te doen. Pitchen werkt hier niet. Systeem-druk wel.',
+    doelpartij: { naam: 'Beroepsaansprakelijkheidsverzekeraars (NN, Allianz, VVAA)', initialen: 'V', rol: 'Geen pitchpartij maar systeem-veranderaar', link: 'https://www.nn.nl/' },
+    doelprofiel: 'De partijen die de FINANCIELE PRIKKEL kunnen veranderen voor notariskantoren. Verzekeraars dragen claim-kosten bij fraude en kunnen daarom premie verlagen of strenger uitsluiten bij visuele ID-controle. Zij zijn niet onze klant, ze zijn ons hefboom.',
+    signaal: 'Verzekeraars publiceren regelmatig risico-analyses en passen premies aan op basis van branche-data. Met fraudedata uit pilots in fase 2 en 3 kunnen we hen aantonen dat ons systeem het claim-risico drukt. Vanaf daar bewegen zij zelf.',
+    contactpersoon: 'Productmanager of underwriter beroepsaansprakelijkheid. Niet de salesafdeling van de verzekeraar.',
+    kanaal: 'Indirect: gezamenlijk whitepaper of pilotprogramma met een van de verzekeraars. KNB volgt vanzelf met een richtlijn als de verzekeraars meegaan, dat hoeven wij niet apart te organiseren.',
+    tovToon: 'Zakelijk en data-gedreven. Geen vakjargon, geen reputatie-verhaal. Cijfers over claim-risico en premie-effect.',
+    pitch: 'Tegen de verzekeraar (niet tegen de notaris): "Onze pilotdata laat zien dat fraude bij visuele ID-controle X% van jullie claims uitmaakt. Met digitale verificatie loopt dat terug. Zouden jullie een premiekorting koppelen aan deze werkwijze? Wij leveren de auditdata."',
+    waarom: 'De late middenmoot beweegt niet door overtuiging maar door verandering in de kosten van NIET-adopteren. Een hogere verzekeringspremie maakt die kosten direct voelbaar. KNB-richtlijn komt daarna als bevestiging, niet als motor.',
+    backup: 'Als verzekeraars niet meegaan: wachten op EU-regelgeving (eIDAS 2.0) als externe duwer. Trager maar onvermijdelijk.',
+    backupLink: 'https://digital-strategy.ec.europa.eu/en/policies/eidas-regulation',
+  },
+];
 ---
 
 <BaseLayout title="Roadmap · Deliver">
@@ -263,6 +377,297 @@ import { url } from '../../utils/base';
               Aanbestedingsprocedures bij overheidspartijen
             </li>
           </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Wie en wanneer (adopter-strategie) -->
+  <section id="wie-wanneer" class="bg-warm-gray py-20 scroll-mt-20 relative">
+    <div class="absolute inset-0 bg-gradient-to-b from-phase-deliver/5 via-transparent to-transparent pointer-events-none"></div>
+    <div class="max-w-5xl mx-auto px-6 relative">
+      <h2 class="reveal font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-white mb-3 text-center">Wie benaderen we, in welke fase?</h2>
+      <p class="reveal reveal-delay-1 text-white/55 text-center mb-12 max-w-3xl mx-auto leading-relaxed">
+        Rogers verdeelt de markt in vijf groepen op basis van hoe snel ze nieuwe dingen aannemen. Onze vier roadmap-fasen mikken bewust op verschillende groepen: <span class="text-phase-deliver font-medium">pioniers eerst, mainstream pas later</span>. Rond <span class="text-amber-300 font-medium">16% van de markt</span> slaat onze rol om: van zelf actief benaderen naar het systeem laten werken via verzekeraars en regels.
+      </p>
+
+      <!-- Bell curve visual -->
+      <div class="reveal mb-12 bg-bg-elevated rounded-3xl p-4 md:p-8 border border-white/8 shadow-[0_10px_60px_-15px_rgba(34,197,94,0.18)] overflow-x-auto">
+        <svg viewBox="0 0 1000 620" class="w-full h-auto" style="min-width: 780px" aria-labelledby="curve-title">
+          <title id="curve-title">Rogers' adoptiecurve met daarop de vier roadmap-fasen en doel-partij per fase</title>
+          <defs>
+            <linearGradient id="bellGradFade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#4ade80" stop-opacity="0.4"/>
+              <stop offset="100%" stop-color="#22c55e" stop-opacity="0.05"/>
+            </linearGradient>
+            <filter id="curveWobble" x="-2%" y="-2%" width="104%" height="104%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="3" result="noise" />
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2" />
+            </filter>
+            <filter id="markerGlow" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur stdDeviation="5" result="blur" />
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          {/* Subtiele grid */}
+          <g opacity="0.06" stroke="#86efac">
+            {Array.from({length: 7}).map((_, i) => (
+              <line x1={xStart} y1={yBase - (i+1) * 30} x2={xEnd} y2={yBase - (i+1) * 30} stroke-width="1" />
+            ))}
+          </g>
+
+          {/* Achtergrond banden per adopter-categorie */}
+          {[0, ...categorieGrenzen, 1].slice(0, -1).map((leftT, idx) => {
+            const rightT = [...categorieGrenzen, 1][idx];
+            return (
+              <rect
+                x={tToX(leftT)}
+                y={yPeak + 130}
+                width={tToX(rightT) - tToX(leftT)}
+                height={yBase - yPeak - 100}
+                fill={idx % 2 === 0 ? '#22c55e' : '#4ade80'}
+                opacity="0.05"
+              />
+            );
+          })}
+
+          {/* Bell curve fill */}
+          <g transform="translate(0, 130)">
+            <path d={fillPath} fill="url(#bellGradFade)" filter="url(#curveWobble)" />
+            <path d={linePath} fill="none" stroke="#86efac" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" filter="url(#curveWobble)" />
+          </g>
+
+          {/* Categorie-grenzen (verticale lijnen) */}
+          {categorieGrenzen.map((t) => (
+            <line x1={tToX(t)} y1={yPeak + 130} x2={tToX(t)} y2={yBase + 130} stroke="#4ade80" stroke-width="1" stroke-dasharray="3 5" opacity="0.25" />
+          ))}
+
+          {/* X-as */}
+          <line x1={xStart - 10} y1={yBase + 130} x2={xEnd + 10} y2={yBase + 130} stroke="#86efac" stroke-width="2" stroke-linecap="round" opacity="0.7" />
+
+          {/* Categorie-labels onder de x-as */}
+          {adopterBands.map((band) => (
+            <g>
+              <text x={tToX(band.midT)} y={yBase + 162} text-anchor="middle" font-family="'Patrick Hand', cursive" font-size="22" fill="#ffffff" font-weight="700" opacity="0.9">{band.label}</text>
+              <text x={tToX(band.midT)} y={yBase + 186} text-anchor="middle" font-family="'Kalam', cursive" font-size="16" fill="#4ade80" font-weight="700">{band.pct}</text>
+            </g>
+          ))}
+
+          {/* Fase-markers met doelpartij-avatar boven de curve - klikbaar */}
+          {faseMarkers.map((fase) => {
+            const x = tToX(fase.t);
+            const y = yAtT(fase.t) + 130;
+            return (
+              <a href={`#fase-${fase.num}`} class="cursor-pointer focus:outline-none">
+                {/* Hover-target - alleen over avatar/pill, niet over hele curve */}
+                <rect x={x - 55} y="0" width="110" height="160" fill="transparent" />
+
+                {/* Doelpartij-avatar (logo-placeholder) */}
+                <g filter="url(#markerGlow)">
+                  <circle cx={x} cy="38" r="26" fill="#0f172a" stroke="#22c55e" stroke-width="2.5" />
+                  <text x={x} y="38" text-anchor="middle" font-family="'Patrick Hand', cursive" font-size="26" fill="#86efac" font-weight="700" dy="0.32em">{fase.initialen}</text>
+                </g>
+                <text x={x} y="82" text-anchor="middle" font-family="'Patrick Hand', cursive" font-size="17" fill="#ffffff" font-weight="700">{fase.partij}</text>
+                <text x={x} y="100" text-anchor="middle" font-family="'Kalam', cursive" font-size="11" fill="#86efac" opacity="0.7">{fase.partijRol}</text>
+
+                {/* Fase-nummer (klein label boven curve) */}
+                <line x1={x} y1="108" x2={x} y2="120" stroke="#22c55e" stroke-width="1.5" opacity="0.45" />
+                <rect x={x - 38} y="122" width="76" height="22" rx="11" fill="#22c55e" />
+                <text x={x} y="133" text-anchor="middle" font-family="'Patrick Hand', cursive" font-size="13" fill="#0f172a" font-weight="700" dy="0.32em">Fase {fase.num}: {fase.label}</text>
+
+                {/* Verbinder naar curve */}
+                <line x1={x} y1="146" x2={x} y2={y - 6} stroke="#22c55e" stroke-width="1.5" stroke-dasharray="2 4" opacity="0.5" />
+
+                {/* Bolletje op curve */}
+                <circle cx={x} cy={y} r="8" fill="#0f172a" stroke="#22c55e" stroke-width="2.5" />
+                <circle cx={x} cy={y} r="4" fill="#86efac" />
+              </a>
+            );
+          })}
+
+          {/* Critical mass moment - omslag van push naar pull, rond t=0.351 (Early Adopters→Early Majority) */}
+          <g>
+            <line x1={tToX(0.351)} y1="200" x2={tToX(0.351)} y2={yBase + 130} stroke="#fbbf24" stroke-width="2" stroke-dasharray="6 4" opacity="0.8" />
+            <g transform={`translate(${tToX(0.351)}, 195)`}>
+              <rect x="-110" y="-20" width="220" height="22" rx="11" fill="#fbbf24" />
+              <text x="0" y="-9" text-anchor="middle" font-family="'Patrick Hand', cursive" font-size="13" fill="#1f2937" font-weight="700" dy="0.32em">⚡ Kritieke massa (~16%)</text>
+            </g>
+            <text x={tToX(0.351) + 6} y="225" font-family="'Kalam', cursive" font-size="11" fill="#fbbf24" font-weight="600" opacity="0.85">wij chasen → markt volgt</text>
+          </g>
+
+          {/* Y-as label */}
+          <text x="32" y="340" text-anchor="middle" font-family="'Patrick Hand', cursive" font-size="16" fill="#86efac" opacity="0.75" transform="rotate(-90 32 340)">Aandeel adopters per periode</text>
+          {/* X-as label */}
+          <text x="500" y="600" text-anchor="middle" font-family="'Patrick Hand', cursive" font-size="16" fill="#86efac" opacity="0.75">Tijd, van eerste adopters naar laatste ⇒</text>
+        </svg>
+
+        <div class="flex flex-wrap items-center justify-between gap-x-6 gap-y-2 mt-4 px-2 text-xs">
+          <div class="flex items-center gap-2 text-white/55">
+            <svg class="w-4 h-4 text-phase-deliver" fill="currentColor" viewBox="0 0 24 24"><path d="M13 7l5 5-5 5V7zm-2 10l-5-5 5-5v10z"/></svg>
+            <span>Klik een fase-avatar om naar de details te springen</span>
+          </div>
+          <div class="text-white/40 italic">Verdeling volgens <a href="https://en.wikipedia.org/wiki/Diffusion_of_innovations" target="_blank" rel="noopener" class="underline hover:text-phase-deliver">Rogers (1962)</a></div>
+        </div>
+
+        {/* Tijdlijn-strook onder de curve: duur, investering, omzet per fase */}
+        <div class="mt-8 pt-6 border-t border-white/8">
+          <p class="text-white/35 text-[10px] font-bold uppercase tracking-[0.15em] mb-4 text-center">Tijd, investering en omzet per fase</p>
+          <div class="grid grid-cols-4 gap-3">
+            {faseMarkers.map((fase, idx) => (
+              <div class={`relative rounded-2xl p-4 border ${idx === 0 ? 'bg-phase-deliver/12 border-phase-deliver/30' : 'bg-white/[0.03] border-white/8'}`}>
+                {/* Fase-header */}
+                <div class="flex items-center gap-2 mb-3">
+                  <div class="w-7 h-7 rounded-lg bg-phase-deliver text-white font-bold text-sm flex items-center justify-center shrink-0">{fase.num}</div>
+                  <div class="min-w-0">
+                    <p class="font-[family-name:var(--font-display)] text-white font-bold text-sm leading-tight">{fase.label}</p>
+                    <p class="text-phase-deliver text-[10px] uppercase tracking-wide font-bold">{fase.kostenLabel}</p>
+                  </div>
+                </div>
+
+                {/* Drie KPI's */}
+                <div class="space-y-2.5">
+                  <div>
+                    <div class="flex items-center gap-1.5 text-white/40 text-[9px] font-bold uppercase tracking-wider mb-0.5">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                      Duur
+                    </div>
+                    <p class="text-white text-sm font-[family-name:var(--font-display)] font-bold">{fase.duur}</p>
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-1.5 text-white/40 text-[9px] font-bold uppercase tracking-wider mb-0.5">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                      Investering
+                    </div>
+                    <p class="text-red-300/90 text-sm font-[family-name:var(--font-display)] font-bold">{fase.investering}</p>
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-1.5 text-white/40 text-[9px] font-bold uppercase tracking-wider mb-0.5">
+                      <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+                      Omzet
+                    </div>
+                    <p class="text-phase-deliver text-sm font-[family-name:var(--font-display)] font-bold">{fase.omzet}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p class="text-white/35 text-[10px] italic text-center mt-3">Maanden cumulatief vanaf MT-besluit (dag 0). Bedragen zijn schattingen, gevalideerd in <a href={url('/deliver/ondernemingsplan/')} class="underline hover:text-phase-deliver">het ondernemingsplan</a>.</p>
+        </div>
+      </div>
+
+
+      <!-- Fase-tab-strip (4 knoppen horizontaal) -->
+      <div class="reveal grid grid-cols-4 gap-2 mb-4">
+        {faseKaartjes.map((kaart, idx) => (
+          <button
+            type="button"
+            data-fase-tab={kaart.num}
+            class={`fase-tab ${idx === 0 ? 'is-active' : ''} group text-left p-3 rounded-xl border transition-all`}
+          >
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-lg bg-phase-deliver/20 fase-tab-num flex items-center justify-center font-[family-name:var(--font-display)] font-bold text-base shrink-0 transition-colors">{kaart.num}</div>
+              <div class="min-w-0 flex-1">
+                <p class="font-[family-name:var(--font-display)] font-bold text-sm leading-tight fase-tab-titel transition-colors">Fase {kaart.num}: {kaart.titel}</p>
+                <p class="text-[10px] leading-snug fase-tab-sub transition-colors">{kaart.mikkop}</p>
+              </div>
+            </div>
+          </button>
+        ))}
+      </div>
+
+      <!-- Detail-paneel: 1 actieve fase tegelijk, allemaal in DOM voor anchor-scroll -->
+      {faseKaartjes.map((kaart, idx) => (
+        <div
+          id={`fase-${kaart.num}`}
+          data-fase-panel={kaart.num}
+          class={`fase-panel ${idx === 0 ? '' : 'hidden'} reveal bg-bg-elevated rounded-3xl overflow-hidden border border-white/8 shadow-lg scroll-mt-24 mb-6`}
+        >
+          {/* Accent-strook bovenaan */}
+          <div class="h-1 bg-gradient-to-r from-phase-deliver via-green-400 to-green-300/40"></div>
+
+          <div class="p-6 md:p-7">
+            {/* Header: Doel-partij prominent + Rogers-kenmerk */}
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pb-5 mb-5 border-b border-white/8">
+              {/* Doel-partij (2-col) */}
+              <div class="md:col-span-2">
+                <p class="text-white/35 text-[10px] font-bold uppercase tracking-[0.15em] mb-2">Doel-partij in fase {kaart.num} · {kaart.titel}</p>
+                <a href={kaart.doelpartij.link} target="_blank" rel="noopener" class="group/partij inline-flex items-center gap-3 bg-white/[0.03] hover:bg-white/[0.06] rounded-2xl p-3 pr-5 border border-white/8 hover:border-phase-deliver/30 transition-all">
+                  <div class="w-14 h-14 rounded-xl bg-bg-primary border-2 border-phase-deliver flex items-center justify-center font-[family-name:var(--font-display)] font-bold text-2xl text-phase-deliver shrink-0 group-hover/partij:scale-105 transition-transform">
+                    {kaart.doelpartij.initialen}
+                  </div>
+                  <div class="min-w-0">
+                    <p class="text-white font-bold text-base flex items-center gap-1.5">
+                      {kaart.doelpartij.naam}
+                      <svg class="w-3.5 h-3.5 text-white/40 group-hover/partij:text-phase-deliver" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </p>
+                    <p class="text-white/55 text-xs leading-snug mt-0.5">{kaart.doelpartij.rol}</p>
+                  </div>
+                </a>
+              </div>
+              {/* Rogers-kenmerk */}
+              <div class="bg-phase-deliver/8 rounded-xl px-4 py-3 border-l-2 border-phase-deliver">
+                <p class="text-phase-deliver text-[10px] font-bold uppercase tracking-[0.15em] mb-1">Volgens Rogers</p>
+                <p class="text-white/85 text-xs leading-snug italic">{kaart.rogersKenmerk}</p>
+              </div>
+            </div>
+
+            {/* Content: 2x3 grid voor compactheid */}
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-4 mb-5">
+              <div>
+                <p class="text-white/35 text-[10px] font-bold uppercase tracking-[0.15em] mb-1.5">Doelprofiel</p>
+                <p class="text-white/85 text-sm leading-relaxed">{kaart.doelprofiel}</p>
+              </div>
+              <div>
+                <p class="text-white/35 text-[10px] font-bold uppercase tracking-[0.15em] mb-1.5">Signaal van openheid</p>
+                <p class="text-white/85 text-sm leading-relaxed">{kaart.signaal}</p>
+              </div>
+              <div>
+                <p class="text-white/35 text-[10px] font-bold uppercase tracking-[0.15em] mb-1.5">Contactpersoon · Kanaal</p>
+                <p class="text-white/85 text-sm leading-relaxed">{kaart.contactpersoon}</p>
+                <p class="text-white/65 text-xs leading-snug mt-1.5">{kaart.kanaal}</p>
+              </div>
+            </div>
+
+            {/* Pitch full-width met tone-of-voice tag */}
+            <div class="relative bg-phase-deliver/8 rounded-2xl p-5 pl-12 border border-phase-deliver/20 mb-4">
+              <svg class="absolute top-4 left-4 w-6 h-6 text-phase-deliver/50" fill="currentColor" viewBox="0 0 24 24"><path d="M7.17 6A5.001 5.001 0 002 11v7h7v-7H5a3 3 0 013-3V6h-.83zm10 0A5.001 5.001 0 0012 11v7h7v-7h-4a3 3 0 013-3V6h-.83z"/></svg>
+              <div class="flex items-baseline flex-wrap gap-2 mb-1.5">
+                <p class="text-phase-deliver text-[10px] font-bold uppercase tracking-[0.15em]">Pitch aan {kaart.doelpartij.naam}</p>
+                <span class="text-white/40 text-[10px]">·</span>
+                <p class="text-white/55 text-[11px] italic"><span class="text-white/35 font-bold uppercase tracking-wide text-[9px]">Toon:</span> {kaart.tovToon}</p>
+              </div>
+              <p class="text-white/90 text-sm leading-relaxed italic">{kaart.pitch}</p>
+            </div>
+
+            {/* Waarom + Backup footer-strook */}
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pt-4 border-t border-white/8">
+              <div class="md:col-span-2">
+                <p class="text-white/35 text-[10px] font-bold uppercase tracking-[0.15em] mb-1.5">Waarom dit triggert</p>
+                <p class="text-white/85 text-sm leading-relaxed">{kaart.waarom}</p>
+              </div>
+              <div>
+                <p class="text-white/35 text-[10px] font-bold uppercase tracking-[0.15em] mb-1.5">Backup-route</p>
+                <p class="text-white/70 text-xs leading-snug"><a href={kaart.backupLink} target="_blank" rel="noopener" class="underline hover:text-phase-deliver">{kaart.backup}</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <!-- Disclaimer + reflectie -->
+      <div class="reveal bg-bg-elevated/60 backdrop-blur-sm rounded-2xl p-6 border border-white/8">
+        <div class="flex items-start gap-3 mb-3">
+          <svg class="w-5 h-5 text-phase-deliver mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div>
+            <p class="text-white/40 text-[10px] font-bold uppercase tracking-[0.15em] mb-2">Kritieke massa en de omslag in onze rol</p>
+            <p class="text-white/75 text-xs leading-relaxed mb-3">
+              Rogers laat zien dat adoptie ergens rond <strong class="text-amber-300">16% van de markt</strong> zichzelf gaat dragen. Daarvoor werkt het om mensen actief te benaderen (fase 1 en 2). Daarna niet meer: dan worden nieuwe gebruikers overtuigd door kantoren die het al gebruiken (fase 3), niet door ons. En vanaf fase 4 ligt onze rol bij het systeem eromheen (verzekeraars, regels), niet bij de adopter zelf. <span class="text-white/90">Een innovatie verspreidt zich niet omdat zij goed is, maar omdat het systeem haar gaat dragen.</span>
+            </p>
+            <p class="text-white/65 text-xs leading-relaxed mb-3">
+              <span class="text-phase-deliver font-medium">Disclaimer:</span> de genoemde organisaties zijn ter illustratie van het type partij dat past bij de adopter-categorie en de communicatie-strategie volgens Rogers (1962). Aurora is een fictieve casus voor het vak Innovatiemanagement; we hebben deze partijen niet daadwerkelijk benaderd.
+            </p>
+          </div>
         </div>
       </div>
     </div>

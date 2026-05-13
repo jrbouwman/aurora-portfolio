@@ -38,6 +38,15 @@ const { title, description = 'Portfolio Innovatiemanagement - Aurora Writing Ins
       <slot />
     </main>
 
+    <!-- Global image lightbox -->
+    <div id="img-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/85 backdrop-blur-sm p-4 md:p-8 cursor-zoom-out">
+      <button type="button" id="img-lightbox-close" class="absolute top-4 right-4 md:top-8 md:right-8 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors z-10" aria-label="Sluiten">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <img id="img-lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain cursor-default" />
+      <p id="img-lightbox-caption" class="absolute bottom-4 md:bottom-8 left-0 right-0 text-center text-white/70 text-sm px-8"></p>
+    </div>
+
     <footer class="bg-bg-secondary border-t border-white/5 py-10 mt-0">
       <div class="max-w-6xl mx-auto px-6 text-center text-sm">
         <div class="flex items-center justify-center gap-3 mb-3">
@@ -83,6 +92,103 @@ const { title, description = 'Portfolio Innovatiemanagement - Aurora Writing Ins
       document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach((el) => {
         observer.observe(el);
       });
+    </script>
+
+    <!-- Fase-tabs script (used on roadmap adopter-strategie) -->
+    <script>
+      (() => {
+        const tabs = document.querySelectorAll<HTMLButtonElement>('[data-fase-tab]');
+        const panels = document.querySelectorAll<HTMLElement>('[data-fase-panel]');
+        if (tabs.length === 0 || panels.length === 0) return;
+
+        const activate = (num: string) => {
+          tabs.forEach((t) => t.classList.toggle('is-active', t.dataset.faseTab === num));
+          panels.forEach((p) => p.classList.toggle('hidden', p.dataset.fasePanel !== num));
+        };
+
+        tabs.forEach((t) => {
+          t.addEventListener('click', () => activate(t.dataset.faseTab || '1'));
+        });
+
+        // Respond to anchor changes (clicks from SVG markers)
+        const handleHash = () => {
+          const m = window.location.hash.match(/^#fase-(\d)$/);
+          if (m) {
+            activate(m[1]);
+            const panel = document.getElementById(`fase-${m[1]}`);
+            if (panel) {
+              setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+            }
+          }
+        };
+        window.addEventListener('hashchange', handleHash);
+        handleHash();
+      })();
+    </script>
+
+    <!-- Image lightbox script -->
+    <script>
+      (() => {
+        const lightbox = document.getElementById('img-lightbox');
+        const lightboxImg = document.getElementById('img-lightbox-img') as HTMLImageElement | null;
+        const lightboxCaption = document.getElementById('img-lightbox-caption');
+        const closeBtn = document.getElementById('img-lightbox-close');
+        if (!lightbox || !lightboxImg || !lightboxCaption || !closeBtn) return;
+
+        const open = (src: string, alt: string) => {
+          lightboxImg.src = src;
+          lightboxImg.alt = alt;
+          lightboxCaption.textContent = alt;
+          lightbox.classList.remove('hidden');
+          lightbox.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        };
+        const close = () => {
+          lightbox.classList.add('hidden');
+          lightbox.classList.remove('flex');
+          lightboxImg.src = '';
+          document.body.style.overflow = '';
+        };
+
+        const isDecorative = (img: HTMLImageElement): boolean => {
+          if (img.closest('[data-no-lightbox]')) return true;
+          if (img.dataset.noLightbox !== undefined) return true;
+          const cls = img.className || '';
+          if (/opacity-(5|10|15|20|25)\b/.test(cls)) return true;
+          if (cls.includes('pointer-events-none')) return true;
+          if (img.closest('a')) return true;
+          if (img.closest('button')) return true;
+          if (img.width > 0 && img.width < 64) return true;
+          return false;
+        };
+
+        const enableImg = (img: HTMLImageElement) => {
+          if (img.dataset.lightboxEnabled === '1') return;
+          if (isDecorative(img)) return;
+          img.dataset.lightboxEnabled = '1';
+          img.style.cursor = 'zoom-in';
+          img.addEventListener('click', (e) => {
+            e.preventDefault();
+            open(img.currentSrc || img.src, img.alt || '');
+          });
+        };
+
+        document.querySelectorAll<HTMLImageElement>('img').forEach(enableImg);
+
+        const mo = new MutationObserver((muts) => {
+          muts.forEach((m) => {
+            m.addedNodes.forEach((n) => {
+              if (n instanceof HTMLImageElement) enableImg(n);
+              else if (n instanceof HTMLElement) n.querySelectorAll<HTMLImageElement>('img').forEach(enableImg);
+            });
+          });
+        });
+        mo.observe(document.body, { childList: true, subtree: true });
+
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+        closeBtn.addEventListener('click', close);
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) close(); });
+      })();
     </script>
   </body>
 </html>

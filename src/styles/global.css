@@ -319,3 +319,41 @@ body::after {
   letter-spacing: 0.12em;
   color: var(--color-text-muted);
 }
+
+/* Roadmap fase-tabs (adopter strategie) */
+.fase-tab {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+}
+.fase-tab .fase-tab-num {
+  color: rgba(134, 239, 172, 0.75);
+}
+.fase-tab .fase-tab-titel {
+  color: rgba(255, 255, 255, 0.55);
+}
+.fase-tab .fase-tab-sub {
+  color: rgba(255, 255, 255, 0.35);
+}
+.fase-tab:hover {
+  background: rgba(34, 197, 94, 0.06);
+  border-color: rgba(34, 197, 94, 0.25);
+}
+.fase-tab:hover .fase-tab-titel {
+  color: rgba(255, 255, 255, 0.85);
+}
+.fase-tab.is-active {
+  background: rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.5);
+  box-shadow: 0 8px 30px -10px rgba(34, 197, 94, 0.4);
+}
+.fase-tab.is-active .fase-tab-num {
+  background: var(--color-phase-deliver);
+  color: #ffffff;
+}
+.fase-tab.is-active .fase-tab-titel {
+  color: #ffffff;
+}
+.fase-tab.is-active .fase-tab-sub {
+  color: var(--color-phase-deliver);
+}
