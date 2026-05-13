@@ -193,9 +193,26 @@ import { url } from '../../utils/base';
         </div>
       </div>
 
-      <!-- Procesflow -->
-      <h3 class="reveal font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-2 text-center">Procesflow</h3>
-      <p class="reveal text-dark/50 text-center text-sm mb-6">Het verificatieproces in vogelvlucht. Meer detail op de <a href={url('/refine/pivot/')} class="underline hover:text-dark">pivot-pagina</a>.</p>
+      <!-- Procesdemo video (voor niet-technische lezers) -->
+      <h3 class="reveal font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-2 text-center">Hoe ziet dit eruit in de praktijk</h3>
+      <p class="reveal text-dark/50 text-center text-sm mb-6">Korte demo van het proces vanuit de gebruiker, zonder technisch jargon. Speelt automatisch af als je 'm in beeld krijgt.</p>
+      <div class="reveal rounded-2xl overflow-hidden border border-white/10 shadow-lg mb-4 bg-warm-gray relative" data-no-lightbox>
+        <video
+          id="proces-demo-video"
+          src={url('/videos/proces-demo.mp4')}
+          poster={url('/videos/proces-demo-poster.jpg')}
+          class="w-full block"
+          muted
+          playsinline
+          preload="metadata"
+          controls
+        ></video>
+      </div>
+      <p class="reveal text-dark/40 text-center text-xs mb-10">Geluid staat standaard uit. Klik op het luidsprekericoon om uitleg te horen.</p>
+
+      <!-- Procesflow (voor technische lezers) -->
+      <h3 class="reveal font-[family-name:var(--font-display)] text-2xl font-bold text-dark mb-2 text-center">Procesflow voor de techneuten</h3>
+      <p class="reveal text-dark/50 text-center text-sm mb-6">Dezelfde flow als hierboven, nu als diagram. Meer detail (foutafhandeling, fraudedetectie, uitzonderingen) op de <a href={url('/refine/pivot/')} class="underline hover:text-dark">pivot-pagina</a>.</p>
       <div class="reveal rounded-2xl overflow-hidden border border-white/10 shadow-lg mb-10 bg-white">
         <img src={url('/images/research/prototype/procesflow-hoogover.svg')} alt="Procesflow hoogover, huidige situatie versus nieuwe situatie met ID-scan en pincode" class="w-full p-4" />
       </div>
@@ -813,4 +830,22 @@ import { url } from '../../utils/base';
       </div>
     </div>
   </section>
+
+  <script>
+    (() => {
+      const video = document.getElementById('proces-demo-video') as HTMLVideoElement | null;
+      if (!video) return;
+      let hasPlayed = false;
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasPlayed) {
+            video.play().then(() => { hasPlayed = true; }).catch(() => {});
+          } else if (!entry.isIntersecting && !video.paused) {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.5 });
+      io.observe(video);
+    })();
+  </script>
 </BaseLayout>
